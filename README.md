@@ -1,3 +1,7 @@
+<img src="https://dev.azure.com/cskow/qa-library/_apis/build/status/skow0020.qa-library"
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
+
 ## QA Library website using the Mongo Express React Node stack
 
 ### Quick Start
