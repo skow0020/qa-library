@@ -34,7 +34,7 @@ class InOfficeBook extends React.Component {
     fetch(`/api/officeLibraryBooks/${this.props.match.params.office_book_id}`)
       .then(response => response.json())
       .then(
-        data => this.setState({ book: data.data[0], isLoading: false }),
+        data => this.setState({ book: data.data[0], isLoading: false, users: data.data[0] }),
         error => this.setState({ error, isLoading: false })
       );
   }
@@ -62,11 +62,15 @@ class InOfficeBook extends React.Component {
     axios.patch("/api/officeLibraryBooks/decrementCopiesCheckedOut", checkinBook)
       .then(
         data => {
-          if (!data.data.success) this.showNotifier(`Unable to check out book: ${data.data.error}. You may have to log in again.`);
+          if (!data.data.success) this.showNotifier(`Unable to check out book: ${data.data.error}`);
           else this.componentDidMount();
         },
         error => this.showNotifier(`Unable to check in book: ${error}`)
       );
+  }
+
+  getUsers = () => {
+    if (this.state.book.users) return this.state.book.users.join(', ');
   }
 
   showNotifier = (message) => {
@@ -105,13 +109,13 @@ class InOfficeBook extends React.Component {
             <CardFooter className="text-muted border-top py-3">
               <Row>
                 <span className="d-inline-block px-3">
-                  By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available | Checked out by: {JSON.stringify(book.users)}
+                  By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available | Checked out by: {this.getUsers()}
                 </span>
               </Row>
               <div>
                 <Button type="button" className={`checkout-${book.office_book_id} btn btn-success`} onClick={() => this.handleCheckout(book.office_book_id)}>
                   Check out
-                  </Button>
+                </Button>
                 <span className="d-inline-block px-3">
                   {" "}
                 </span>
