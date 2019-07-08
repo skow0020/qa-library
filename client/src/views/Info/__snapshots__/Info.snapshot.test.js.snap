@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info Snapshot Tests Info snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    id="info-container"
+  >
+    <img
+      alt="welcome"
+      className="d-block w-100"
+      src="code1.jpg"
+    />
+    <div
+      className="carousel-caption d-none d-md-block"
+    >
+      <h3
+        className="text-white"
+      >
+        This site is a hub of resources for learning programming languages, tools, testing, and best practices across the industry
+      </h3>
+      <p>
+        For more information, google it
+      </p>
+    </div>
+  </div>
+</div>
+`;

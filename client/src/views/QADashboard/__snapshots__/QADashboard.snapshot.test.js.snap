@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QADashboard Snapshot Tests QADashboard snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    id="welcomeDash"
+  >
+    <img
+      alt="welcome"
+      className="d-block w-100"
+      src="lib1.jpg"
+    />
+    <div
+      className="carousel-caption d-none d-md-block"
+    >
+      <h3
+        className="text-white"
+      >
+        Behold! A library in which you can find everything you have ever wanted to search for!
+      </h3>
+      <p>
+        But not really...
+      </p>
+    </div>
+  </div>
+</div>
+`;

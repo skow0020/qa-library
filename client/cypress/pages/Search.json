@@ -1,0 +1,5 @@
+{
+    "searchField": "#navbar-search",
+    "books": "#Books-list",
+    "tutorials": "#Tutorials-list"
+}

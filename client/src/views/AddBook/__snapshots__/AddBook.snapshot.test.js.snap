@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddBook Snapshot Tests AddBook snapshot 1`] = `
+<div
+  className="main-content-container px-4 container-fluid"
+>
+  <div />
+  <form
+    className=""
+    id="add-book-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="page-header py-4 no-gutters row"
+    >
+      <div
+        className="text-sm-left text-center text-md-left mb-sm-0 col-12 col-sm-8"
+      >
+        <span
+          className="text-uppercase page-subtitle"
+        />
+        <h3
+          className="page-title"
+        >
+          Add a Book
+        </h3>
+      </div>
+      <button
+        className="btn btn-success btn-lg btn btn-primary"
+        id="submit"
+        onClick={[Function]}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="title"
+    >
+      Book Title
+    </label>
+    <input
+      className="form-control"
+      id="title"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <div
+      className="form-row"
+    >
+      <div
+        className="form-group col-md-4"
+      >
+        <label
+          className="text-muted font-weight-bold"
+          htmlFor="author"
+        >
+          Book Author
+        </label>
+        <input
+          className="form-control"
+          id="author"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="col"
+      >
+        <label
+          className="text-muted font-weight-bold px-2"
+          htmlFor="language"
+        >
+          Languages
+        </label>
+        <select
+          className="form-control custom-select"
+          id="language"
+          onChange={[Function]}
+          type="text"
+          value=""
+        >
+          <option />
+          <option>
+            Java
+          </option>
+          <option>
+            CSharp
+          </option>
+          <option>
+            Python
+          </option>
+          <option>
+            Ruby
+          </option>
+          <option>
+            JavaScript
+          </option>
+          <option>
+            Cpp
+          </option>
+          <option>
+            Swift
+          </option>
+        </select>
+      </div>
+      <div
+        className="col"
+      >
+        <label
+          className="text-muted font-weight-bold px-2"
+          htmlFor="category"
+        >
+          Categories
+        </label>
+        <select
+          className="form-control custom-select"
+          id="category"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value="General"
+        >
+          <option />
+          <option>
+            General
+          </option>
+          <option>
+            UI Automation
+          </option>
+          <option>
+            API Automation
+          </option>
+          <option>
+            Unit Testing
+          </option>
+          <option>
+            DevOps
+          </option>
+          <option>
+            Development
+          </option>
+          <option>
+            Databases
+          </option>
+        </select>
+      </div>
+    </div>
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="url"
+    >
+      Book URL
+    </label>
+    <input
+      className="form-control"
+      id="url"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="backgroundImage"
+    >
+      Background Image URL
+    </label>
+    <input
+      className="form-control"
+      id="backgroundImage"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="pdf"
+    >
+      Book PDF URL
+    </label>
+    <input
+      className="form-control"
+      id="pdf"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </form>
+</div>
+`;

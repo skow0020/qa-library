@@ -1,0 +1,9 @@
+{
+    "addArticle": "#add-article",
+    "firstArticleCard": "#article-card-0",
+    "firstArticleCartTitle": "#article-card-0 .card-title",
+    "articleCards": "[id*=article-card]",
+    "category": "#category",
+    "language": "#language",
+    "cardPosts": ".card-post"
+}

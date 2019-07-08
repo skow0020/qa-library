@@ -1,0 +1,22 @@
+{
+    "extends": "react-app",
+    "plugins": [
+      "jsx-a11y",
+      "cypress"
+    ],
+    "env": {
+      "es6": true,
+      "node": true,
+      "cypress/globals": true
+    },
+    "rules": {
+      "semi": ["error", "always"],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-console": [
+        "error"
+      ]
+    }
+  }

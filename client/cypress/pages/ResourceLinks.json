@@ -1,0 +1,8 @@
+{
+    "addResourceLink": "#add-resourceLink",
+    "firstResourceLinkCard": "#resource-card-0",
+    "resourceLinkCards": "[id*=resource-card]",
+    "category": "#category",
+    "language": "#language",
+    "cardPosts": ".card-post"
+}

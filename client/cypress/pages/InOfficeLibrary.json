@@ -1,0 +1,9 @@
+{
+    "githubLogin": "#login-button",
+    "userAvatar": ".user-avatar",
+    "firstBookTitle": "#book-card-0 .card-title",
+    "bookCards": "[id*=book-card]",
+    "cardImage": ".card-post__image",
+    "firstBookCheckoutButton": "#book-card-0 [className*=book-card]",
+    "firstBookCheckInButton": "#book-card-0 [className*=book-card]"
+}

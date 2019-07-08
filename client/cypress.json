@@ -1,0 +1,4 @@
+{
+    "baseUrl": "https://qa-library-dev.herokuapp.com/",
+    "chromeWebSecurity": false 
+}

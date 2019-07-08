@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExampleRepos Snapshot Tests ExampleRepos snapshot 1`] = `
+<div
+  className="main-content-container px-4 container-fluid"
+>
+  <div
+    className="form-inline py-2 no-gutters row"
+  >
+    <div
+      className="text-sm-left text-center text-md-left mb-sm-0 col-12 col-sm-8"
+    >
+      <span
+        className="text-uppercase page-subtitle"
+      />
+      <h3
+        className="page-title"
+      >
+        Example Repos
+      </h3>
+    </div>
+    <form
+      className=""
+      id="filter-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="text-muted font-weight-bold px-2"
+          htmlFor="github-account"
+        >
+          Github Account
+        </label>
+        <input
+          className="form-control"
+          id="github-account"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value="skow0020"
+        />
+        <div
+          className="col"
+        >
+          <label
+            className="text-muted font-weight-bold px-2"
+            htmlFor="language"
+          >
+            Languages
+          </label>
+          <select
+            className="form-control custom-select"
+            id="language"
+            onChange={[Function]}
+            type="text"
+          >
+            <option />
+            <option>
+              Java
+            </option>
+            <option>
+              CSharp
+            </option>
+            <option>
+              Python
+            </option>
+            <option>
+              Ruby
+            </option>
+            <option>
+              JavaScript
+            </option>
+            <option>
+              Cpp
+            </option>
+            <option>
+              Swift
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <span
+    className="text-uppercase page-subtitle"
+  >
+    skow0020
+     Repos
+  </span>
+  <div
+    className="row"
+    id="row-0"
+  />
+</div>
+`;

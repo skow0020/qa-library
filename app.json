@@ -1,0 +1,31 @@
+{
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "DB_PASS": {
+      "required": true
+    },
+    "DB_USER": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "PORT": {
+      "required": true
+    }
+  },
+  "environments": {},
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "qa-library",
+  "scripts": {},
+  "stack": "heroku-18"
+}

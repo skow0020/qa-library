@@ -1,0 +1,6 @@
+{
+    "cardTitle": ".card-title",
+    "cardImage": ".card-post__image",
+    "checkoutButton": "[class*=checkout-]",
+    "checkInButton": "[class*=checkin-]"
+}

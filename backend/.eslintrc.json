@@ -1,0 +1,26 @@
+{
+  "extends": "",
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "semi": [
+      "error",
+      "always"
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "no-console": [
+      "error"
+    ]
+  }
+}

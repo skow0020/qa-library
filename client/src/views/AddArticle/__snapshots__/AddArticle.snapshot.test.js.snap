@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddArticle Snapshot Tests AddArticle snapshot 1`] = `
+<div
+  className="main-content-container px-4 container-fluid"
+>
+  <div />
+  <form
+    className=""
+    id="add-article-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="page-header py-4 no-gutters row"
+    >
+      <div
+        className="text-sm-left text-center text-md-left mb-sm-0 col-12 col-sm-8"
+      >
+        <span
+          className="text-uppercase page-subtitle"
+        />
+        <h3
+          className="page-title"
+        >
+          Add an Article
+        </h3>
+      </div>
+      <button
+        className="btn btn-success btn-lg btn btn-primary"
+        id="submit"
+        onClick={[Function]}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="title"
+    >
+      Article Title
+    </label>
+    <input
+      className="form-control"
+      id="title"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <div
+      className="form-row"
+    >
+      <div
+        className="form-group col-md-4"
+      >
+        <label
+          className="text-muted font-weight-bold"
+          htmlFor="author"
+        >
+          Article Author
+        </label>
+        <input
+          className="form-control"
+          id="author"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="col"
+      >
+        <label
+          className="text-muted font-weight-bold px-2"
+          htmlFor="language"
+        >
+          Languages
+        </label>
+        <select
+          className="form-control custom-select"
+          id="language"
+          onChange={[Function]}
+          type="text"
+          value=""
+        >
+          <option />
+          <option>
+            Java
+          </option>
+          <option>
+            CSharp
+          </option>
+          <option>
+            Python
+          </option>
+          <option>
+            Ruby
+          </option>
+          <option>
+            JavaScript
+          </option>
+          <option>
+            Cpp
+          </option>
+          <option>
+            Swift
+          </option>
+        </select>
+      </div>
+      <div
+        className="col"
+      >
+        <label
+          className="text-muted font-weight-bold px-2"
+          htmlFor="category"
+        >
+          Categories
+        </label>
+        <select
+          className="form-control custom-select"
+          id="category"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value="General"
+        >
+          <option />
+          <option>
+            General
+          </option>
+          <option>
+            UI Automation
+          </option>
+          <option>
+            API Automation
+          </option>
+          <option>
+            Unit Testing
+          </option>
+          <option>
+            DevOps
+          </option>
+          <option>
+            Development
+          </option>
+          <option>
+            Databases
+          </option>
+        </select>
+      </div>
+    </div>
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="url"
+    >
+      Article URL
+    </label>
+    <input
+      className="form-control"
+      id="url"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="backgroundImage"
+    >
+      Background Image URL
+    </label>
+    <input
+      className="form-control"
+      id="backgroundImage"
+      onChange={[Function]}
+      required={true}
+      type="text"
+      value=""
+    />
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="body"
+    >
+      Article Description
+    </label>
+    <textarea
+      className="form-control"
+      id="body"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "150px",
+        }
+      }
+      type="textarea"
+      value=""
+    />
+  </form>
+</div>
+`;

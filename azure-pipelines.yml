@@ -1,0 +1,78 @@
+trigger:
+  branches:
+    include:
+    - master
+    - dev
+
+pr:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+- group: qa-library-variables
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run install:client
+  displayName: 'npm install all packages'
+
+- task: Npm@1
+  displayName: 'npm run test:unit backend'
+  continueOnError: true
+  inputs:
+    command: custom
+    customCommand: 'run test:unit:backend'
+
+- task: Npm@1
+  displayName: 'npm run test:api backend'
+  continueOnError: true
+  inputs:
+    command: custom
+    customCommand: 'run test:api:backend'
+
+- task: Npm@1
+  displayName: 'npm run lint client'
+  continueOnError: true
+  inputs:
+    command: custom
+    customCommand: 'run lint:client'
+
+- task: Npm@1
+  displayName: 'npm run test:unit client'
+  continueOnError: true
+  inputs:
+    command: custom
+    customCommand: 'run test:unit:client'
+  
+- task: Npm@1
+  displayName: 'npm run test:accessibility client'
+  continueOnError: true
+  inputs:
+    command: custom
+    customCommand: 'run test:accessibility:client'
+
+- task: Npm@1
+  displayName: 'npm run test:snapshot client'
+  continueOnError: true
+  inputs:
+    command: custom
+    customCommand: 'run test:snapshot:client'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/test-results/*.xml'
+    failedTaskOnFailedTest: true
+
+# - script: npm run test:cypress:client
+#   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+#   displayName: 'Run Cypress UI tests'

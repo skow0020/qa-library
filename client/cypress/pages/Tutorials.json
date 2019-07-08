@@ -1,0 +1,8 @@
+{
+    "addTutorial": "#add-tutorial",
+    "firstTutorialCard": "#tutorial-card-0",
+    "tutorialCards": "[id*=tutorial-card]",
+    "category": "#category",
+    "language": "#language",
+    "cardPosts": ".card-post"
+}

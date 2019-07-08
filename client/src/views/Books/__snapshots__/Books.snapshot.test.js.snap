@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Books Snapshot Tests Books snapshot 1`] = `
+<div
+  className="main-content-container px-4 pb-4 container-fluid"
+>
+  <div
+    className="error"
+  >
+    <div
+      className="error__content"
+    >
+      <h3>
+        Loading...
+      </h3>
+    </div>
+  </div>
+</div>
+`;

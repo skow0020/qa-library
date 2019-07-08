@@ -1,0 +1,8 @@
+{
+    "addBook": "#add-book",
+    "firstBookCard": "#book-card-0",
+    "bookCards": "[id*=book-card]",
+    "category": "#category",
+    "language": "#language",
+    "cardPosts": ".card-post"
+}
