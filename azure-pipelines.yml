@@ -73,6 +73,6 @@ steps:
     testResultsFiles: '**/test-results/*.xml'
     failedTaskOnFailedTest: true
 
-# - script: npm run test:cypress:client
-#   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
-#   displayName: 'Run Cypress UI tests'
+- script: npm run test:cypress:client
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+  displayName: 'Run Cypress UI tests'
