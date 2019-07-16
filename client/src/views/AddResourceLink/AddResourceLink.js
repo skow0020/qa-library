@@ -52,7 +52,7 @@ class AddBook extends React.Component {
         response => {
           if (response.data.success) { this.showNotifier("ResourceLink added successfully"); }
           else { this.showNotifier(`Unable to add resource link: ${JSON.stringify(response.data.error.errors)}`); }
-          this.nextPath('/resourceLinks');
+          this.nextPath('/resource-links');
         },
         error => this.showNotifier(`Unable to add resource link: ${error}`)
       );
