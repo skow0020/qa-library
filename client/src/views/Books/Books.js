@@ -70,7 +70,7 @@ class Books extends React.Component {
   }
 
   pdfCheck(pdfURL) {
-    if (pdfURL) return <a className="text-fiord-blue" href={pdfURL}>PDF Version</a>;
+    if (pdfURL) return <a className="text-fiord-blue" href={pdfURL} target="_blank" rel="noopener noreferrer">PDF Version</a>;
   }
 
   render() {
@@ -101,7 +101,7 @@ class Books extends React.Component {
           {books.map((post, idx) => (
             <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
               <Card small id={`book-card-${idx}`} className="card-post card-post--1">
-                <a href={post.url}>
+                <a href={post.url} target="_blank" rel="noopener noreferrer">
                   <div
                     className="card-post__image"
                     style={{ backgroundImage: `url('${post.backgroundImage}')` }}
@@ -113,7 +113,7 @@ class Books extends React.Component {
 
                 <CardBody>
                   <h5 className="card-title">
-                    <a className="text-fiord-blue" href={post.url}>
+                    <a className="text-fiord-blue" href={post.url} target="_blank" rel="noopener noreferrer">
                       {post.title}
                     </a>
                   </h5>

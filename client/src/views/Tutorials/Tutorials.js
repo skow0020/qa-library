@@ -94,7 +94,7 @@ class Tutorials extends React.Component {
           {tutorials.map((post, idx) => (
             <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
               <Card small id={`tutorial-card-${idx}`} className="card-post card-post--1">
-                <a href={post.url}>
+                <a href={post.url} target="_blank" rel="noopener noreferrer">
                   <div
                     className="card-post__image"
                     style={{ backgroundImage: `url('${post.backgroundImage}')` }}
@@ -106,7 +106,7 @@ class Tutorials extends React.Component {
 
                 <CardBody>
                   <h5 className="card-title">
-                    <a href={post.url} className="text-fiord-blue">
+                    <a href={post.url} className="text-fiord-blue" target="_blank" rel="noopener noreferrer">
                       {post.title}
                     </a>
                   </h5>
