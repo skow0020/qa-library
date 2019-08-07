@@ -119,7 +119,7 @@ class ExampleRepos extends React.Component {
                     </Badge>
                   </div>
                   <h5 className="card-title">
-                    <a href={repo.html_url} className="text-fiord-blue">
+                    <a href={repo.html_url} className="text-fiord-blue" target="_blank" rel="noopener noreferrer">
                       {repo.full_name}
                     </a>
                   </h5>
