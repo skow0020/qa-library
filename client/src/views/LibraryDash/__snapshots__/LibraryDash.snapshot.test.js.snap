@@ -21,6 +21,7 @@ exports[`LibraryDash Snapshot Tests LibraryDash snapshot 1`] = `
       </h3>
     </div>
     <a
+      aria-label="Login to Github"
       href="/login"
     >
       <button

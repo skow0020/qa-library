@@ -89,7 +89,7 @@ class Books extends React.Component {
           </Button>
         </Row>
         <Row noGutters className="form-inline py-2">
-          <Form id='filtering-form'>
+          <Form id='filtering-form' className='filters'>
             <FormGroup >
               <CategoriesSelection value={category} onChange={this.handleFilterChange} /> 
               <LanguagesSelection value={language} onChange={this.handleLanguageChange} />
@@ -101,7 +101,7 @@ class Books extends React.Component {
           {books.map((post, idx) => (
             <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
               <Card small id={`book-card-${idx}`} className="card-post card-post--1">
-                <a href={post.url} target="_blank" rel="noopener noreferrer">
+                <a href={post.url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the book url">
                   <div
                     className="card-post__image"
                     style={{ backgroundImage: `url('${post.backgroundImage}')` }}
@@ -113,7 +113,7 @@ class Books extends React.Component {
 
                 <CardBody>
                   <h5 className="card-title">
-                    <a className="text-fiord-blue" href={post.url} target="_blank" rel="noopener noreferrer">
+                    <a className="text-fiord-blue" href={post.url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the book url">
                       {post.title}
                     </a>
                   </h5>

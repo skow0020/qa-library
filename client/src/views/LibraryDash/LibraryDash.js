@@ -124,7 +124,7 @@ class LibraryDash extends React.Component {
 
     let login;
     if (!isLoggedIn) {
-      login = <a href="/login">
+      login = <a href="/login" aria-label="Login to Github">
         <Button id="login-button" type="button" className="btn btn-success btn-lg">Log In with Github</Button>
       </a>;
     } else login = (
