@@ -7,7 +7,7 @@
 ### Quick Start
 
 * Install dependencies by running `npm install`.
-* Install client  dependencies by running `npm install:client`.
+* Install client  dependencies by running `npm run install:client`.
 * See the readme's in the associated directories for more info about each
 * Add .env file with the following info: 
   
@@ -19,7 +19,13 @@ DB_USER=
 
 DB_PASS=
 
-* Run `npm build:client` to build the client app for serving
+CLIENT_ID=(For github authentication)
+
+CLIENT_SECRET=(For github authentication)
+
+HOST=http://localhost:5001
+
+* Run `npm run build:client` to build the client app for serving
 * Run `npm start` to start the mongo db connection and serve the app on localhost 5001
 * 😎 **That's it!**
 <br />
