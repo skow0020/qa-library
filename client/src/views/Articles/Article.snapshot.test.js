@@ -17,7 +17,7 @@ describe('Articles Snapshot Tests', () => {
   test('Articles loading snapshot', () => {
     const wrapper = shallow(<Articles />);
 
-    wrapper.setState({isLoading: true})
+    wrapper.setState({isLoading: true});
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -25,7 +25,7 @@ describe('Articles Snapshot Tests', () => {
   test('Articles list snapshot ', () => {
     const wrapper = shallow(<Articles />);
     
-    wrapper.setState(state)
+    wrapper.setState(state);
 
     expect(wrapper).toMatchSnapshot();
   });

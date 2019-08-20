@@ -13,7 +13,7 @@ describe('Articles Unit Tests', () => {
 
   test('Articles renders', () => {
     const wrapper = mount(<Articles />);
-    wrapper.setState(state)
+    wrapper.setState(state);
 
     expect(wrapper.length).toBe(1);
     expect(wrapper.find('select#category').props().value).toBe("UI Automation");

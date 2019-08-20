@@ -14,7 +14,7 @@ describe('Articles Accessibility Tests', () => {
 
   it('Articles is accessible', async () => {
     const wrapper = shallow(<Articles />);
-    wrapper.setState(state)
+    wrapper.setState(state);
 
     const html = wrapper.html();
     expect(await axe(html)).toHaveNoViolations();

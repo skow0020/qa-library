@@ -17,7 +17,7 @@ describe('Books Snapshot Tests', () => {
   test('Books loading snapshot', () => {
     const wrapper = shallow(<Books />);
 
-    wrapper.setState({isLoading: true})
+    wrapper.setState({isLoading: true});
 
     expect(wrapper).toMatchSnapshot();
   });
@@ -25,7 +25,7 @@ describe('Books Snapshot Tests', () => {
   test('Books list snapshot ', () => {
     const wrapper = shallow(<Books />);
     
-    wrapper.setState(state)
+    wrapper.setState(state);
 
     expect(wrapper).toMatchSnapshot();
   });
