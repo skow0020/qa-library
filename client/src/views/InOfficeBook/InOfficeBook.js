@@ -31,12 +31,16 @@ class InOfficeBook extends React.Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    fetch(`/api/officeLibraryBooks/${this.props.match.params.office_book_id}`)
+    if (this.props.match.params.office_book_id)
+    {
+      fetch(`/api/officeLibraryBooks/${this.props.match.params.office_book_id}`)
       .then(response => response.json())
       .then(
         data => this.setState({ book: data.data[0], isLoading: false, users: data.data[0] }),
         error => this.setState({ error, isLoading: false })
       );
+    }
+    
   }
 
   handleCheckout(book_id) {
@@ -90,7 +94,7 @@ class InOfficeBook extends React.Component {
           <PageTitle sm="8" title={book.title} className="text-sm-left" />
         </Row>
         <Row>
-          <Card large id={`book-card`} className="card-book card-post--1">
+          <Card small={false} id={`book-card`} className="card-book card-post--1">
             <div
               className="card-post__image"
               style={{ backgroundImage: `url('${book.backgroundImage}')` }}
