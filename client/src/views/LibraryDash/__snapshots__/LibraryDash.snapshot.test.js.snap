@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`LibraryDash Snapshot Tests LibraryDash loading snapshot 1`] = `<Loading />`;
+
 exports[`LibraryDash Snapshot Tests LibraryDash snapshot 1`] = `
 <div
   className="main-content-container px-3 container-fluid"
