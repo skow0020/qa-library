@@ -20,7 +20,6 @@ describe('LibraryDash Unit Tests', () => {
     wrapper.setState(state);
 
     expect(wrapper.length).toBe(1);
-    console.log(wrapper.html())
     expect(wrapper.find('.card-title').length).toBe(2);
   });
 });

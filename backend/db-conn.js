@@ -1,6 +1,5 @@
 /* eslint no-console: 0*/
-const mongoose = require('mongoose'),
-  express = require('express');
+const mongoose = require('mongoose');
 
 const { DB_USER, DB_PASS, NODE_ENV } = process.env;
 
