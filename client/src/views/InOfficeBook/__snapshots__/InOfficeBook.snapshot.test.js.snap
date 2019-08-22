@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InOfficeBook Snapshot Tests InOfficeBook list snapshot  1`] = `
+<Container
+  className="main-content-container px-3"
+  fluid={true}
+  tag="div"
+>
+  <Row
+    className="form-inline py-4"
+    noGutters={true}
+    tag="div"
+  >
+    <PageTitle
+      className="text-sm-left"
+      sm="8"
+      title="How to sand a hippo"
+    />
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Card
+      className="card-book card-post--1"
+      id="book-card"
+      small={false}
+      tag="div"
+    >
+      <div
+        className="card-post__image"
+        style={
+          Object {
+            "backgroundImage": "url('https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg')",
+          }
+        }
+      />
+      <Badge
+        className="card-post__category bg-info"
+        outline={false}
+        pill={true}
+        tag="span"
+        theme="primary"
+      >
+        API Automation
+      </Badge>
+      <CardBody
+        tag="div"
+      >
+        <h5
+          className="card-title"
+        >
+          <p
+            className="text-fiord-blue"
+          >
+            How to sand a hippo
+          </p>
+        </h5>
+        <p
+          className="card-text text-fiord-blue"
+        >
+          Est dolor ad. Provident deserunt aliquid sed provident minus fugit.
+        </p>
+      </CardBody>
+      <CardFooter
+        className="text-muted border-top py-3"
+        tag="div"
+      >
+        <Row
+          tag="div"
+        >
+          <span
+            className="d-inline-block px-3"
+          >
+            By
+             
+            Nova Goldner
+             | 
+            4
+             
+            Available | Checked out by: 
+            stanislov342, georgio232
+          </span>
+        </Row>
+        <div>
+          <Button
+            className="checkout-undefined btn btn-success"
+            onClick={[Function]}
+            tag="button"
+            theme="primary"
+            type="button"
+          >
+            Check out
+          </Button>
+          <span
+            className="d-inline-block px-3"
+          >
+             
+          </span>
+          <Button
+            className="checkin-undefined btn btn-success pull-right"
+            onClick={[Function]}
+            tag="button"
+            theme="primary"
+            type="button"
+          >
+            Check in
+          </Button>
+        </div>
+      </CardFooter>
+    </Card>
+  </Row>
+  <AlertModal />
+</Container>
+`;
+
+exports[`InOfficeBook Snapshot Tests InOfficeBook loading snapshot 1`] = `<Loading />`;

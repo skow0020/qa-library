@@ -95,7 +95,7 @@ class Articles extends React.Component {
           {articles.map((post, idx) => (
             <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
               <Card small id={`article-card-${idx}`} className="card-post card-post--1">
-                <a href={post.url} target="_blank" rel="noopener noreferrer">
+                <a href={post.url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the article url">
                   <div
                     className="card-post__image"
                     style={{ backgroundImage: `url('${post.backgroundImage}')` }}
@@ -106,7 +106,7 @@ class Articles extends React.Component {
                 </Badge>
                 <CardBody>
                   <h5 className="card-title">
-                    <a className="text-fiord-blue" href={post.url} target="_blank" rel="noopener noreferrer">
+                    <a className="text-fiord-blue" href={post.url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the article url">
                       {post.title}
                     </a>
                   </h5>

@@ -1,13 +1,32 @@
 import React from 'react';
 import ResourceLinks from './ResourceLinks';
-import renderer from 'react-test-renderer';
+import { resourceLinks } from './testData';
+import { shallow } from 'enzyme';
+import { createSerializer } from 'enzyme-to-json';
+
+expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
 
 describe('ResourceLinks Snapshot Tests', () => {
-  test('ResourceLink snapshot', () => {
-    const component = renderer.create(
-      <ResourceLinks></ResourceLinks>,
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  const state = {
+    resourceLinks: resourceLinks,
+    isLoading: false,
+    category: "UI Automation",
+    language: "Python"
+  };
+
+  test('ResourceLinks loading snapshot', () => {
+    const wrapper = shallow(<ResourceLinks />);
+
+    wrapper.setState({isLoading: true});
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test('ResourceLinks list snapshot ', () => {
+    const wrapper = shallow(<ResourceLinks />);
+    
+    wrapper.setState(state);
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

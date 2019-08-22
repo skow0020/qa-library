@@ -1,13 +1,32 @@
 import Articles from './Articles';
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { articles } from './testData';
+import { shallow } from 'enzyme';
+import { createSerializer } from 'enzyme-to-json';
+
+expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
 
 describe('Articles Snapshot Tests', () => {
-  test('Articles snapshot', () => {
-    const component = renderer.create(
-      <Articles></Articles>,
-    );
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  const state = {
+    articles: articles,
+    isLoading: false,
+    category: "UI Automation",
+    language: "Python"
+  };
+  
+  test('Articles loading snapshot', () => {
+    const wrapper = shallow(<Articles />);
+
+    wrapper.setState({isLoading: true});
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  test('Articles list snapshot ', () => {
+    const wrapper = shallow(<Articles />);
+    
+    wrapper.setState(state);
+
+    expect(wrapper).toMatchSnapshot();
   });
 });
