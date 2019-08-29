@@ -92,10 +92,5 @@ export default [
     path: "/officeBook/:office_book_id",
     layout: DefaultLayout,
     component: InOfficeBook
-  },
-  {
-    path: "/*",
-    layout: DefaultLayout,
-    component: QADashboard
   }
 ];
