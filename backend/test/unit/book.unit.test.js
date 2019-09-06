@@ -1,6 +1,5 @@
-const Book = require('../../models/book');
-const data = require('../data.json');
-const expect = require('chai').expect;
+import Book from '../../models/book';
+import data from '../data.json';
 
 describe('Book Tests', () => {
   it('verify required Book attributes', (done) => {

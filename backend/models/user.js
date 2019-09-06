@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
+
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const UsersSchema = new Schema(

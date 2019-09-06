@@ -1,7 +1,7 @@
-Article = require('../models/article');
-express = require('express');
+import Article from '../models/article';
+import Router from 'express';
 
-const articlesRouter = express.Router();
+const articlesRouter = new Router();
 
 articlesRouter.get('/', (req, res) => {
   Article.find((err, articles) => {

@@ -1,7 +1,7 @@
-Book = require('../models/book');
-express = require('express');
+import Book from '../models/book';
+import Router from 'express';
 
-const booksRouter = express.Router();
+const booksRouter = Router();
 
 booksRouter.get('/', (req, res) => {
   Book.find((err, books) => {

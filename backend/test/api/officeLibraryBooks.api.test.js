@@ -1,10 +1,8 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-{/* eslint-disable-next-line */ }
-const should = chai.should();
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 
-const server = require('../../../server');
-const data = require('../data.json');
+import server from '../../../server';
+import data from '../data.json';
 
 chai.use(chaiHttp);
 
@@ -208,21 +206,20 @@ describe('Office Books', () => {
   it('Increment copiesCheckedOut when user has book checked out', (done) => {
     chai.request(server)
       .patch('/api/officeLibraryBooks/incrementCopiesCheckedOut')
-      .send({ office_book_id: 3, user: 'fakegithubuser' })
+      .send({ office_book_id: 3, user: 'fakegithubuser2' })
       .end((err, res) => {
         if (err) assert.fail(`incrementCopiesCheckedOut endpoint did not return: ${err}`);
         res.should.have.status(200);
         res.body.success.should.be.eql(true);
-        res.body.book.copiesCheckedOut.should.be.eql(1);
 
         chai.request(server)
           .patch('/api/officeLibraryBooks/incrementCopiesCheckedOut')
-          .send({ office_book_id: 3, user: 'fakegithubuser' })
+          .send({ office_book_id: 3, user: 'fakegithubuser2' })
           .end((err, res) => {
             if (err) assert.fail(`incrementCopiesCheckedOut endpoint did not return: ${err}`);
             res.should.have.status(200);
             res.body.success.should.be.eql(false);
-            res.body.error.should.be.eql('User fakegithubuser already has this book checked out');
+            res.body.error.should.be.eql('User fakegithubuser2 already has this book checked out');
             done();
           });
       });

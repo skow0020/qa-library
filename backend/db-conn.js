@@ -1,12 +1,10 @@
 /* eslint no-console: 0*/
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const { DB_USER, DB_PASS, NODE_ENV } = process.env;
 
 let dbConnectionURI = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ybtzm.mongodb.net/${NODE_ENV}?retryWrites=true`;
 if (NODE_ENV === 'local') dbConnectionURI = 'mongodb://localhost:27017/local';
-
-//Environments: local, dev, production
 
 mongoose.connect(
   dbConnectionURI,

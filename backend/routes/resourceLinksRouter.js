@@ -1,7 +1,7 @@
-ResourceLink = require('../models/resourceLink');
-express = require('express');
+import ResourceLink from '../models/resourceLink';
+import Router from 'express';
 
-const resourceLinksRouter = express.Router();
+const resourceLinksRouter = Router();
 
 resourceLinksRouter.get('/', (req, res) => {
   ResourceLink.find((err, resourceLinks) => {

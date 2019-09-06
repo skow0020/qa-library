@@ -1,7 +1,7 @@
-OfficeLibraryBook = require('../models/officeLibraryBook');
-express = require('express');
+import OfficeLibraryBook from '../models/officeLibraryBook';
+import Router from 'express';
 
-const officeLibraryBooksRouter = express.Router();
+const officeLibraryBooksRouter = Router();
 
 officeLibraryBooksRouter.get('/', (req, res) => {
   OfficeLibraryBook.find((err, books) => {

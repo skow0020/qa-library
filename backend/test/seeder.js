@@ -6,6 +6,8 @@ const { Seeder } = require('mongo-seeding');
 
 const { DB_USER, DB_PASS, NODE_ENV } = process.env;
 
+if (NODE_ENV === 'production') throw 'Do not seed production!';
+
 let dbConnectionURI = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0-ybtzm.mongodb.net/${NODE_ENV}?retryWrites=true`;
 
 const config = {

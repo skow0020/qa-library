@@ -1,7 +1,7 @@
-User = require('../models/user');
-express = require('express');
+import User from '../models/user';
+import Router from 'express';
 
-const usersRouter = express.Router();
+const usersRouter = Router();
 
 usersRouter.get('/', (req, res) => {
   User.find((err, users) => {

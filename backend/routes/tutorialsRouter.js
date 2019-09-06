@@ -1,7 +1,7 @@
-Tutorial = require('../models/tutorial');
-express = require('express');
+import Tutorial from '../models/tutorial';
+import Router from 'express';
 
-const tutorialsRouter = express.Router();
+const tutorialsRouter = Router();
 
 tutorialsRouter.get('/', (req, res) => {
   Tutorial.find((err, tutorials) => {
