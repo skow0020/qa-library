@@ -1,10 +1,8 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const faker = require('faker');
-{/* eslint-disable-next-line */ }
-const should = chai.should();
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 
-const server = require('../../../server');
+import server from '../../../server';
+import faker from 'faker';
 
 chai.use(chaiHttp);
 

@@ -1,6 +1,5 @@
-const OfficeLibraryBook = require('../../models/officeLibraryBook');
-const expect = require('chai').expect;
-const data = require('../data.json');
+import OfficeLibraryBook from '../../models/officeLibraryBook';
+import data from '../data.json';
 
 describe('OfficeLibraryBook Tests', () => {
   it('verify required office library book attributes', (done) => {

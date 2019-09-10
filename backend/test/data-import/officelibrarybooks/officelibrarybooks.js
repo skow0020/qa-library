@@ -19,7 +19,7 @@ const group1 = categories.map((category, index) => ({
 
 const group2 = titles.map((title, index) => ({
   backgroundImage: data.backgroundImage,
-  totalCopies: 2,
+  totalCopies: 7,
   copiesCheckedOut: 0,
   users: [],
   author: faker.name.findName(),

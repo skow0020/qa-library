@@ -1,6 +1,5 @@
-const Tutorial = require('../../models/tutorial');
-const data = require('../data.json');
-const expect = require('chai').expect;
+import Tutorial from '../../models/tutorial';
+import data from '../data.json';
 
 describe('Tutorial Tests', () => {
   it('verify required Tutorial attributes', (done) => {

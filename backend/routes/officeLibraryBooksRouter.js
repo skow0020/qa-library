@@ -1,20 +1,10 @@
-OfficeLibraryBook = require('../models/officeLibraryBook');
-express = require('express');
+import OfficeLibraryBook from '../models/officeLibraryBook';
+import Router from 'express';
+import OfficeLibraryBooksController from '../controllers/officeLibraryBooksController';
 
-const officeLibraryBooksRouter = express.Router();
+const officeLibraryBooksRouter = Router();
 
-officeLibraryBooksRouter.get('/', (req, res) => {
-  OfficeLibraryBook.find((err, books) => {
-    if (err) return res.json({ success: false, error: err });
-    if (typeof req.query.title != 'undefined') {
-      books = books.filter(book => book.title.toString().toLowerCase().includes(req.query.title.toLowerCase()) == true);
-    }
-    if (typeof req.query.category != 'undefined') {
-      books = books.filter(book => book.category.toString().toLowerCase() === (req.query.category.toLowerCase()) == true);
-    }
-    return res.json({ success: true, data: books });
-  });
-});
+officeLibraryBooksRouter.route('/').get(OfficeLibraryBooksController.apiGetOfficeLibraryBooks);
 
 officeLibraryBooksRouter.get('/:office_book_id', (req, res) => {
   OfficeLibraryBook.find({ office_book_id: req.params.office_book_id }, (err, book) => {

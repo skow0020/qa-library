@@ -1,24 +1,10 @@
-ResourceLink = require('../models/resourceLink');
-express = require('express');
+import ResourceLink from '../models/resourceLink';
+import Router from 'express';
+import ResourceLinksRouter from '../controllers/resourceLinksController';
 
-const resourceLinksRouter = express.Router();
+const resourceLinksRouter = Router();
 
-resourceLinksRouter.get('/', (req, res) => {
-  ResourceLink.find((err, resourceLinks) => {
-    if (err) return res.json({ success: false, error: err });
-    if (typeof req.query.title != 'undefined') {
-      resourceLinks = resourceLinks.filter(resourceLink => resourceLink.title.toString().toLowerCase().includes(req.query.title.toLowerCase()) == true);
-    }
-    if (typeof req.query.category != 'undefined') {
-      resourceLinks = resourceLinks.filter(resourceLink => resourceLink.category.toString().toLowerCase() === (req.query.category.toLowerCase()) == true);
-    }
-    if (typeof req.query.language != 'undefined') {
-      resourceLinks = resourceLinks.filter(resourceLinks => resourceLinks.language);
-      resourceLinks = resourceLinks.filter(resourceLinks => resourceLinks.language.toString().toLowerCase() === (req.query.language.toLowerCase()) == true);
-    }
-    return res.json({ success: true, data: resourceLinks });
-  });
-});
+resourceLinksRouter.route('/').get(ResourceLinksRouter.apiGetResourceLinks);
 
 resourceLinksRouter.delete('/', (req, res) => {
   if (!req.body.hasOwnProperty('res_id')) {

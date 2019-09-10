@@ -1,0 +1,7 @@
+# mocha.opts
+  --require chai/register-expect
+  --require babel-core/register
+  --reporter mocha-junit-reporter
+  --reporter-options mochaFile=./test-results/backend_unit_results.xml 
+
+

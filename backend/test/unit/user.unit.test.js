@@ -1,6 +1,5 @@
-const User = require('../../models/user');
-const expect = require('chai').expect;
-const faker = require('faker');
+import User from '../../models/user';
+import faker from 'faker';
 
 describe('User Tests', () => {
   it('verify required user attributes', (done) => {

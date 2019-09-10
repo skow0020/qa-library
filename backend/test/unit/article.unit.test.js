@@ -1,6 +1,5 @@
-const Article = require('../../models/article');
-const data = require('../data.json');
-const expect = require('chai').expect;
+import Article from '../../models/article';
+import data from '../data.json';
 
 describe('Article Tests', () => {
   it('verify required article attributes', (done) => {

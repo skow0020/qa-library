@@ -1,0 +1,9 @@
+# mocha.opts
+  --require chai/register-should
+  --require babel-core/register
+  --reporter mocha-junit-reporter
+  --reporter-options mochaFile=./test-results/backend_api_results.xml 
+  --file ./backend/test/apiTestSetup.js
+  --timeout 20000
+  --exit
+

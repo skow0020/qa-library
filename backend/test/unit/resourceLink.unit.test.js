@@ -1,6 +1,5 @@
-const ResourceLink = require('../../models/resourceLink');
-const data = require('../data.json');
-const expect = require('chai').expect;
+import ResourceLink from '../../models/resourceLink';
+import data from '../data.json';
 
 describe('ResourceLink Tests', () => {
   it('verify required ResourceLink attributes', (done) => {

@@ -1,24 +1,10 @@
-Article = require('../models/article');
-express = require('express');
+import Article from '../models/article';
+import Router from 'express';
+import ArticlesController from '../controllers/articlesController';
 
-const articlesRouter = express.Router();
+const articlesRouter = new Router();
 
-articlesRouter.get('/', (req, res) => {
-  Article.find((err, articles) => {
-    if (err) return res.json({ success: false, error: err });
-    if (typeof req.query.title != 'undefined') {
-      articles = articles.filter(article => article.title.toString().toLowerCase().includes(req.query.title.toLowerCase()) == true);
-    }
-    if (typeof req.query.category != 'undefined') {
-      articles = articles.filter(article => article.category.toString().toLowerCase() === (req.query.category.toLowerCase()) == true);
-    }
-    if (typeof req.query.language != 'undefined') {
-      articles = articles.filter(articles => articles.language);
-      articles = articles.filter(articles => articles.language.toString().toLowerCase() === (req.query.language.toLowerCase()) == true);
-    }
-    return res.json({ success: true, data: articles });
-  });
-});
+articlesRouter.route('/').get(ArticlesController.apiGetArticles);
 
 articlesRouter.delete('/', (req, res) => {
   if (!req.body.hasOwnProperty('article_id')) {

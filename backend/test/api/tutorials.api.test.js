@@ -1,10 +1,8 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-{/* eslint-disable-next-line */ }
-const should = chai.should();
+import chai from 'chai';
+import chaiHttp from 'chai-http';
 
-const server = require('../../../server');
-const data = require('../data.json');
+import server from '../../../server';
+import data from '../data.json';
 
 chai.use(chaiHttp);
 
@@ -113,7 +111,7 @@ describe('Tutorial', () => {
             res.should.have.status(201);
 
             chai.request(server)
-              .get('/api/tutorials?title=hippo')
+              .get('/api/tutorials?search=hippo')
               .end((err, res) => {
                 if (err) assert.fail(`Get tutorial 'hippo' failed: ${err}`);
                 res.should.have.status(200);
