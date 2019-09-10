@@ -1,14 +1,10 @@
 import User from '../models/user';
 import Router from 'express';
+import UsersController from '../controllers/usersController';
 
 const usersRouter = Router();
 
-usersRouter.get('/', (req, res) => {
-  User.find((err, users) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: users });
-  });
-});
+usersRouter.route('/').get(UsersController.apiGetUsers);
 
 usersRouter.get('/:email', (req, res) => {
   const email = req.params.email;

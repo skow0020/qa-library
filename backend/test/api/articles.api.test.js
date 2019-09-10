@@ -117,7 +117,7 @@ describe('Articles', () => {
             res.should.have.status(201);
 
             chai.request(server)
-              .get('/api/articles?title=hippo')
+              .get('/api/articles?search=hippo')
 
               .end((err, res) => {
                 if (err) assert.fail(`Get article 'hippo' failed: ${err}`);

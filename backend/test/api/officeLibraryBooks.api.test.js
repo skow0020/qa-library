@@ -126,7 +126,7 @@ describe('Office Books', () => {
             res.should.have.status(201);
 
             chai.request(server)
-              .get('/api/officeLibraryBooks?title=hippo')
+              .get('/api/officeLibraryBooks?search=hippo')
               .end((err, res) => {
                 if (err) assert.fail(`Get officeLibraryBook 'hippo' failed: ${err}`);
                 res.should.have.status(200);
@@ -192,7 +192,7 @@ describe('Office Books', () => {
   it('Increment copiesCheckedOut', (done) => {
     chai.request(server)
       .patch('/api/officeLibraryBooks/incrementCopiesCheckedOut')
-      .send({ office_book_id: 2, user: 'fakegithubuser' })
+      .send({ office_book_id: 2001, user: 'fakegithubuser' })
       .end((err, res) => {
         if (err) assert.fail(`incrementCopiesCheckedOut endpoint did not return: ${err}`);
         res.should.have.status(200);
@@ -206,7 +206,7 @@ describe('Office Books', () => {
   it('Increment copiesCheckedOut when user has book checked out', (done) => {
     chai.request(server)
       .patch('/api/officeLibraryBooks/incrementCopiesCheckedOut')
-      .send({ office_book_id: 3, user: 'fakegithubuser2' })
+      .send({ office_book_id: 2001, user: 'fakegithubuser2' })
       .end((err, res) => {
         if (err) assert.fail(`incrementCopiesCheckedOut endpoint did not return: ${err}`);
         res.should.have.status(200);
@@ -214,7 +214,7 @@ describe('Office Books', () => {
 
         chai.request(server)
           .patch('/api/officeLibraryBooks/incrementCopiesCheckedOut')
-          .send({ office_book_id: 3, user: 'fakegithubuser2' })
+          .send({ office_book_id: 2001, user: 'fakegithubuser2' })
           .end((err, res) => {
             if (err) assert.fail(`incrementCopiesCheckedOut endpoint did not return: ${err}`);
             res.should.have.status(200);
@@ -253,7 +253,7 @@ describe('Office Books', () => {
   it('Decrement copiesCheckedOut when 0', (done) => {
     chai.request(server)
       .patch('/api/officeLibraryBooks/decrementCopiesCheckedOut')
-      .send({ office_book_id: 2001, user: 'fakegithubuser' })
+      .send({ office_book_id: 2002, user: 'fakegithubuser' })
       .end((err, res) => {
         if (err) assert.fail(`decrementeCopiesCheckedOut endpoint did not return: ${err}`);
         res.should.have.status(200);

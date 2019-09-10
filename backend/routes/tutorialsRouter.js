@@ -1,24 +1,10 @@
 import Tutorial from '../models/tutorial';
 import Router from 'express';
+import TutorialsController from '../controllers/tutorialsController';
 
 const tutorialsRouter = Router();
 
-tutorialsRouter.get('/', (req, res) => {
-  Tutorial.find((err, tutorials) => {
-    if (err) return res.json({ success: false, error: err });
-    if (typeof req.query.title != 'undefined') {
-      tutorials = tutorials.filter(tutorial => tutorial.title.toString().toLowerCase().includes(req.query.title.toLowerCase()) == true);
-    }
-    if (typeof req.query.category != 'undefined') {
-      tutorials = tutorials.filter(tutorial => tutorial.category.toString().toLowerCase() === (req.query.category.toLowerCase()) == true);
-    }
-    if (typeof req.query.language != 'undefined') {
-      tutorials = tutorials.filter(tutorial => tutorial.language);
-      tutorials = tutorials.filter(tutorial => tutorial.language.toString().toLowerCase() === (req.query.language.toLowerCase()) == true);
-    }
-    return res.json({ success: true, data: tutorials });
-  });
-});
+tutorialsRouter.route('/').get(TutorialsController.apiGetTutorials);
 
 tutorialsRouter.delete('/', (req, res) => {
   if (!req.body.hasOwnProperty('tut_id')) {

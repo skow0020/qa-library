@@ -121,7 +121,7 @@ describe('Books', () => {
             res.should.have.status(201);
 
             chai.request(server)
-              .get('/api/books?title=hippo')
+              .get('/api/books?search=hippo')
               .end((err, res) => {
                 if (err) assert.fail(`Get book 'hippo' failed: ${err}`);
                 res.should.have.status(200);

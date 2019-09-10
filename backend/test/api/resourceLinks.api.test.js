@@ -112,7 +112,7 @@ describe('ResourceLink', () => {
             res.should.have.status(201);
 
             chai.request(server)
-              .get('/api/resourceLinks?title=hippo')
+              .get('/api/resourceLinks?search=hippo')
               .end((err, res) => {
                 if (err) assert.fail(`Get resource link 'hippo' failed: ${err}`);
                 res.should.have.status(200);

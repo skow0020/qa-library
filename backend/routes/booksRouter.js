@@ -1,24 +1,10 @@
 import Book from '../models/book';
 import Router from 'express';
+import BooksController from '../controllers/booksController';
 
 const booksRouter = Router();
 
-booksRouter.get('/', (req, res) => {
-  Book.find((err, books) => {
-    if (err) return res.json({ success: false, error: err });
-    if (typeof req.query.title != 'undefined') {
-      books = books.filter(book => book.title.toString().toLowerCase().includes(req.query.title.toLowerCase()) == true);
-    }
-    if (typeof req.query.category != 'undefined') {
-      books = books.filter(book => book.category.toString().toLowerCase() === (req.query.category.toLowerCase()) == true);
-    }
-    if (typeof req.query.language != 'undefined') {
-      books = books.filter(books => books.language);
-      books = books.filter(books => books.language.toString().toLowerCase() === (req.query.language.toLowerCase()) == true);
-    }
-    return res.json({ success: true, data: books });
-  });
-});
+booksRouter.route('/').get(BooksController.apiGetBooks);
 
 booksRouter.delete('/', (req, res) => {
   if (!req.body.hasOwnProperty('book_id')) {

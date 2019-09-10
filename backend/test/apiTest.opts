@@ -3,6 +3,7 @@
   --require babel-core/register
   --reporter mocha-junit-reporter
   --reporter-options mochaFile=./test-results/backend_api_results.xml 
-  --timeout 5000 
+  --file ./backend/test/apiTestSetup.js
+  --timeout 20000
   --exit
 

@@ -28,25 +28,25 @@ class Search extends React.Component {
   }
 
   getInfo(e) {
-    axios.get(`/api/books?title=${this.state.query}`)
+    axios.get(`/api/books?search=${this.state.query}`)
       .then(({ data }) => {
         this.setState({
           bookResults: data.data
         });
       })
-      .then(axios.get(`/api/articles?title=${this.state.query}`)
+      .then(axios.get(`/api/articles?search=${this.state.query}`)
       .then(({ data }) => {
         this.setState({
           articleResults: data.data
         });
       }))
-      .then(axios.get(`api/tutorials?title=${this.state.query}`)
+      .then(axios.get(`api/tutorials?search=${this.state.query}`)
       .then(({ data }) => {
         this.setState({
           tutorialResults: data.data
         });
       }))
-      .then(axios.get(`/api/resourceLinks?title=${this.state.query}`)
+      .then(axios.get(`/api/resourceLinks?search=${this.state.query}`)
       .then(({ data }) => {
         this.setState({
           resourceLinkResults: data.data
@@ -64,7 +64,7 @@ class Search extends React.Component {
       query: e.target.value
     }, () => {
       if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length % 2 === 0) {
+        if (this.state.query.length % 5 === 0) {
           this.getInfo();
         }
       }
