@@ -30,9 +30,16 @@ export default class UsersController {
       githubAvatarUrl: req.body.githubAvatarUrl
     });
 
-  user.save((err, post) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.status(201).send({ success: true, post });
-  });
+    user.save((err, post) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.status(201).send({ success: true, post });
+    });
+  }
+
+  static async apiGetUserByEmail(req, res) {
+    User.find({ email: req.params.email }, (err, user) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.json({ success: true, data: user });
+    });
   }
 }
