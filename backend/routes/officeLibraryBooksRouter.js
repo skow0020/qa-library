@@ -5,27 +5,13 @@ import OfficeLibraryBooksController from '../controllers/officeLibraryBooksContr
 const officeLibraryBooksRouter = Router();
 
 officeLibraryBooksRouter.route('/').get(OfficeLibraryBooksController.apiGetOfficeLibraryBooks);
+officeLibraryBooksRouter.route('/').delete(OfficeLibraryBooksController.apiDeleteOfficeLibraryBook);
 
 officeLibraryBooksRouter.get('/:office_book_id', (req, res) => {
   OfficeLibraryBook.find({ office_book_id: req.params.office_book_id }, (err, book) => {
     if (err) return res.json({ success: false, error: err });
 
     return res.json({ success: true, data: book });
-  });
-});
-
-officeLibraryBooksRouter.delete('/', (req, res) => {
-  if (!req.body.hasOwnProperty('office_book_id')) {
-    return res.status(500).send({ error: 'Request does not contain office_book_id property to delete' });
-  }
-  const { office_book_id } = req.body;
-  OfficeLibraryBook.findOneAndRemove({ office_book_id: office_book_id }, (err, book) => {
-    if (book === null) return res.status(500).send({ error: `Unable to find officeLibraryBook id: ${office_book_id}` });
-    const response = {
-      message: "Office book successfully deleted",
-      office_book_id: book._id
-    };
-    return res.status(200).send(response);
   });
 });
 

@@ -7,4 +7,19 @@ export default class UsersController {
       return res.json({ success: true, data: users });
     });
   }
+
+  static async apiDeleteUser(req, res) {
+    if (!req.body.hasOwnProperty('user_id')) {
+      return res.status(500).send({ error: 'Request does not contain user_id property to delete' });
+    }
+    const { user_id } = req.body;
+    User.findOneAndRemove({ user_id: user_id }, (err, user) => {
+      if (user === null) return res.status(500).send({ error: `Unable to find user id: ${user_id}` });
+      const response = {
+        message: "User successfully deleted",
+        user_id: user._id
+      };
+      return res.status(200).send(response);
+    });
+  }
 }

@@ -10,4 +10,20 @@ export default class ResourceLinksController {
       return res.json({ success: true, data: resourceLinks });
     });
   }
+
+  static async apiDeleteResourceLink(req, res) {
+    if (!req.body.hasOwnProperty('res_id')) {
+      return res.status(500).send({ error: 'Request does not contain res_id property to delete' });
+    }
+    
+    const { res_id } = req.body;
+    ResourceLink.findOneAndRemove({ res_id: res_id }, (err, resourceLink) => {
+      if (resourceLink === null) return res.status(500).send({ error: `Unable to find resource link id: ${res_id}` });
+      const response = {
+        message: "Resource Link successfully deleted",
+        res_id: resourceLink._id
+      };
+      return res.status(200).send(response);
+    });
+  }
 }

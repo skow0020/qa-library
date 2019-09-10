@@ -5,21 +5,7 @@ import TutorialsController from '../controllers/tutorialsController';
 const tutorialsRouter = Router();
 
 tutorialsRouter.route('/').get(TutorialsController.apiGetTutorials);
-
-tutorialsRouter.delete('/', (req, res) => {
-  if (!req.body.hasOwnProperty('tut_id')) {
-    return res.status(500).send({ error: 'Request does not contain tut_id property to delete' });
-  }
-  const { tut_id } = req.body;
-  Tutorial.findOneAndRemove({ tut_id: tut_id }, (err, tutorial) => {
-    if (tutorial === null) return res.status(500).send({ error: `Unable to find tutorial id: ${tut_id}` });
-    const response = {
-      message: "Tutorial successfully deleted",
-      tut_id: tutorial._id
-    };
-    return res.status(200).send(response);
-  });
-});
+tutorialsRouter.route('/').delete(TutorialsController.apiDeleteTutorials);
 
 tutorialsRouter.post('/', (req, res) => {
   let tutorial = new Tutorial();
