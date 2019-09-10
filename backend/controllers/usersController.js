@@ -22,4 +22,17 @@ export default class UsersController {
       return res.status(200).send(response);
     });
   }
+
+  static async apiPostUser(req, res) {
+    let user = new User({
+      email: req.body.email,
+      githubName: req.body.githubName,
+      githubAvatarUrl: req.body.githubAvatarUrl
+    });
+
+  user.save((err, post) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.status(201).send({ success: true, post });
+  });
+  }
 }

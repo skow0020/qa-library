@@ -25,4 +25,24 @@ export default class OfficeLibraryBooksController {
       return res.status(200).send(response);
     });
   }
+
+  static async apiPostOfficeLibraryBook(req, res) {
+    let book = new OfficeLibraryBook({
+      title: req.body.title,
+      copiesCheckedOut: req.body.copiesCheckedOut,
+      author: req.body.author,
+      category: req.body.category,
+      totalCopies: req.body.totalCopies,
+      copiesCheckedOut: req.body.copiesCheckedOut,
+      users: req.body.users,
+      title: req.body.title,
+      body: req.body.body,
+      backgroundImage: req.body.backgroundImage
+    });
+
+    book.save((err, post) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.status(201).send({ success: true, post });
+    });
+  }
 }

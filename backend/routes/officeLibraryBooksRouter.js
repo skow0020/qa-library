@@ -6,34 +6,13 @@ const officeLibraryBooksRouter = Router();
 
 officeLibraryBooksRouter.route('/').get(OfficeLibraryBooksController.apiGetOfficeLibraryBooks);
 officeLibraryBooksRouter.route('/').delete(OfficeLibraryBooksController.apiDeleteOfficeLibraryBook);
+officeLibraryBooksRouter.route('/').post(OfficeLibraryBooksController.apiPostOfficeLibraryBook);
 
 officeLibraryBooksRouter.get('/:office_book_id', (req, res) => {
   OfficeLibraryBook.find({ office_book_id: req.params.office_book_id }, (err, book) => {
     if (err) return res.json({ success: false, error: err });
 
     return res.json({ success: true, data: book });
-  });
-});
-
-officeLibraryBooksRouter.post('/', (req, res) => {
-  let book = new OfficeLibraryBook();
-
-  const { backgroundImage, author, category, totalCopies, title, body, users, copiesCheckedOut } = req.body;
-
-  book.title = title;
-  book.copiesCheckedOut = copiesCheckedOut;
-  book.author = author;
-  book.category = category;
-  book.totalCopies = totalCopies;
-  book.copiesCheckedOut = copiesCheckedOut ? copiesCheckedOut : 0;
-  book.users = users;
-  book.title = title;
-  book.body = body;
-  book.backgroundImage = backgroundImage;
-
-  book.save((err, post) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.status(201).send({ success: true, post });
   });
 });
 
