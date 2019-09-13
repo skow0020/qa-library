@@ -258,7 +258,7 @@ describe('Office Books', () => {
         if (err) assert.fail(`decrementeCopiesCheckedOut endpoint did not return: ${err}`);
         res.should.have.status(200);
         res.body.success.should.be.eql(false);
-        res.body.error.should.be.eql('All copies are currently returned and available');
+        res.body.error.should.be.eql('User fakegithubuser does not have this book to return');
         done();
       });
   });
