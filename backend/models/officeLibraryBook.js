@@ -20,7 +20,8 @@ const OfficeLibraryBook = new Schema(
     },
     copiesCheckedOut: {
       type: Number,
-      min: [0, 'copies checked out cannot be negative']
+      min: [0, 'copies checked out cannot be negative'],
+      default: 0
     },
     users: {
       type: Array,
