@@ -17,10 +17,10 @@ echo 'The following "npm" command tests that your simple Node.js/React'
 echo 'application renders satisfactorily. This command actually invokes the test'
 echo 'runner Jest (https://facebook.github.io/jest/).'
 set -x
+
 npm run test:unit:backend
 
-set test_result = npm run lint:client
-echo test_result
+npm run lint:client
 npm run test:unit:client
 npm run test:accessibility:client
 npm run test:snapshot:client
