@@ -11,10 +11,10 @@ echo 'flag. For a comprehensive explanation about "devDependencies", see'
 echo 'https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies.'
 set -x
 # npm install --save-dev cross-env
-set +x
 
-echo 'The following "npm" command tests that your simple Node.js/React'
-echo 'application renders satisfactorily. This command actually invokes the test'
-echo 'runner Jest (https://facebook.github.io/jest/).'
-set -x
+npm run test:unit:backend
+
 npm run lint:client
+npm run test:unit:client
+npm run test:accessibility:client
+npm run test:snapshot:client
