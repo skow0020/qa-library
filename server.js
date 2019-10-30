@@ -123,8 +123,6 @@ if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'local') {
 }
 
 app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', router);
