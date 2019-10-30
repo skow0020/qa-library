@@ -1,4 +1,4 @@
-require("babel-core/register")
+require('babel-core/register');
 require('dotenv').config();
 require('./backend/db-conn');
 
@@ -6,7 +6,9 @@ const express = require('express'),
   bodyParser = require('body-parser'),
   logger = require('morgan'),
   cors = require('cors'),
-  path = require('path');
+  path = require('path'),
+  swaggerUi = require('swagger-ui-express'),
+  swaggerDocument = require('./swagger.json');
 
 const booksRouter = require('./backend/routes/booksRouter'),
   articlesRouter = require('./backend/routes/articlesRouter'),
@@ -53,38 +55,35 @@ app.all('/auth/github/callback', (req, res) => {
   const returnedState = req.query.state;
 
   if (req.session.csrf_string === returnedState) {
-    request.post(
-      {
-        url:
-          'https://github.com/login/oauth/access_token?' +
-          qs.stringify({
-            client_id: process.env.CLIENT_ID,
-            client_secret: process.env.CLIENT_SECRET,
-            code: code,
-            redirect_uri: redirect_uri,
-            state: req.session.csrf_string
-          })
-      },
+    request.post({
+      url: 'https://github.com/login/oauth/access_token?' +
+        qs.stringify({
+          client_id: process.env.CLIENT_ID,
+          client_secret: process.env.CLIENT_SECRET,
+          code: code,
+          redirect_uri: redirect_uri,
+          state: req.session.csrf_string
+        })
+    },
       (error, response, body) => {
         req.session.access_token = qs.parse(body).access_token;
         res.redirect('/user');
       }
     );
   } else {
-    console.log('SOMETHIN WRONG')
+    console.log('SOMETHIN WRONG');
     res.redirect('/');
   }
 });
 
 app.get('/user', (req, res) => {
-  request.get(
-    {
-      url: 'https://api.github.com/user',
-      headers: {
-        Authorization: 'token ' + req.session.access_token,
-        'User-Agent': 'Login-App'
-      }
-    },
+  request.get({
+    url: 'https://api.github.com/user',
+    headers: {
+      Authorization: 'token ' + req.session.access_token,
+      'User-Agent': 'Login-App'
+    }
+  },
     (error, response, body) => {
       const bodyjson = JSON.parse(body);
 
@@ -92,28 +91,32 @@ app.get('/user', (req, res) => {
         githubName: bodyjson.login,
         githubAvatarUrl: bodyjson.avatar_url,
         email: bodyjson.email
-      }
+      };
 
-      request.get({ url: `${process.env.HOST}/api/users/${bodyjson.email}` }, (error, response, body) => {
-        let bodyObj = JSON.parse(body)
-        if (Object.keys(bodyObj.data).length === 0) {
-          request.post({ url: `${process.env.HOST}/api/users`, form: userToPost },
-            (error, response, body) => {
-              if (error) {
-                console.log(error)
+      request.get({ url: `${process.env.HOST}/api/users/${bodyjson.email}` },
+        (error, response, body) => {
+          let bodyObj = JSON.parse(body);
+          if (Object.keys(bodyObj.data).length === 0) {
+            request.post({ url: `${process.env.HOST}/api/users`, form: userToPost },
+              (error, response, body) => {
+                if (error) {
+                  console.log(error);
+                }
               }
-            }
-          );
-        }       
-      })
-      res.redirect(`/library?user=${bodyjson.login}&avatar_url=${bodyjson.avatar_url}`)
+            );
+          }
+        }
+      );
+      res.redirect(
+        `/library?user=${bodyjson.login}&avatar_url=${bodyjson.avatar_url}`
+      );
     }
   );
 });
 
 const router = express.Router();
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'local') {
   app.use(logger('dev'));
@@ -122,6 +125,9 @@ if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'local') {
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api/v1', router);
 
 app.use('/api', router);
 app.use('/api/articles', articlesRouter);
@@ -141,4 +147,8 @@ app.get('*', (req, res) => {
 
 module.exports = app;
 
-app.listen(process.env.PORT, () => console.log(`Blowing chunks on port ${process.env.PORT} using the ${process.env.NODE_ENV} environment`))
+app.listen(process.env.PORT, () =>
+  console.log(
+    `Blowing chunks on port ${process.env.PORT} using the ${process.env.NODE_ENV} environment`
+  )
+);

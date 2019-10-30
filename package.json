@@ -1,63 +1,64 @@
 {
-  "name": "qa-library",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.1.0",
-    "cors": "^2.8.5",
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4",
-    "express-session": "^1.16.2",
-    "mongoose": "^5.4.19",
-    "mongoose-sequence": "^5.0.1",
-    "morgan": "^1.9.1",
-    "randomstring": "^1.1.5",
-    "request": "^2.88.0"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "babel-runtime": "^6.26.0",
-    "chai": "^4.2.0",
-    "chai-http": "^4.2.1",
-    "faker": "^4.1.0",
-    "mocha": "^6.0.2",
-    "mocha-junit-reporter": "^1.21.0",
-    "mongo-seeding": "^3.1.1"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "start:client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "install:client": "cd client && npm install",
-    "test:unit:backend": "mocha ./backend/test/unit/**.unit.test.js --opts ./backend/test/unitTest.opts",
-    "test:api:backend": "mocha ./backend/test/api/**.api.test.js --opts ./backend/test/apiTest.opts",
-    "lint:backend": ".\\client\\node_modules\\.bin\\eslint .\\backend",
-    "lint:client": "cd client && npm run lint",
-    "test:unit:client": "cd client && npm run test:unit",
-    "test:snapshot:client": "cd client && npm run test:snapshot",
-    "test:accessibility:client": "cd client && npm run test:accessibility",
-    "test:cypress:client": "cd client && npm run cypress:chrome",
-    "build:client": "cd client && npm run build",
-    "heroku-postbuild": "cd client && npm install --only=prod && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skow0020/qa-library.git"
-  },
-  "engines": {
-    "node": "8.12.0"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/skow0020/qa-library/issues"
-  },
-  "homepage": "https://github.com/skow0020/qa-library#readme"
+    "name": "qa-library",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+        "babel-register": "^6.26.0",
+        "body-parser": "^1.18.3",
+        "concurrently": "^4.1.0",
+        "cors": "^2.8.5",
+        "dotenv": "^7.0.0",
+        "express": "^4.16.4",
+        "express-session": "^1.16.2",
+        "mongoose": "^5.4.19",
+        "mongoose-sequence": "^5.0.1",
+        "morgan": "^1.9.1",
+        "randomstring": "^1.1.5",
+        "request": "^2.88.0",
+        "swagger-ui-express": "^4.1.2"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-runtime": "^6.26.0",
+        "chai": "^4.2.0",
+        "chai-http": "^4.2.1",
+        "faker": "^4.1.0",
+        "mocha": "^6.0.2",
+        "mocha-junit-reporter": "^1.21.0",
+        "mongo-seeding": "^3.1.1"
+    },
+    "scripts": {
+        "start": "node server.js",
+        "start:client": "npm start --prefix client",
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "install:client": "cd client && npm install",
+        "test:unit:backend": "mocha ./backend/test/unit/**.unit.test.js --opts ./backend/test/unitTest.opts",
+        "test:api:backend": "mocha ./backend/test/api/**.api.test.js --opts ./backend/test/apiTest.opts",
+        "lint:backend": ".\\client\\node_modules\\.bin\\eslint .\\backend",
+        "lint:client": "cd client && npm run lint",
+        "test:unit:client": "cd client && npm run test:unit",
+        "test:snapshot:client": "cd client && npm run test:snapshot",
+        "test:accessibility:client": "cd client && npm run test:accessibility",
+        "test:cypress:client": "cd client && npm run cypress:chrome",
+        "build:client": "cd client && npm run build",
+        "heroku-postbuild": "cd client && npm install --only=prod && npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/skow0020/qa-library.git"
+    },
+    "engines": {
+        "node": "8.12.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/skow0020/qa-library/issues"
+    },
+    "homepage": "https://github.com/skow0020/qa-library#readme"
 }
