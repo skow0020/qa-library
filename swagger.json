@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "qa-library-dev.herokuapp.com",
+    "host": "localhost:5001",
     "basePath": "/api",
     "tags": [{
         "name": "Resources",
