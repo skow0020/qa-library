@@ -16,7 +16,7 @@
         "description": "API for resources in the system"
     }],
     "schemes": [
-        "http"
+        "https"
     ],
     "consumes": [
         "application/json"
