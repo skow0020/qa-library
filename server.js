@@ -8,7 +8,8 @@ const express = require('express'),
   cors = require('cors'),
   path = require('path'),
   swaggerUi = require('swagger-ui-express'),
-  swaggerDocument = require('./swagger.json');
+  swaggerDevDocument = require('./swaggerDev.json'),
+  swaggerProdDocument = require('./swaggerProd.json');
 
 const booksRouter = require('./backend/routes/booksRouter'),
   articlesRouter = require('./backend/routes/articlesRouter'),
@@ -120,11 +121,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 if (process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'local') {
   app.use(logger('dev'));
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDevDocument));
+} else {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerProdDocument));
 }
 
 app.use(cors());
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', router);
 
 app.use('/api', router);
