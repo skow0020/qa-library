@@ -95,6 +95,355 @@
                 }
             }
         },
+        "/tutorials": {
+            "post": {
+                "tags": [
+                    "Tutorials"
+                ],
+                "description": "Create new tutorial in system",
+                "parameters": [{
+                    "name": "tutorial",
+                    "in": "body",
+                    "description": "Tutorial that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/Tutorial"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New tutorial is created",
+                        "schema": {
+                            "$ref": "#/definitions/Tutorial"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Tutorials"
+                ],
+                "summary": "Get all tutorials in system",
+                "parameters": [{
+                    "in": "query",
+                    "name": "search",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "by title"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Tutorials"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Tutorials"
+                ],
+                "summary": "Delete tutorial using tutorial id",
+                "parameters": [{
+                    "in": "body",
+                    "name": "tut_id",
+                    "schema": {
+                        "$ref": "#/definitions/TutorialToDelete"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/TutorialDeleted"
+                        }
+                    }
+                }
+            }
+        },
+        "/articles": {
+            "post": {
+                "tags": [
+                    "Articles"
+                ],
+                "description": "Create new Article in system",
+                "parameters": [{
+                    "name": "Article",
+                    "in": "body",
+                    "description": "Article that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/Article"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New Article is created",
+                        "schema": {
+                            "$ref": "#/definitions/Article"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Get all Articles in system",
+                "parameters": [{
+                    "in": "query",
+                    "name": "search",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "by title"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Articles"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Articles"
+                ],
+                "summary": "Delete Article using Article id",
+                "parameters": [{
+                    "in": "body",
+                    "name": "article_id",
+                    "schema": {
+                        "$ref": "#/definitions/ArticleToDelete"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ArticleDeleted"
+                        }
+                    }
+                }
+            }
+        },
+        "/resourceLinks": {
+            "post": {
+                "tags": [
+                    "ResourceLinks"
+                ],
+                "description": "Create new ResourceLink in system",
+                "parameters": [{
+                    "name": "ResourceLink",
+                    "in": "body",
+                    "description": "ResourceLink that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/ResourceLink"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New ResourceLink is created",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceLink"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "ResourceLinks"
+                ],
+                "summary": "Get all ResourceLinks in system",
+                "parameters": [{
+                    "in": "query",
+                    "name": "search",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "by title"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceLinks"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ResourceLinks"
+                ],
+                "summary": "Delete ResourceLink using ResourceLink id",
+                "parameters": [{
+                    "in": "body",
+                    "name": "res_id",
+                    "schema": {
+                        "$ref": "#/definitions/ResourceLinkToDelete"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResourceLinkDeleted"
+                        }
+                    }
+                }
+            }
+        },
+        "/officeLibraryBooks": {
+            "post": {
+                "tags": [
+                    "OfficeLibBooks"
+                ],
+                "description": "Create new OfficeLibBook in system",
+                "parameters": [{
+                    "name": "OfficeLibBook",
+                    "in": "body",
+                    "description": "OfficeLibBook that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/OfficeLibBook"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New OfficeLibBook is created",
+                        "schema": {
+                            "$ref": "#/definitions/OfficeLibBook"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "OfficeLibBooks"
+                ],
+                "summary": "Get all OfficeLibBooks in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OfficeLibBooks"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "OfficeLibBooks"
+                ],
+                "summary": "Delete OfficeLibBook using OfficeLibBook id",
+                "parameters": [{
+                    "in": "body",
+                    "name": "office_book_id",
+                    "schema": {
+                        "$ref": "#/definitions/OfficeLibBookToDelete"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OfficeLibBookDeleted"
+                        }
+                    }
+                }
+            }
+        },
+        "/officeLibraryBooks/incrementCopiesCheckedOut":{
+            "patch": {
+                "tags": [
+                    "OfficeLibBooks"
+                ],
+                "description": "Increment copies checked out",
+                "parameters": [{
+                    "name": "OfficeLibBook",
+                    "in": "body",
+                    "description": "OfficeLibBook that we want to increment checked out copies",
+                    "schema": {
+                        "$ref": "#/definitions/OfficeLibBookPatch"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Book Copies Incremented",
+                        "schema": {
+                            "$ref": "#/definitions/OfficeLibBook"
+                        }
+                    }
+                }
+            }
+        },
+        "/officeLibraryBooks/decrementCopiesCheckedOut":{
+            "patch": {
+                "tags": [
+                    "OfficeLibBooks"
+                ],
+                "description": "Decrement copies checked out",
+                "parameters": [{
+                    "name": "OfficeLibBook",
+                    "in": "body",
+                    "description": "OfficeLibBook that we want to decrement checked out copies",
+                    "schema": {
+                        "$ref": "#/definitions/OfficeLibBookPatch"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Book Copies Decremented",
+                        "schema": {
+                            "$ref": "#/definitions/OfficeLibBook"
+                        }
+                    }
+                }
+            }
+        },
+        "/officeLibraryBooks/{id}": {
+            "parameters": [{
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "description": "Office Book ID",
+                "type": "string"
+            }],
+            "get": {
+                "tags": [
+                    "OfficeLibBooks"
+                ],
+                "summary": "Get office library book by id",
+                "responses": {
+                    "200": {
+                        "description": "Office Book is found",
+                        "schema": {
+                            "$ref": "#/definitions/OfficeLibBook"
+                        }
+                    }
+                }
+            }
+        },
         "/users/{email}": {
             "parameters": [{
                 "name": "email",
@@ -243,6 +592,262 @@
             ],
             "properties":{
                 "book_id":{
+                    "type": "integer"
+                }
+            }
+        },
+        "Tutorial": {
+            "required": [
+                "backgroundImage",
+                "category",
+                "url",
+                "title",
+                "body"
+            ],
+            "properties": {
+                "backgroundImage": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                }
+            }
+        },
+        "Tutorials": {
+            "type": "array",
+            "$ref": "#/definitions/Tutorial"
+        },
+        "TutorialDeleted":{
+            "required":[
+                "message",
+                "tut_id"
+            ],
+            "properties":{
+                "message":{
+                    "type": "string"
+                },
+                "tut_id":{
+                    "type": "string"
+                }
+            }
+        },
+        "TutorialToDelete":{
+            "required":[
+                "tut_id"
+            ],
+            "properties":{
+                "tut_id":{
+                    "type": "integer"
+                }
+            }
+        },
+        "Article": {
+            "required": [
+                "backgroundImage",
+                "category",
+                "url",
+                "title",
+                "body",
+                "author"
+            ],
+            "properties": {
+                "backgroundImage": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                }
+            }
+        },
+        "Articles": {
+            "type": "array",
+            "$ref": "#/definitions/Article"
+        },
+        "ArticleDeleted":{
+            "required":[
+                "message",
+                "article_id"
+            ],
+            "properties":{
+                "message":{
+                    "type": "string"
+                },
+                "article_id":{
+                    "type": "string"
+                }
+            }
+        },
+        "ArticleToDelete":{
+            "required":[
+                "article_id"
+            ],
+            "properties":{
+                "article_id":{
+                    "type": "integer"
+                }
+            }
+        },
+        "ResourceLink": {
+            "required": [
+                "backgroundImage",
+                "category",
+                "url",
+                "title",
+                "body"
+            ],
+            "properties": {
+                "backgroundImage": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                }
+            }
+        },
+        "ResourceLinks": {
+            "type": "array",
+            "$ref": "#/definitions/ResourceLink"
+        },
+        "ResourceLinkDeleted":{
+            "required":[
+                "message",
+                "res_id"
+            ],
+            "properties":{
+                "message":{
+                    "type": "string"
+                },
+                "res_id":{
+                    "type": "string"
+                }
+            }
+        },
+        "ResourceLinkToDelete":{
+            "required":[
+                "res_id"
+            ],
+            "properties":{
+                "res_id":{
+                    "type": "integer"
+                }
+            }
+        },
+        "OfficeLibBook": {
+            "required": [
+                "backgroundImage",
+                "category",
+                "author",
+                "totalCopies",
+                "title",
+                "body"
+            ],
+            "properties": {
+                "backgroundImage": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "totalCopies": {
+                    "type": "integer"
+                },
+                "copiesCheckedOut": {
+                    "type": "integer"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                }
+            }
+        },
+        "OfficeLibBooks": {
+            "type": "array",
+            "$ref": "#/definitions/OfficeLibBook"
+        },
+        "OfficeLibBookDeleted":{
+            "required":[
+                "message",
+                "office_book_id"
+            ],
+            "properties":{
+                "message":{
+                    "type": "string"
+                },
+                "office_book_id":{
+                    "type": "string"
+                }
+            }
+        },
+        "OfficeLibBookPatch":{
+            "required":[
+                "message",
+                "user"
+            ],
+            "properties":{
+                "user":{
+                    "type": "string"
+                },
+                "office_book_id":{
+                    "type": "integer"
+                }
+            }
+        },
+        "OfficeLibBookToDelete":{
+            "required":[
+                "office_book_id"
+            ],
+            "properties":{
+                "office_book_id":{
                     "type": "integer"
                 }
             }
