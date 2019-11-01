@@ -1,0 +1,296 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "QA Library",
+        "description": "API documentation for the QA library",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "qa-library.herokuapp.com",
+    "basePath": "/api",
+    "tags": [{
+        "name": "Resources",
+        "description": "API for resources in the system"
+    }],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/books": {
+            "post": {
+                "tags": [
+                    "Books"
+                ],
+                "description": "Create new book in system",
+                "parameters": [{
+                    "name": "book",
+                    "in": "body",
+                    "description": "Book that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/Book"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New book is created",
+                        "schema": {
+                            "$ref": "#/definitions/Book"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Get all books in system",
+                "parameters": [{
+                    "in": "query",
+                    "name": "search",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "description": "by title"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Delete book using book id",
+                "parameters": [{
+                    "in": "body",
+                    "name": "book_id",
+                    "schema": {
+                        "$ref": "#/definitions/BookToDelete"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/BookDeleted"
+                        }
+                    }
+                }
+            }
+        },
+        "/users/{email}": {
+            "parameters": [{
+                "name": "email",
+                "in": "path",
+                "required": true,
+                "description": "Email of user that we want to find",
+                "type": "string"
+            }],
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get user with given Email",
+                "responses": {
+                    "200": {
+                        "description": "User is found",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "description": "Create new Users in system",
+                "parameters": [{
+                    "name": "user",
+                    "in": "body",
+                    "description": "User that we want to create",
+                    "schema": {
+                        "$ref": "#/definitions/User"
+                    }
+                }],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete user using user id",
+                "parameters": [{
+                    "in": "body",
+                    "name": "user_id",
+                    "schema": {
+                        "$ref": "#/definitions/UserToDelete"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UserDeleted"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Book": {
+            "required": [
+                "backgroundImage",
+                "author",
+                "category",
+                "url",
+                "title",
+                "pdf",
+                "body"
+            ],
+            "properties": {
+                "backgroundImage": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "pdf": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                }
+            }
+        },
+        "Books": {
+            "type": "array",
+            "$ref": "#/definitions/Book"
+        },
+        "BookDeleted":{
+            "required":[
+                "message",
+                "book_id"
+            ],
+            "properties":{
+                "message":{
+                    "type": "string"
+                },
+                "book_id":{
+                    "type": "string"
+                }
+            }
+        },
+        "BookToDelete":{
+            "required":[
+                "book_id"
+            ],
+            "properties":{
+                "book_id":{
+                    "type": "integer"
+                }
+            }
+        },
+        "User": {
+            "required": [
+                "githubName",
+                "email"
+            ],
+            "properties": {
+                "githubName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "githubAvatarUrl": {
+                    "type": "string"
+                }
+            }
+        },
+        "Users": {
+            "type": "array",
+            "$ref": "#/definitions/User"
+        },
+        "UserDeleted":{
+            "required":[
+                "message",
+                "user_id"
+            ],
+            "properties":{
+                "message":{
+                    "type": "string"
+                },
+                "user_id":{
+                    "type": "string"
+                }
+            }
+        },
+        "UserToDelete":{
+            "required":[
+                "user_id"
+            ],
+            "properties":{
+                "user_id":{
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

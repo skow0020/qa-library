@@ -3,13 +3,13 @@
     "info": {
         "version": "1.0.0",
         "title": "QA Library",
-        "description": "API documentation for the QA library",
+        "description": "API documentation for the QA library Dev",
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "localhost:5001",
+    "host": "qa-library-dev.herokuapp.com",
     "basePath": "/api",
     "tags": [{
         "name": "Resources",
