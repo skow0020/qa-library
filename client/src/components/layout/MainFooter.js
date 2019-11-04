@@ -8,7 +8,7 @@ const MainFooter = ({ contained, menuItems, copyright }) => (
   <footer className="main-footer d-flex p-2 px-3 bg-white border-top">
     <Container fluid={contained}>
       <Row>
-        <Nav>
+        <Nav className="nav-footer">
           {menuItems.map((item, idx) => (
             <NavItem key={idx}>
               <NavLink tag={Link} to={item.to}>

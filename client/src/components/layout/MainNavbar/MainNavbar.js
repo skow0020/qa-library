@@ -21,11 +21,10 @@ class MainNavbar extends React.Component {
     );
 
     return (
-
       <div className={classes}>
         <Container className="p-0">
           <Navbar type="light" className="align-items-stretch flex-md-nowrap p-0">
-            <InputGroup seamless className="ml-3">
+            <InputGroup className="ml-3">
               <NavLink id="search-button" tag={Link} to={'/search'}>
                 <InputGroupText>
                   <i className="material-icons">search</i>

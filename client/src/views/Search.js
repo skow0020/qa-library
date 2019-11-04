@@ -4,11 +4,13 @@ import {
   FormInput,
   InputGroup,
   InputGroupAddon,
-  InputGroupText
+  InputGroupText,
+  Row
 } from "shards-react";
 
 import React from 'react';
 import SearchResults from '../components/common/SearchResults';
+import PageTitle from "../components/common/PageTitle";
 import axios from 'axios';
 
 class Search extends React.Component {
@@ -35,26 +37,26 @@ class Search extends React.Component {
         });
       })
       .then(axios.get(`/api/articles?search=${this.state.query}`)
-      .then(({ data }) => {
-        this.setState({
-          articleResults: data.data
-        });
-      }))
+        .then(({ data }) => {
+          this.setState({
+            articleResults: data.data
+          });
+        }))
       .then(axios.get(`api/tutorials?search=${this.state.query}`)
-      .then(({ data }) => {
-        this.setState({
-          tutorialResults: data.data
-        });
-      }))
+        .then(({ data }) => {
+          this.setState({
+            tutorialResults: data.data
+          });
+        }))
       .then(axios.get(`/api/resourceLinks?search=${this.state.query}`)
-      .then(({ data }) => {
-        this.setState({
-          resourceLinkResults: data.data
-        });
-      }));
+        .then(({ data }) => {
+          this.setState({
+            resourceLinkResults: data.data
+          });
+        }));
   }
 
-  handleSubmit(e) { 
+  handleSubmit(e) {
     e.preventDefault();
     this.getInfo();
   }
@@ -79,29 +81,60 @@ class Search extends React.Component {
     if (this.state.articleResults.length > 0) { articles = <SearchResults searchType='Articles' results={this.state.articleResults} />; }
 
     return (
-      <Container>
-        <Form className="main-navbar__search w-100 d-none d-md-flex d-lg-flex" onSubmit={this.handleSubmit}>
-          <InputGroup seamless className="ml-3">
-            <InputGroupAddon type="prepend">
-              <InputGroupText>
-                <i className="material-icons">search</i>
-              </InputGroupText>
-            </InputGroupAddon>
-            <label className="text-muted font-weight-bold" htmlFor="navbar-search" style={{ display: "none" }}>Search</label>
-            <FormInput
-              id="navbar-search"
-              className="navbar-search"
-              placeholder="Search for something..."
-              onChange={this.handleInputChange}
-              onSubmit={this.handleSubmit}
-            />
-          </InputGroup>
-        </Form>
+      <Container fluid className="main-content-container px-3">
+        <Row noGutters className="form-inline py-4">
+          <PageTitle sm="8" title="Search Title" className="text-sm-left" />
+          <Form className="w-100" onSubmit={this.handleSubmit}>
+            <InputGroup>
+              <InputGroupAddon type="prepend">
+                <InputGroupText>
+                  <i className="material-icons">search</i>
+                </InputGroupText>
+              </InputGroupAddon>
+              <label className="text-muted font-weight-bold" htmlFor="navbar-search" style={{ display: "none" }}>Search</label>
+              <FormInput
+                id="navbar-search"
+                className="navbar-search"
+                placeholder="Search for something..."
+                onChange={this.handleInputChange}
+                onSubmit={this.handleSubmit}
+              />
+            </InputGroup>
+          </Form>
+        </Row>
         {books}
         {tutorials}
         {resourceLinks}
         {articles}
       </Container>
+
+      // <Container fluid className="main-content-container px-3">
+      //   <Row noGutters className="form-inline py-2">
+      //     <Form className="main-navbar__search w-100 d-none d-md-flex d-lg-flex" onSubmit={this.handleSubmit}>
+      //       <InputGroup seamless className="ml-3">
+      // <InputGroupAddon type="prepend">
+      //   <InputGroupText>
+      //     <i className="material-icons">search</i>
+      //   </InputGroupText>
+      // </InputGroupAddon>
+      // <label className="text-muted font-weight-bold" htmlFor="navbar-search" style={{ display: "none" }}>Search</label>
+      // <FormInput
+      //   id="navbar-search"
+      //   className="navbar-search"
+      //   placeholder="Search for something..."
+      //   onChange={this.handleInputChange}
+      //   onSubmit={this.handleSubmit}
+      // />
+      //       </InputGroup>
+      //     </Form>
+      //     {books}
+      //     {tutorials}
+      //     {resourceLinks}
+      //     {articles}
+      //   </Row>
+      // </Container>
+
+
     );
   }
 }
