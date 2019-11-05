@@ -38,7 +38,7 @@ class SidebarMainNavbar extends React.Component {
                 alt="QA Library"
               />
               {!hideLogoText && (
-                <span className="d-none d-md-inline ml-1">
+                <span className="display-3 d-none d-md-inline ml-1">
                   QA Library
                 </span>
               )}

@@ -37,6 +37,8 @@
         "test:api:backend": "mocha ./backend/test/api/**.api.test.js --opts ./backend/test/apiTest.opts",
         "lint:backend": ".\\client\\node_modules\\.bin\\eslint .\\backend",
         "lint:client": "cd client && npm run lint",
+        "test:backend":"npm run lint:backend && npm run test:unit:backend && npm run test:api:backend",
+        "test:client": "npm run lint:client && npm run test:snapshot:client && npm run test:accessibility:client && npm run test:cypress:client",
         "test:unit:client": "cd client && npm run test:unit",
         "test:snapshot:client": "cd client && npm run test:snapshot",
         "test:accessibility:client": "cd client && npm run test:accessibility",
