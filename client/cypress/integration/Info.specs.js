@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
 
+import { sizes, setViewport } from '../fixtures/helpers';
+
 import * as header from '../components/header.json';
 import * as info from '../pages/Info.json';
 
@@ -7,14 +9,17 @@ context('Info Page', () => {
   beforeEach(() => {
     cy.visit('qa-dashboard');
   });
-  
-  it('Info UI', () => {
+
+  sizes.forEach((size) => {
+    it(`Info UI - ${size}`, () => {
+      setViewport(size);
       cy.get(header.questionMark).click();
       cy.contains('Info').click();
       cy.get(info.infoContainer).find('p').should('contain', 'For more information, google it');
+    });
   });
 });
-  
+
 
 
     // cy.get('.action-disabled')

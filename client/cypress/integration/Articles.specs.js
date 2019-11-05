@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
 
+import { sizes, setViewport } from '../fixtures/helpers';
+
 import * as addArticle from '../pages/AddArticle.json';
 import * as articles from '../pages/Articles.json';
 import * as common from '../pages/Common.json';
@@ -13,28 +15,33 @@ context('Articles', () => {
     cy.get(common.pageTitle).should('have.text', 'Articles');
   });
 
-  it('Navigate to Articles and add one', () => {
-    cy.get(articles.addArticle).click();
-    cy.get(common.pageTitle).should('have.text', 'Add an Article');
-    cy.get(addArticle.title).type(data.title).should('have.value', data.title);
-    cy.get(addArticle.author).type(data.author).should('have.value', data.author);
-    cy.get(addArticle.url).type(data.url).should('have.value', data.url);
-    cy.get(addArticle.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
-    cy.get(addArticle.description).type(data.description).should('have.value', data.description);
-    cy.get(addArticle.category).select(data.category).should('have.value', data.category);
-  });
+  sizes.forEach((size) => {
+    it(`Navigate to Articles and add one - ${size}`, () => {
+      setViewport(size);
+      cy.get(articles.addArticle).click();
+      cy.get(common.pageTitle).should('have.text', 'Add an Article');
+      cy.get(addArticle.title).type(data.title).should('have.value', data.title);
+      cy.get(addArticle.author).type(data.author).should('have.value', data.author);
+      cy.get(addArticle.url).type(data.url).should('have.value', data.url);
+      cy.get(addArticle.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
+      cy.get(addArticle.description).type(data.description).should('have.value', data.description);
+      cy.get(addArticle.category).select(data.category).should('have.value', data.category);
+    });
 
-  it('Filter by category', () => {
-    cy.get(articles.category).select('API Automation');
-    cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
-    cy.get(articles.category).select('Databases');
-    cy.get(articles.cardPosts).should('have.length', 0);
-  });
+    it(`Filter by category - ${size}`, () => {
+      setViewport(size);
+      cy.get(articles.category).select('API Automation');
+      cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
+      cy.get(articles.category).select('Databases');
+      cy.get(articles.cardPosts).should('have.length', 0);
+    });
 
-  it('Filter by language', () => {
-    cy.get(articles.language).select('Java');
-    cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
-    cy.get(articles.language).select('Cpp');
-    cy.get(articles.cardPosts).should('have.length', 0);
+    it(`Filter by language - ${size}`, () => {
+      setViewport(size);
+      cy.get(articles.language).select('Java');
+      cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
+      cy.get(articles.language).select('Cpp');
+      cy.get(articles.cardPosts).should('have.length', 0);
+    });
   });
 });
