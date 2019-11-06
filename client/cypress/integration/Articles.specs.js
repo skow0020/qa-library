@@ -9,15 +9,10 @@ import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 
 context('Articles', () => {
-  beforeEach(() => {
-    cy.visit('qa-dashboard');
-    cy.get(sideBar.articles).click();
-    cy.get(common.pageTitle).should('have.text', 'Articles');
-  });
-
   sizes.forEach((size) => {
     it(`Navigate to Articles and add one - ${size}`, () => {
       setViewport(size);
+      navigate(size);
       cy.get(articles.addArticle).click();
       cy.get(common.pageTitle).should('have.text', 'Add an Article');
       cy.get(addArticle.title).type(data.title).should('have.value', data.title);
@@ -26,10 +21,17 @@ context('Articles', () => {
       cy.get(addArticle.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
       cy.get(addArticle.description).type(data.description).should('have.value', data.description);
       cy.get(addArticle.category).select(data.category).should('have.value', data.category);
+
+      cy.get(common.submit).click();
+      cy.get(common.alertModal).should('have.text', 'Article added successfully');
+
+      cy.wait(2000);
+      cy.url().should('contain', 'articles');
     });
 
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
+      navigate(size);
       cy.get(articles.category).select('API Automation');
       cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
       cy.get(articles.category).select('Databases');
@@ -38,6 +40,7 @@ context('Articles', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
+      navigate(size);
       cy.get(articles.language).select('Java');
       cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
       cy.get(articles.language).select('Cpp');
@@ -45,3 +48,10 @@ context('Articles', () => {
     });
   });
 });
+
+const navigate = (size) => {
+  cy.visit('qa-dashboard');
+  if (size === 'iphone-6') cy.get(common.navLink).click();
+  cy.get(sideBar.articles).click();
+  cy.get(common.pageTitle).should('have.text', 'Articles');
+};

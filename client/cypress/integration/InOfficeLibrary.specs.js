@@ -8,15 +8,10 @@ import * as inOfficeLibrary from '../pages/InOfficeLibrary.json';
 import * as sideBar from '../components/sideBar.json';
 
 context('In Office Library', () => {
-  beforeEach(() => {
-    cy.visit('qa-dashboard');
-    cy.get(sideBar.inOfficeLibrary).click();
-    cy.get(common.pageTitle).should('have.text', 'In-Office Library');
-  });
-
   sizes.forEach((size) => {
     it(`In office book page check in - ${size}`, () => {
       setViewport(size);
+      navigate(size);
       cy.visit('officeBook/1000');
       cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
@@ -29,6 +24,7 @@ context('In Office Library', () => {
 
     it(`In office book page check out - ${size}`, () => {
       setViewport(size);
+      navigate(size);
       cy.visit('officeBook/1000');
       cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
@@ -41,8 +37,16 @@ context('In Office Library', () => {
 
     it(`In office library login - ${size}`, () => {
       setViewport(size);
+      navigate(size);
       cy.get(inOfficeLibrary.githubLogin).click();
       cy.url().should('contain', 'github.com/login');
     });
   });
 });
+
+const navigate = (size) => {
+  cy.visit('qa-dashboard');
+  if (size === 'iphone-6') cy.get(common.navLink).click();
+  cy.get(sideBar.inOfficeLibrary).click();
+  cy.get(common.pageTitle).should('have.text', 'In-Office Library');
+};
