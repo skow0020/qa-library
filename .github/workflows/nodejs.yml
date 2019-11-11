@@ -19,12 +19,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        npm ci
+        npm i
         npm run build --if-present
         npm run lint:backend
         npm run test:unit:client
       env:
-        CI: true
         DB_USER: ${{ secrets.MONGODB_DEV_USER }}
         DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
         CLIENT_ID: ${{ secrets.CLIENT_ID_GITHUB }}
