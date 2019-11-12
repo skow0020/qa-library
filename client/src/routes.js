@@ -15,6 +15,7 @@ import { Redirect } from "react-router-dom";
 import ResourceLinks from "./views/ResourceLinks/ResourceLinks";
 import Search from "./views/Search";
 import Tutorials from "./views/Tutorials/Tutorials";
+import NotFound from "./components/common/NotFound";
 
 export default [
   {
@@ -92,5 +93,9 @@ export default [
     path: "/officeBook/:office_book_id",
     layout: DefaultLayout,
     component: InOfficeBook
+  },
+  {
+    component: NotFound,
+    layout: DefaultLayout
   }
 ];
