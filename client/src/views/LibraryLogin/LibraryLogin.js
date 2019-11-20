@@ -19,9 +19,9 @@ class LibraryLogin extends React.Component {
   }
 
   handleInputChange = (event) => {
-    const { value, name } = event.target;
+    const { value, id } = event.target;
     this.setState({
-      [name]: value
+      [id]: value
     });
   }
   onSubmit = (event) => {
@@ -33,8 +33,8 @@ class LibraryLogin extends React.Component {
     })
       .then(response => response.json())
       .then(res => {
-        if (res.status === 200) this.props.history.push('/');
-        else alert(`Error logging in: ${res.error}`);        
+        if (res.success) this.props.history.push('/');
+        else alert(`Error logging in: ${res.error}`);
       });
   }
 
@@ -42,26 +42,26 @@ class LibraryLogin extends React.Component {
     return (
       <Container>
         <Row>
-          <Form onSubmit={this.onSubmit}>
-            <h1>Login Below!</h1>
+          <Form className="login-registration" onSubmit={this.onSubmit}>
+            <h1>QA Library Log in</h1>
             <FormInput
+              id="email"
               type="email"
-              name="email"
               placeholder="Enter email"
               value={this.state.email}
               onChange={this.handleInputChange}
               required
             />
             <FormInput
+              id="password"
               type="password"
-              name="password"
               placeholder="Enter password"
               value={this.state.password}
               onChange={this.handleInputChange}
               required
             />
-            <FormInput className="btn btn-success btn-lg" type="submit" value="Submit" />
-            <Link to="/registration">Register</Link>
+            <FormInput id="submit-button" className="btn btn-success btn-lg" type="submit" value="Submit" />
+            <Link id="registration-link" to="/registration">Register</Link>
             <Switch>
               <Route path="/registration" exact component={Registration} />
             </Switch>

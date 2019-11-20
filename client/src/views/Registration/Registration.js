@@ -5,7 +5,9 @@ import {
   FormInput,
   Row
 } from "shards-react";
+import { Link, Route, Switch } from 'react-router-dom';
 
+import LibraryLogin from "../LibraryLogin/LibraryLogin";
 import React from "react";
 
 class Registration
@@ -19,9 +21,9 @@ class Registration
   }
 
   handleInputChange = (event) => {
-    const { value, name } = event.target;
+    const { value, id } = event.target;
     this.setState({
-      [name]: value
+      [id]: value
     });
   }
 
@@ -57,25 +59,29 @@ class Registration
       <Container>
         <AlertModal />
         <Row>
-          <Form onSubmit={this.onSubmit}>
-            <h1>Sign up Below!</h1>
+          <Form className="login-registration" onSubmit={this.onSubmit}>
+            <h1>Sign up</h1>
             <FormInput
+              id="email"
               type="email"
-              name="email"
               placeholder="Enter email"
               value={this.state.email}
               onChange={this.handleInputChange}
               required
             />
             <FormInput
+              id="password"
               type="password"
-              name="password"
               placeholder="Enter password"
               value={this.state.password}
               onChange={this.handleInputChange}
               required
             />
-            <FormInput className="btn btn-success btn-lg" type="submit" value="Register" />
+            <FormInput id="registration-button" className="btn btn-success btn-lg" type="submit" value="Register" />
+            <Link id="login-link" to="/library-login">Login</Link>
+            <Switch>
+              <Route path="/library-login" exact component={LibraryLogin} />
+            </Switch>
           </Form>
         </Row>
       </Container>

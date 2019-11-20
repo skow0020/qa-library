@@ -1,17 +1,18 @@
 /// <reference types="Cypress" />
 
-import { sizes, setViewport } from '../fixtures/helpers';
-
 import * as addBook from '../pages/AddBook.json';
 import * as books from '../pages/Books.json';
 import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 
+import { login, setViewport, sizes } from '../fixtures/helpers';
+
 context('Books', () => {
   sizes.forEach((size) => {
     it(`Navigate to Books and add one - ${size}`, () => {
       setViewport(size);
+      login();
       navigate(size);
       cy.get(books.addBook).click();
       cy.get(common.pageTitle).should('have.text', 'Add a Book');
@@ -31,6 +32,7 @@ context('Books', () => {
 
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
+      login();
       navigate(size);
       cy.get(books.category).select('API Automation');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
@@ -40,6 +42,7 @@ context('Books', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
+      login();
       navigate(size);
       cy.get(books.language).select('Java');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
@@ -50,7 +53,6 @@ context('Books', () => {
 });
 
 const navigate = (size) => {
-  cy.visit('qa-dashboard');
   if (size === 'iphone-6') cy.get(common.navLink).click();
   cy.get(sideBar.books).click();
   cy.get(common.pageTitle).should('have.text', 'Books');

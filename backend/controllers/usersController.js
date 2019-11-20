@@ -56,7 +56,7 @@ export default class UsersController {
 
         const payload = { email };
         const token = jwt.sign(payload, secret, { expiresIn: '1h' });
-        res.cookie('token', token, { httpOnly: true }).sendStatus(200);
+        res.cookie('token', token, { httpOnly: true }).status(200).json({ success: true });
       });
     });
   }

@@ -1,17 +1,18 @@
 /// <reference types="Cypress" />
 
-import { sizes, setViewport } from '../fixtures/helpers';
-
 import * as addTutorial from '../pages/AddTutorial.json';
 import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 import * as tutorials from '../pages/Tutorials.json';
 
+import { login, setViewport, sizes } from '../fixtures/helpers';
+
 context('Tutorials', () => {
   sizes.forEach((size) => {
     it(`Navigate to Books and add one - ${size}`, () => {
       setViewport(size);
+      login();
       navigate(size);
       cy.get(tutorials.addTutorial).click();
       cy.get(addTutorial.title).type(data.title).should('have.value', data.title);
@@ -28,6 +29,7 @@ context('Tutorials', () => {
 
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
+      login();
       navigate(size);
       cy.get(tutorials.category).select('API Automation');
       cy.get(tutorials.cardPosts).should('have.length.greaterThan', 0);
@@ -37,6 +39,7 @@ context('Tutorials', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
+      login();
       navigate(size);
       cy.get(tutorials.language).select('Java');
       cy.get(tutorials.cardPosts).should('have.length.greaterThan', 0);
@@ -47,7 +50,6 @@ context('Tutorials', () => {
 });
 
 const navigate = (size) => {
-  cy.visit('qa-dashboard');
   if (size === 'iphone-6') cy.get(common.navLink).click();
   cy.get(sideBar.tutorials).click();
   cy.get(common.pageTitle).should('have.text', 'Tutorials');

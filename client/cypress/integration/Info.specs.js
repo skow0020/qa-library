@@ -1,13 +1,14 @@
 /// <reference types="Cypress" />
 
-import { sizes, setViewport } from '../fixtures/helpers';
-
 import * as header from '../components/header.json';
 import * as info from '../pages/Info.json';
+
+import { login, setViewport, sizes } from '../fixtures/helpers';
 
 context('Info Page', () => {
   beforeEach(() => {
     cy.visit('qa-dashboard');
+    login();
   });
 
   sizes.forEach((size) => {

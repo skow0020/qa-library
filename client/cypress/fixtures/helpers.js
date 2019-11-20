@@ -1,3 +1,5 @@
+import * as loginView from '../pages/Login.json';
+
 export const sizes = ['iphone-6', 'ipad-2', [1024, 768]];
 
 export const setViewport = (size) => {
@@ -6,4 +8,11 @@ export const setViewport = (size) => {
   } else {
     cy.viewport(size);
   }
+};
+
+export const login = () => {
+  cy.visit('qa-dashboard');
+  cy.get(loginView.email).type('cskow@tapqa.com');
+  cy.get(loginView.password).type('password');
+  cy.get(loginView.submit).click();
 };
