@@ -51,10 +51,6 @@ If you're looking for something more, check out [Shards Dashboard Pro React](htt
 ### Built using
 
 - [Shards React](https://github.com/designrevision/shards-react)
-- [Chart.js](https://www.chartjs.org/)
 - [Flux](https://facebook.github.io/flux/)
-- [No UI Slider](https://refreshless.com/nouislider/)
-- [React Datepicker](https://www.npmjs.com/package/react-datepicker)
-- [Quill](https://quilljs.com/)
 
 <br />
