@@ -1,14 +1,14 @@
 /* eslint no-console: 0*/
+
 import { } from 'dotenv/config';
-import { Seeder } from 'mongo-seeding';
-import path from 'path';
 
 import Article from '../models/article';
 import Book from '../models/book';
 import OfficeLibraryBook from '../models/officeLibraryBook';
 import ResourceLink from '../models/resourceLink';
+import { Seeder } from 'mongo-seeding';
 import Tutorial from '../models/tutorial';
-import User from '../models/user';
+import path from 'path';
 
 const { DB_USER, DB_PASS, NODE_ENV } = process.env;
 
@@ -19,7 +19,6 @@ before(async () => {
   await OfficeLibraryBook.remove({}, (err) => { if (err) throw err; });
   await ResourceLink.remove({}, (err) => { if (err) throw err; });
   await Tutorial.remove({}, (err) => { if (err) throw err; });
-  await User.remove({}, (err) => { if (err) throw err; });
 
   console.log('Database cleaned');
   const config = {
