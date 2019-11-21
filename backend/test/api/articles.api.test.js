@@ -6,19 +6,15 @@ import server from '../../../server';
 chai.use(chaiHttp);
 
 describe('Articles', () => {
-  it('it should GET all the articles', (done) => {
-    chai.request(server)
-      .get('/api/articles')
-      .end((err, res) => {
-        if (err) assert.fail(`Getting articles failed: ${err}`);
+  it('it should GET all the articles', async () => {
+    const getArticle = await chai.request(server)
+      .get('/api/articles');
 
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        done();
-      });
+    getArticle.should.have.status(200);
+    getArticle.body.success.should.be.eql(true);
   });
 
-  it('Post-Get-Delete an article', (done) => {
+  it('Post-Get-Delete an article', async () => {
     const article = {
       title: data.title,
       author: data.author,
@@ -29,58 +25,47 @@ describe('Articles', () => {
       body: data.body
     };
 
-    let article_id = null;
-
-    chai.request(server)
+    const postedArticle = await chai.request(server)
       .post('/api/articles')
-      .send(article)
-      .end((err, res) => {
-        if (err) assert.fail(`Post article failed: ${err}`);
+      .send(article);
 
-        res.should.have.status(201);
-        res.body.success.should.be.eql(true);
-        res.body.post.hasOwnProperty('_id').should.be.eql(true);
-        res.body.post.title.should.be.eql(data.title);
-        res.body.post.author.should.be.eql(data.author);
-        res.body.post.category.should.be.eql(data.category);
-        res.body.post.language.should.be.eql(data.language);
-        res.body.post.url.should.be.eql(data.url);
-        res.body.post.backgroundImage.should.be.eql(data.backgroundImage);
-        res.body.post.body.should.be.eql(data.body);
+    postedArticle.should.have.status(201);
+    postedArticle.body.success.should.be.eql(true);
+    postedArticle.body.post.hasOwnProperty('_id').should.be.eql(true);
+    postedArticle.body.post.title.should.be.eql(data.title);
+    postedArticle.body.post.author.should.be.eql(data.author);
+    postedArticle.body.post.category.should.be.eql(data.category);
+    postedArticle.body.post.language.should.be.eql(data.language);
+    postedArticle.body.post.url.should.be.eql(data.url);
+    postedArticle.body.post.backgroundImage.should.be.eql(data.backgroundImage);
+    postedArticle.body.post.body.should.be.eql(data.body);
 
-        article_id = res.body.post.article_id;
+    const article_id = postedArticle.body.post.article_id;
 
-        chai.request(server)
-          .get('/api/articles')
-          .end((err, res) => {
-            if (err) assert.fail(`Getting articles failed: ${err}`);
+    const getArticles = await chai.request(server)
+      .get('/api/articles');
 
-            res.should.have.status(200);
-            res.body.success.should.be.eql(true);
-            res.body.data.length.should.be.above(0);
+    getArticles.should.have.status(200);
+    getArticles.body.success.should.be.eql(true);
+    getArticles.body.data.length.should.be.above(0);
 
-            res.body.data.forEach((articleInResponse) => {
-              articleInResponse.hasOwnProperty('title').should.be.true;
-              articleInResponse.hasOwnProperty('author').should.be.true;
-              articleInResponse.hasOwnProperty('backgroundImage').should.be.true;
-              articleInResponse.hasOwnProperty('url').should.be.true;
-              articleInResponse.hasOwnProperty('category').should.be.true;
-              articleInResponse.hasOwnProperty('language').should.be.true;
-            });
+    getArticles.body.data.forEach((articleInResponse) => {
+      articleInResponse.hasOwnProperty('title').should.be.true;
+      articleInResponse.hasOwnProperty('author').should.be.true;
+      articleInResponse.hasOwnProperty('backgroundImage').should.be.true;
+      articleInResponse.hasOwnProperty('url').should.be.true;
+      articleInResponse.hasOwnProperty('category').should.be.true;
+      articleInResponse.hasOwnProperty('language').should.be.true;
+    });
 
-            chai.request(server)
-              .delete('/api/articles')
-              .send({ article_id: article_id })
-              .end((err, res) => {
-                if (err) assert.fail(`Deleting article failed: ${err}`);
-                res.body.message.should.be.eql('Article successfully deleted');
-                done();
-              });
-          });
-      });
+    const deleted = await chai.request(server)
+      .delete('/api/articles')
+      .send({ article_id });
+
+    deleted.body.message.should.be.eql('Article successfully deleted');
   });
 
-  it('Get Article title search', (done) => {
+  it('Get Article title search', async () => {
     const article1 = {
       title: data.title,
       author: data.author,
@@ -101,115 +86,87 @@ describe('Articles', () => {
       body: data.body
     };
 
-    chai.request(server)
+    const postArticle = await chai.request(server)
       .post('/api/articles')
-      .send(article1)
-      .end((err, res) => {
-        if (err) assert.fail(`Post article1 failed: ${err}`);
-        res.should.have.status(201);
+      .send(article1);
 
-        chai.request(server)
-          .post('/api/articles')
-          .send(article2)
-          .end((err, res) => {
-            if (err) assert.fail(`Post article1 failed: ${err}`);
-            res.should.have.status(201);
+    postArticle.should.have.status(201);
 
-            chai.request(server)
-              .get('/api/articles?search=hippo')
+    const postArticle2 = await chai.request(server)
+      .post('/api/articles')
+      .send(article2);
 
-              .end((err, res) => {
-                if (err) assert.fail(`Get article 'hippo' failed: ${err}`);
-                res.should.have.status(200);
-                res.body.success.should.be.eql(true);
-                res.body.data.length.should.be.at.least(1);
-                res.body.data.forEach(article => {
-                  article.title.toLowerCase().should.contain('hippo');
-                });
-                done();
-              });
-          });
-      });
+    postArticle2.should.have.status(201);
+
+    const getArticle = await chai.request(server)
+      .get('/api/articles?search=hippo')
+
+    getArticle.should.have.status(200);
+    getArticle.body.success.should.be.eql(true);
+    getArticle.body.data.length.should.be.at.least(1);
+    getArticle.body.data.forEach(article => {
+      article.title.toLowerCase().should.contain('hippo');
+    });
   });
 
-  it('Post an article error', (done) => {
+  it('Post an article error', async () => {
     const article = {
     };
 
-    chai.request(server)
+    const postArticle = await chai.request(server)
       .post('/api/articles')
-      .send(article)
-      .end((err, res) => {
-        if (err) assert.fail(`Post article failed: ${err}`);
+      .send(article);
 
-        res.should.have.status(200);
-        res.body.success.should.be.eql(false);
-        res.body.hasOwnProperty('error').should.be.eql(true);
-
-        res.body.error._message.should.be.eql('Article validation failed');
-        res.body.error.name.should.be.eql('ValidationError');
-        done();
-      });
+    postArticle.should.have.status(200);
+    postArticle.body.success.should.be.eql(false);
+    postArticle.body.hasOwnProperty('error').should.be.eql(true);
+    postArticle.body.error._message.should.be.eql('Article validation failed');
+    postArticle.body.error.name.should.be.eql('ValidationError');
   });
 
-  it('Delete an article error', (done) => {
-    chai.request(server)
+  it('Delete an article error', async () => {
+    const deleteArticle = await chai.request(server)
       .delete('/api/articles')
-      .send({ article_id: 4564564 })
-      .end((err, res) => {
-        if (err) assert.fail(`Deleting article failed: ${err}`);
-        res.body.hasOwnProperty('error');
-        res.body.error.should.be.eql('Unable to find article id: 4564564');
-        done();
-      });
+      .send({ article_id: 4564564 });
+
+    deleteArticle.body.hasOwnProperty('error');
+    deleteArticle.body.error.should.be.eql('Unable to find article id: 4564564');
   });
 
-  it('Get articles filter by category', (done) => {
-    chai.request(server)
-      .get('/api/articles?category=API%20Automation')
+  it('Get articles filter by category', async () => {
+    const getArticles = await chai.request(server)
+      .get('/api/articles?category=API%20Automation');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get article category filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(article => {
-          article.category.should.be.eql('API Automation');
-        });
-        done();
-      });
+    getArticles.should.have.status(200);
+    getArticles.body.success.should.be.eql(true);
+    getArticles.body.data.length.should.be.at.least(1);
+    getArticles.body.data.forEach(article => {
+      article.category.should.be.eql('API Automation');
+    });
   });
 
-  it('Get articles filter by language', (done) => {
-    chai.request(server)
-      .get('/api/articles?language=Python')
+  it('Get articles filter by language', async () => {
+    const getArticles = await chai.request(server)
+      .get('/api/articles?language=Python');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get article language filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(article => {
-          article.language.should.be.eql('Python');
-        });
-        done();
-      });
+    getArticles.should.have.status(200);
+    getArticles.body.success.should.be.eql(true);
+    getArticles.body.data.length.should.be.at.least(1);
+    getArticles.body.data.forEach(article => {
+      article.language.should.be.eql('Python');
+    });
   });
 
-  it('Get articles filter by language and category', (done) => {
-    chai.request(server)
-      .get('/api/articles?language=Swift&category=API%20Automation')
+  it('Get articles filter by language and category', async () => {
+    const getArticles = await chai.request(server)
+      .get('/api/articles?language=Swift&category=API%20Automation');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get article language and category filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(article => {
-          article.language.should.be.eql('Swift');
-          article.category.should.be.eql('API Automation');
-        });
-        done();
-      });
+    getArticles.should.have.status(200);
+    getArticles.body.success.should.be.eql(true);
+    getArticles.body.data.length.should.be.at.least(1);
+    getArticles.body.data.forEach(article => {
+      article.language.should.be.eql('Swift');
+      article.category.should.be.eql('API Automation');
+    });
   });
 });

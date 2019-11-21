@@ -1,25 +1,20 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-
-import server from '../../../server';
 import data from '../data.json';
+import server from '../../../server';
 
 chai.use(chaiHttp);
 
 describe('Tutorial', () => {
-  it('it should GET all the tutorial', (done) => {
-    chai.request(server)
-      .get('/api/tutorials')
-      .end((err, res) => {
-        if (err) assert.fail(`Getting tutorial failed: ${err}`);
+  it('it should GET all the tutorial', async () => {
+    const getTutorials = await chai.request(server)
+      .get('/api/tutorials');
 
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        done();
-      });
+    getTutorials.should.have.status(200);
+    getTutorials.body.success.should.be.eql(true);
   });
 
-  it('Post-Get-Delete a tutorial', (done) => {
+  it('Post-Get-Delete a tutorial', async () => {
     const tutorial = {
       title: data.title,
       backgroundImage: data.backgroundImage,
@@ -29,55 +24,45 @@ describe('Tutorial', () => {
       body: data.body
     };
 
-    let tut_id = null;
-    chai.request(server)
+    const postTutorial = await chai.request(server)
       .post('/api/tutorials')
-      .send(tutorial)
-      .end((err, res) => {
-        if (err) assert.fail(`Post tutorial failed: ${err}`);
+      .send(tutorial);
 
-        res.should.have.status(201);
-        res.body.success.should.be.eql(true);
-        res.body.post.hasOwnProperty('_id').should.be.eql(true);
-        res.body.post.title.should.be.eql(data.title);
-        res.body.post.category.should.be.eql(data.category);
-        res.body.post.language.should.be.eql(data.language);
-        res.body.post.url.should.be.eql(data.url);
-        res.body.post.backgroundImage.should.be.eql(data.backgroundImage);
-        res.body.post.body.should.be.eql(data.body);
+    postTutorial.should.have.status(201);
+    postTutorial.body.success.should.be.eql(true);
+    postTutorial.body.post.hasOwnProperty('_id').should.be.eql(true);
+    postTutorial.body.post.title.should.be.eql(data.title);
+    postTutorial.body.post.category.should.be.eql(data.category);
+    postTutorial.body.post.language.should.be.eql(data.language);
+    postTutorial.body.post.url.should.be.eql(data.url);
+    postTutorial.body.post.backgroundImage.should.be.eql(data.backgroundImage);
+    postTutorial.body.post.body.should.be.eql(data.body);
 
-        tut_id = res.body.post.tut_id;
+    const tut_id = postTutorial.body.post.tut_id;
 
-        chai.request(server)
-          .get('/api/tutorials')
-          .end((err, res) => {
-            if (err) assert.fail(`Getting tutorial failed: ${err}`);
+    const getTutorials = await chai.request(server)
+      .get('/api/tutorials');
 
-            res.should.have.status(200);
-            res.body.success.should.be.eql(true);
-            res.body.data.length.should.be.above(0);
+    getTutorials.should.have.status(200);
+    getTutorials.body.success.should.be.eql(true);
+    getTutorials.body.data.length.should.be.above(0);
 
-            res.body.data.forEach((tutorialInResponse) => {
-              tutorialInResponse.hasOwnProperty('title').should.be.true;
-              tutorialInResponse.hasOwnProperty('backgroundImage').should.be.true;
-              tutorialInResponse.hasOwnProperty('url').should.be.true;
-              tutorialInResponse.hasOwnProperty('category').should.be.true;
-              tutorialInResponse.hasOwnProperty('language').should.be.true;
-            });
+    getTutorials.body.data.forEach((tutorialInResponse) => {
+      tutorialInResponse.hasOwnProperty('title').should.be.true;
+      tutorialInResponse.hasOwnProperty('backgroundImage').should.be.true;
+      tutorialInResponse.hasOwnProperty('url').should.be.true;
+      tutorialInResponse.hasOwnProperty('category').should.be.true;
+      tutorialInResponse.hasOwnProperty('language').should.be.true;
+    });
 
-            chai.request(server)
-              .delete('/api/tutorials')
-              .send({ tut_id: tut_id })
-              .end((err, res) => {
-                if (err) assert.fail(`Deleting tutorial failed: ${err}`);
-                res.body.message.should.be.eql('Tutorial successfully deleted');
-                done();
-              });
-          });
-      });
+    const deleteTutorial = await chai.request(server)
+      .delete('/api/tutorials')
+      .send({ tut_id: tut_id });
+
+    deleteTutorial.body.message.should.be.eql('Tutorial successfully deleted');
   });
 
-  it('Get tutorial search', (done) => {
+  it('Get tutorial search', async () => {
     const tutorial1 = {
       title: data.title,
       backgroundImage: data.backgroundImage,
@@ -96,116 +81,89 @@ describe('Tutorial', () => {
       body: data.body
     };
 
-    chai.request(server)
+    const postTutorial1 = await chai.request(server)
       .post('/api/tutorials')
-      .send(tutorial1)
-      .end((err, res) => {
-        if (err) assert.fail(`Post tutorial1 failed: ${err}`);
-        res.should.have.status(201);
+      .send(tutorial1);
 
-        chai.request(server)
-          .post('/api/tutorials')
-          .send(tutorial2)
-          .end((err, res) => {
-            if (err) assert.fail(`Post tutorial2 failed: ${err}`);
-            res.should.have.status(201);
+    postTutorial1.should.have.status(201);
 
-            chai.request(server)
-              .get('/api/tutorials?search=hippo')
-              .end((err, res) => {
-                if (err) assert.fail(`Get tutorial 'hippo' failed: ${err}`);
-                res.should.have.status(200);
-                res.body.success.should.be.eql(true);
-                res.body.data.length.should.be.at.least(1);
-                res.body.data.forEach(tutorial => {
-                  tutorial.title.toLowerCase().should.contain('hippo');
-                });
-                done();
-              });
-          });
-      });
+    const postTutorial2 = await chai.request(server)
+      .post('/api/tutorials')
+      .send(tutorial2);
+
+    postTutorial2.should.have.status(201);
+
+    const getTutorials = await chai.request(server)
+      .get('/api/tutorials?search=hippo');
+
+    getTutorials.should.have.status(200);
+    getTutorials.body.success.should.be.eql(true);
+    getTutorials.body.data.length.should.be.at.least(1);
+    getTutorials.body.data.forEach(tutorial => {
+      tutorial.title.toLowerCase().should.contain('hippo');
+    });
   });
 
-  it('Post a tutorial error', (done) => {
+  it('Post a tutorial error', async () => {
     const tutorial = {
     };
 
-    chai.request(server)
+    const postedTutorial = await chai.request(server)
       .post('/api/tutorials')
-      .send(tutorial)
-      .end((err, res) => {
-        if (err) assert.fail(`Getting tutorial failed: ${err}`);
+      .send(tutorial);
 
-        res.should.have.status(200);
-        res.body.success.should.be.eql(false);
-        res.body.hasOwnProperty('error').should.be.eql(true);
+    postedTutorial.should.have.status(200);
+    postedTutorial.body.success.should.be.eql(false);
+    postedTutorial.body.hasOwnProperty('error').should.be.eql(true);
 
-        res.body.error._message.should.be.eql('Tutorial validation failed');
-        res.body.error.name.should.be.eql('ValidationError');
-        done();
-      });
+    postedTutorial.body.error._message.should.be.eql('Tutorial validation failed');
+    postedTutorial.body.error.name.should.be.eql('ValidationError');
   });
 
-  it('Delete a tutorial error', (done) => {
-    chai.request(server)
+  it('Delete a tutorial error', async () => {
+    const deletedTutorial = await chai.request(server)
       .delete('/api/tutorials')
-      .send({ tut_id: 34532452345 })
-      .end((err, res) => {
-        if (err) assert.fail(`Deleting tutorial failed: ${err}`);
-        res.body.hasOwnProperty('error');
-        res.body.error.should.be.eql('Unable to find tutorial id: 34532452345');
-        done();
-      });
+      .send({ tut_id: 34532452345 });
+
+    deletedTutorial.body.hasOwnProperty('error');
+    deletedTutorial.body.error.should.be.eql('Unable to find tutorial id: 34532452345');
   });
 
-  it('Get tutorials filter by category', (done) => {
+  it('Get tutorials filter by category', async () => {
 
-    chai.request(server)
-      .get('/api/tutorials?category=API%20Automation')
+    const getTutorials = await chai.request(server)
+      .get('/api/tutorials?category=API%20Automation');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get tutorials category filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(tutorials => {
-          tutorials.category.should.be.eql('API Automation');
-        });
-        done();
-      });
+    getTutorials.should.have.status(200);
+    getTutorials.body.success.should.be.eql(true);
+    getTutorials.body.data.length.should.be.at.least(1);
+    getTutorials.body.data.forEach(tutorials => {
+      tutorials.category.should.be.eql('API Automation');
+    });
   });
 
-  it('Get tutorials filter by language', (done) => {
+  it('Get tutorials filter by language', async () => {
+    const getTutorials = await chai.request(server)
+      .get('/api/tutorials?language=Python');
 
-    chai.request(server)
-      .get('/api/tutorials?language=Python')
-
-      .end((err, res) => {
-        if (err) assert.fail(`Get tutorials language filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(tutorial => {
-          tutorial.language.should.be.eql('Python');
-        });
-        done();
-      });
+    getTutorials.should.have.status(200);
+    getTutorials.body.success.should.be.eql(true);
+    getTutorials.body.data.length.should.be.at.least(1);
+    getTutorials.body.data.forEach(tutorial => {
+      tutorial.language.should.be.eql('Python');
+    });
   });
 
-  it('Get tutorials filter by language and category', (done) => {
-    chai.request(server)
-      .get('/api/tutorials?language=Swift&category=API%20Automation')
+  it('Get tutorials filter by language and category', async () => {
+    const getTutorials = await chai.request(server)
+      .get('/api/tutorials?language=Swift&category=API%20Automation');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get tutorials language and category filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(tutorial => {
-          tutorial.language.should.be.eql('Swift');
-          tutorial.category.should.be.eql('API Automation');
-        });
-        done();
-      });
+    getTutorials.should.have.status(200);
+    getTutorials.body.success.should.be.eql(true);
+    getTutorials.body.data.length.should.be.at.least(1);
+    getTutorials.body.data.forEach(tutorial => {
+      tutorial.language.should.be.eql('Swift');
+      tutorial.category.should.be.eql('API Automation');
+    });
   });
 });
