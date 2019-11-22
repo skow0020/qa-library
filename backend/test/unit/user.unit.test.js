@@ -6,8 +6,7 @@ describe('User Tests', () => {
     const user = new User();
 
     user.validate(err => {
-      expect(err.errors.githubName).to.exist;
-      expect(err.errors.githubAvatarUrl).to.not.exist;
+      expect(err.errors.password).to.exist;
       expect(err.errors.email).to.exist;
 
       done();
@@ -15,22 +14,19 @@ describe('User Tests', () => {
   });
 
   it('user object creation', (done) => {
-    const githubName = faker.internet.userName();
-    const githubAvatarUrl = faker.image.imageUrl();
     const email = faker.internet.email();
+    const password = faker.internet.password();
     const user = new User({
-      githubName: githubName,
-      githubAvatarUrl: githubAvatarUrl,
-      email: email
+      email: email,
+      password: password
     });
 
     user.validate(err => {
       expect(err === null);
     });
 
-    expect(user.githubName).to.equal(githubName);
-    expect(user.githubAvatarUrl).to.equal(githubAvatarUrl);
     expect(user.email).to.equal(email);
+    expect(user.password).to.equal(password);
     done();
   });
 });

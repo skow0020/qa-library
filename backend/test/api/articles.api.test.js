@@ -1,8 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-
-import server from '../../../server';
 import data from '../data.json';
+import server from '../../../server';
 
 chai.use(chaiHttp);
 

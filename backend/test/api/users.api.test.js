@@ -1,8 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-
-import server from '../../../server';
 import faker from 'faker';
+import server from '../../../server';
 
 chai.use(chaiHttp);
 
@@ -28,57 +27,48 @@ describe('Users', () => {
         res.should.have.status(200);
         res.body.success.should.be.eql(true);
 
+        const user_email = res.body.data[0].email;
         chai.request(server)
-          .get(`/api/users/${res.body.data[0].email}`)
+          .get(`/api/users/${user_email}`)
           .end((err, res) => {
             if (err) assert.fail(`Getting users failed: ${err}`);
 
             res.should.have.status(200);
             res.body.success.should.be.eql(true);
-            res.body.data.length.should.be.eql(1);
+            res.body.data.email.should.be.eql(user_email);
             done();
           });
       });
   });
 
-  it('Post-Get-Delete an user', (done) => {
+  it('Register-Get-Delete an user', (done) => {
     const user = {
-      githubName: faker.internet.userName(),
-      githubAvatarUrl: faker.image.imageUrl(),
-      email: faker.internet.email()
+      email: faker.internet.email(),
+      password: "password"
     };
 
     let user_id = null;
 
     chai.request(server)
-      .post('/api/users')
+      .post('/api/users/register')
       .send(user)
       .end((err, res) => {
-        if (err) assert.fail(`Post user failed: ${err}`);
-
-        res.should.have.status(201);
+        if (err) assert.fail(`Register user failed: ${err}`);
+        res.should.have.status(200);
         res.body.success.should.be.eql(true);
-        res.body.post.hasOwnProperty('_id').should.be.eql(true);
-        res.body.post.githubName.should.be.eql(user.githubName);
-        res.body.post.githubAvatarUrl.should.be.eql(user.githubAvatarUrl);
-        res.body.post.email.should.be.eql(user.email);
-
-        user_id = res.body.post.user_id;
+  
+        res.body.email.should.be.eql(user.email);
 
         chai.request(server)
-          .get('/api/users')
+          .get(`/api/users/${user.email}`)
           .end((err, res) => {
             if (err) assert.fail(`Getting users failed: ${err}`);
 
             res.should.have.status(200);
             res.body.success.should.be.eql(true);
-            res.body.data.length.should.be.above(0);
 
-            res.body.data.forEach((articleInResponse) => {
-              articleInResponse.hasOwnProperty('githubName').should.be.true;
-              articleInResponse.hasOwnProperty('githubAvatarUrl').should.be.true;
-              articleInResponse.hasOwnProperty('email').should.be.true;
-            });
+            user_id = res.body.data.user_id;
+            res.body.data.email.should.be.eql(user.email);
 
             chai.request(server)
               .delete('/api/users')
@@ -92,17 +82,17 @@ describe('Users', () => {
       });
   });
 
-  it('Post a user error', (done) => {
+  it('Register a user error', (done) => {
     const user = {
     };
 
     chai.request(server)
-      .post('/api/users')
+      .post('/api/users/register')
       .send(user)
       .end((err, res) => {
         if (err) assert.fail(`Posting user failed: ${err}`);
 
-        res.should.have.status(200);
+        res.should.have.status(500);
         res.body.success.should.be.eql(false);
         res.body.hasOwnProperty('error').should.be.eql(true);
 
@@ -118,7 +108,7 @@ describe('Users', () => {
       .send({ user_id: 4564564 })
       .end((err, res) => {
         if (err) assert.fail(`Deleting user failed: ${err}`);
-        res.body.hasOwnProperty('error');
+        res.body.hasOwnProperty('error').should.be.eql(true);
         res.body.error.should.be.eql('Unable to find user id: 4564564');
         done();
       });

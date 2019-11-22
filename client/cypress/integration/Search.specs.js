@@ -3,14 +3,16 @@
 import * as header from '../components/header.json';
 import * as search from '../pages/Search.json';
 
-context('Search', () => {
-  beforeEach(() => {
-    cy.visit('qa-dashboard');
-  });
+import { login, setViewport, sizes } from '../fixtures/helpers';
 
-  it('Search for something', () => {
-    cy.get(header.searchButton).click();
-    cy.get(search.searchField).type('hippo').should('have.value', 'hippo');
-    cy.get(search.books).click();
+context('Search', () => {
+  sizes.forEach((size) => {
+    it(`Search for something - ${size}`, () => {
+      setViewport(size);
+      login();
+      cy.get(header.searchButton).click();
+      cy.get(search.searchField).type('hippo').should('have.value', 'hippo');
+      cy.get(search.books).click();
+    });
   });
 });

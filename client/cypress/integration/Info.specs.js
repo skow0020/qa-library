@@ -3,18 +3,24 @@
 import * as header from '../components/header.json';
 import * as info from '../pages/Info.json';
 
+import { login, setViewport, sizes } from '../fixtures/helpers';
+
 context('Info Page', () => {
   beforeEach(() => {
     cy.visit('qa-dashboard');
+    login();
   });
-  
-  it('Info UI', () => {
+
+  sizes.forEach((size) => {
+    it(`Info UI - ${size}`, () => {
+      setViewport(size);
       cy.get(header.questionMark).click();
       cy.contains('Info').click();
       cy.get(info.infoContainer).find('p').should('contain', 'For more information, google it');
+    });
   });
 });
-  
+
 
 
     // cy.get('.action-disabled')

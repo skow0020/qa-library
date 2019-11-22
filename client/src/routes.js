@@ -9,6 +9,7 @@ import ExampleRepos from "./views/ExampleRepos/ExampleRepos";
 import InOfficeBook from "./views/InOfficeBook/InOfficeBook";
 import Info from "./views/Info/Info";
 import LibraryDash from "./views/LibraryDash/LibraryDash";
+import NotFound from "./components/common/NotFound";
 import QADashboard from "./views/QADashboard/QADashboard";
 import React from "react";
 import { Redirect } from "react-router-dom";
@@ -92,5 +93,9 @@ export default [
     path: "/officeBook/:office_book_id",
     layout: DefaultLayout,
     component: InOfficeBook
+  },
+  {
+    component: NotFound,
+    layout: DefaultLayout
   }
 ];
