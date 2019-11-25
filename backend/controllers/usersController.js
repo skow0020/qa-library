@@ -52,7 +52,7 @@ export default class UsersController {
 
       user.isCorrectPassword(password, (err, same) => {
         if (err) return res.status(500).json({ error: 'Internal error please try again' });
-        else if (!same) returnres.status(401).json({ error: 'Incorrect email or password' });
+        else if (!same) res.status(401).json({ error: 'Incorrect email or password' });
 
         const payload = { email };
         const token = jwt.sign(payload, secret, { expiresIn: '1h' });
