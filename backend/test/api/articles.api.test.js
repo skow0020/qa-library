@@ -99,7 +99,7 @@ describe('Articles', () => {
     postArticle2.should.have.status(201);
 
     const getArticle = await chai.request(server)
-      .get('/api/articles?search=hippo')
+      .get('/api/articles?search=hippo');
 
     getArticle.should.have.status(200);
     getArticle.body.success.should.be.eql(true);

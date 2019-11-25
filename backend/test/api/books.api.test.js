@@ -12,7 +12,6 @@ describe('Books', () => {
 
     getBooks.should.have.status(200);
     getBooks.body.success.should.be.eql(true);
-
   });
 
   it('Post-Get-Delete an book', async () => {
@@ -66,7 +65,6 @@ describe('Books', () => {
       .send({ book_id: book_id });
 
     deletedBook.body.message.should.be.eql('Book successfully deleted');
-
   });
 
   it('Get book search', async () => {
@@ -94,7 +92,7 @@ describe('Books', () => {
 
     const postedBook1 = await chai.request(server)
       .post('/api/books')
-      .send(book1)
+      .send(book1);
     postedBook1.should.have.status(201);
 
     const postedBook2 = await chai.request(server)
