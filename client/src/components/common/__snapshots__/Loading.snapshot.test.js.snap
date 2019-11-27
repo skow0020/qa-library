@@ -2,17 +2,41 @@
 
 exports[`Loading Snapshot Tests Loading snapshot 1`] = `
 <div
-  className="main-content-container px-4 pb-4 container-fluid"
+  className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+  style={
+    Object {
+      "minHeight": "60vh",
+    }
+  }
 >
   <div
-    className="error"
+    className="makeStyles-root-1"
   >
     <div
-      className="error__content"
+      className="MuiCircularProgress-root makeStyles-circular-2 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+      id="loading"
+      role="progressbar"
+      style={
+        Object {
+          "height": 40,
+          "width": 40,
+        }
+      }
     >
-      <h3>
-        Loading...
-      </h3>
+      <svg
+        className="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          cx={44}
+          cy={44}
+          fill="none"
+          r={20.2}
+          strokeWidth={3.6}
+          style={Object {}}
+        />
+      </svg>
     </div>
   </div>
 </div>

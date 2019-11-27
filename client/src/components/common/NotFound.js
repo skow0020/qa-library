@@ -8,7 +8,7 @@ const NotFound = () => (
     justify="center"
     style={{ minHeight: '60vh' }}
   >
-    <h3 align="center">Hmm... the page you are looking for seems to have disappeared... if it has ever existed</h3>
+    <h3 id="not-found" align="center">Hmm... the page you are looking for seems to have disappeared... if it has ever existed</h3>
   </Grid>
 );
 
