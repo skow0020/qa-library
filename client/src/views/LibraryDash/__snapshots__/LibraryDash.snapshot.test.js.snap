@@ -6,7 +6,62 @@ exports[`LibraryDash Snapshot Tests LibraryDash snapshot 1`] = `
 <div
   className="main-content-container px-3 container-fluid"
 >
-  <div />
+  <div>
+    <WithStyles(ForwardRef(Snackbar))
+      action={
+        Array [
+          <ForwardRef(WithStyles)
+            aria-label="close"
+            color="inherit"
+          >
+            <Memo />
+          </ForwardRef(WithStyles)>,
+        ]
+      }
+      className="mb-3"
+      message={
+        <span
+          id="message-id"
+        >
+          
+        </span>
+      }
+      open={false}
+    >
+      <ForwardRef(Snackbar)
+        action={
+          Array [
+            <ForwardRef(WithStyles)
+              aria-label="close"
+              color="inherit"
+            >
+              <Memo />
+            </ForwardRef(WithStyles)>,
+          ]
+        }
+        className="mb-3"
+        classes={
+          Object {
+            "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
+            "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
+            "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
+            "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
+            "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
+            "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
+            "root": "MuiSnackbar-root",
+          }
+        }
+        message={
+          <span
+            id="message-id"
+          >
+            
+          </span>
+        }
+        open={false}
+      />
+    </WithStyles(ForwardRef(Snackbar))>
+  </div>
   <div
     className="form-inline py-4 no-gutters row"
   >

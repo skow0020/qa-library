@@ -22,6 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": " react-scripts build",
+    "test:snapshot:fix": "react-scripts test --testMatch **/*.snapshot.test.js",
     "test:snapshot": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-snapshot.xml react-scripts test --testMatch **/*.snapshot.test.js --reporters ./node_modules/jest-junit",
     "test:unit": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-unit.xml react-scripts test --testMatch **/*.unit.test.js --reporters ./node_modules/jest-junit",
     "test:accessibility": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-accessibility.xml react-scripts test --testMatch **/*.accessibility.test.js --reporters ./node_modules/jest-junit",
