@@ -1,5 +1,7 @@
-import { Alert } from "shards-react";
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 import React from "react";
+import Snackbar from '@material-ui/core/Snackbar';
 
 let showAlertFn;
 
@@ -11,7 +13,6 @@ export default class AlertModal extends React.Component {
     this.state = {
       visible: false,
       countdown: 0,
-      timeUntilDismissed: 3,
       message: ''
     };
 
@@ -23,9 +24,9 @@ export default class AlertModal extends React.Component {
     showAlertFn = this.showAlert;
   }
 
-  showAlert = ({ message }) => {
+  showAlert = ({ message, timeUntilDismissed }) => {
     this.clearInterval();
-    this.setState({ visible: true, countdown: 0, timeUntilDismissed: 5, message: message });
+    this.setState({ visible: true, countdown: 0, timeUntilDismissed: timeUntilDismissed || 2, message: message });
     this.interval = setInterval(this.handleTimeChange, 1000);
   };
 
@@ -48,23 +49,27 @@ export default class AlertModal extends React.Component {
   }
 
   render() {
-    const message = (
-      <span
-        id="alert-message-id"
-        dangerouslySetInnerHTML={{ __html: this.state.message }}
-      />
-    );
-
     return (
       <div>
-        <Alert className="mb-3" open={this.state.visible}>
-          {message}
-        </Alert>
+        <Snackbar
+          className="mb-3"
+          open={this.state.visible}
+          message={<span id="message-id">{this.state.message}</span>}
+          action={[
+            <IconButton
+              key="close"
+              aria-label="close"
+              color="inherit"
+            >
+              <CloseIcon />
+            </IconButton>
+          ]}
+        />
       </div>
     );
   }
 }
 
-export function showAlert( {message} ) {
-  showAlertFn( {message} );
+export function showAlert({ message, timeUntilDismissed }) {
+  showAlertFn({ message, timeUntilDismissed });
 }
