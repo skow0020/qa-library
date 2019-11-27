@@ -1,8 +1,8 @@
 import Books from './Books';
 import React from 'react';
 import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
 import { books } from './testData';
+import { shallow } from 'enzyme';
 
 describe('Books Accessibility Tests', () => {
   const state = {
@@ -12,7 +12,7 @@ describe('Books Accessibility Tests', () => {
     language: "Python"
   };
 
-  it('Books is accessible', async () => {
+  test('Books is accessible', async () => {
     const wrapper = shallow(<Books />);
     wrapper.setState(state);
 

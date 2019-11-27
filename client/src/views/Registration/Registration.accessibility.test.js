@@ -5,7 +5,7 @@ import { axe } from '../../setupTests';
 import { shallow } from 'enzyme';
 
 describe('Registration Accessibility Tests', () => {
-  it('Registration is accessible', async () => {
+  test('Registration is accessible', async () => {
     const wrapper = shallow(
       <Router>
         <Registration />

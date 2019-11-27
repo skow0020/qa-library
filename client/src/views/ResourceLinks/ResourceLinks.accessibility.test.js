@@ -1,8 +1,8 @@
 import React from 'react';
 import ResourceLinks from './ResourceLinks';
 import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
 import { resourceLinks } from './testData';
+import { shallow } from 'enzyme';
 
 describe('ResourceLinks Accessibility Tests', () => {
   const state = {
@@ -12,7 +12,7 @@ describe('ResourceLinks Accessibility Tests', () => {
     language: "Python"
   };
 
-  it('ResourceLinks is accessible', async () => {
+  test('ResourceLinks is accessible', async () => {
     const wrapper = shallow(<ResourceLinks />);
     wrapper.setState(state);
 

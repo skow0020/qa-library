@@ -5,7 +5,7 @@ import { axe } from '../../setupTests';
 import { shallow } from 'enzyme';
 
 describe('LibraryLogin Accessibility Tests', () => {
-  it('LibraryLogin is accessible', async () => {
+  test('LibraryLogin is accessible', async () => {
     const wrapper = shallow(
       <Router>
         <LibraryLogin />

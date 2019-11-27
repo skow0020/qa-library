@@ -4,7 +4,7 @@ import { axe } from '../../setupTests';
 import { shallow } from 'enzyme';
 
 describe('AddResourceLink Accessibility Tests', () => {
-  it('AddResourceLink is accessible', async () => {
+  test('AddResourceLink is accessible', async () => {
     const wrapper = shallow(<AddResourceLink />);
     expect(wrapper.length).toBe(1);
     const html = wrapper.html();

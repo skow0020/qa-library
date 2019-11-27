@@ -12,7 +12,7 @@ describe('Tutorials Accessibility Tests', () => {
     language: "Python"
   };
 
-  it('Tutorials is accessible', async () => {
+  test('Tutorials is accessible', async () => {
     const wrapper = shallow(<Tutorials />);
     wrapper.setState(state);
 
