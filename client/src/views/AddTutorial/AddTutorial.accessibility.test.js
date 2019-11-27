@@ -4,7 +4,7 @@ import { axe } from '../../setupTests';
 import { shallow } from 'enzyme';
 
 describe('AddTutorial Accessibility Tests', () => {
-  it('AddTutorial is accessible', async () => {
+  test('AddTutorial is accessible', async () => {
     const wrapper = shallow(<AddTutorial />);
     expect(wrapper.length).toBe(1);
     const html = wrapper.html();

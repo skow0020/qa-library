@@ -1,14 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageTitle Snapshot Tests Link changes the class when hovered 1`] = `
+exports[`Loading Snapshot Tests Loading snapshot 1`] = `
 <div
-  className="text-center text-md-left mb-sm-0 col-12 col-sm-4"
+  className="main-content-container px-4 pb-4 container-fluid"
 >
-  <span
-    className="text-uppercase page-subtitle"
-  />
-  <h3
-    className="page-title"
-  />
+  <div
+    className="error"
+  >
+    <div
+      className="error__content"
+    >
+      <h3>
+        Loading...
+      </h3>
+    </div>
+  </div>
 </div>
 `;

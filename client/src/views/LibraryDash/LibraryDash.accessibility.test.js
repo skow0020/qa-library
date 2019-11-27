@@ -1,9 +1,9 @@
 import LibraryDash from './LibraryDash';
 import React from 'react';
-import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
-import { inOfficeBooks } from './testData';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { axe } from '../../setupTests';
+import { inOfficeBooks } from './testData';
+import { shallow } from 'enzyme';
 
 describe('LibraryDash Accessibility Tests', () => {
   const state = {
@@ -12,7 +12,7 @@ describe('LibraryDash Accessibility Tests', () => {
     isLoading: false
   };
 
-  it('LibraryDash is accessible', async () => {
+  test('LibraryDash is accessible', async () => {
     const wrapper = shallow(
       <Router>
         <LibraryDash />

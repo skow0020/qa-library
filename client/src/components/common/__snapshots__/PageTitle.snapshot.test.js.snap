@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageTitle Snapshot Tests Link changes the class when hovered 1`] = `
+exports[`PageTitle Snapshot Tests PageTitle Snapshot 1`] = `
 <div
   className="text-center text-md-left mb-sm-0 col-12 col-sm-4"
 >

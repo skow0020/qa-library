@@ -1,8 +1,8 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
 import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
 import { inOfficeBook } from './testData';
+import { shallow } from 'enzyme';
 
 describe('InOfficeBook Accessibility Tests', () => {
   let props;
@@ -17,7 +17,7 @@ describe('InOfficeBook Accessibility Tests', () => {
     };
   });
 
-  it('InOfficeBook is accessible', async () => {
+  test('InOfficeBook is accessible', async () => {
     const state = {
       book: inOfficeBook,
       isLoading: false

@@ -4,7 +4,7 @@ import { axe } from '../../setupTests';
 import { shallow } from 'enzyme';
 
 describe('QADashboard Accessibility Tests', () => {
-  it('QADashboard is accessible', async () => {
+  test('QADashboard is accessible', async () => {
     const wrapper = shallow(<QADashboard />);
     expect(wrapper.length).toBe(1);
     const html = wrapper.html();
