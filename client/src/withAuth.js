@@ -16,10 +16,7 @@ export default function withAuth(ComponentToProtect) {
       fetch('/checkToken')
         .then(res => {
           if (res.status === 200) this.setState({ loading: false });
-          else {
-            const error = new Error(res.error);
-            throw error;
-          }
+          else throw new Error(res.error);
         })
         .catch(() => {
           this.setState({ loading: false, redirect: true });

@@ -57,7 +57,7 @@ export default function SignIn() {
   }
 
   const classes = useStyles();
-  if (authenticated) return <Redirect to='/' />;
+  if (authenticated) return <Redirect to='/qa-dashboard' />;
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
