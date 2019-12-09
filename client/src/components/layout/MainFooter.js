@@ -1,56 +1,42 @@
-import { Container, Nav, NavItem, NavLink, Row } from "shards-react";
-
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/components/footerStyle.js";
 
-const MainFooter = ({ contained, menuItems, copyright }) => (
-  <footer className="main-footer d-flex p-2 px-3 bg-white border-top">
-    <Container fluid={contained}>
-      <Row>
-        <Nav className="nav-footer">
-          {menuItems.map((item, idx) => (
-            <NavItem key={idx}>
-              <NavLink tag={Link} to={item.to}>
-                {item.title}
-              </NavLink>
-            </NavItem>
-          ))}
-        </Nav>
-        <span className="copyright ml-auto my-auto mr-2">{copyright}</span>
-      </Row>
-    </Container>
-  </footer>
-);
+const useStyles = makeStyles(styles);
 
-MainFooter.propTypes = {
-  /**
-   * Whether the content is contained, or not.
-   */
-  contained: PropTypes.bool,
-  /**
-   * The menu items array.
-   */
-  menuItems: PropTypes.array,
-  /**
-   * The copyright info.
-   */
-  copyright: PropTypes.string
-};
-
-MainFooter.defaultProps = {
-  contained: false,
-  copyright: "Copyright © 2018 DesignRevision",
-  menuItems: [
-    {
-      title: "Home",
-      to: "/qa-dashboard"
-    },
-    {
-      title: "About",
-      to: "/info"
-    }
-  ]
-};
-
-export default MainFooter;
+export default function Footer() {
+  const classes = useStyles();
+  return (
+    <footer className={classes.footer}>
+      <div className={classes.container}>
+        <div className={classes.left}>
+          <List className={classes.list}>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/qa-dashboard" className={classes.block}>
+                Home
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/info" className={classes.block}>
+                Info
+              </a>
+            </ListItem>
+          </List>
+        </div>
+        <p className={classes.right}>
+          &copy; {1900 + new Date().getYear()}{" "}
+          <a
+            href="https://www.github.com/skow0020"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={classes.a}
+          >
+            Colin Skow
+          </a>
+        </p>
+      </div>
+    </footer>
+  );
+}

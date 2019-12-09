@@ -8,8 +8,8 @@ const LanguagesSelection = (props) => {
     <Col>
       <label className="text-muted font-weight-bold px-2" htmlFor="language">Languages</label>
       <FormSelect id="language" type="text" {...props}>
-        {Store.getLanguages().map((option, idx) => (
-          <option key={`language-option-${idx}`}>{option.name}</option>
+        {Store.getLanguages().map((language, idx) => (
+          <option key={`language-option-${idx}`}>{language}</option>
         ))}
       </FormSelect>
     </Col>

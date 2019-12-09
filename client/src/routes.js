@@ -4,8 +4,15 @@ import AddResourceLink from "./views/AddResourceLink/AddResourceLink";
 import AddTutorial from "./views/AddTutorial/AddTutorial";
 import Articles from "./views/Articles/Articles";
 import Books from "./views/Books/Books";
+import Dashboard from "@material-ui/icons/Dashboard";
 import { DefaultLayout } from "./layouts";
 import ExampleRepos from "./views/ExampleRepos/ExampleRepos";
+import IconFolderOpen from "@material-ui/icons/FolderOpen";
+import IconGitHub from "@material-ui/icons/GitHub";
+import IconLibraryBooks from "@material-ui/icons/LibraryBooks";
+import IconLink from "@material-ui/icons/Link";
+import IconLocalLibrary from "@material-ui/icons/LocalLibrary";
+import IconQuestionAnswer from "@material-ui/icons/QuestionAnswer";
 import InOfficeBook from "./views/InOfficeBook/InOfficeBook";
 import Info from "./views/Info/Info";
 import LibraryDash from "./views/LibraryDash/LibraryDash";
@@ -19,60 +26,70 @@ import Tutorials from "./views/Tutorials/Tutorials";
 
 export default [
   {
-    path: "/",
-    exact: true,
-    layout: DefaultLayout,
-    component: () => <Redirect to="/qa-dashboard" />
-  },
-  {
     path: "/qa-dashboard",
     layout: DefaultLayout,
-    component: QADashboard
+    component: QADashboard,
+    name: "Dashboard",
+    icon: Dashboard
   },
   {
     path: "/resource-links",
     layout: DefaultLayout,
-    component: ResourceLinks
+    component: ResourceLinks,
+    name: "Resource Links",
+    icon: IconLink
   },
   {
     path: "/example-repos",
     layout: DefaultLayout,
-    component: ExampleRepos
+    component: ExampleRepos,
+    name: "Example Repos",
+    icon: IconGitHub
   },
   {
     path: "/articles",
     layout: DefaultLayout,
-    component: Articles
+    component: Articles,
+    name: "Articles",
+    icon: IconFolderOpen
   },
   {
     path: "/tutorials",
     layout: DefaultLayout,
-    component: Tutorials
+    component: Tutorials,
+    name: "Tutorials",
+    icon: IconQuestionAnswer
   },
   {
     path: "/books",
     layout: DefaultLayout,
-    component: Books
+    component: Books,
+    name: "Books",
+    icon: IconLibraryBooks
   },
   {
     path: "/add-book",
     layout: DefaultLayout,
-    component: AddBook
+    component: AddBook,
+    name: "Add Book"
   },
   {
     path: "/add-article",
     layout: DefaultLayout,
-    component: AddArticle
+    component: AddArticle,
+    name: "Add Article"
   },
   {
     path: "/add-resourceLink",
     layout: DefaultLayout,
-    component: AddResourceLink
+    component: AddResourceLink,
+    name: "Add Resource Link"
   },
   {
     path: "/add-tutorial",
     layout: DefaultLayout,
-    component: AddTutorial
+    component: AddTutorial,
+    name: "Add Tutorial"
   },
   {
     path: "/info",
@@ -82,17 +99,27 @@ export default [
   {
     path: "/search",
     layout: DefaultLayout,
-    component: Search
+    component: Search,
+    name: "Search"
   },
   {
     path: "/library",
     layout: DefaultLayout,
-    component: LibraryDash
+    component: LibraryDash,
+    name: "Library Dashboard",
+    icon: IconLocalLibrary
   },
   {
     path: "/officeBook/:office_book_id",
     layout: DefaultLayout,
-    component: InOfficeBook
+    component: InOfficeBook,
+    name: "In-Office Book"
+  },
+  {
+    path: "/",
+    exact: true,
+    layout: DefaultLayout,
+    component: () => <Redirect to="/qa-dashboard" />
   },
   {
     component: NotFound,
