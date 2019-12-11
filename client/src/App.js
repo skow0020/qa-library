@@ -4,7 +4,6 @@ import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import LibraryLogin from "./views/LibraryLogin/LibraryLogin";
-import { LoginLayout } from "./layouts";
 import React from "react";
 import Registration from "./views/Registration/Registration";
 import routes from "./routes";
@@ -14,8 +13,8 @@ export default () => (
   <Router basename={process.env.REACT_APP_BASENAME || ""}>
     <div>
       <Switch>
-        <Route path="/library-login" component={LibraryLogin} layout={LoginLayout} />
-        <Route path="/registration" component={Registration} layout={LoginLayout} />
+        <Route path="/library-login" component={LibraryLogin}/>
+        <Route path="/registration" component={Registration}/>
         {routes.map((route, index) => {
           return (
             <Route
