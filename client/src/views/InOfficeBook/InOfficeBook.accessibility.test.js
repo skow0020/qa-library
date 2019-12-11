@@ -1,6 +1,6 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { inOfficeBook } from './testData';
 import { shallow } from 'enzyme';
 

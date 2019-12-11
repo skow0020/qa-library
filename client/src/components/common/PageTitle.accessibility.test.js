@@ -1,6 +1,6 @@
 import PageTitle from './PageTitle';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('PageTitle Accessibility Tests', () => {

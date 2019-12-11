@@ -1,4 +1,4 @@
-import AlertModal, { showAlert } from "../../components/common/AlertModal";
+import AlertModal, { showAlert } from "components/common/AlertModal";
 import {
   Badge,
   Button,
@@ -12,15 +12,15 @@ import {
   Row
 } from "shards-react";
 
-import CategoriesSelection from "../../components/common/CategoriesSelection";
+import CategoriesSelection from "components/common/CategoriesSelection";
 import { Link } from "react-router-dom";
-import LoadError from "../../components/common/LoadError";
-import Loading from "../../components/common/Loading";
-import PageTitle from "../../components/common/PageTitle";
+import LoadError from "components/common/LoadError";
+import Loading from "components/common/Loading";
+import PageTitle from "components/common/PageTitle";
 import React from "react";
 import { Store } from "../../flux";
 import axios from "axios";
-import { getCategoryTheme } from "../../utils/util";
+import { getCategoryTheme } from "utils/util";
 import queryString from 'query-string';
 
 class LibraryDash extends React.Component {

@@ -1,7 +1,7 @@
 import LibraryDash from './LibraryDash';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { inOfficeBooks } from './testData';
 import { shallow } from 'enzyme';
 

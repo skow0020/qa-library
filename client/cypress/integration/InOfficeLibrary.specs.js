@@ -17,6 +17,7 @@ context('In Office Library', () => {
       cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkInButton).click();
+      cy.get(inOfficeBook.checkInButton).click();
 
       cy.on('window:confirm', (str) => {
         expect(str).to.equal(`Unable to check in book: Request must include a user`);

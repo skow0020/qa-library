@@ -1,6 +1,6 @@
 import AddResourceLink from './AddResourceLink';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('AddResourceLink Accessibility Tests', () => {

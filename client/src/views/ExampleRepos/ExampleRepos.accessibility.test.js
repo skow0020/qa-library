@@ -1,6 +1,6 @@
 import ExampleRepos from './ExampleRepos';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('ExampleRepos Accessibility Tests', () => {

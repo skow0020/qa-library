@@ -1,7 +1,7 @@
 import React from 'react';
 import Registration from './Registration';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('Registration Accessibility Tests', () => {

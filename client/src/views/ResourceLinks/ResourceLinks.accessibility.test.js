@@ -1,6 +1,6 @@
 import React from 'react';
 import ResourceLinks from './ResourceLinks';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { resourceLinks } from './testData';
 import { shallow } from 'enzyme';
 

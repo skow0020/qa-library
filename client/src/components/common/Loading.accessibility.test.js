@@ -1,6 +1,6 @@
 import Loading from './Loading';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('Loading Accessibility Tests', () => {
