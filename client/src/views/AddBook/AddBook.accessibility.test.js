@@ -1,6 +1,6 @@
 import AddBook from './AddBook';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('AddBook Accessibility Tests', () => {

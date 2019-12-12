@@ -50,7 +50,10 @@ context('Tutorials', () => {
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.tutorials).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightTutorials).click();
+  }
+  else cy.get(sideBar.tutorials).click();
   cy.get(common.pageTitle).should('have.text', 'Tutorials');
 };

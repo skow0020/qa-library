@@ -1,6 +1,6 @@
 import QADashboard from './QADashboard';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('QADashboard Accessibility Tests', () => {

@@ -53,7 +53,10 @@ context('Articles', () => {
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.articles).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightArticles).click();
+  }
+  else cy.get(sideBar.articles).click();
   cy.get(common.pageTitle).should('have.text', 'Articles');
 };

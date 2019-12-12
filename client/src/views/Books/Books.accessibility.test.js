@@ -1,6 +1,6 @@
 import Books from './Books';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { books } from './testData';
 import { shallow } from 'enzyme';
 

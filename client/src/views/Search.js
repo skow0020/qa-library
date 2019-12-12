@@ -8,9 +8,9 @@ import {
   Row
 } from "shards-react";
 
+import PageTitle from "components/common/PageTitle";
 import React from 'react';
-import SearchResults from '../components/common/SearchResults';
-import PageTitle from "../components/common/PageTitle";
+import SearchResults from 'components/common/SearchResults';
 import axios from 'axios';
 
 class Search extends React.Component {

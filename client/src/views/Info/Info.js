@@ -3,7 +3,7 @@ import React from "react";
 
 class Info extends React.Component {
   state = {
-    backgroundImage: require("../../images/code1.jpg")
+    backgroundImage: require("images/code1.jpg")
   };
   render() {
     const { backgroundImage } = this.state;

@@ -12,11 +12,11 @@ import {
   Row
 } from "shards-react";
 
-import LanguagesSelection from "../../components/common/LanguagesSelection";
-import LoadError from "../../components/common/LoadError";
-import PageTitle from "../../components/common/PageTitle";
+import LanguagesSelection from "components/common/LanguagesSelection";
+import LoadError from "components/common/LoadError";
+import PageTitle from "components/common/PageTitle";
 import React from "react";
-import { getLanguageTheme } from "../../utils/util";
+import { getLanguageTheme } from "utils/util";
 
 class ExampleRepos extends React.Component {
   constructor(props) {

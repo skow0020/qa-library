@@ -41,6 +41,7 @@ export default function MainNavbar(props) {
         </Hidden>
         <Hidden mdUp implementation="css">
           <IconButton
+            id="mobile-menu"
             color="inherit"
             aria-label="open drawer"
             onClick={props.handleDrawerToggle}

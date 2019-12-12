@@ -38,7 +38,7 @@ exports[`LibraryLogin Snapshot Tests LibraryLogin snapshot 1`] = `
           className="mb-3"
           message={
             <span
-              id="message-id"
+              id="alert-message-id"
             >
               
             </span>
@@ -70,7 +70,7 @@ exports[`LibraryLogin Snapshot Tests LibraryLogin snapshot 1`] = `
             }
             message={
               <span
-                id="message-id"
+                id="alert-message-id"
               >
                 
               </span>

@@ -28,7 +28,10 @@ context('Example Repos', () => {
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.exampleRepos).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightExampleRepos).click();
+  }
+  else cy.get(sideBar.exampleRepos).click();
   cy.get(common.pageTitle).should('have.text', 'Example Repos');
 };

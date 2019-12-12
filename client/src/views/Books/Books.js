@@ -13,11 +13,11 @@ import {
   Row
 } from "shards-react";
 
-import CategoriesSelection from "../../components/common/CategoriesSelection";
-import LanguagesSelection from "../../components/common/LanguagesSelection";
-import LoadError from "../../components/common/LoadError";
-import Loading from "../../components/common/Loading";
-import PageTitle from "../../components/common/PageTitle";
+import CategoriesSelection from "components/common/CategoriesSelection";
+import LanguagesSelection from "components/common/LanguagesSelection";
+import LoadError from "components/common/LoadError";
+import Loading from "components/common/Loading";
+import PageTitle from "components/common/PageTitle";
 import React from "react";
 import { getCategoryTheme } from "../../utils/util";
 

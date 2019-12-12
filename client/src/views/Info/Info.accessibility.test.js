@@ -1,6 +1,6 @@
 import Info from './Info';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('Info Accessibility Tests', () => {

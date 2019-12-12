@@ -1,6 +1,6 @@
 import AddTutorial from './AddTutorial';
 import React from 'react';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('AddTutorial Accessibility Tests', () => {

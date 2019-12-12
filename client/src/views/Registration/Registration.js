@@ -1,12 +1,12 @@
-import AlertModal, { showAlert } from "../../components/common/AlertModal";
+import AlertModal, { showAlert } from "components/common/AlertModal";
 import React, { useState } from 'react';
 
 import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import Colors from '../../utils/Colors';
+import Colors from 'utils/Colors';
 import Container from '@material-ui/core/Container';
-import Copyright from '../../components/common/Copyright';
+import Copyright from 'components/common/Copyright';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';

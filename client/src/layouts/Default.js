@@ -2,15 +2,15 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import { Route, Switch } from "react-router-dom";
 
-import MainFooter from "../components/layout/MainFooter";
-import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
-import MainSidebar from "../components/layout/MainSidebar";
+import MainFooter from "components/layout/MainFooter";
+import MainNavbar from "components/layout/MainNavbar/MainNavbar";
+import MainSidebar from "components/layout/MainSidebar";
 import PerfectScrollbar from "perfect-scrollbar";
 import React from "react";
-import bgImage from "../images/lib1.jpg";
-import logo from "../images/book-logo.svg";
+import bgImage from "images/lib1.jpg";
+import logo from "images/book-logo.svg";
 import { makeStyles } from '@material-ui/core/styles';
-import routes from "../routes.js";
+import routes from "routes.js";
 import withAuth from "withAuth";
 
 let ps;
@@ -122,7 +122,7 @@ export default function DefaultLayout({ ...rest }) {
         />
         <div className={classes.content}>
           <div className={classes.container}>{switchRoutes}</div>
-        </div>f
+        </div>
         <MainFooter />
       </div>
     </div>

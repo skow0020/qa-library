@@ -51,7 +51,10 @@ context('Resource Links', () => {
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.resourceLinks).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightResourceLinks).click();
+  }
+  else cy.get(sideBar.resourceLinks).click();
   cy.get(common.pageTitle).should('have.text', 'Resource Links');
 };

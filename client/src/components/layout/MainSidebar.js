@@ -40,6 +40,7 @@ export default function MainSidebar(props) {
 
           return (
             <NavLink
+              id={prop.name.replace(/ /g,'-').toLowerCase()}
               to={prop.path}
               onClick={closeIfMobile}
               className={classes.item}
@@ -77,6 +78,7 @@ export default function MainSidebar(props) {
     <div>
       <Hidden mdUp implementation="css">
         <Drawer
+          id="right-sidebar"
           variant="temporary"
           anchor="right"
           open={props.open}

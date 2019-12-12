@@ -1,4 +1,4 @@
-import Button from '../../common/Button';
+import Button from 'components/common/Button';
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import { Link } from "react-router-dom";
@@ -33,13 +33,14 @@ export default function NavbarLinks() {
   return (
     <div>
       <div className={classes.searchWrapper}>
-        <Button color="white" aria-label="edit" justIcon round href='/search'>
+        <Button id='search-button' color="white" aria-label="edit" justIcon round href='/search'>
           <Search />
         </Button>
       </div>
 
       <div className={classes.manager}>
         <Button
+          id="user-avatar"
           color={window.innerWidth > 959 ? "transparent" : "white"}
           justIcon={window.innerWidth > 959}
           simple={!(window.innerWidth > 959)}

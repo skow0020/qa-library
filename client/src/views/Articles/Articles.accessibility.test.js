@@ -1,7 +1,7 @@
 import Articles from './Articles';
 import React from 'react';
 import { articles } from './testData';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 
 describe('Articles Accessibility Tests', () => {

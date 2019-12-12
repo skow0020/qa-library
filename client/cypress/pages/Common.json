@@ -1,6 +1,6 @@
 {
     "pageTitle": ".page-title",
     "submit": "#submit",
-    "navLink": ".main-navbar.sticky-top .toggle-sidebar",
+    "navLink": "#mobile-menu",
     "alertModal": "#alert-message-id"
 }

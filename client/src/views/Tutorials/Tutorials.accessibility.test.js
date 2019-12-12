@@ -1,6 +1,6 @@
 import React from 'react';
 import Tutorials from './Tutorials';
-import { axe } from '../../setupTests';
+import { axe } from 'setupTests';
 import { shallow } from 'enzyme';
 import { tutorials } from './testData';
 

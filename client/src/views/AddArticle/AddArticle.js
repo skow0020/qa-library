@@ -1,6 +1,6 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
-import AlertModal, { showAlert } from "../../components/common/AlertModal";
+import AlertModal, { showAlert } from "components/common/AlertModal";
 import {
   Button,
   Col,
@@ -11,9 +11,9 @@ import {
   Row
 } from "shards-react";
 
-import CategoriesSelection from "../../components/common/CategoriesSelection";
-import LanguagesSelection from "../../components/common/LanguagesSelection";
-import PageTitle from "../../components/common/PageTitle";
+import CategoriesSelection from "components/common/CategoriesSelection";
+import LanguagesSelection from "components/common/LanguagesSelection";
+import PageTitle from "components/common/PageTitle";
 import React from "react";
 import axios from "axios";
 

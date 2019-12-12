@@ -48,7 +48,10 @@ context('In Office Library', () => {
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.inOfficeLibrary).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightInOfficeLibrary).click();
+  }
+  else cy.get(sideBar.inOfficeLibrary).click();
   cy.get(common.pageTitle).should('have.text', 'In-Office Library');
 };
