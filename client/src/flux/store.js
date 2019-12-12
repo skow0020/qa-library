@@ -1,8 +1,7 @@
-import Constants from "./constants";
+import Constants, { CategoryOptions, Languages } from "./constants";
+
 import Dispatcher from "./dispatcher";
 import { EventEmitter } from "events";
-import getCategoryOptions from "../data/category-options";
-import getLanguages from "../data/languages";
 import getSidebarNavItems from "../data/sidebar-nav-items";
 
 let _store = {
@@ -10,8 +9,8 @@ let _store = {
   user: null,
   avatarUrl: null,
   navItems: getSidebarNavItems(),
-  categoryOptions: getCategoryOptions(),
-  languages: getLanguages()
+  categoryOptions: CategoryOptions(),
+  languages: Languages()
 };
 
 class Store extends EventEmitter {

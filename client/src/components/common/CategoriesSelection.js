@@ -8,8 +8,8 @@ const CategoriesSelection = (props) => {
     <Col >
       <label className="text-muted font-weight-bold px-2" htmlFor="category">Categories</label>
       <FormSelect id="category" type="text" {...props}>
-        {Store.getCategoryOptions().map((option, idx) => (
-          <option key={`category-option-${idx}`}>{option.title}</option>
+        {Store.getCategoryOptions().map((category, idx) => (
+          <option key={`category-option-${idx}`}>{category}</option>
         ))}
       </FormSelect>
     </Col>
