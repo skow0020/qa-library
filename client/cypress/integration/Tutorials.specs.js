@@ -6,7 +6,7 @@ import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 import * as tutorials from '../pages/Tutorials.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Tutorials', () => {
   sizes.forEach((size) => {
@@ -18,7 +18,8 @@ context('Tutorials', () => {
       cy.get(addTutorial.title).type(data.title).should('have.value', data.title);
       cy.get(addTutorial.url).type(data.url).should('have.value', data.url);
       cy.get(addTutorial.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
-      cy.get(addTutorial.category).select(data.category).should('have.value', data.category);
+      selectDropdown(addTutorial.category, data.category);
+      cy.get(addTutorial.category).should('have.text', data.category);
       cy.get(addTutorial.description).type(data.description).should('have.value', data.description);
       cy.get(common.submit).click();
       cy.get(common.alertModal).should('have.text', 'Tutorial added successfully');
@@ -31,9 +32,9 @@ context('Tutorials', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(tutorials.category).select('API Automation');
+      selectDropdown(tutorials.category, 'API Automation');
       cy.get(tutorials.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(tutorials.category).select('Databases');
+      selectDropdown(tutorials.category, 'Databases');
       cy.get(tutorials.cardPosts).should('have.length', 0);
     });
 
@@ -41,9 +42,9 @@ context('Tutorials', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(tutorials.language).select('Java');
+      selectDropdown(tutorials.language, 'Java');
       cy.get(tutorials.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(tutorials.language).select('Cpp');
+      selectDropdown(tutorials.language, 'Cpp');
       cy.get(tutorials.cardPosts).should('have.length', 0);
     });
   });

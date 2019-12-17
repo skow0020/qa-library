@@ -1,19 +1,32 @@
-import { Col, FormSelect } from "shards-react";
-
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
+import Select from '@material-ui/core/Select';
 import { Store } from "../../flux";
+import { makeStyles } from '@material-ui/core/styles';
 
-const CategoriesSelection = (props) => {
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
+  }
+}));
+
+export default function CategoriesSelection(props) {
+  const classes = useStyles();
+
   return (
-    <Col >
-      <label className="text-muted font-weight-bold px-2" htmlFor="category">Categories</label>
-      <FormSelect id="category" type="text" {...props}>
+    <FormControl className={classes.formControl}>
+      <InputLabel htmlFor="category">Categories</InputLabel>
+      <Select type="text" onChange={props.onChange} {...props}>
         {Store.getCategoryOptions().map((category, idx) => (
-          <option key={`category-option-${idx}`}>{category}</option>
+          <MenuItem key={`category-option-${idx}`} value={category}>{category}</MenuItem>
         ))}
-      </FormSelect>
-    </Col>
+      </Select>
+    </FormControl>
   );
 };
-
-export default CategoriesSelection;

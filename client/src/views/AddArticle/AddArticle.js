@@ -33,10 +33,20 @@ class AddArticle extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handleLanguageChange = this.handleLanguageChange.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
+  }
+
+  handleCategoryChange(e) {
+    this.setState({ category: e.target.value });
+  }
+
+  handleLanguageChange(e) {
+    this.setState({ language: e.target.value });
   }
 
   handleSubmit(event) {
@@ -73,6 +83,8 @@ class AddArticle extends React.Component {
   }
 
   render() {
+    const { url, title, author, backgroundImage, body, category, language } = this.state;
+
     return (
       <Container fluid className="main-content-container px-4">
         <AlertModal />
@@ -85,21 +97,21 @@ class AddArticle extends React.Component {
           </Row>
 
           <label className="text-muted font-weight-bold" htmlFor="title">Article Title</label>
-          <FormInput id="title" type="text" value={this.state.title} onChange={this.handleChange} required />
+          <FormInput id="title" type="text" value={title} onChange={this.handleChange} required />
           <Row form>
             <Col md="4" className="form-group">
               <label className="text-muted font-weight-bold" htmlFor="author">Article Author</label>
-              <FormInput id="author" type="text" value={this.state.author} onChange={this.handleChange} required />
+              <FormInput id="author" type="text" value={author} onChange={this.handleChange} required />
             </Col>
-            <LanguagesSelection value={this.state.language} onChange={this.handleChange}/>
-            <CategoriesSelection value={this.state.category} onChange={this.handleChange} required />
+            <LanguagesSelection id="langauge" value={language} onChange={this.handleLanguageChange} />
+            <CategoriesSelection id="category" value={category} onChange={this.handleCategoryChange} required />
           </Row>
           <label className="text-muted font-weight-bold" htmlFor="url">Article URL</label>
-          <FormInput id="url" type="text" value={this.state.url} onChange={this.handleChange} required />
+          <FormInput id="url" type="text" value={url} onChange={this.handleChange} required />
           <label className="text-muted font-weight-bold" htmlFor="backgroundImage">Background Image URL</label>
-          <FormInput id="backgroundImage" type="text" value={this.state.backgroundImage} onChange={this.handleChange} required />
+          <FormInput id="backgroundImage" type="text" value={backgroundImage} onChange={this.handleChange} required />
           <label className="text-muted font-weight-bold" htmlFor="body">Article Description</label>
-          <FormTextarea id="body" type="textarea" style={{ height: "150px" }} value={this.state.body} onChange={this.handleChange} />
+          <FormTextarea id="body" type="textarea" style={{ height: "150px" }} value={body} onChange={this.handleChange} />
         </Form>
       </Container>
     );

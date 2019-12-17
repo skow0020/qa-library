@@ -6,7 +6,6 @@ import {
   CardBody,
   Col,
   Container,
-  Form,
   FormGroup,
   FormInput,
   Row
@@ -98,13 +97,11 @@ class ExampleRepos extends React.Component {
       <Container fluid className="main-content-container px-4">
         <Row noGutters className="form-inline py-2">
           <PageTitle sm="8" title="Example Repos" className="text-sm-left" />
-          <Form id='filter-form' onSubmit={this.handleGithubAccountSubmit}>
-            <FormGroup >
-              <label className="text-muted font-weight-bold px-2" htmlFor="github-account">Github Account</label>
-              <FormInput id="github-account" type="text" value={this.state.githubAccount} onChange={this.handleGithubAccountChange} required />
-              <LanguagesSelection value={this.state.language} onChange={this.handleFilterChange} />
-            </FormGroup>
-          </Form>
+          <FormGroup id='filter-form' onSubmit={this.handleGithubAccountSubmit}>
+            <label className="text-muted font-weight-bold px-2" htmlFor="github-account">Github Account</label>
+            <FormInput id="github-account" type="text" value={this.state.githubAccount} onChange={this.handleGithubAccountChange} required />
+            <LanguagesSelection id="language" value={this.state.language} onChange={this.handleFilterChange} />
+          </FormGroup>
         </Row>
 
         <span className="text-uppercase page-subtitle">{this.state.githubAccountName} Repos</span>

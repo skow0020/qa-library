@@ -1,6 +1,6 @@
 import React from 'react';
 import Tutorials from './Tutorials';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { tutorials } from './testData';
 
 describe('Tutorials Unit Tests', () => {
@@ -12,12 +12,12 @@ describe('Tutorials Unit Tests', () => {
   };
 
   test('Tutorials renders', () => {
-    const wrapper = mount(<Tutorials />);
+    const wrapper = shallow(<Tutorials />);
     wrapper.setState(state);
 
     expect(wrapper.length).toBe(1);
-    expect(wrapper.find('select#category').props().value).toBe("UI Automation");
-    expect(wrapper.find('select#language').props().value).toBe("Python");
+    expect(wrapper.find('#category').props().value).toBe("UI Automation");
+    expect(wrapper.find('#language').props().value).toBe("Python");
     expect(wrapper.find('.card-title').length).toBe(2);
   });
 });

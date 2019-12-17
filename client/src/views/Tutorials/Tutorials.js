@@ -7,7 +7,6 @@ import {
   CardBody,
   Col,
   Container,
-  Form,
   FormGroup,
   Row
 } from "shards-react";
@@ -25,7 +24,9 @@ class Tutorials extends React.Component {
     super(props);
     this.state = {
       tutorials: [],
-      isLoading: false
+      isLoading: false,
+      category: '',
+      language: ''
     };
 
     this.getTutorials = this.getTutorials.bind(this);
@@ -83,12 +84,10 @@ class Tutorials extends React.Component {
           </Button>
         </Row>
         <Row noGutters className="form-inline py-2">
-          <Form id='filtering-form'>
-            <FormGroup >
-              <CategoriesSelection value={category} onChange={this.handleFilterChange} />
-              <LanguagesSelection value={language} onChange={this.handleLanguageChange} />
-            </FormGroup>
-          </Form>
+          <FormGroup id='filtering-form'>
+            <CategoriesSelection id="category" value={category} onChange={this.handleFilterChange} />
+            <LanguagesSelection id="language" value={language} onChange={this.handleLanguageChange} />
+          </FormGroup>
         </Row>
         <Row>
           {tutorials.map((post, idx) => (

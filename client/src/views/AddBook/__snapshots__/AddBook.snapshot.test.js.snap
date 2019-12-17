@@ -70,85 +70,103 @@ exports[`AddBook Snapshot Tests AddBook snapshot 1`] = `
         />
       </div>
       <div
-        className="col"
+        className="MuiFormControl-root makeStyles-formControl-8"
       >
         <label
-          className="text-muted font-weight-bold px-2"
-          htmlFor="language"
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+          data-shrink={false}
+          htmlFor="language-selection"
         >
           Languages
         </label>
-        <select
-          className="form-control custom-select"
-          id="language"
-          onChange={[Function]}
-          type="text"
-          value=""
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
         >
-          <option />
-          <option>
-            Java
-          </option>
-          <option>
-            CSharp
-          </option>
-          <option>
-            Python
-          </option>
-          <option>
-            Ruby
-          </option>
-          <option>
-            JavaScript
-          </option>
-          <option>
-            Cpp
-          </option>
-          <option>
-            Swift
-          </option>
-        </select>
+          <div
+            aria-haspopup="listbox"
+            aria-labelledby=" category"
+            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+            id="category"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "&#8203;",
+                }
+              }
+            />
+          </div>
+          <input
+            onAnimationStart={[Function]}
+            type="hidden"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root MuiSelect-icon"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
       </div>
       <div
-        className="col"
+        className="MuiFormControl-root makeStyles-formControl-91"
       >
         <label
-          className="text-muted font-weight-bold px-2"
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+          data-shrink={true}
           htmlFor="category"
         >
           Categories
         </label>
-        <select
-          className="form-control custom-select"
-          id="category"
-          onChange={[Function]}
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
           required={true}
-          type="text"
-          value="General"
         >
-          <option />
-          <option>
+          <div
+            aria-haspopup="listbox"
+            aria-labelledby=" language"
+            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+            id="language"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
             General
-          </option>
-          <option>
-            UI Automation
-          </option>
-          <option>
-            API Automation
-          </option>
-          <option>
-            Unit Testing
-          </option>
-          <option>
-            DevOps
-          </option>
-          <option>
-            Development
-          </option>
-          <option>
-            Databases
-          </option>
-        </select>
+          </div>
+          <input
+            onAnimationStart={[Function]}
+            type="hidden"
+            value="General"
+          />
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root MuiSelect-icon"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
       </div>
     </div>
     <label
@@ -190,6 +208,24 @@ exports[`AddBook Snapshot Tests AddBook snapshot 1`] = `
       id="pdf"
       onChange={[Function]}
       type="text"
+      value=""
+    />
+    <label
+      className="text-muted font-weight-bold"
+      htmlFor="body"
+    >
+      Book Description
+    </label>
+    <textarea
+      className="form-control"
+      id="body"
+      onChange={[Function]}
+      style={
+        Object {
+          "height": "150px",
+        }
+      }
+      type="textarea"
       value=""
     />
   </form>

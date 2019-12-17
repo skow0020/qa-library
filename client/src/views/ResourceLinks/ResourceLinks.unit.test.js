@@ -1,7 +1,7 @@
 import React from 'react';
 import ResourceLinks from './ResourceLinks';
-import { mount } from 'enzyme';
 import { resourceLinks } from './testData';
+import { shallow } from 'enzyme';
 
 describe('ResourceLinks Unit Tests', () => {
   const state = {
@@ -12,12 +12,12 @@ describe('ResourceLinks Unit Tests', () => {
   };
 
   test('ResourceLinks renders', () => {
-    const wrapper = mount(<ResourceLinks />);
+    const wrapper = shallow(<ResourceLinks />);
     wrapper.setState(state);
 
     expect(wrapper.length).toBe(1);
-    expect(wrapper.find('select#category').props().value).toBe("UI Automation");
-    expect(wrapper.find('select#language').props().value).toBe("Python");
+    expect(wrapper.find('#category').props().value).toBe("UI Automation");
+    expect(wrapper.find('#language').props().value).toBe("Python");
     expect(wrapper.find('.card-title').length).toBe(2);
   });
 });

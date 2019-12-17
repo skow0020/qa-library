@@ -8,7 +8,6 @@ import {
   CardFooter,
   Col,
   Container,
-  Form,
   FormGroup,
   Row
 } from "shards-react";
@@ -27,7 +26,9 @@ class Books extends React.Component {
     this.state = {
       books: [],
       isLoading: false,
-      filter: null
+      filter: null,
+      category: '',
+      language: ''
     };
 
     this.getBooks = this.getBooks.bind(this);
@@ -89,12 +90,10 @@ class Books extends React.Component {
           </Button>
         </Row>
         <Row noGutters className="form-inline py-2">
-          <Form id='filtering-form' className='filters'>
-            <FormGroup >
-              <CategoriesSelection value={category} onChange={this.handleFilterChange} /> 
-              <LanguagesSelection value={language} onChange={this.handleLanguageChange} />
-            </FormGroup>
-          </Form>
+          <FormGroup id='filtering-form'>
+            <CategoriesSelection id="category" value={category} onChange={this.handleFilterChange} />
+            <LanguagesSelection id="language" value={language} onChange={this.handleLanguageChange} />
+          </FormGroup>
         </Row>
 
         <Row>

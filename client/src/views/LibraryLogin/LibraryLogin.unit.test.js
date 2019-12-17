@@ -20,6 +20,7 @@ describe('LibraryDash Unit Tests', () => {
         <LibraryLogin />
       </Router>
     );
+
     const input = wrapper.find('input#email');
     input.instance().value = 'cskow@tapqa.com';
 

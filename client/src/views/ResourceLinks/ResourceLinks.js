@@ -7,7 +7,6 @@ import {
   CardBody,
   Col,
   Container,
-  Form,
   FormGroup,
   Row
 } from "shards-react";
@@ -26,7 +25,9 @@ class ResourceLinks extends React.Component {
     this.state = {
       resourceLinks: [],
       isLoading: false,
-      filter: null
+      filter: null,
+      category: '',
+      language: ''
     };
 
     this.getResourceLinks = this.getResourceLinks.bind(this);
@@ -84,12 +85,10 @@ class ResourceLinks extends React.Component {
           </Button>
         </Row>
         <Row noGutters className="form-inline py-2">
-          <Form id='filtering-form'>
-            <FormGroup >
-              <CategoriesSelection value={category} onChange={this.handleFilterChange} />
-              <LanguagesSelection value={language} onChange={this.handleLanguageChange} />
-            </FormGroup>
-          </Form>
+          <FormGroup id='filtering-form'>
+            <CategoriesSelection id="category" value={category} onChange={this.handleFilterChange} />
+            <LanguagesSelection id="language" value={language} onChange={this.handleLanguageChange} />
+          </FormGroup>
         </Row>
         <Row>
           {resourceLinks.map((post, idx) => (

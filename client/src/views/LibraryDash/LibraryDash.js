@@ -7,7 +7,6 @@ import {
   CardFooter,
   Col,
   Container,
-  Form,
   FormGroup,
   Row
 } from "shards-react";
@@ -139,11 +138,9 @@ class LibraryDash extends React.Component {
     let categoryDD;
     if (isLoggedIn) {
       categoryDD = (
-        <Form id='filtering-form'>
-          <FormGroup >
-            <CategoriesSelection value={category} onChange={this.handleFilterChange} />
-          </FormGroup>
-        </Form>
+        <FormGroup id='filtering-form'>
+          <CategoriesSelection id="category" value={category} onChange={this.handleFilterChange} />
+        </FormGroup>
       );
     }
 

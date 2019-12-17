@@ -32,23 +32,21 @@ exports[`Tutorials Snapshot Tests Tutorials list snapshot  1`] = `
     noGutters={true}
     tag="div"
   >
-    <Form
+    <FormGroup
       id="filtering-form"
-      tag="form"
+      tag="div"
     >
-      <FormGroup
-        tag="div"
-      >
-        <CategoriesSelection
-          onChange={[Function]}
-          value="UI Automation"
-        />
-        <LanguagesSelection
-          onChange={[Function]}
-          value="Python"
-        />
-      </FormGroup>
-    </Form>
+      <CategoriesSelection
+        id="category"
+        onChange={[Function]}
+        value="UI Automation"
+      />
+      <LanguagesSelection
+        id="language"
+        onChange={[Function]}
+        value="Python"
+      />
+    </FormGroup>
   </Row>
   <Row
     tag="div"

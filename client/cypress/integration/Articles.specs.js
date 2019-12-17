@@ -6,7 +6,7 @@ import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Articles', () => {
   sizes.forEach((size) => {
@@ -21,7 +21,8 @@ context('Articles', () => {
       cy.get(addArticle.url).type(data.url).should('have.value', data.url);
       cy.get(addArticle.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
       cy.get(addArticle.description).type(data.description).should('have.value', data.description);
-      cy.get(addArticle.category).select(data.category).should('have.value', data.category);
+      selectDropdown(addArticle.category, data.category);
+      cy.get(addArticle.category).should('have.text', data.category);
 
       cy.get(common.submit).click();
       cy.get(common.alertModal).should('have.text', 'Article added successfully');
@@ -34,9 +35,10 @@ context('Articles', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(articles.category).select('API Automation');
+
+      selectDropdown(articles.category, 'API Automation');
       cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(articles.category).select('Databases');
+      selectDropdown(articles.category, 'Databases');
       cy.get(articles.cardPosts).should('have.length', 0);
     });
 
@@ -44,9 +46,9 @@ context('Articles', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(articles.language).select('Java');
+      selectDropdown(articles.language, 'Java');
       cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(articles.language).select('Cpp');
+      selectDropdown(articles.language, 'Cpp');
       cy.get(articles.cardPosts).should('have.length', 0);
     });
   });
