@@ -1,22 +1,24 @@
+import Colors from './Colors';
+
 const getCategoryTheme = (category) => {
   if (!category) return 'dark';
   switch (category.toLowerCase()) {
     case 'general':
-      return 'royal-blue';
+      return Colors.primary;
     case 'ui automation':
-      return 'warning';
+      return Colors.blue;
     case 'api automation':
-      return 'info';
+      return Colors.red;
     case 'unit testing':
-      return 'secondary';
+      return Colors.green;
     case 'devops':
-      return 'success';
+      return Colors.cyan;
     case 'development':
-      return 'primary';
+      return Colors.purple;
     case 'databasaes':
-      return 'danger';
+      return Colors.teal;
     default:
-      return 'dark';
+      return Colors.black;
   }
 };
 
@@ -24,21 +26,21 @@ const getLanguageTheme = (language) => {
   if (!language) return 'dark';
   switch (language.toLowerCase()) {
     case 'java':
-      return 'info';
+      return Colors.primary;
     case 'csharp':
-      return 'secondary';
+      return Colors.blue;
     case 'javascript':
-      return 'success';
+      return Colors.green;
     case 'python':
-      return 'primary';
+      return Colors.cyan;
     case 'ruby':
-      return 'danger';
+      return Colors.red;
     case 'cpp':
-      return 'royal-blue';
+      return Colors.purple;
     case 'swift':
-      return 'warning';
+      return Colors.teal;
     default:
-      return 'dark';
+      return Colors.black;
   }
 };
 
