@@ -21,11 +21,11 @@ const useStyles = makeStyles(() => ({
 
 export default function ComponentCard(props) {
   const classes = useStyles();
-  const { idx, url, title, subheader, category, backgroundImage, body, pdf  } = props;
+  const { idx, url, title, subheader, category, backgroundImage, body, urlTarget, pdf, children } = props;
 
   return (
     <Card id={idx}>
-      <a href={url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the article url" style={{ color: Colors.black }}>
+      <a href={url} target={urlTarget} rel="noopener noreferrer" aria-label="Navigate to the article url" style={{ color: Colors.black }}>
         <CardHeader
           titleTypographyProps={{ variant: 'h6' }}
           title={title}
@@ -46,6 +46,7 @@ export default function ComponentCard(props) {
           {body}
         </Typography>
         {pdf && <a className="text-fiord-blue" href={pdf} target="_blank" rel="noopener noreferrer">PDF Version</a>}
+        {children}
       </CardContent>
     </Card>
   );
@@ -53,6 +54,7 @@ export default function ComponentCard(props) {
 ComponentCard.propTypes = {
   idx: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
+  urlTarget: PropTypes.string,
   title: PropTypes.string.isRequired,
   subheader: PropTypes.string,
   category: PropTypes.string.isRequired,

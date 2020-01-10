@@ -81,6 +81,7 @@ export default function Articles() {
             <CardComponent
               idx={`article-card-${idx}`}
               url={post.url}
+              urlTarget="_blank"
               title={post.title}
               subheader={`By ${post.author}`}
               category={post.category}

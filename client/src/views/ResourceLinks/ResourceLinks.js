@@ -81,6 +81,7 @@ export default function ResourceLinks() {
             <CardComponent
               idx={`resourceLink-card-${idx}`}
               url={post.url}
+              urlTarget="_blank"
               title={post.title}
               category={post.category}
               backgroundImage={post.backgroundImage}
