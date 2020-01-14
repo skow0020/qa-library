@@ -52,7 +52,6 @@ export default class AlertModal extends React.Component {
     return (
       <div>
         <Snackbar
-          className="mb-3"
           open={this.state.visible}
           message={<span id="alert-message-id">{this.state.message}</span>}
           action={[

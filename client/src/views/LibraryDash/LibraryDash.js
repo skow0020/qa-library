@@ -33,7 +33,6 @@ export default function LibraryDash(props) {
   const classes = useStyles();
   const [user, setUser] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -44,22 +43,23 @@ export default function LibraryDash(props) {
   }, []);
 
   const getBooks = () => {
-    if (props.hasOwnProperty('location') && props.location.search) {
+    if (Store.user && Store.avatarUrl) {
+      setUser(Store.user);
+      setAvatarUrl(Store.avatarUrl);
+
+      return getBookList();
+    }
+    else if (props.location.search) {
       const values = queryString.parse(props.location.search);
       if (values.user) {
         Store.user = values.user;
         Store.avatarUrl = values.avatar_url;
         setAvatarUrl(values.avatar_url);
-        setIsLoggedIn(true);
+        setUser(values.user);
 
-        getBookList();
+        return getBookList();
       }
-    } else if (Store.user) {
-      setUser(Store.user);
-      setAvatarUrl(Store.avatar_url);
-      setIsLoggedIn(true);
-
-      getBookList();
+      setBooks([]);
     }
   };
 
@@ -91,10 +91,10 @@ export default function LibraryDash(props) {
     axios.patch("/api/officeLibraryBooks/incrementCopiesCheckedOut", checkoutBook)
       .then(
         data => {
-          if (!data.data.success) showNotifier(`Unable to check out book: ${data.data.error}`);
+          if (!data.data.success) showAlert({ message: `Unable to check out book: ${data.data.error}` });
           else getBookList();
         },
-        error => showNotifier(`Unable to checkout book: ${error}`)
+        error => showAlert({ message: `Unable to checkout book: ${error}` })
       );
   };
 
@@ -106,15 +106,11 @@ export default function LibraryDash(props) {
     axios.patch("/api/officeLibraryBooks/decrementCopiesCheckedOut", checkinBook)
       .then(
         data => {
-          if (!data.data.success) showNotifier(`Unable to check in book: ${data.data.error}`);
+          if (!data.data.success) showAlert({ message: `Unable to check in book: ${data.data.error}` });
           else getBookList();
         },
-        error => showNotifier(`Unable to checkin book: ${error}`)
+        error => showAlert({ message: `Unable to check in book: ${error}` })
       );
-  };
-
-  const showNotifier = (message) => {
-    showAlert({ message });
   };
 
   if (isLoading) return <Loading />;
@@ -125,12 +121,12 @@ export default function LibraryDash(props) {
       <AlertModal />
       <Grid container alignItems="center" justify="space-between">
         <PageTitle title="In-Office Library" />
-        {!isLoggedIn && (
+        {!user && (
           <a href="/login" aria-label="Login to Github">
             <Button id="login-button" variant="contained" className={classes.button}>Log In with Github</Button>
           </a>
         )}
-        {isLoggedIn && (
+        {user && (
           <Grid alignItems="center" justify="space-between">
             <GithubAvatar avatarUrl={avatarUrl} />
             <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />
