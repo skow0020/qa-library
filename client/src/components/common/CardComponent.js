@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
 
 export default function ComponentCard(props) {
   const classes = useStyles();
-  const { idx, url, title, subheader, category, backgroundImage, body, urlTarget, pdf, children } = props;
+  const { idx, url, title, subheader, category, backgroundImage, body, urlTarget, children } = props;
 
   return (
     <Card id={idx}>
@@ -45,7 +45,6 @@ export default function ComponentCard(props) {
         <Typography variant="body2" color="textSecondary" component="p">
           {body}
         </Typography>
-        {pdf && <a className="text-fiord-blue" href={pdf} target="_blank" rel="noopener noreferrer">PDF Version</a>}
         {children}
       </CardContent>
     </Card>
@@ -59,6 +58,5 @@ ComponentCard.propTypes = {
   subheader: PropTypes.string,
   category: PropTypes.string.isRequired,
   backgroundImage: PropTypes.string.isRequired,
-  body: PropTypes.string,
-  pdf: PropTypes.string
+  body: PropTypes.string
 };

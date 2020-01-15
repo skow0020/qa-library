@@ -1,12 +1,12 @@
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import MainFooter from "components/layout/MainFooter";
 import MainNavbar from "components/layout/MainNavbar/MainNavbar";
 import MainSidebar from "components/layout/MainSidebar";
 import PerfectScrollbar from "perfect-scrollbar";
-import React from "react";
 import bgImage from "images/lib1.jpg";
 import logo from "images/book-logo.svg";
 import { makeStyles } from '@material-ui/core/styles';
@@ -84,7 +84,7 @@ export default function DefaultLayout({ ...rest }) {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current, {
         suppressScrollX: true,

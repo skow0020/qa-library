@@ -87,8 +87,9 @@ export default function Books() {
               category={post.category}
               backgroundImage={post.backgroundImage}
               body={post.body}
-              pdf={post.pdf}
-            />
+            >
+              {post.pdf && <a className="text-fiord-blue" href={post.pdf} target="_blank" rel="noopener noreferrer">PDF Version</a>}
+            </CardComponent>
           </Grid>
         ))}
       </Grid>
