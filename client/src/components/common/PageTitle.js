@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 
 export default function PageTitle({ title }) {
   return (
-      <Typography className="page-title" variant="h3">
+      <Typography gutterBottom className="page-title" variant="h3">
         {title}
       </Typography>
 
