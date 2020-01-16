@@ -9,10 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2)
+    minWidth: 150
   }
 }));
 
@@ -21,7 +18,7 @@ export default function LanguagesSelection(props) {
 
   return (
     <FormControl className={classes.formControl}>
-      <InputLabel htmlFor="language-selection">Languages</InputLabel>
+      <InputLabel htmlFor="language-selection">Language</InputLabel>
       <Select type="text" onChange={props.onChange} {...props}>
         {Store.getLanguages().map((language, idx) => (
           <MenuItem key={`language-option-${idx}`} value={language}>{language}</MenuItem>
