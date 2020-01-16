@@ -39,13 +39,7 @@ export default [
     name: "Resource Links",
     icon: IconLink
   },
-  {
-    path: "/example-repos",
-    layout: DefaultLayout,
-    component: ExampleRepos,
-    name: "Example Repos",
-    icon: IconGitHub
-  },
+
   {
     path: "/articles",
     layout: DefaultLayout,
@@ -66,6 +60,13 @@ export default [
     component: Books,
     name: "Books",
     icon: IconLibraryBooks
+  },
+  {
+    path: "/example-repos",
+    layout: DefaultLayout,
+    component: ExampleRepos,
+    name: "Example Repos",
+    icon: IconGitHub
   },
   {
     path: "/add-book",
