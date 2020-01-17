@@ -24,7 +24,7 @@ export default function ComponentCard(props) {
   const { idx, url, title, subheader, category, backgroundImage, body, urlTarget, children } = props;
 
   return (
-    <Card id={idx}>
+    <Card id={idx} className="card-post">
       <a href={url} target={urlTarget} rel="noopener noreferrer" aria-label="Navigate to the article url" style={{ color: Colors.black }}>
         <CardHeader
           titleTypographyProps={{ variant: 'h6' }}

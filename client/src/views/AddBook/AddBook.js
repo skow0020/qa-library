@@ -1,124 +1,122 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
-
 import AlertModal, { showAlert } from "components/common/AlertModal";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormInput,
-  FormTextarea,
-  Row
-} from "shards-react";
+import React, { useState } from "react";
 
+import Button from '@material-ui/core/Button';
 import CategoriesSelection from "components/common/CategoriesSelection";
+import Colors from 'utils/Colors';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import LanguagesSelection from "components/common/LanguagesSelection";
 import PageTitle from "components/common/PageTitle";
-import React from "react";
+import TextField from "components/common/TextField";
 import axios from "axios";
+import { makeStyles } from '@material-ui/core/styles';
 
-class AddBook extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      backgroundImage: '',
-      author: '',
-      category: 'General',
-      url: '',
-      title: '',
-      body: '',
-      pdf: '',
-      language: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCategoryChange = this.handleCategoryChange.bind(this);
-    this.handleLanguageChange = this.handleLanguageChange.bind(this);
+const useStyles = makeStyles((theme) => ({
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: Colors.primary,
+    color: Colors.white,
+    marginLeft: "auto"
+  },
+  paper: {
+    marginTop: theme.spacing(2),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  form: {
+    width: '100%',
+    marginTop: theme.spacing(3),
+    justifyContent: 'center'
+  },
+  textField: {
+    backgroundColor: Colors.white
   }
+}));
 
-  handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value });
-  }
+export default function AddBook(props) {
+  const classes = useStyles();
+  const [backgroundImage, setBackgroundImage] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('General');
+  const [url, setUrl] = useState('');
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [language, setLanguage] = useState('');
+  const [pdf, setPdf] = useState('');
 
-  handleCategoryChange(e) {
-    this.setState({ category: e.target.value });
-  }
-
-  handleLanguageChange(e) {
-    this.setState({ language: e.target.value });
-  }
-
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const book = {
-      backgroundImage: this.state.backgroundImage,
-      author: this.state.author,
-      category: this.state.category,
-      url: this.state.url,
-      title: this.state.title,
-      body: this.state.body,
-      pdf: this.state.pdf,
-      language: this.state.language
+      backgroundImage,
+      author,
+      category,
+      url,
+      title,
+      body,
+      pdf,
+      language
     };
 
     axios.post("/api/books/", book)
       .then(
         response => {
-          if (response.data.success) { this.showNotifier("Book added successfully"); }
-          else { this.showNotifier(`Unable to add book: ${JSON.stringify(response.data.error.errors)}`); }
-          this.nextPath('/books');
+          if (response.data.success) showAlert({ message: "Book added successfully" });
+          else showAlert({ message: `Unable to add book: ${JSON.stringify(response.data.error.errors)}` });
+          nextPath('/books');
         },
-        error => this.showNotifier(`Unable to add book: ${error}`)
+        error => showAlert({ message: `Unable to add book: ${error}` })
       );
-  }
+  };
 
-  nextPath(path) {
-    setTimeout(function () {
-      this.props.history.push(path);
-    }.bind(this), 2000);
-  }
+  const nextPath = (path) => {
+    setTimeout(() => {
+      props.history.push(path);
+    }, 2000);
+  };
 
-  showNotifier = (message) => {
-    showAlert({ message });
-  }
+  return (
+    <Container component="main">
+      <AlertModal />
+      <div className={classes.paper}>
+        <form id="add-article-form" className={classes.form} onSubmit={handleSubmit}>
+          <Grid container>
+            <PageTitle title="Add a Book" />
+          </Grid>
+          <Grid container spacing={2} >
+            <Grid item xs={12} lg={12} md={12} sm={12}>
+              <TextField id="title" label="Title" value={title} backgroundColor={Colors.white} onChange={(e) => setTitle(e.target.value)} required />
+            </Grid>
+            <Grid item xs={12} md={12} sm={6} lg={6}>
+              <TextField id="author" label="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
+            </Grid>
+            <Grid item lg={3} md={6}>
+              <LanguagesSelection id="langauge" value={language} onChange={(e) => setLanguage(e.target.value)} />
+            </Grid>
+            <Grid item lg={3} md={6}>
+              <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />
+            </Grid>
+            <Grid item xs={12} sm={6} md={12}>
+              <TextField id="url" label="URL" value={url} onChange={(e) => setUrl(e.target.value)} required />
+            </Grid>
+            <Grid item xs={12} sm={6} md={12}>
+              <TextField id="backgroundImage" label="Background Image" value={backgroundImage} onChange={(e) => setBackgroundImage(e.target.value)} required />
+            </Grid>
+            <Grid item xs={12} sm={6} md={12}>
+              <TextField id="pdf" label="Pdf Url" value={pdf} onChange={(e) => setPdf(e.target.value)} />
+            </Grid>
+            <Grid item xs={12} sm={12}>
+              <TextField id="body" label="Description" value={body} multiline={true} rows={2} rowsMax={4} onChange={(e) => setBody(e.target.value)} />
+            </Grid>
+          </Grid>
+          <Button type="submit" variant="contained" id="submit-button" className={classes.submit} fullWidth>
+            Submit
+          </Button>
+        </form>
+      </div>
+    </Container>
+  );
 
-  render() {
-    const { url, title, author, backgroundImage, pdf, category, body, language } = this.state;
-
-    return (
-      <Container fluid className="main-content-container px-4">
-        <AlertModal />
-        <Form id="add-book-form" onSubmit={this.handleSubmit}>
-          <Row noGutters className="page-header py-4">
-            <PageTitle sm="8" title="Add a Book" className="text-sm-left" />
-            <Button id="submit" type="submit" className="btn btn-success btn-lg">
-              Submit
-            </Button>
-          </Row>
-
-          <label className="text-muted font-weight-bold" htmlFor="title">Book Title</label>
-          <FormInput id="title" type="text" value={title} onChange={this.handleChange} required />
-          <Row form>
-            <Col md="4" className="form-group">
-              <label className="text-muted font-weight-bold" htmlFor="author">Book Author</label>
-              <FormInput id="author" type="text" value={author} onChange={this.handleChange} required />
-            </Col>
-            <LanguagesSelection id="language" value={language} onChange={this.handleLanguageChange} />
-            <CategoriesSelection id="category" value={category} onChange={this.handleCategoryChange} required />
-          </Row>
-          <label className="text-muted font-weight-bold" htmlFor="url">Book URL</label>
-          <FormInput id="url" type="text" value={url} onChange={this.handleChange} required />
-          <label className="text-muted font-weight-bold" htmlFor="backgroundImage">Background Image URL</label>
-          <FormInput id="backgroundImage" type="text" value={backgroundImage} onChange={this.handleChange} required />
-          <label className="text-muted font-weight-bold" htmlFor="pdf">Book PDF URL</label>
-          <FormInput id="pdf" type="text" value={pdf} onChange={this.handleChange} />
-          <label className="text-muted font-weight-bold" htmlFor="body">Book Description</label>
-          <FormTextarea id="body" type="textarea" style={{ height: "150px" }} value={body} onChange={this.handleChange} />
-        </Form>
-      </Container>
-    );
-  }
 }
 
-export default AddBook;
