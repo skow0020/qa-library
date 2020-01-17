@@ -86,7 +86,7 @@ export default function AddBook(props) {
           </Grid>
           <Grid container spacing={2} >
             <Grid item xs={12} lg={12} md={12} sm={12}>
-              <TextField id="title" label="Title" value={title} backgroundColor={Colors.white} onChange={(e) => setTitle(e.target.value)} required />
+              <TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
             </Grid>
             <Grid item xs={12} md={12} sm={6} lg={6}>
               <TextField id="author" label="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />

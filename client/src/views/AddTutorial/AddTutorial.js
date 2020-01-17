@@ -82,7 +82,7 @@ export default function AddTutorial(props) {
           </Grid>
           <Grid container spacing={2}>
             <Grid item xs={12} lg={12} md={12} sm={12}>
-              <TextField id="title" label="Title" value={title} backgroundColor={Colors.white} onChange={(e) => setTitle(e.target.value)} required />
+              <TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
             </Grid>
             <Grid item lg={3} md={6}>
               <LanguagesSelection id="langauge" value={language} onChange={(e) => setLanguage(e.target.value)} />

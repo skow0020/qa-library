@@ -1,8 +1,8 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
+import { createSerializer } from 'enzyme-to-json';
 import { inOfficeBook } from './testData';
 import { shallow } from 'enzyme';
-import { createSerializer } from 'enzyme-to-json';
 
 expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
 

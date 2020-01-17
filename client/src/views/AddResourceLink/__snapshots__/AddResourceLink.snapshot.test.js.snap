@@ -1,202 +1,447 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddResourceLink Snapshot Tests AddResourceLink snapshot 1`] = `
-<div
-  className="main-content-container px-4 container-fluid"
+<main
+  className="MuiContainer-root MuiContainer-maxWidthLg"
 >
   <div />
-  <form
-    className=""
-    id="add-book-form"
-    onSubmit={[Function]}
+  <div
+    className="makeStyles-paper-2"
   >
-    <div
-      className="page-header py-4 no-gutters row"
+    <form
+      className="makeStyles-form-3"
+      id="add-article-form"
+      onSubmit={[Function]}
     >
       <div
-        className="text-sm-left text-center text-md-left mb-sm-0 col-12 col-sm-8"
+        className="MuiGrid-root MuiGrid-container"
       >
-        <span
-          className="text-uppercase page-subtitle"
-        />
         <h3
-          className="page-title"
+          className="MuiTypography-root page-title MuiTypography-h3 MuiTypography-gutterBottom"
         >
           Add a Resource Link
         </h3>
       </div>
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-12"
+        >
+          <div
+            className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink={false}
+              htmlFor="title"
+              id="title-label"
+            >
+              Title
+              <span
+                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={false}
+                autoFocus={false}
+                className="MuiInputBase-input MuiOutlinedInput-input"
+                disabled={false}
+                id="title"
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden={true}
+                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
+                style={
+                  Object {
+                    "paddingLeft": 8,
+                  }
+                }
+              >
+                <legend
+                  className="PrivateNotchedOutline-legend-216"
+                  style={
+                    Object {
+                      "width": 0.01,
+                    }
+                  }
+                >
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "&#8203;",
+                      }
+                    }
+                  />
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+        >
+          <div
+            className="MuiFormControl-root makeStyles-formControl-217"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+              data-shrink={false}
+              htmlFor="language-selection"
+            >
+              Language
+            </label>
+            <div
+              className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+              onClick={[Function]}
+            >
+              <div
+                aria-haspopup="listbox"
+                aria-labelledby=" langauge"
+                className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+                id="langauge"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                <span
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "&#8203;",
+                    }
+                  }
+                />
+              </div>
+              <input
+                onAnimationStart={[Function]}
+                type="hidden"
+                value=""
+              />
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root MuiSelect-icon"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+        >
+          <div
+            className="MuiFormControl-root makeStyles-formControl-254"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
+              data-shrink={true}
+              htmlFor="category"
+            >
+              Category
+            </label>
+            <div
+              className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+              onClick={[Function]}
+            >
+              <div
+                aria-haspopup="listbox"
+                aria-labelledby=" category"
+                className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+                id="category"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                General
+              </div>
+              <input
+                onAnimationStart={[Function]}
+                type="hidden"
+                value="General"
+              />
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root MuiSelect-icon"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-12"
+        >
+          <div
+            className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink={false}
+              htmlFor="url"
+              id="url-label"
+            >
+              URL
+              <span
+                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={false}
+                autoFocus={false}
+                className="MuiInputBase-input MuiOutlinedInput-input"
+                disabled={false}
+                id="url"
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden={true}
+                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
+                style={
+                  Object {
+                    "paddingLeft": 8,
+                  }
+                }
+              >
+                <legend
+                  className="PrivateNotchedOutline-legend-216"
+                  style={
+                    Object {
+                      "width": 0.01,
+                    }
+                  }
+                >
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "&#8203;",
+                      }
+                    }
+                  />
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-12"
+        >
+          <div
+            className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink={false}
+              htmlFor="backgroundImage"
+              id="backgroundImage-label"
+            >
+              Background Image
+              <span
+                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl"
+              onClick={[Function]}
+            >
+              <input
+                aria-invalid={false}
+                autoFocus={false}
+                className="MuiInputBase-input MuiOutlinedInput-input"
+                disabled={false}
+                id="backgroundImage"
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={true}
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden={true}
+                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
+                style={
+                  Object {
+                    "paddingLeft": 8,
+                  }
+                }
+              >
+                <legend
+                  className="PrivateNotchedOutline-legend-216"
+                  style={
+                    Object {
+                      "width": 0.01,
+                    }
+                  }
+                >
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "&#8203;",
+                      }
+                    }
+                  />
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12"
+        >
+          <div
+            className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+          >
+            <label
+              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink={false}
+              htmlFor="body"
+              id="body-label"
+            >
+              Description
+            </label>
+            <div
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+              onClick={[Function]}
+            >
+              <textarea
+                aria-invalid={false}
+                autoFocus={false}
+                className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                disabled={false}
+                id="body"
+                onAnimationStart={[Function]}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
+                rows={2}
+                style={
+                  Object {
+                    "height": undefined,
+                    "overflow": null,
+                  }
+                }
+                value=""
+              />
+              <textarea
+                aria-hidden={true}
+                className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                readOnly={true}
+                style={
+                  Object {
+                    "height": 0,
+                    "left": 0,
+                    "overflow": "hidden",
+                    "position": "absolute",
+                    "top": 0,
+                    "transform": "translateZ(0)",
+                    "visibility": "hidden",
+                  }
+                }
+                tabIndex={-1}
+              />
+              <fieldset
+                aria-hidden={true}
+                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
+                style={
+                  Object {
+                    "paddingLeft": 8,
+                  }
+                }
+              >
+                <legend
+                  className="PrivateNotchedOutline-legend-216"
+                  style={
+                    Object {
+                      "width": 0.01,
+                    }
+                  }
+                >
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "&#8203;",
+                      }
+                    }
+                  />
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
       <button
-        className="btn btn-success btn-lg btn btn-primary"
-        id="submit"
-        onClick={[Function]}
+        className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-1 MuiButton-fullWidth"
+        disabled={false}
+        id="submit-button"
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
         type="submit"
       >
-        Submit
+        <span
+          className="MuiButton-label"
+        >
+          Submit
+        </span>
       </button>
-    </div>
-    <label
-      className="text-muted font-weight-bold"
-      htmlFor="title"
-    >
-      Resource Title
-    </label>
-    <input
-      className="form-control"
-      id="title"
-      onChange={[Function]}
-      required={true}
-      type="text"
-      value=""
-    />
-    <div
-      className="form-row"
-    >
-      <div
-        className="MuiFormControl-root makeStyles-formControl-8"
-      >
-        <label
-          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
-          data-shrink={false}
-          htmlFor="language-selection"
-        >
-          Languages
-        </label>
-        <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-          onClick={[Function]}
-        >
-          <div
-            aria-haspopup="listbox"
-            aria-labelledby=" language"
-            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
-            id="language"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "&#8203;",
-                }
-              }
-            />
-          </div>
-          <input
-            onAnimationStart={[Function]}
-            type="hidden"
-            value=""
-          />
-          <svg
-            aria-hidden="true"
-            className="MuiSvgIcon-root MuiSelect-icon"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        className="MuiFormControl-root makeStyles-formControl-91"
-      >
-        <label
-          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiFormLabel-filled"
-          data-shrink={true}
-          htmlFor="category"
-        >
-          Categories
-        </label>
-        <div
-          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-          onClick={[Function]}
-          required={true}
-        >
-          <div
-            aria-haspopup="listbox"
-            aria-labelledby=" category"
-            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
-            id="category"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            General
-          </div>
-          <input
-            onAnimationStart={[Function]}
-            type="hidden"
-            value="General"
-          />
-          <svg
-            aria-hidden="true"
-            className="MuiSvgIcon-root MuiSelect-icon"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <label
-      className="text-muted font-weight-bold"
-      htmlFor="url"
-    >
-      Resource URL
-    </label>
-    <input
-      className="form-control"
-      id="url"
-      onChange={[Function]}
-      required={true}
-      type="text"
-      value=""
-    />
-    <label
-      className="text-muted font-weight-bold"
-      htmlFor="backgroundImage"
-    >
-      Background Image URL
-    </label>
-    <input
-      className="form-control"
-      id="backgroundImage"
-      onChange={[Function]}
-      required={true}
-      type="text"
-      value=""
-    />
-    <label
-      className="text-muted font-weight-bold"
-      htmlFor="body"
-    >
-      Resource Description
-    </label>
-    <textarea
-      className="form-control"
-      id="body"
-      onChange={[Function]}
-      style={
-        Object {
-          "height": "150px",
-        }
-      }
-      type="textarea"
-      value=""
-    />
-  </form>
-</div>
+    </form>
+  </div>
+</main>
 `;

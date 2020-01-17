@@ -1,16 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageTitle Snapshot Tests PageTitle Snapshot 1`] = `
-<div
-  className="text-center text-md-left mb-sm-0 col-12 col-sm-4"
+<h3
+  className="MuiTypography-root page-title MuiTypography-h3 MuiTypography-gutterBottom"
 >
-  <span
-    className="text-uppercase page-subtitle"
-  />
-  <h3
-    className="page-title"
-  >
-    Add an Article
-  </h3>
-</div>
+  Add an Article
+</h3>
 `;

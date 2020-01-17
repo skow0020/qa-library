@@ -35,7 +35,6 @@ exports[`Registration Snapshot Tests Registration snapshot 1`] = `
               </ForwardRef(WithStyles)>,
             ]
           }
-          className="mb-3"
           message={
             <span
               id="alert-message-id"
@@ -56,7 +55,6 @@ exports[`Registration Snapshot Tests Registration snapshot 1`] = `
                 </ForwardRef(WithStyles)>,
               ]
             }
-            className="mb-3"
             classes={
               Object {
                 "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
@@ -1178,7 +1176,7 @@ exports[`Registration Snapshot Tests Registration snapshot 1`] = `
                   </ForwardRef(Link)>
                 </WithStyles(ForwardRef(Link))>
                  
-                2019
+                2020
                 .
               </p>
             </ForwardRef(Typography)>

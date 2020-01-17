@@ -7,18 +7,11 @@ exports[`ExampleRepos Snapshot Tests ExampleRepos snapshot 1`] = `
   <div
     className="form-inline py-2 no-gutters row"
   >
-    <div
-      className="text-sm-left text-center text-md-left mb-sm-0 col-12 col-sm-8"
+    <h3
+      className="MuiTypography-root page-title MuiTypography-h3 MuiTypography-gutterBottom"
     >
-      <span
-        className="text-uppercase page-subtitle"
-      />
-      <h3
-        className="page-title"
-      >
-        Example Repos
-      </h3>
-    </div>
+      Example Repos
+    </h3>
     <div
       className="form-group"
       id="filter-form"
@@ -39,14 +32,14 @@ exports[`ExampleRepos Snapshot Tests ExampleRepos snapshot 1`] = `
         value="skow0020"
       />
       <div
-        className="MuiFormControl-root makeStyles-formControl-1"
+        className="MuiFormControl-root makeStyles-formControl-31"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
           data-shrink={false}
           htmlFor="language-selection"
         >
-          Languages
+          Language
         </label>
         <div
           className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"

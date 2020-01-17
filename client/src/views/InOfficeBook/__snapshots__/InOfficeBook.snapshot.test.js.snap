@@ -35,7 +35,7 @@ exports[`InOfficeBook Snapshot Tests InOfficeBook list snapshot  1`] = `
         }
       />
       <Badge
-        className="card-post__category bg-info"
+        className="card-post__category bg-#f44336"
         outline={false}
         pill={true}
         tag="span"
