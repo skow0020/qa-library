@@ -1,48 +1,45 @@
-import { Container } from "shards-react";
 import React from "react";
-import { Store } from "../../flux";
-import queryString from 'query-string';
+import Colors from 'utils/Colors.js';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-class QADashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      backgroundImage: require("../../images/lib1.jpg")
-    };
+const backgroundImage = require("images/lib1.jpg");
+
+const useStyles = makeStyles(() => ({
+  caption: {
+    right: '15%',
+    left: '15%',
+    transform: 'translate(0%, -100%)',
+    position: 'absolute'
+  },
+  captionText: {
+    color: Colors.white
+  },
+  image: {
+    opacity: '0.8',
+    width: '100%',
+    height: "auto",
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
+}));
 
-  componentDidMount() {
-    if (this.props.hasOwnProperty('location') && this.props.location.search) {
-      const values = queryString.parse(this.props.location.search);
-      if (values.user) {
-        Store.user = values.user;
-        this.setState({
-          user: values.user,
-          isLoggedIn: true
-        });
-      }
-    } else if (Store.user) {
-      this.setState({
-        user: Store.user,
-        isLoggedIn: true
-      });
-    }
-  }
+export default function QADashboard() {
+  const classes = useStyles();
 
-  render() {
-    const { backgroundImage } = this.state;
-
-    return (
-      <Container>
-        <div id="welcomeDash">
-          <img className="d-block w-100" src={`${backgroundImage}`} alt="welcome" />
-          <div className="carousel-caption d-none d-md-block">
-            <h3 className="text-white">Behold! A library in which you can find everything you have ever wanted to search for!</h3>
-            <p>But not really...</p>
-          </div>
-        </div>
-      </Container>
-    );
-  }
+  return (
+    <Container id="welcomeDash" alignItems="center">
+      <img className={classes.image} src={backgroundImage} alt="welcome" />
+      <div className={classes.caption}>
+        <Typography gutterBottom className={classes.captionText} align='center' variant="h5">
+          Behold! A library in which you can find everything you have ever wanted to search for!
+        </Typography>
+        <Typography className={classes.captionText} align='center' variant="h5" color={Colors.white}>
+          But not really...
+        </Typography>
+      </div>
+    </Container>
+  );
 }
-export default QADashboard;
+

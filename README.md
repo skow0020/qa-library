@@ -25,6 +25,8 @@ CLIENT_SECRET=(For github authentication)
 
 HOST=http://localhost:5001
 
+PORT=5001
+
 JWT_SECRET=
 
 * Run `npm run build:client` to build the client app for serving
