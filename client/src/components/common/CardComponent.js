@@ -31,8 +31,8 @@ export default function ComponentCard(props) {
           title={title}
           subheader={subheader}
           avatar={
-            <Avatar aria-label="category" style={{ backgroundColor: getCategoryTheme(category) }}>
-              {category.substring(0, 3)}
+            <Avatar aria-label="category" style={{ backgroundColor: category ? getCategoryTheme(category) : Colors.blue }}>
+              {category && category.substring(0, 3)}
             </Avatar>
           }
         />
