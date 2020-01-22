@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-export default function Error(props) {
+export default function Error({ error = "Try refreshing maybe?"}) {
   const classes = useStyles();
 
   return (
@@ -20,7 +20,7 @@ export default function Error(props) {
     >
       <div className={classes.root}>
         <h3>Something went wrong!</h3>
-        <p>{props.error}</p>
+        <p>{error}</p>
       </div>
     </Grid>
   );
