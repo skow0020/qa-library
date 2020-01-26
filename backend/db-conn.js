@@ -10,5 +10,5 @@ mongoose.connect(
   dbConnectionURI,
   { useNewUrlParser: true }
 )
-.then(() => console.log('Successfully connected to the DB WOOP WOOP!'))
-.catch(console.error);
+  .then(() => console.log('Successfully connected to the DB WOOP WOOP!'))
+  .catch(console.error);
