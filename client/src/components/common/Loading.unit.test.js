@@ -1,10 +1,14 @@
 import Loading from './Loading';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from "react-dom";
+import { act } from "react-dom/test-utils";
 
 describe('Loading Unit Tests', () => {
   test('Loading renders', () => {
-    const wrapper = shallow(<Loading />);
-    expect(wrapper.length).toBe(1);
+    let container = global.container;
+
+    act(() => render(<Loading />, container));
+
+    expect(container.querySelector("#loading").getAttribute("role")).toBe("progressbar");
   });
 });

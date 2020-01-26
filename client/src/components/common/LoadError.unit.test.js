@@ -1,21 +1,24 @@
 import LoadError from './LoadError';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { act } from "react-dom/test-utils";
+import { render } from "react-dom";
 
 describe('LoadError Unit Tests', () => {
   test('LoadError renders', () => {
-    const wrapper = shallow(<LoadError error="Articles failed to load" />);
-    expect(wrapper.length).toBe(1);
+    let container = global.container;
 
-    expect(wrapper.find('h3').text()).toBe("Something went wrong!");
-    expect(wrapper.find('p').text()).toBe("Articles failed to load");
+    act(() => render(<LoadError error="Articles failed to load" />, container));
+
+    expect(container.querySelector("h3").textContent).toBe("Something went wrong!");
+    expect(container.querySelector("p").textContent).toBe("Articles failed to load");
   });
 
   test('LoadError renders with no props', () => {
-    const wrapper = shallow(<LoadError />);
-    expect(wrapper.length).toBe(1);
+    let container = global.container;
 
-    expect(wrapper.find('h3').text()).toBe("Something went wrong!");
-    expect(wrapper.find('p').text()).toBe("Try refreshing maybe?");
+    act(() => render(<LoadError />, container));
+
+    expect(container.querySelector("h3").textContent).toBe("Something went wrong!");
+    expect(container.querySelector("p").textContent).toBe("Try refreshing maybe?");
   });
 });

@@ -1,5 +1,5 @@
 import { configureAxe, toHaveNoViolations } from 'jest-axe';
-
+import { unmountComponentAtNode } from "react-dom";
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
 import React from "react";
@@ -19,4 +19,16 @@ export const axe = configureAxe({
     type: 'tag',
     values: ['wcag2a', 'wcag2aa']
   }
+});
+
+global.container = null;
+global.beforeEach(() => {
+  global.container = document.createElement("div");
+  document.body.appendChild(global.container);
+});
+
+global.afterEach(() => {
+  unmountComponentAtNode(global.container);
+  global.container.remove();
+  global.container = null;
 });
