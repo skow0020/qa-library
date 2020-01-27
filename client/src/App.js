@@ -1,5 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
 import "assets/css/material-dashboard-react.css?v=1.8.0";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
