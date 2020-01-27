@@ -16,6 +16,6 @@ describe('LoadError Unit Tests', () => {
     expect(wrapper.length).toBe(1);
 
     expect(wrapper.find('h3').text()).toBe("Something went wrong!");
-    expect(wrapper.find('p').text()).toBe("");
+    expect(wrapper.find('p').text()).toBe("Try refreshing maybe?");
   });
 });

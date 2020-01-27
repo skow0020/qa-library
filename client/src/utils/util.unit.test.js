@@ -9,12 +9,12 @@ describe('Util tests', () => {
     expect(getCategoryTheme("general")).toBe("#006f51");
   });
 
-  test('getCategoryTheme api returns', () => {
-    expect(getCategoryTheme("api")).toBe("#000000");
+  test('getCategoryTheme api automation returns', () => {
+    expect(getCategoryTheme("api automation")).toBe("#f44336");
   });
 
   test('getLanguageTheme c# returns', () => {
-    expect(getLanguageTheme("csharp")).toBe("#2196f3");
+    expect(getLanguageTheme("c#")).toBe("#2196f3");
   });
 
   test('getLanguageTheme javascript returns', () => {
@@ -22,6 +22,6 @@ describe('Util tests', () => {
   });
 
   test('getLanguageTheme asdf returns', () => {
-    expect(getLanguageTheme("asdf")).toBe("#000000");
+    expect(getLanguageTheme("asdf")).toBe("#6D7078");
   });
 });
