@@ -39,17 +39,8 @@ Builds the app for production to the `build` folder.
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 
-<br />
-
-### 🌟 Pro Version
-
-If you're looking for something more, check out [Shards Dashboard Pro React](https://designrevision.com/downloads/shards-dashboard-pro-react/) which features many more custom templates and components. Use the `GITHUB15` coupon code for a **15% discount off the current price**.
-
-<br />
-
 ### Built using
 
-- [Shards React](https://github.com/designrevision/shards-react)
 - [Flux](https://facebook.github.io/flux/)
 
 <br />

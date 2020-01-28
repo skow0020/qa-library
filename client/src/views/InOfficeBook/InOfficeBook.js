@@ -1,25 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import AlertModal, { showAlert } from "components/common/AlertModal";
+import React, { useEffect, useState } from "react";
 
 import Button from "@material-ui/core/Button";
 import Card from '@material-ui/core/Card';
-import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import Chip from '@material-ui/core/Chip';
-import Container from '@material-ui/core/Container';
 import CardMedia from '@material-ui/core/CardMedia';
-import Divider from '@material-ui/core/Divider';
+import Chip from '@material-ui/core/Chip';
 import Colors from 'utils/Colors';
-import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Divider from '@material-ui/core/Divider';
+import Grid from '@material-ui/core/Grid';
 import LoadError from "components/common/LoadError";
 import Loading from "components/common/Loading";
-import React, { useState, useEffect } from "react";
 import { Store } from "../../flux";
+import Typography from '@material-ui/core/Typography';
 import axios from "axios";
 import { getCategoryTheme } from "utils/util";
-
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -44,19 +43,17 @@ export default function InOfficeBook(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    getBook();
-  }, []);
-
-  const getBook = () => {
+  async function getBook() {
     setIsLoading(true);
     const { office_book_id } = props.match.params;
-    fetch(`/api/officeLibraryBooks/${office_book_id}`)
+    await fetch(`/api/officeLibraryBooks/${office_book_id}`)
       .then(response => response.json())
       .then(
         data => {
+          console.log(data.data[0])
           if (data.error) setError(data.error);
           else setBook(data.data[0]);
+          console.log("BOOOOK: ", book)
           setIsLoading(false);
         },
         error => {
@@ -65,6 +62,10 @@ export default function InOfficeBook(props) {
         }
       );
   };
+
+  useEffect(() => {
+    getBook();
+  }, [props.match.params.office_book_id]);
 
   const handleCheckout = (book_id) => {
     const checkoutBook = {
@@ -119,6 +120,7 @@ export default function InOfficeBook(props) {
             }
           />
           <CardMedia
+            className="card-title"
             component="img"
             alt="Book image"
             height="250"
@@ -131,7 +133,7 @@ export default function InOfficeBook(props) {
                 {book.body}
               </Typography>
               <Grid>
-                <Typography variant="body1" color="textSecondary" gutterBottom >
+                <Typography className="card-details" variant="body1" color="textSecondary" gutterBottom >
                   By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available | Checked out by: {getUsers()}
                 </Typography>
               </Grid>

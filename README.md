@@ -85,7 +85,6 @@ https://jenkins.io/doc/tutorials/build-a-node-js-and-react-app-with-npm/#fork-sa
 - [Mocha](https://mochajs.org/)
 - [Mongoose-sequence](https://github.com/ramiel/mongoose-sequence)
 - [Chai](https://www.chaijs.com/)
-- [Shards React](https://github.com/designrevision/shards-react)
 - [Create-React-App](https://github.com/facebook/create-react-app)
 
 

@@ -1,20 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
+import React, { useEffect, useState } from "react";
+
+import CardComponent from "components/common/CardComponent";
+import Chip from '@material-ui/core/Chip';
+import Colors from 'utils/Colors';
+import Grid from '@material-ui/core/Grid';
 import LanguagesSelection from "components/common/LanguagesSelection";
 import LoadError from "components/common/LoadError";
-import PageTitle from "components/common/PageTitle";
-import Colors from 'utils/Colors';
-import React, { useState, useEffect } from "react";
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
-
-import TextField from "components/common/TextField";
 import Loading from "components/common/Loading";
-import { getLanguageTheme } from "utils/util";
+import PageTitle from "components/common/PageTitle";
+import TextField from "components/common/TextField";
 import Typography from '@material-ui/core/Typography';
+import { getLanguageTheme } from "utils/util";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -90,24 +88,18 @@ export default function ExampleRepos() {
       <Grid container spacing={4}>
         {githubRepos.map((repo, idx) => (
           <Grid item md={6} lg={4} sm={12} key={idx}>
-            <Card id={idx} className="card-post">
-              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the url" style={{ color: Colors.black }}>
-                <CardHeader
-                  titleTypographyProps={{ variant: 'h6' }}
-                  title={repo.full_name}
-                  avatar={
-                    <Avatar aria-label="category" style={{ backgroundColor: repo.language ? getLanguageTheme(repo.language) : Colors.blue }}>
-                      {repo.language && repo.language.substring(0, 3)}
-                    </Avatar>
-                  }
-                />
-              </a>
-              <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {repo.description}
-                </Typography>
-              </CardContent>
-            </Card>
+            <CardComponent
+              idx={`tutorial-card-${idx}`}
+              url={repo.html_url}
+              urlTarget="_blank"
+              title={repo.name}
+              avatar={<Chip
+                size="small"
+                label={repo.language}
+                style={{ backgroundColor: repo.language ? getLanguageTheme(repo.language) : Colors.blue }}
+              />}
+              body={repo.description}
+            />
           </Grid>
         ))}
       </Grid>

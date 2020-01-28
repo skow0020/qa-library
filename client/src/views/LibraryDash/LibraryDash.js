@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import Button from '@material-ui/core/Button';
 import CardComponent from "components/common/CardComponent";
 import CategoriesSelection from "components/common/CategoriesSelection";
+import Chip from '@material-ui/core/Chip';
 import Colors from 'utils/Colors';
 import Divider from '@material-ui/core/Divider';
 import GithubAvatar from 'components/common/GithubAvatar';
@@ -16,6 +17,7 @@ import PageTitle from "components/common/PageTitle";
 import { Store } from "../../flux";
 import Typography from '@material-ui/core/Typography';
 import axios from "axios";
+import { getCategoryTheme } from "utils/util";
 import { makeStyles } from '@material-ui/core/styles';
 import queryString from 'query-string';
 
@@ -141,7 +143,11 @@ export default function LibraryDash(props) {
               url={`/officeBook/${book.office_book_id}`}
               title={book.title}
               subheader={`By ${book.author}`}
-              category={book.category}
+              avatar={<Chip
+                size="small"
+                label={book.category}
+                style={{ backgroundColor: book.category ? getCategoryTheme(book.category) : Colors.blue }}
+              />}
               backgroundImage={book.backgroundImage}
               body={book.body}
             >

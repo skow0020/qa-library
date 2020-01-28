@@ -18,7 +18,7 @@ const getCategoryTheme = (category) => {
     case 'databasaes':
       return Colors.teal;
     default:
-      return Colors.black;
+      return Colors.deactivated;
   }
 };
 
@@ -26,8 +26,8 @@ const getLanguageTheme = (language) => {
   if (!language) return 'dark';
   switch (language.toLowerCase()) {
     case 'java':
-      return Colors.primary;
-    case 'csharp':
+      return Colors.purple;
+    case 'c#':
       return Colors.blue;
     case 'javascript':
       return Colors.green;
@@ -40,7 +40,7 @@ const getLanguageTheme = (language) => {
     case 'swift':
       return Colors.teal;
     default:
-      return Colors.black;
+      return Colors.deactivated;
   }
 };
 
