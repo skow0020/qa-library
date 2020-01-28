@@ -25,7 +25,7 @@
     "build": " react-scripts build",
     "test:snapshot:fix": "react-scripts test --testMatch **/*.snapshot.test.js",
     "test:snapshot": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-snapshot.xml react-scripts test --testMatch **/*.snapshot.test.js --reporters ./node_modules/jest-junit",
-    "test:unit": "react-scripts test --testMatch **/InOfficeBook.unit.test.js",
+    "test:unit": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-unit.xml  react-scripts test --testMatch **/InOfficeBook.unit.test.js --reporters ./node_modules/jest-junit",
     "test:accessibility": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-accessibility.xml react-scripts test --testMatch **/*.accessibility.test.js --reporters ./node_modules/jest-junit",
     "cypress:open": "cypress open",
     "cypress:electron": "cypress run --reporter junit --reporter-options mochaFile=./test-results/cypress-results-electron-[hash].xml",
