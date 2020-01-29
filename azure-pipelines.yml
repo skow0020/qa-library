@@ -38,12 +38,12 @@ steps:
     command: custom
     customCommand: 'run test:api:backend'
 
-- task: Npm@1
-  displayName: 'npm run lint client'
-  continueOnError: true
-  inputs:
-    command: custom
-    customCommand: 'run lint:client'
+# - task: Npm@1
+#   displayName: 'npm run lint client'
+#   continueOnError: true
+#   inputs:
+#     command: custom
+#     customCommand: 'run lint:client'
 
 - task: Npm@1
   displayName: 'npm run test:unit client'

@@ -21,7 +21,8 @@ jobs:
       run: |
         npm i
         npm run install:client
-        npm run lint:backend
+        npm run test:unit:backend
+        npm run test:api:backend
         npm run test:unit:client
       env:
         DB_USER: ${{ secrets.MONGODB_DEV_USER }}
