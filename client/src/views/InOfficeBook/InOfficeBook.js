@@ -39,33 +39,26 @@ const useStyles = makeStyles((theme) => ({
 
 export default function InOfficeBook(props) {
   const classes = useStyles();
-  const [book, setBook] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [book, setBook] = useState(null);
   const [error, setError] = useState(false);
 
   async function getBook() {
-    setIsLoading(true);
+    setBook(null);
     const { office_book_id } = props.match.params;
     await fetch(`/api/officeLibraryBooks/${office_book_id}`)
       .then(response => response.json())
       .then(
         data => {
-          console.log(data.data[0])
           if (data.error) setError(data.error);
           else setBook(data.data[0]);
-          console.log("BOOOOK: ", book)
-          setIsLoading(false);
         },
-        error => {
-          setError(error);
-          setIsLoading(false);
-        }
+        error => setError(error)
       );
   };
 
   useEffect(() => {
     getBook();
-  }, [props.match.params.office_book_id]);
+  }, []);
 
   const handleCheckout = (book_id) => {
     const checkoutBook = {
@@ -101,9 +94,8 @@ export default function InOfficeBook(props) {
     return book.users ? book.users.join(', ') : "No one";
   };
 
-  if (isLoading) return <Loading />;
-
   if (error) return <LoadError error="Unable to find library book" />;
+  if (book === null) return <Loading />;
 
   return (
     <Container className="card-post">

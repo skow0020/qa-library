@@ -57,5 +57,5 @@ const navigate = (size) => {
     cy.get(sideBar.rightResourceLinks).click();
   }
   else cy.get(sideBar.resourceLinks).click();
-  cy.get(common.pageTitle).should('have.text', 'Resource Links');
+  cy.get(common.pageTitle).should('have.text', 'ResourceLinks');
 };

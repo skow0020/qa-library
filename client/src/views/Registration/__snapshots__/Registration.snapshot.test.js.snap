@@ -1,1189 +1,182 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Registration Snapshot Tests Registration snapshot 1`] = `
-<WithStyles(ForwardRef(Container))
-  component="main"
-  maxWidth="xs"
->
-  <ForwardRef(Container)
-    classes={
-      Object {
-        "fixed": "MuiContainer-fixed",
-        "maxWidthLg": "MuiContainer-maxWidthLg",
-        "maxWidthMd": "MuiContainer-maxWidthMd",
-        "maxWidthSm": "MuiContainer-maxWidthSm",
-        "maxWidthXl": "MuiContainer-maxWidthXl",
-        "maxWidthXs": "MuiContainer-maxWidthXs",
-        "root": "MuiContainer-root",
-      }
-    }
-    component="main"
-    maxWidth="xs"
+<div>
+  <main
+    class="MuiContainer-root MuiContainer-maxWidthXs"
   >
-    <main
-      className="MuiContainer-root MuiContainer-maxWidthXs"
+    <div />
+    <div
+      class="makeStyles-paper-1"
     >
-      <div>
-        <WithStyles(ForwardRef(Snackbar))
-          action={
-            Array [
-              <ForwardRef(WithStyles)
-                aria-label="close"
-                color="inherit"
-              >
-                <Memo />
-              </ForwardRef(WithStyles)>,
-            ]
-          }
-          message={
-            <span
-              id="alert-message-id"
-            >
-              
-            </span>
-          }
-          open={false}
-        >
-          <ForwardRef(Snackbar)
-            action={
-              Array [
-                <ForwardRef(WithStyles)
-                  aria-label="close"
-                  color="inherit"
-                >
-                  <Memo />
-                </ForwardRef(WithStyles)>,
-              ]
-            }
-            classes={
-              Object {
-                "anchorOriginBottomCenter": "MuiSnackbar-anchorOriginBottomCenter",
-                "anchorOriginBottomLeft": "MuiSnackbar-anchorOriginBottomLeft",
-                "anchorOriginBottomRight": "MuiSnackbar-anchorOriginBottomRight",
-                "anchorOriginTopCenter": "MuiSnackbar-anchorOriginTopCenter",
-                "anchorOriginTopLeft": "MuiSnackbar-anchorOriginTopLeft",
-                "anchorOriginTopRight": "MuiSnackbar-anchorOriginTopRight",
-                "root": "MuiSnackbar-root",
-              }
-            }
-            message={
-              <span
-                id="alert-message-id"
-              >
-                
-              </span>
-            }
-            open={false}
-          />
-        </WithStyles(ForwardRef(Snackbar))>
-      </div>
       <div
-        className="makeStyles-paper-1"
+        class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-2 MuiAvatar-colorDefault"
       >
-        <WithStyles(ForwardRef(Avatar))
-          className="makeStyles-avatar-2"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
         >
-          <ForwardRef(Avatar)
-            className="makeStyles-avatar-2"
-            classes={
-              Object {
-                "circle": "MuiAvatar-circle",
-                "colorDefault": "MuiAvatar-colorDefault",
-                "img": "MuiAvatar-img",
-                "root": "MuiAvatar-root",
-                "rounded": "MuiAvatar-rounded",
-                "square": "MuiAvatar-square",
-              }
-            }
+          <g
+            fill="none"
           >
-            <div
-              className="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-2 MuiAvatar-colorDefault"
-            >
-              <ForwardRef>
-                <WithStyles(ForwardRef(SvgIcon))>
-                  <ForwardRef(SvgIcon)
-                    classes={
-                      Object {
-                        "colorAction": "MuiSvgIcon-colorAction",
-                        "colorDisabled": "MuiSvgIcon-colorDisabled",
-                        "colorError": "MuiSvgIcon-colorError",
-                        "colorPrimary": "MuiSvgIcon-colorPrimary",
-                        "colorSecondary": "MuiSvgIcon-colorSecondary",
-                        "fontSizeInherit": "MuiSvgIcon-fontSizeInherit",
-                        "fontSizeLarge": "MuiSvgIcon-fontSizeLarge",
-                        "fontSizeSmall": "MuiSvgIcon-fontSizeSmall",
-                        "root": "MuiSvgIcon-root",
-                      }
-                    }
-                  >
-                    <svg
-                      aria-hidden="true"
-                      className="MuiSvgIcon-root"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 24 24"
-                    >
-                      <g
-                        fill="none"
-                      >
-                        <path
-                          d="M0 0h24v24H0V0z"
-                        />
-                        <path
-                          d="M0 0h24v24H0V0z"
-                          opacity=".87"
-                        />
-                      </g>
-                      <path
-                        d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
-                      />
-                    </svg>
-                  </ForwardRef(SvgIcon)>
-                </WithStyles(ForwardRef(SvgIcon))>
-              </ForwardRef>
-            </div>
-          </ForwardRef(Avatar)>
-        </WithStyles(ForwardRef(Avatar))>
-        <WithStyles(ForwardRef(Typography))
-          component="h1"
-          variant="h5"
-        >
-          <ForwardRef(Typography)
-            classes={
-              Object {
-                "alignCenter": "MuiTypography-alignCenter",
-                "alignJustify": "MuiTypography-alignJustify",
-                "alignLeft": "MuiTypography-alignLeft",
-                "alignRight": "MuiTypography-alignRight",
-                "body1": "MuiTypography-body1",
-                "body2": "MuiTypography-body2",
-                "button": "MuiTypography-button",
-                "caption": "MuiTypography-caption",
-                "colorError": "MuiTypography-colorError",
-                "colorInherit": "MuiTypography-colorInherit",
-                "colorPrimary": "MuiTypography-colorPrimary",
-                "colorSecondary": "MuiTypography-colorSecondary",
-                "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                "displayBlock": "MuiTypography-displayBlock",
-                "displayInline": "MuiTypography-displayInline",
-                "gutterBottom": "MuiTypography-gutterBottom",
-                "h1": "MuiTypography-h1",
-                "h2": "MuiTypography-h2",
-                "h3": "MuiTypography-h3",
-                "h4": "MuiTypography-h4",
-                "h5": "MuiTypography-h5",
-                "h6": "MuiTypography-h6",
-                "noWrap": "MuiTypography-noWrap",
-                "overline": "MuiTypography-overline",
-                "paragraph": "MuiTypography-paragraph",
-                "root": "MuiTypography-root",
-                "srOnly": "MuiTypography-srOnly",
-                "subtitle1": "MuiTypography-subtitle1",
-                "subtitle2": "MuiTypography-subtitle2",
-              }
-            }
-            component="h1"
-            variant="h5"
-          >
-            <h1
-              className="MuiTypography-root MuiTypography-h5"
-            >
-              Library Registration
-            </h1>
-          </ForwardRef(Typography)>
-        </WithStyles(ForwardRef(Typography))>
-        <form
-          className="makeStyles-form-3"
-          onSubmit={[Function]}
-        >
-          <WithStyles(ForwardRef(TextField))
-            autoComplete="email"
-            autoFocus={true}
-            fullWidth={true}
-            id="email"
-            label="Email Address"
-            margin="normal"
-            name="email"
-            onChange={[Function]}
-            required={true}
-            variant="outlined"
-          >
-            <ForwardRef(TextField)
-              autoComplete="email"
-              autoFocus={true}
-              classes={
-                Object {
-                  "root": "MuiTextField-root",
-                }
-              }
-              fullWidth={true}
-              id="email"
-              label="Email Address"
-              margin="normal"
-              name="email"
-              onChange={[Function]}
-              required={true}
-              variant="outlined"
-            >
-              <WithStyles(ForwardRef(FormControl))
-                className="MuiTextField-root"
-                color="primary"
-                disabled={false}
-                error={false}
-                fullWidth={true}
-                margin="normal"
-                required={true}
-                variant="outlined"
-              >
-                <ForwardRef(FormControl)
-                  className="MuiTextField-root"
-                  classes={
-                    Object {
-                      "fullWidth": "MuiFormControl-fullWidth",
-                      "marginDense": "MuiFormControl-marginDense",
-                      "marginNormal": "MuiFormControl-marginNormal",
-                      "root": "MuiFormControl-root",
-                    }
-                  }
-                  color="primary"
-                  disabled={false}
-                  error={false}
-                  fullWidth={true}
-                  margin="normal"
-                  required={true}
-                  variant="outlined"
-                >
-                  <div
-                    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
-                  >
-                    <WithStyles(ForwardRef(InputLabel))
-                      htmlFor="email"
-                      id="email-label"
-                    >
-                      <ForwardRef(InputLabel)
-                        classes={
-                          Object {
-                            "animated": "MuiInputLabel-animated",
-                            "asterisk": "MuiInputLabel-asterisk",
-                            "disabled": "Mui-disabled",
-                            "error": "Mui-error",
-                            "filled": "MuiInputLabel-filled",
-                            "focused": "Mui-focused",
-                            "formControl": "MuiInputLabel-formControl",
-                            "marginDense": "MuiInputLabel-marginDense",
-                            "outlined": "MuiInputLabel-outlined",
-                            "required": "Mui-required",
-                            "root": "MuiInputLabel-root",
-                            "shrink": "MuiInputLabel-shrink",
-                          }
-                        }
-                        htmlFor="email"
-                        id="email-label"
-                      >
-                        <WithStyles(ForwardRef(FormLabel))
-                          className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-                          classes={
-                            Object {
-                              "asterisk": "MuiInputLabel-asterisk",
-                              "disabled": "Mui-disabled",
-                              "error": "Mui-error",
-                              "focused": "Mui-focused",
-                              "required": "Mui-required",
-                            }
-                          }
-                          data-shrink={false}
-                          htmlFor="email"
-                          id="email-label"
-                        >
-                          <ForwardRef(FormLabel)
-                            className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-                            classes={
-                              Object {
-                                "asterisk": "MuiFormLabel-asterisk MuiInputLabel-asterisk",
-                                "colorSecondary": "MuiFormLabel-colorSecondary",
-                                "disabled": "Mui-disabled Mui-disabled",
-                                "error": "Mui-error Mui-error",
-                                "filled": "MuiFormLabel-filled",
-                                "focused": "Mui-focused Mui-focused",
-                                "required": "Mui-required Mui-required",
-                                "root": "MuiFormLabel-root",
-                              }
-                            }
-                            data-shrink={false}
-                            htmlFor="email"
-                            id="email-label"
-                          >
-                            <label
-                              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-                              data-shrink={false}
-                              htmlFor="email"
-                              id="email-label"
-                            >
-                              Email Address
-                              <span
-                                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                          </ForwardRef(FormLabel)>
-                        </WithStyles(ForwardRef(FormLabel))>
-                      </ForwardRef(InputLabel)>
-                    </WithStyles(ForwardRef(InputLabel))>
-                    <WithStyles(ForwardRef(OutlinedInput))
-                      autoComplete="email"
-                      autoFocus={true}
-                      fullWidth={true}
-                      id="email"
-                      labelWidth={0}
-                      multiline={false}
-                      name="email"
-                      onChange={[Function]}
-                    >
-                      <ForwardRef(OutlinedInput)
-                        autoComplete="email"
-                        autoFocus={true}
-                        classes={
-                          Object {
-                            "adornedEnd": "MuiOutlinedInput-adornedEnd",
-                            "adornedStart": "MuiOutlinedInput-adornedStart",
-                            "colorSecondary": "MuiOutlinedInput-colorSecondary",
-                            "disabled": "Mui-disabled",
-                            "error": "Mui-error",
-                            "focused": "Mui-focused",
-                            "input": "MuiOutlinedInput-input",
-                            "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
-                            "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
-                            "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
-                            "inputMultiline": "MuiOutlinedInput-inputMultiline",
-                            "inputSelect": "MuiOutlinedInput-inputSelect",
-                            "marginDense": "MuiOutlinedInput-marginDense",
-                            "multiline": "MuiOutlinedInput-multiline",
-                            "notchedOutline": "MuiOutlinedInput-notchedOutline",
-                            "root": "MuiOutlinedInput-root",
-                          }
-                        }
-                        fullWidth={true}
-                        id="email"
-                        labelWidth={0}
-                        multiline={false}
-                        name="email"
-                        onChange={[Function]}
-                      >
-                        <WithStyles(ForwardRef(InputBase))
-                          autoComplete="email"
-                          autoFocus={true}
-                          classes={
-                            Object {
-                              "adornedEnd": "MuiOutlinedInput-adornedEnd",
-                              "adornedStart": "MuiOutlinedInput-adornedStart",
-                              "colorSecondary": "MuiOutlinedInput-colorSecondary",
-                              "disabled": "Mui-disabled",
-                              "error": "Mui-error",
-                              "focused": "Mui-focused",
-                              "input": "MuiOutlinedInput-input",
-                              "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
-                              "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
-                              "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
-                              "inputMultiline": "MuiOutlinedInput-inputMultiline",
-                              "inputSelect": "MuiOutlinedInput-inputSelect",
-                              "marginDense": "MuiOutlinedInput-marginDense",
-                              "multiline": "MuiOutlinedInput-multiline",
-                              "notchedOutline": null,
-                              "root": "MuiOutlinedInput-root",
-                            }
-                          }
-                          fullWidth={true}
-                          id="email"
-                          inputComponent="input"
-                          multiline={false}
-                          name="email"
-                          onChange={[Function]}
-                          renderSuffix={[Function]}
-                          type="text"
-                        >
-                          <ForwardRef(InputBase)
-                            autoComplete="email"
-                            autoFocus={true}
-                            classes={
-                              Object {
-                                "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
-                                "adornedStart": "MuiInputBase-adornedStart MuiOutlinedInput-adornedStart",
-                                "colorSecondary": "MuiInputBase-colorSecondary MuiOutlinedInput-colorSecondary",
-                                "disabled": "Mui-disabled Mui-disabled",
-                                "error": "Mui-error Mui-error",
-                                "focused": "Mui-focused Mui-focused",
-                                "formControl": "MuiInputBase-formControl",
-                                "fullWidth": "MuiInputBase-fullWidth",
-                                "input": "MuiInputBase-input MuiOutlinedInput-input",
-                                "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd",
-                                "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart",
-                                "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
-                                "inputMarginDense": "MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense",
-                                "inputMultiline": "MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline",
-                                "inputSelect": "MuiInputBase-inputSelect MuiOutlinedInput-inputSelect",
-                                "inputTypeSearch": "MuiInputBase-inputTypeSearch",
-                                "marginDense": "MuiInputBase-marginDense MuiOutlinedInput-marginDense",
-                                "multiline": "MuiInputBase-multiline MuiOutlinedInput-multiline",
-                                "root": "MuiInputBase-root MuiOutlinedInput-root",
-                              }
-                            }
-                            fullWidth={true}
-                            id="email"
-                            inputComponent="input"
-                            multiline={false}
-                            name="email"
-                            onChange={[Function]}
-                            renderSuffix={[Function]}
-                            type="text"
-                          >
-                            <div
-                              className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-                              onClick={[Function]}
-                            >
-                              <input
-                                aria-invalid={false}
-                                autoComplete="email"
-                                autoFocus={true}
-                                className="MuiInputBase-input MuiOutlinedInput-input"
-                                disabled={false}
-                                id="email"
-                                name="email"
-                                onAnimationStart={[Function]}
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                required={true}
-                                type="text"
-                              />
-                              <WithStyles(ForwardRef(NotchedOutline))
-                                className="MuiOutlinedInput-notchedOutline"
-                                labelWidth={0}
-                                notched={false}
-                              >
-                                <ForwardRef(NotchedOutline)
-                                  className="MuiOutlinedInput-notchedOutline"
-                                  classes={
-                                    Object {
-                                      "legend": "PrivateNotchedOutline-legend-127",
-                                      "root": "PrivateNotchedOutline-root-126",
-                                    }
-                                  }
-                                  labelWidth={0}
-                                  notched={false}
-                                >
-                                  <fieldset
-                                    aria-hidden={true}
-                                    className="PrivateNotchedOutline-root-126 MuiOutlinedInput-notchedOutline"
-                                    style={
-                                      Object {
-                                        "paddingLeft": 8,
-                                      }
-                                    }
-                                  >
-                                    <legend
-                                      className="PrivateNotchedOutline-legend-127"
-                                      style={
-                                        Object {
-                                          "width": 0.01,
-                                        }
-                                      }
-                                    >
-                                      <span
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "&#8203;",
-                                          }
-                                        }
-                                      />
-                                    </legend>
-                                  </fieldset>
-                                </ForwardRef(NotchedOutline)>
-                              </WithStyles(ForwardRef(NotchedOutline))>
-                            </div>
-                          </ForwardRef(InputBase)>
-                        </WithStyles(ForwardRef(InputBase))>
-                      </ForwardRef(OutlinedInput)>
-                    </WithStyles(ForwardRef(OutlinedInput))>
-                  </div>
-                </ForwardRef(FormControl)>
-              </WithStyles(ForwardRef(FormControl))>
-            </ForwardRef(TextField)>
-          </WithStyles(ForwardRef(TextField))>
-          <WithStyles(ForwardRef(TextField))
-            autoComplete="current-password"
-            fullWidth={true}
-            id="password"
-            label="Password"
-            margin="normal"
-            name="password"
-            onChange={[Function]}
-            required={true}
-            type="password"
-            variant="outlined"
-          >
-            <ForwardRef(TextField)
-              autoComplete="current-password"
-              classes={
-                Object {
-                  "root": "MuiTextField-root",
-                }
-              }
-              fullWidth={true}
-              id="password"
-              label="Password"
-              margin="normal"
-              name="password"
-              onChange={[Function]}
-              required={true}
-              type="password"
-              variant="outlined"
-            >
-              <WithStyles(ForwardRef(FormControl))
-                className="MuiTextField-root"
-                color="primary"
-                disabled={false}
-                error={false}
-                fullWidth={true}
-                margin="normal"
-                required={true}
-                variant="outlined"
-              >
-                <ForwardRef(FormControl)
-                  className="MuiTextField-root"
-                  classes={
-                    Object {
-                      "fullWidth": "MuiFormControl-fullWidth",
-                      "marginDense": "MuiFormControl-marginDense",
-                      "marginNormal": "MuiFormControl-marginNormal",
-                      "root": "MuiFormControl-root",
-                    }
-                  }
-                  color="primary"
-                  disabled={false}
-                  error={false}
-                  fullWidth={true}
-                  margin="normal"
-                  required={true}
-                  variant="outlined"
-                >
-                  <div
-                    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
-                  >
-                    <WithStyles(ForwardRef(InputLabel))
-                      htmlFor="password"
-                      id="password-label"
-                    >
-                      <ForwardRef(InputLabel)
-                        classes={
-                          Object {
-                            "animated": "MuiInputLabel-animated",
-                            "asterisk": "MuiInputLabel-asterisk",
-                            "disabled": "Mui-disabled",
-                            "error": "Mui-error",
-                            "filled": "MuiInputLabel-filled",
-                            "focused": "Mui-focused",
-                            "formControl": "MuiInputLabel-formControl",
-                            "marginDense": "MuiInputLabel-marginDense",
-                            "outlined": "MuiInputLabel-outlined",
-                            "required": "Mui-required",
-                            "root": "MuiInputLabel-root",
-                            "shrink": "MuiInputLabel-shrink",
-                          }
-                        }
-                        htmlFor="password"
-                        id="password-label"
-                      >
-                        <WithStyles(ForwardRef(FormLabel))
-                          className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-                          classes={
-                            Object {
-                              "asterisk": "MuiInputLabel-asterisk",
-                              "disabled": "Mui-disabled",
-                              "error": "Mui-error",
-                              "focused": "Mui-focused",
-                              "required": "Mui-required",
-                            }
-                          }
-                          data-shrink={false}
-                          htmlFor="password"
-                          id="password-label"
-                        >
-                          <ForwardRef(FormLabel)
-                            className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-                            classes={
-                              Object {
-                                "asterisk": "MuiFormLabel-asterisk MuiInputLabel-asterisk",
-                                "colorSecondary": "MuiFormLabel-colorSecondary",
-                                "disabled": "Mui-disabled Mui-disabled",
-                                "error": "Mui-error Mui-error",
-                                "filled": "MuiFormLabel-filled",
-                                "focused": "Mui-focused Mui-focused",
-                                "required": "Mui-required Mui-required",
-                                "root": "MuiFormLabel-root",
-                              }
-                            }
-                            data-shrink={false}
-                            htmlFor="password"
-                            id="password-label"
-                          >
-                            <label
-                              className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-                              data-shrink={false}
-                              htmlFor="password"
-                              id="password-label"
-                            >
-                              Password
-                              <span
-                                className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
-                              >
-                                 
-                                *
-                              </span>
-                            </label>
-                          </ForwardRef(FormLabel)>
-                        </WithStyles(ForwardRef(FormLabel))>
-                      </ForwardRef(InputLabel)>
-                    </WithStyles(ForwardRef(InputLabel))>
-                    <WithStyles(ForwardRef(OutlinedInput))
-                      autoComplete="current-password"
-                      autoFocus={false}
-                      fullWidth={true}
-                      id="password"
-                      labelWidth={0}
-                      multiline={false}
-                      name="password"
-                      onChange={[Function]}
-                      type="password"
-                    >
-                      <ForwardRef(OutlinedInput)
-                        autoComplete="current-password"
-                        autoFocus={false}
-                        classes={
-                          Object {
-                            "adornedEnd": "MuiOutlinedInput-adornedEnd",
-                            "adornedStart": "MuiOutlinedInput-adornedStart",
-                            "colorSecondary": "MuiOutlinedInput-colorSecondary",
-                            "disabled": "Mui-disabled",
-                            "error": "Mui-error",
-                            "focused": "Mui-focused",
-                            "input": "MuiOutlinedInput-input",
-                            "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
-                            "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
-                            "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
-                            "inputMultiline": "MuiOutlinedInput-inputMultiline",
-                            "inputSelect": "MuiOutlinedInput-inputSelect",
-                            "marginDense": "MuiOutlinedInput-marginDense",
-                            "multiline": "MuiOutlinedInput-multiline",
-                            "notchedOutline": "MuiOutlinedInput-notchedOutline",
-                            "root": "MuiOutlinedInput-root",
-                          }
-                        }
-                        fullWidth={true}
-                        id="password"
-                        labelWidth={0}
-                        multiline={false}
-                        name="password"
-                        onChange={[Function]}
-                        type="password"
-                      >
-                        <WithStyles(ForwardRef(InputBase))
-                          autoComplete="current-password"
-                          autoFocus={false}
-                          classes={
-                            Object {
-                              "adornedEnd": "MuiOutlinedInput-adornedEnd",
-                              "adornedStart": "MuiOutlinedInput-adornedStart",
-                              "colorSecondary": "MuiOutlinedInput-colorSecondary",
-                              "disabled": "Mui-disabled",
-                              "error": "Mui-error",
-                              "focused": "Mui-focused",
-                              "input": "MuiOutlinedInput-input",
-                              "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
-                              "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
-                              "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
-                              "inputMultiline": "MuiOutlinedInput-inputMultiline",
-                              "inputSelect": "MuiOutlinedInput-inputSelect",
-                              "marginDense": "MuiOutlinedInput-marginDense",
-                              "multiline": "MuiOutlinedInput-multiline",
-                              "notchedOutline": null,
-                              "root": "MuiOutlinedInput-root",
-                            }
-                          }
-                          fullWidth={true}
-                          id="password"
-                          inputComponent="input"
-                          multiline={false}
-                          name="password"
-                          onChange={[Function]}
-                          renderSuffix={[Function]}
-                          type="password"
-                        >
-                          <ForwardRef(InputBase)
-                            autoComplete="current-password"
-                            autoFocus={false}
-                            classes={
-                              Object {
-                                "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
-                                "adornedStart": "MuiInputBase-adornedStart MuiOutlinedInput-adornedStart",
-                                "colorSecondary": "MuiInputBase-colorSecondary MuiOutlinedInput-colorSecondary",
-                                "disabled": "Mui-disabled Mui-disabled",
-                                "error": "Mui-error Mui-error",
-                                "focused": "Mui-focused Mui-focused",
-                                "formControl": "MuiInputBase-formControl",
-                                "fullWidth": "MuiInputBase-fullWidth",
-                                "input": "MuiInputBase-input MuiOutlinedInput-input",
-                                "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd",
-                                "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart",
-                                "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
-                                "inputMarginDense": "MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense",
-                                "inputMultiline": "MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline",
-                                "inputSelect": "MuiInputBase-inputSelect MuiOutlinedInput-inputSelect",
-                                "inputTypeSearch": "MuiInputBase-inputTypeSearch",
-                                "marginDense": "MuiInputBase-marginDense MuiOutlinedInput-marginDense",
-                                "multiline": "MuiInputBase-multiline MuiOutlinedInput-multiline",
-                                "root": "MuiInputBase-root MuiOutlinedInput-root",
-                              }
-                            }
-                            fullWidth={true}
-                            id="password"
-                            inputComponent="input"
-                            multiline={false}
-                            name="password"
-                            onChange={[Function]}
-                            renderSuffix={[Function]}
-                            type="password"
-                          >
-                            <div
-                              className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-                              onClick={[Function]}
-                            >
-                              <input
-                                aria-invalid={false}
-                                autoComplete="current-password"
-                                autoFocus={false}
-                                className="MuiInputBase-input MuiOutlinedInput-input"
-                                disabled={false}
-                                id="password"
-                                name="password"
-                                onAnimationStart={[Function]}
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                required={true}
-                                type="password"
-                              />
-                              <WithStyles(ForwardRef(NotchedOutline))
-                                className="MuiOutlinedInput-notchedOutline"
-                                labelWidth={0}
-                                notched={false}
-                              >
-                                <ForwardRef(NotchedOutline)
-                                  className="MuiOutlinedInput-notchedOutline"
-                                  classes={
-                                    Object {
-                                      "legend": "PrivateNotchedOutline-legend-127",
-                                      "root": "PrivateNotchedOutline-root-126",
-                                    }
-                                  }
-                                  labelWidth={0}
-                                  notched={false}
-                                >
-                                  <fieldset
-                                    aria-hidden={true}
-                                    className="PrivateNotchedOutline-root-126 MuiOutlinedInput-notchedOutline"
-                                    style={
-                                      Object {
-                                        "paddingLeft": 8,
-                                      }
-                                    }
-                                  >
-                                    <legend
-                                      className="PrivateNotchedOutline-legend-127"
-                                      style={
-                                        Object {
-                                          "width": 0.01,
-                                        }
-                                      }
-                                    >
-                                      <span
-                                        dangerouslySetInnerHTML={
-                                          Object {
-                                            "__html": "&#8203;",
-                                          }
-                                        }
-                                      />
-                                    </legend>
-                                  </fieldset>
-                                </ForwardRef(NotchedOutline)>
-                              </WithStyles(ForwardRef(NotchedOutline))>
-                            </div>
-                          </ForwardRef(InputBase)>
-                        </WithStyles(ForwardRef(InputBase))>
-                      </ForwardRef(OutlinedInput)>
-                    </WithStyles(ForwardRef(OutlinedInput))>
-                  </div>
-                </ForwardRef(FormControl)>
-              </WithStyles(ForwardRef(FormControl))>
-            </ForwardRef(TextField)>
-          </WithStyles(ForwardRef(TextField))>
-          <WithStyles(ForwardRef(Button))
-            className="makeStyles-submit-4"
-            fullWidth={true}
-            id="registration-button"
-            type="submit"
-            variant="contained"
-          >
-            <ForwardRef(Button)
-              className="makeStyles-submit-4"
-              classes={
-                Object {
-                  "colorInherit": "MuiButton-colorInherit",
-                  "contained": "MuiButton-contained",
-                  "containedPrimary": "MuiButton-containedPrimary",
-                  "containedSecondary": "MuiButton-containedSecondary",
-                  "containedSizeLarge": "MuiButton-containedSizeLarge",
-                  "containedSizeSmall": "MuiButton-containedSizeSmall",
-                  "disabled": "Mui-disabled",
-                  "endIcon": "MuiButton-endIcon",
-                  "focusVisible": "Mui-focusVisible",
-                  "fullWidth": "MuiButton-fullWidth",
-                  "iconSizeLarge": "MuiButton-iconSizeLarge",
-                  "iconSizeMedium": "MuiButton-iconSizeMedium",
-                  "iconSizeSmall": "MuiButton-iconSizeSmall",
-                  "label": "MuiButton-label",
-                  "outlined": "MuiButton-outlined",
-                  "outlinedPrimary": "MuiButton-outlinedPrimary",
-                  "outlinedSecondary": "MuiButton-outlinedSecondary",
-                  "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
-                  "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
-                  "root": "MuiButton-root",
-                  "sizeLarge": "MuiButton-sizeLarge",
-                  "sizeSmall": "MuiButton-sizeSmall",
-                  "startIcon": "MuiButton-startIcon",
-                  "text": "MuiButton-text",
-                  "textPrimary": "MuiButton-textPrimary",
-                  "textSecondary": "MuiButton-textSecondary",
-                  "textSizeLarge": "MuiButton-textSizeLarge",
-                  "textSizeSmall": "MuiButton-textSizeSmall",
-                }
-              }
-              fullWidth={true}
-              id="registration-button"
-              type="submit"
-              variant="contained"
-            >
-              <WithStyles(ForwardRef(ButtonBase))
-                className="MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-fullWidth"
-                component="button"
-                disabled={false}
-                focusRipple={true}
-                focusVisibleClassName="Mui-focusVisible"
-                id="registration-button"
-                type="submit"
-              >
-                <ForwardRef(ButtonBase)
-                  className="MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-fullWidth"
-                  classes={
-                    Object {
-                      "disabled": "Mui-disabled",
-                      "focusVisible": "Mui-focusVisible",
-                      "root": "MuiButtonBase-root",
-                    }
-                  }
-                  component="button"
-                  disabled={false}
-                  focusRipple={true}
-                  focusVisibleClassName="Mui-focusVisible"
-                  id="registration-button"
-                  type="submit"
-                >
-                  <button
-                    className="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-fullWidth"
-                    disabled={false}
-                    id="registration-button"
-                    onBlur={[Function]}
-                    onDragLeave={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    onKeyUp={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="submit"
-                  >
-                    <span
-                      className="MuiButton-label"
-                    >
-                      Register
-                    </span>
-                    <WithStyles(undefined)
-                      center={false}
-                    >
-                      <ForwardRef(TouchRipple)
-                        center={false}
-                        classes={
-                          Object {
-                            "child": "MuiTouchRipple-child",
-                            "childLeaving": "MuiTouchRipple-childLeaving",
-                            "childPulsate": "MuiTouchRipple-childPulsate",
-                            "ripple": "MuiTouchRipple-ripple",
-                            "ripplePulsate": "MuiTouchRipple-ripplePulsate",
-                            "rippleVisible": "MuiTouchRipple-rippleVisible",
-                            "root": "MuiTouchRipple-root",
-                          }
-                        }
-                      >
-                        <span
-                          className="MuiTouchRipple-root"
-                        />
-                      </ForwardRef(TouchRipple)>
-                    </WithStyles(undefined)>
-                  </button>
-                </ForwardRef(ButtonBase)>
-              </WithStyles(ForwardRef(ButtonBase))>
-            </ForwardRef(Button)>
-          </WithStyles(ForwardRef(Button))>
-          <WithStyles(ForwardRef(Link))
-            href="/library-login"
-            id="login-link"
-            variant="body2"
-          >
-            <ForwardRef(Link)
-              classes={
-                Object {
-                  "button": "MuiLink-button",
-                  "focusVisible": "Mui-focusVisible",
-                  "root": "MuiLink-root",
-                  "underlineAlways": "MuiLink-underlineAlways",
-                  "underlineHover": "MuiLink-underlineHover",
-                  "underlineNone": "MuiLink-underlineNone",
-                }
-              }
-              href="/library-login"
-              id="login-link"
-              variant="body2"
-            >
-              <WithStyles(ForwardRef(Typography))
-                className="MuiLink-root MuiLink-underlineHover"
-                color="primary"
-                component="a"
-                href="/library-login"
-                id="login-link"
-                onBlur={[Function]}
-                onFocus={[Function]}
-                variant="body2"
-              >
-                <ForwardRef(Typography)
-                  className="MuiLink-root MuiLink-underlineHover"
-                  classes={
-                    Object {
-                      "alignCenter": "MuiTypography-alignCenter",
-                      "alignJustify": "MuiTypography-alignJustify",
-                      "alignLeft": "MuiTypography-alignLeft",
-                      "alignRight": "MuiTypography-alignRight",
-                      "body1": "MuiTypography-body1",
-                      "body2": "MuiTypography-body2",
-                      "button": "MuiTypography-button",
-                      "caption": "MuiTypography-caption",
-                      "colorError": "MuiTypography-colorError",
-                      "colorInherit": "MuiTypography-colorInherit",
-                      "colorPrimary": "MuiTypography-colorPrimary",
-                      "colorSecondary": "MuiTypography-colorSecondary",
-                      "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                      "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                      "displayBlock": "MuiTypography-displayBlock",
-                      "displayInline": "MuiTypography-displayInline",
-                      "gutterBottom": "MuiTypography-gutterBottom",
-                      "h1": "MuiTypography-h1",
-                      "h2": "MuiTypography-h2",
-                      "h3": "MuiTypography-h3",
-                      "h4": "MuiTypography-h4",
-                      "h5": "MuiTypography-h5",
-                      "h6": "MuiTypography-h6",
-                      "noWrap": "MuiTypography-noWrap",
-                      "overline": "MuiTypography-overline",
-                      "paragraph": "MuiTypography-paragraph",
-                      "root": "MuiTypography-root",
-                      "srOnly": "MuiTypography-srOnly",
-                      "subtitle1": "MuiTypography-subtitle1",
-                      "subtitle2": "MuiTypography-subtitle2",
-                    }
-                  }
-                  color="primary"
-                  component="a"
-                  href="/library-login"
-                  id="login-link"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  variant="body2"
-                >
-                  <a
-                    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
-                    href="/library-login"
-                    id="login-link"
-                    onBlur={[Function]}
-                    onFocus={[Function]}
-                  >
-                    Go Log in
-                  </a>
-                </ForwardRef(Typography)>
-              </WithStyles(ForwardRef(Typography))>
-            </ForwardRef(Link)>
-          </WithStyles(ForwardRef(Link))>
-        </form>
+            <path
+              d="M0 0h24v24H0V0z"
+            />
+            <path
+              d="M0 0h24v24H0V0z"
+              opacity=".87"
+            />
+          </g>
+          <path
+            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+          />
+        </svg>
       </div>
-      <Styled(MuiBox)
-        mt={8}
+      <h1
+        class="MuiTypography-root MuiTypography-h5"
+      >
+        Library Registration
+      </h1>
+      <form
+        class="makeStyles-form-3"
       >
         <div
-          className="MuiBox-root MuiBox-root-166"
+          class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
         >
-          <WithStyles(ForwardRef(Typography))
-            align="center"
-            color="textSecondary"
-            variant="body2"
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-focused Mui-focused Mui-required Mui-required"
+            data-shrink="true"
+            for="email"
+            id="email-label"
           >
-            <ForwardRef(Typography)
-              align="center"
-              classes={
-                Object {
-                  "alignCenter": "MuiTypography-alignCenter",
-                  "alignJustify": "MuiTypography-alignJustify",
-                  "alignLeft": "MuiTypography-alignLeft",
-                  "alignRight": "MuiTypography-alignRight",
-                  "body1": "MuiTypography-body1",
-                  "body2": "MuiTypography-body2",
-                  "button": "MuiTypography-button",
-                  "caption": "MuiTypography-caption",
-                  "colorError": "MuiTypography-colorError",
-                  "colorInherit": "MuiTypography-colorInherit",
-                  "colorPrimary": "MuiTypography-colorPrimary",
-                  "colorSecondary": "MuiTypography-colorSecondary",
-                  "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                  "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                  "displayBlock": "MuiTypography-displayBlock",
-                  "displayInline": "MuiTypography-displayInline",
-                  "gutterBottom": "MuiTypography-gutterBottom",
-                  "h1": "MuiTypography-h1",
-                  "h2": "MuiTypography-h2",
-                  "h3": "MuiTypography-h3",
-                  "h4": "MuiTypography-h4",
-                  "h5": "MuiTypography-h5",
-                  "h6": "MuiTypography-h6",
-                  "noWrap": "MuiTypography-noWrap",
-                  "overline": "MuiTypography-overline",
-                  "paragraph": "MuiTypography-paragraph",
-                  "root": "MuiTypography-root",
-                  "srOnly": "MuiTypography-srOnly",
-                  "subtitle1": "MuiTypography-subtitle1",
-                  "subtitle2": "MuiTypography-subtitle2",
-                }
-              }
-              color="textSecondary"
-              variant="body2"
+            Email Address
+            <span
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
             >
-              <p
-                className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              autocomplete="email"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              id="email"
+              name="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-126 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-127"
+                style="width: 0px;"
               >
-                Copyright © 
-                <WithStyles(ForwardRef(Link))
-                  color="inherit"
-                  href="https://github.com/skow0020"
-                >
-                  <ForwardRef(Link)
-                    classes={
-                      Object {
-                        "button": "MuiLink-button",
-                        "focusVisible": "Mui-focusVisible",
-                        "root": "MuiLink-root",
-                        "underlineAlways": "MuiLink-underlineAlways",
-                        "underlineHover": "MuiLink-underlineHover",
-                        "underlineNone": "MuiLink-underlineNone",
-                      }
-                    }
-                    color="inherit"
-                    href="https://github.com/skow0020"
-                  >
-                    <WithStyles(ForwardRef(Typography))
-                      className="MuiLink-root MuiLink-underlineHover"
-                      color="inherit"
-                      component="a"
-                      href="https://github.com/skow0020"
-                      onBlur={[Function]}
-                      onFocus={[Function]}
-                      variant="inherit"
-                    >
-                      <ForwardRef(Typography)
-                        className="MuiLink-root MuiLink-underlineHover"
-                        classes={
-                          Object {
-                            "alignCenter": "MuiTypography-alignCenter",
-                            "alignJustify": "MuiTypography-alignJustify",
-                            "alignLeft": "MuiTypography-alignLeft",
-                            "alignRight": "MuiTypography-alignRight",
-                            "body1": "MuiTypography-body1",
-                            "body2": "MuiTypography-body2",
-                            "button": "MuiTypography-button",
-                            "caption": "MuiTypography-caption",
-                            "colorError": "MuiTypography-colorError",
-                            "colorInherit": "MuiTypography-colorInherit",
-                            "colorPrimary": "MuiTypography-colorPrimary",
-                            "colorSecondary": "MuiTypography-colorSecondary",
-                            "colorTextPrimary": "MuiTypography-colorTextPrimary",
-                            "colorTextSecondary": "MuiTypography-colorTextSecondary",
-                            "displayBlock": "MuiTypography-displayBlock",
-                            "displayInline": "MuiTypography-displayInline",
-                            "gutterBottom": "MuiTypography-gutterBottom",
-                            "h1": "MuiTypography-h1",
-                            "h2": "MuiTypography-h2",
-                            "h3": "MuiTypography-h3",
-                            "h4": "MuiTypography-h4",
-                            "h5": "MuiTypography-h5",
-                            "h6": "MuiTypography-h6",
-                            "noWrap": "MuiTypography-noWrap",
-                            "overline": "MuiTypography-overline",
-                            "paragraph": "MuiTypography-paragraph",
-                            "root": "MuiTypography-root",
-                            "srOnly": "MuiTypography-srOnly",
-                            "subtitle1": "MuiTypography-subtitle1",
-                            "subtitle2": "MuiTypography-subtitle2",
-                          }
-                        }
-                        color="inherit"
-                        component="a"
-                        href="https://github.com/skow0020"
-                        onBlur={[Function]}
-                        onFocus={[Function]}
-                        variant="inherit"
-                      >
-                        <a
-                          className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
-                          href="https://github.com/skow0020"
-                          onBlur={[Function]}
-                          onFocus={[Function]}
-                        >
-                          Colin Skow
-                        </a>
-                      </ForwardRef(Typography)>
-                    </WithStyles(ForwardRef(Typography))>
-                  </ForwardRef(Link)>
-                </WithStyles(ForwardRef(Link))>
-                 
-                2020
-                .
-              </p>
-            </ForwardRef(Typography)>
-          </WithStyles(ForwardRef(Typography))>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
         </div>
-      </Styled(MuiBox)>
-    </main>
-  </ForwardRef(Container)>
-</WithStyles(ForwardRef(Container))>
+        <div
+          class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+            for="password"
+            id="password-label"
+          >
+            Password
+            <span
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              autocomplete="current-password"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              id="password"
+              name="password"
+              required=""
+              type="password"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-126 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-127"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-fullWidth"
+          id="registration-button"
+          tabindex="0"
+          type="submit"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Register
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+          href="/library-login"
+          id="login-link"
+        >
+          Go Log in
+        </a>
+      </form>
+    </div>
+    <div
+      class="MuiBox-root MuiBox-root-166"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+      >
+        Copyright © 
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+          href="https://github.com/skow0020"
+        >
+          Colin Skow
+        </a>
+         
+        2020
+        .
+      </p>
+    </div>
+  </main>
+</div>
 `;

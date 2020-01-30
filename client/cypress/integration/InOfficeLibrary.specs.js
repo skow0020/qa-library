@@ -14,7 +14,6 @@ context('In Office Library', () => {
       login();
       navigate(size);
       cy.visit('officeBook/1000');
-      cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkInButton).click();
 
@@ -28,7 +27,6 @@ context('In Office Library', () => {
       login();
       navigate(size);
       cy.visit('officeBook/1000');
-      cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkoutButton).click();
 

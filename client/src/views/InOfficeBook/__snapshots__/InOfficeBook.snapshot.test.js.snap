@@ -1,116 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InOfficeBook Snapshot Tests InOfficeBook list snapshot  1`] = `
-<Container
-  className="main-content-container px-3"
-  fluid={true}
-  tag="div"
->
-  <Row
-    className="form-inline py-4"
-    noGutters={true}
-    tag="div"
+<div>
+  <div
+    class="MuiContainer-root card-post MuiContainer-maxWidthLg"
   >
-    <PageTitle
-      className="text-sm-left"
-      sm="8"
-      title="How to sand a hippo"
-    />
-  </Row>
-  <Row
-    tag="div"
-  >
-    <Card
-      className="card-book card-post--1"
-      id="book-card"
-      small={false}
-      tag="div"
+    <div />
+    <div
+      class="MuiGrid-root"
     >
       <div
-        className="card-post__image"
-        style={
-          Object {
-            "backgroundImage": "url('https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg')",
-          }
-        }
-      />
-      <Badge
-        className="card-post__category bg-#f44336"
-        outline={false}
-        pill={true}
-        tag="span"
-        theme="primary"
+        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
       >
-        API Automation
-      </Badge>
-      <CardBody
-        tag="div"
-      >
-        <h5
-          className="card-title"
+        <div
+          class="MuiCardHeader-root"
         >
-          <p
-            className="text-fiord-blue"
+          <div
+            class="MuiCardHeader-avatar"
           >
-            How to sand a hippo
-          </p>
-        </h5>
-        <p
-          className="card-text text-fiord-blue"
-        >
-          Est dolor ad. Provident deserunt aliquid sed provident minus fugit.
-        </p>
-      </CardBody>
-      <CardFooter
-        className="text-muted border-top py-3"
-        tag="div"
-      >
-        <Row
-          tag="div"
-        >
-          <span
-            className="d-inline-block px-3"
+            <div
+              class="MuiChip-root"
+              style="background-color: rgb(244, 67, 54);"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                API Automation
+              </span>
+            </div>
+          </div>
+          <div
+            class="MuiCardHeader-content"
           >
-            By
-             
-            Nova Goldner
-             | 
-            4
-             
-            Available | Checked out by: 
-            stanislov342, georgio232
-          </span>
-        </Row>
-        <div>
-          <Button
-            className="checkout-undefined btn btn-success"
-            onClick={[Function]}
-            tag="button"
-            theme="primary"
-            type="button"
-          >
-            Check out
-          </Button>
-          <span
-            className="d-inline-block px-3"
-          >
-             
-          </span>
-          <Button
-            className="checkin-undefined btn btn-success pull-right"
-            onClick={[Function]}
-            tag="button"
-            theme="primary"
-            type="button"
-          >
-            Check in
-          </Button>
+            <span
+              class="MuiTypography-root MuiCardHeader-title MuiTypography-h6 MuiTypography-displayBlock"
+            >
+              How to sand a hippo
+            </span>
+          </div>
         </div>
-      </CardFooter>
-    </Card>
-  </Row>
-  <AlertModal />
-</Container>
+        <img
+          alt="Book image"
+          class="MuiCardMedia-root card-title MuiCardMedia-media MuiCardMedia-img"
+          height="250"
+          src="https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg"
+          title="How to sand a hippo"
+        />
+        <div
+          class="MuiCardContent-root text-muted border-top py-3"
+        >
+          <div>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary MuiTypography-paragraph"
+            >
+              Est dolor ad. Provident deserunt aliquid sed provident minus fugit.
+            </p>
+            <div
+              class="MuiGrid-root"
+            >
+              <p
+                class="MuiTypography-root card-details MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+              >
+                By
+                 
+                Nova Goldner
+                 | 
+                4
+                 
+                Available | Checked out by: 
+                stanislov342, georgio232
+              </p>
+            </div>
+          </div>
+          <hr
+            class="MuiDivider-root MuiDivider-middle"
+          />
+          <div
+            class="makeStyles-checkOutButtons-3"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained checkout-1000 makeStyles-checkOutButton-2"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Check out
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained checkin-1000 makeStyles-checkInButton-1"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Check in
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
-
-exports[`InOfficeBook Snapshot Tests InOfficeBook loading snapshot 1`] = `<Loading />`;

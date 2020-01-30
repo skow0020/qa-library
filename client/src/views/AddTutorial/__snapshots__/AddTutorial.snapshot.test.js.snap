@@ -111,9 +111,9 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
             >
               <div
                 aria-haspopup="listbox"
-                aria-labelledby=" langauge"
+                aria-labelledby=" language"
                 className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
-                id="langauge"
+                id="language"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}

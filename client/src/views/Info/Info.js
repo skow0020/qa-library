@@ -28,13 +28,13 @@ export default function Info() {
   const classes = useStyles();
 
   return (
-    <Container id="info-container" alignItems="center">
+    <Container id="info-container">
       <img className={classes.image} src={backgroundImage} alt="info" />
       <div className={classes.caption}>
         <Typography gutterBottom className={classes.captionText} align='center' variant="h5">
           This site is a hub of resources for learning programming languages, tools, testing, and best practices across the industry
         </Typography>
-        <Typography className={classes.captionText} align='center' variant="h5" color={Colors.white}>
+        <Typography className={classes.captionText} align='center' variant="h5">
           For more information, google it
         </Typography>
       </div>

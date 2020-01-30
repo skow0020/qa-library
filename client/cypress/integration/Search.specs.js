@@ -10,7 +10,7 @@ context('Search', () => {
     setViewport(sizes[2]);
     login();
     cy.get(header.searchButton).click();
-    cy.get(search.searchField).type('hippo').should('have.value', 'hippo');
+    cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
     cy.get(search.books).click();
   });
 });

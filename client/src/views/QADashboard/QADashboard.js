@@ -1,6 +1,6 @@
-import React from "react";
 import Colors from 'utils/Colors.js';
 import Container from '@material-ui/core/Container';
+import React from "react";
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -29,13 +29,13 @@ export default function QADashboard() {
   const classes = useStyles();
 
   return (
-    <Container id="welcomeDash" alignItems="center">
+    <Container id="welcomeDash">
       <img className={classes.image} src={backgroundImage} alt="welcome" />
       <div className={classes.caption}>
         <Typography gutterBottom className={classes.captionText} align='center' variant="h5">
           Behold! A library in which you can find everything you have ever wanted to search for!
         </Typography>
-        <Typography className={classes.captionText} align='center' variant="h5" color={Colors.white}>
+        <Typography className={classes.captionText} align='center' variant="h5">
           But not really...
         </Typography>
       </div>

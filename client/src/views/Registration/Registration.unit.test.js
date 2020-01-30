@@ -1,26 +1,29 @@
 import React from 'react';
 import Registration from './Registration';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { mount } from 'enzyme';
+import { act } from "react-dom/test-utils";
+import { render } from "react-dom";
 
 describe('LibraryDash Unit Tests', () => {
-  test('LibraryDash renders', () => {
-    const wrapper = mount(
+  test('LibraryDash renders', async () => {
+    let container = global.container;
+
+    await act(async () => render(
       <Router>
         <Registration />
-      </Router>
-    );
+      </Router>, container
+    ));
 
-    expect(wrapper.length).toBe(1);
-  });
+    container.querySelector('#email').value = 'cskow@tapqa.com';
+    expect(container.querySelector('#email').value).toBe('cskow@tapqa.com');
 
-  it('Can register', () => {
-    const wrapper = mount(
-      <Router>
-        <Registration />
-      </Router>
-    );
-    const input = wrapper.find('input#email');
-    input.instance().value = 'cskow@tapqa.com';
+    container.querySelector('#password').value = 'password';
+    expect(container.querySelector('#password').value).toBe('password');
+
+    expect(container.querySelector('#login-link').textContent).toBe('Go Log in');
+
+    act(() => {
+      container.querySelector('#registration-button').dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
   });
 });

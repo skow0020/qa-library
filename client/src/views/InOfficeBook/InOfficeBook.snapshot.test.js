@@ -1,18 +1,11 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
-import { createSerializer } from 'enzyme-to-json';
+import { act } from "react-dom/test-utils";
 import { inOfficeBook } from './testData';
-import { shallow } from 'enzyme';
-
-expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));
+import { render } from "react-dom";
 
 describe('InOfficeBook Snapshot Tests', () => {
   let props;
-  const state = {
-    book: inOfficeBook,
-    isLoading: false
-  };
-
   beforeEach(() => {
     props = {
       match: {
@@ -23,19 +16,19 @@ describe('InOfficeBook Snapshot Tests', () => {
     };
   });
 
-  test('InOfficeBook loading snapshot', () => {
-    const wrapper = shallow(<InOfficeBook {...props}/>);
-
-    wrapper.setState({isLoading: true});
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  test('InOfficeBook list snapshot ', () => {
-    const wrapper = shallow(<InOfficeBook {...props}/>);
+  test('InOfficeBook list snapshot ', async () => {
+    let container = global.container;
     
-    wrapper.setState(state);
+    jest.spyOn(global, "fetch").mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(inOfficeBook)
+      })
+    );
 
-    expect(wrapper).toMatchSnapshot();
+    await act(async () => {
+      render(<InOfficeBook {...props} />, container);
+    });
+
+    expect(container).toMatchSnapshot();
   });
 });

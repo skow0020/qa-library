@@ -129,7 +129,7 @@ export default function LibraryDash(props) {
           </a>
         )}
         {user && (
-          <Grid alignItems="center" justify="space-between">
+          <Grid container alignItems="center" justify="space-between">
             <GithubAvatar avatarUrl={avatarUrl} />
             <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />
           </Grid>
@@ -139,7 +139,7 @@ export default function LibraryDash(props) {
         {books.map((book, idx) => (
           <Grid item md={4} key={idx}>
             <CardComponent
-              idx={`article-card-${idx}`}
+              idx={`book-card-${idx}`}
               url={`/officeBook/${book.office_book_id}`}
               title={book.title}
               subheader={`By ${book.author}`}

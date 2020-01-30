@@ -1,13 +1,13 @@
 import Loading from './Loading';
 import React from 'react';
-import { render } from "react-dom";
 import { act } from "react-dom/test-utils";
+import { render } from "react-dom";
 
 describe('Loading Unit Tests', () => {
-  test('Loading renders', () => {
+  test('Loading renders', async () => {
     let container = global.container;
 
-    act(() => render(<Loading />, container));
+    await act(async () => render(<Loading />, container));
 
     expect(container.querySelector("#loading").getAttribute("role")).toBe("progressbar");
   });

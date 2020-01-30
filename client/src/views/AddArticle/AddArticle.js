@@ -90,7 +90,7 @@ export default function AddArticle(props) {
               <TextField id="author" label="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
             </Grid>
             <Grid item lg={3} md={6}>
-              <LanguagesSelection id="langauge" value={language} onChange={(e) => setLanguage(e.target.value)} />
+              <LanguagesSelection id="language" value={language} onChange={(e) => setLanguage(e.target.value)} />
             </Grid>
             <Grid item lg={3} md={6}>
               <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />

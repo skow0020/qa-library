@@ -1,14 +1,16 @@
 import AddResourceLink from './AddResourceLink';
 import React from 'react';
+import { act } from "react-dom/test-utils";
 import { axe } from 'setupTests';
-import { shallow } from 'enzyme';
+import { render } from "react-dom";
 
 describe('AddResourceLink Accessibility Tests', () => {
   test('AddResourceLink is accessible', async () => {
-    const wrapper = shallow(<AddResourceLink />);
-    expect(wrapper.length).toBe(1);
-    const html = wrapper.html();
+    let container = global.container;
 
+    await act(async () => render(<AddResourceLink />, container));
+
+    const html = container.innerHTML;
     expect(await axe(html)).toHaveNoViolations();
   });
 });

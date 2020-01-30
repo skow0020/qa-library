@@ -1,19 +1,19 @@
 import LibraryLogin from './LibraryLogin';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { createSerializer } from 'enzyme-to-json';
-import { mount } from 'enzyme';
-
-expect.addSnapshotSerializer(createSerializer({ mode: 'deep' }));
+import { act } from "react-dom/test-utils";
+import { render } from "react-dom";
 
 describe('LibraryLogin Snapshot Tests', () => {
-  test('LibraryLogin snapshot', () => {
-    const wrapper = mount(
+  test('LibraryLogin snapshot', async () => {
+    let container = global.container;
+
+    await act(async () => render(
       <Router>
         <LibraryLogin />
-      </Router>
-    );
+      </Router>, container
+    ));
 
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

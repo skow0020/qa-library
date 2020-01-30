@@ -85,7 +85,7 @@ export default function AddTutorial(props) {
               <TextField id="title" label="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
             </Grid>
             <Grid item lg={3} md={6}>
-              <LanguagesSelection id="langauge" value={language} onChange={(e) => setLanguage(e.target.value)} />
+              <LanguagesSelection id="language" value={language} onChange={(e) => setLanguage(e.target.value)} />
             </Grid>
             <Grid item lg={3} md={6}>
               <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />

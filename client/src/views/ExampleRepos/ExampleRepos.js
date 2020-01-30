@@ -73,7 +73,7 @@ export default function ExampleRepos() {
     <Grid container>
       <Grid container alignItems="center" >
         <PageTitle title="Example Repos" />
-        <Typography className={classes.githubUser} variant="h5" color="textSecondary" align="right">
+        <Typography id="github-account-text" className={classes.githubUser} variant="h5" color="textSecondary" align="right">
           {githubAccount} Repos
         </Typography>
       </Grid>
@@ -89,7 +89,7 @@ export default function ExampleRepos() {
         {githubRepos.map((repo, idx) => (
           <Grid item md={6} lg={4} sm={12} key={idx}>
             <CardComponent
-              idx={`tutorial-card-${idx}`}
+              idx={`repo-card-${idx}`}
               url={repo.html_url}
               urlTarget="_blank"
               title={repo.name}

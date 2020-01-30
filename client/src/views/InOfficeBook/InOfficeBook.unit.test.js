@@ -1,21 +1,8 @@
-import { render, unmountComponentAtNode } from "react-dom";
-
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
 import { act } from "react-dom/test-utils";
 import { inOfficeBook } from './testData';
-
-let container = null;
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+import { render } from "react-dom";
 
 describe('InOfficeBook Unit Tests', () => {
   let props;
@@ -31,6 +18,8 @@ describe('InOfficeBook Unit Tests', () => {
   });
 
   test('InOfficeBook renders', async () => {
+    let container = global.container;
+    
     jest.spyOn(global, "fetch").mockImplementation(() =>
       Promise.resolve({
         json: () => Promise.resolve(inOfficeBook)

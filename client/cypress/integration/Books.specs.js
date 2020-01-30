@@ -46,7 +46,7 @@ context('Books', () => {
       setViewport(size);
       login();
       navigate(size);
-      selectDropdown(books.language, 'Java');
+      selectDropdown(books.language, 'CSharp');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
       selectDropdown(books.language, 'Cpp');
       cy.get(books.cardPosts).should('have.length', 0);

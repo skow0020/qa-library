@@ -15,7 +15,7 @@ context('Info Page', () => {
       setViewport(sizes[2]);
       cy.get(header.personIcon).click();
       cy.contains('Info').click();
-      cy.get(info.infoContainer).find('p').should('contain', 'For more information, google it');
+      cy.get(info.infoContainer).find('h5').should('contain', 'For more information, google it');
     });
 });
 
