@@ -21,8 +21,9 @@ jobs:
         npm i
         npm run install:client
         npm run test:unit:backend
-        npm run test:api:backend
         npm run test:unit:client
+        npm run test:accessibility:client
+        npm run test:snapshot:client
       env:
         DB_USER: ${{ secrets.MONGODB_DEV_USER }}
         DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
