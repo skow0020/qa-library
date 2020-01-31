@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardComponent Accessibility Tests CardComponent is accessible 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation1 MuiCard-root card-post MuiPaper-rounded"
+  id="article-card-7"
+>
+  <a
+    aria-label="Navigate to the url"
+    href="www.snowflakes.com/wooo"
+    rel="noopener noreferrer"
+    style={
+      Object {
+        "color": "#000000",
+      }
+    }
+    target="_blank"
+  >
+    <div
+      className="MuiCardHeader-root"
+    >
+      <div
+        className="MuiCardHeader-avatar"
+      >
+        <div
+          className="MuiChip-root MuiChip-sizeSmall"
+          onKeyUp={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#2196f3",
+            }
+          }
+        >
+          <span
+            className="MuiChip-label MuiChip-labelSmall"
+          >
+            UI Automation
+          </span>
+        </div>
+      </div>
+      <div
+        className="MuiCardHeader-content"
+      >
+        <span
+          className="MuiTypography-root MuiCardHeader-title MuiTypography-h6 MuiTypography-displayBlock"
+        >
+          Chirpy iguanas of guadalupe
+        </span>
+        <span
+          className="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+        >
+          By Corrin Tupple
+        </span>
+      </div>
+    </div>
+    <div
+      className="makeStyles-cardImage-1"
+      style={
+        Object {
+          "backgroundImage": "url('www.images.com/orcas.png')",
+        }
+      }
+    />
+  </a>
+  <div
+    className="MuiCardContent-root"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary"
+    >
+      Well if there isn't somethin ado about nothing, then what?
+    </p>
+  </div>
+</div>
+`;
