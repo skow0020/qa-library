@@ -4,10 +4,14 @@ import AlertModal, { showAlert } from "components/common/AlertModal";
 import React, { useEffect, useState } from "react";
 
 import Button from '@material-ui/core/Button';
-import CardComponent from "components/common/CardComponent";
+import { Link } from "react-router-dom";
 import CategoriesSelection from "components/common/CategoriesSelection";
 import Chip from '@material-ui/core/Chip';
 import Colors from 'utils/Colors';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
 import Divider from '@material-ui/core/Divider';
 import GithubAvatar from 'components/common/GithubAvatar';
 import Grid from '@material-ui/core/Grid';
@@ -28,6 +32,16 @@ const useStyles = makeStyles(theme => ({
   },
   cardSpacing: {
     margin: theme.spacing(1)
+  },
+  checkInButton: {
+    backgroundColor: Colors.primary,
+    color: Colors.white
+  },
+  checkOutButton: {
+    backgroundColor: Colors.primary,
+    color: Colors.white,
+    marginLeft: "auto",
+    margin: theme.spacing(0, 4)
   }
 }));
 
@@ -63,6 +77,7 @@ export default function LibraryDash(props) {
       }
       setBooks([]);
     }
+    return getBookList(); //TEMP
   };
 
   const getBookList = () => {
@@ -138,7 +153,48 @@ export default function LibraryDash(props) {
       <Grid container spacing={4}>
         {books.map((book, idx) => (
           <Grid item md={4} key={idx}>
-            <CardComponent
+            <Card>
+              <Link to={`/officeBook/${book.office_book_id}`} style={{ color: Colors.black }}>
+                <CardHeader
+                  titleTypographyProps={{ variant: 'h6' }}
+                  title={book.title}
+                  avatar={
+                    <Chip
+                      label={book.category}
+                      style={{ backgroundColor: getCategoryTheme(book.category) }} />
+                  }
+                />
+                <CardMedia
+                  className="card-title"
+                  component="img"
+                  alt="Book image"
+                  height="250"
+                  image={book.backgroundImage}
+                  title={book.title}
+                />
+              </Link>
+              <CardContent className="text-muted border-top py-3">
+                <Divider className={classes.cardSpacing} />
+                <Grid>
+                  <Typography variant="body2" component="p">
+                    By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available
+                </Typography>
+                </Grid>
+                <Divider className={classes.cardSpacing} />
+                <Grid container justify="space-between">
+                  <Button variant="contained" className={`checkout-${book.office_book_id} ${classes.button}`} onClick={() => handleCheckout(book.office_book_id)}>
+                    Check out
+                </Button>
+                  <Button variant="contained" className={`checkin-${book.office_book_id} ${classes.button}`} onClick={() => handleCheckIn(book.office_book_id)}>
+                    Check in
+                </Button>
+                </Grid>
+              </CardContent>
+            </Card>
+
+
+
+            {/* <CardComponent
               idx={`book-card-${idx}`}
               url={`/officeBook/${book.office_book_id}`}
               title={book.title}
@@ -166,7 +222,7 @@ export default function LibraryDash(props) {
                   Check in
                 </Button>
               </Grid>
-            </CardComponent>
+            </CardComponent> */}
           </Grid>
         ))}
       </Grid>
