@@ -77,7 +77,6 @@ export default function LibraryDash(props) {
       }
       setBooks([]);
     }
-    return getBookList(); //TEMP
   };
 
   const getBookList = () => {
@@ -153,7 +152,7 @@ export default function LibraryDash(props) {
       <Grid container spacing={4}>
         {books.map((book, idx) => (
           <Grid item md={4} key={idx}>
-            <Card>
+            <Card id={`book-card-${idx}`}>
               <Link to={`/officeBook/${book.office_book_id}`} style={{ color: Colors.black }}>
                 <CardHeader
                   titleTypographyProps={{ variant: 'h6' }}
@@ -182,10 +181,10 @@ export default function LibraryDash(props) {
                 </Grid>
                 <Divider className={classes.cardSpacing} />
                 <Grid container justify="space-between">
-                  <Button variant="contained" className={`checkout-${book.office_book_id} ${classes.button}`} onClick={() => handleCheckout(book.office_book_id)}>
+                  <Button variant="contained" className={`checkout-${idx} ${classes.button}`} onClick={() => handleCheckout(book.office_book_id)}>
                     Check out
                 </Button>
-                  <Button variant="contained" className={`checkin-${book.office_book_id} ${classes.button}`} onClick={() => handleCheckIn(book.office_book_id)}>
+                  <Button variant="contained" className={`checkin-${idx} ${classes.button}`} onClick={() => handleCheckIn(book.office_book_id)}>
                     Check in
                 </Button>
                 </Grid>

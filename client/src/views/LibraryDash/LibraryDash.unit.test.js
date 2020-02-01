@@ -38,6 +38,6 @@ describe('LibraryDash Unit Tests', () => {
 
     expect(container.querySelector('.page-title').textContent).toBe('In-Office Library');
     expect(container.querySelector('#category')).not.toBe(null);
-    expect(container.querySelector('#book-card-0').textContent).toBe('API AutomationHow to sand a hippoBy Nova GoldnerEst dolor ad. Provident deserunt aliquid sed provident minus fugit.By Nova Goldner | 4 AvailableCheck outCheck in');
+    expect(container.querySelector('#book-card-0').textContent).toBe('API AutomationHow to sand a hippoBy Nova Goldner | 4 AvailableCheck outCheck in');
   });
 });
