@@ -1,7 +1,7 @@
 import QADashboard from './QADashboard';
 import React from 'react';
-import { act } from "react-dom/test-utils";
-import { render } from "react-dom";
+import { act } from 'react-dom/test-utils';
+import { render } from 'react-dom';
 
 describe('QADashboard Unit Tests', () => {
   test('QADashboard renders', async () => {

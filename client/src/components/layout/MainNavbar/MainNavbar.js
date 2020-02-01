@@ -1,13 +1,13 @@
-import AppBar from "@material-ui/core/AppBar";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/icons/Menu";
-import NavbarLinks from "./NavbarLinks";
-import React from "react";
-import Toolbar from "@material-ui/core/Toolbar";
-import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/components/headerStyle.js";
+import AppBar from '@material-ui/core/AppBar';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/icons/Menu';
+import NavbarLinks from './NavbarLinks';
+import React from 'react';
+import Toolbar from '@material-ui/core/Toolbar';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/core/styles';
+import styles from 'assets/jss/components/headerStyle.js';
 
 const useStyles = makeStyles(styles);
 
@@ -26,7 +26,7 @@ export default function MainNavbar(props) {
   }
   const { color } = props;
   const appBarClasses = classNames({
-    [" " + classes[color]]: color
+    [' ' + classes[color]]: color
   });
   return (
     <AppBar className={classes.appBar + appBarClasses}>

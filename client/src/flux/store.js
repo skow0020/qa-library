@@ -1,8 +1,8 @@
-import { CategoryOptions, Languages } from "./constants";
+import { CategoryOptions, Languages } from './constants';
 
-import Constants from "./constants";
-import Dispatcher from "./dispatcher";
-import { EventEmitter } from "events";
+import Constants from './constants';
+import Dispatcher from './dispatcher';
+import { EventEmitter } from 'events';
 
 let _store = {
   menuVisible: false,

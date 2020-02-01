@@ -1,8 +1,8 @@
 import LibraryLogin from './LibraryLogin';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { act } from "react-dom/test-utils";
-import { render } from "react-dom";
+import { act } from 'react-dom/test-utils';
+import { render } from 'react-dom';
 
 describe('LibraryDash Unit Tests', () => {
   test('Successful Login', async() => {
@@ -20,7 +20,7 @@ describe('LibraryDash Unit Tests', () => {
     container.querySelector('#password').value = 'password';
     expect(container.querySelector('#password').value).toBe('password');
 
-    expect(container.querySelector('#registration-link').textContent).toBe(`Don't have an account? Sign Up`);
+    expect(container.querySelector('#registration-link').textContent).toBe('Don\'t have an account? Sign Up');
 
     act(() => {
       container.querySelector('#submit-button').dispatchEvent(new MouseEvent('click', {bubbles: true}));

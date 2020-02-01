@@ -1,26 +1,26 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 import Button from '@material-ui/core/Button';
-import CardComponent from "components/common/CardComponent";
-import CategoriesSelection from "components/common/CategoriesSelection";
+import CardComponent from 'components/common/CardComponent';
+import CategoriesSelection from 'components/common/CategoriesSelection';
 import Chip from '@material-ui/core/Chip';
 import Colors from 'utils/Colors';
 import Grid from '@material-ui/core/Grid';
-import LanguagesSelection from "components/common/LanguagesSelection";
+import LanguagesSelection from 'components/common/LanguagesSelection';
 import { Link } from 'react-router-dom';
-import LoadError from "components/common/LoadError";
-import Loading from "components/common/Loading";
-import PageTitle from "components/common/PageTitle";
-import { getCategoryTheme } from "utils/util";
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import PageTitle from 'components/common/PageTitle';
+import { getCategoryTheme } from 'utils/util';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   addButton: {
     backgroundColor: Colors.primary,
     color: Colors.white,
-    marginLeft: "auto"
+    marginLeft: 'auto'
   }
 }));
 

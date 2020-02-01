@@ -6,7 +6,7 @@ import * as search from '../pages/Search.json';
 import { login, setViewport, sizes } from '../fixtures/helpers';
 
 context('Search', () => {
-  it(`Search for something`, () => {
+  it('Search for something', () => {
     setViewport(sizes[2]);
     login();
     cy.get(header.searchButton).click();

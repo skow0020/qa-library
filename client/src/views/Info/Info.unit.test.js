@@ -1,7 +1,7 @@
 import Info from './Info';
 import React from 'react';
-import { act } from "react-dom/test-utils";
-import { render } from "react-dom";
+import { act } from 'react-dom/test-utils';
+import { render } from 'react-dom';
 
 describe('Info Unit Tests', () => {
   test('Info renders', async () => {

@@ -1,15 +1,15 @@
-import AlertModal, { showAlert } from "components/common/AlertModal";
-import React, { useState } from "react";
+import AlertModal, { showAlert } from 'components/common/AlertModal';
+import React, { useState } from 'react';
 
 import Button from '@material-ui/core/Button';
-import CategoriesSelection from "components/common/CategoriesSelection";
+import CategoriesSelection from 'components/common/CategoriesSelection';
 import Colors from 'utils/Colors';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import LanguagesSelection from "components/common/LanguagesSelection";
-import PageTitle from "components/common/PageTitle";
-import TextField from "components/common/TextField";
-import axios from "axios";
+import LanguagesSelection from 'components/common/LanguagesSelection';
+import PageTitle from 'components/common/PageTitle';
+import TextField from 'components/common/TextField';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: Colors.primary,
     color: Colors.white,
-    marginLeft: "auto"
+    marginLeft: 'auto'
   },
   paper: {
     marginTop: theme.spacing(2),
@@ -57,10 +57,10 @@ export default function AddArticle(props) {
       language
     };
 
-    axios.post("/api/articles/", article)
+    axios.post('/api/articles/', article)
       .then(
         response => {
-          if (response.data.success) showAlert({ message: "Article added successfully" });
+          if (response.data.success) showAlert({ message: 'Article added successfully' });
           else showAlert({ message: `Unable to add article: ${JSON.stringify(response.data.error.errors)}` });
           nextPath('/articles');
         },

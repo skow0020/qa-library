@@ -1,9 +1,9 @@
 import CardComponent from './CardComponent';
 import React from 'react';
 import { axe } from 'setupTests';
-import { render } from "react-dom";
+import { render } from 'react-dom';
 import Chip from '@material-ui/core/Chip';
-import { act } from "react-dom/test-utils";
+import { act } from 'react-dom/test-utils';
 import Colors from 'utils/Colors';
 
 describe('CardComponent Accessibility Tests', () => {

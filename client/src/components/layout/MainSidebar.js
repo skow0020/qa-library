@@ -1,14 +1,14 @@
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import React from "react";
-import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/components/sidebarStyle.js";
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/core/styles';
+import styles from 'assets/jss/components/sidebarStyle.js';
 
 const useStyles = makeStyles(styles);
 
@@ -29,13 +29,13 @@ export default function MainSidebar(props) {
     <List className={classes.list}>
       {routes.map((prop, key) => {
         const whiteFontClasses = classNames({
-          [" " + classes.whiteFont]: activeRoute(prop.path)
+          [' ' + classes.whiteFont]: activeRoute(prop.path)
         });
         var listItemClasses;
 
         if (prop.icon) {
           listItemClasses = classNames({
-            [" " + classes[color]]: activeRoute(prop.path)
+            [' ' + classes[color]]: activeRoute(prop.path)
           });
 
           return (
@@ -97,7 +97,7 @@ export default function MainSidebar(props) {
           {image !== undefined ? (
             <div
               className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
+              style={{ backgroundImage: 'url(' + image + ')' }}
             />
           ) : null}
         </Drawer>
@@ -117,7 +117,7 @@ export default function MainSidebar(props) {
           {image !== undefined ? (
             <div
               className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
+              style={{ backgroundImage: 'url(' + image + ')' }}
             />
           ) : null}
         </Drawer>
@@ -128,7 +128,7 @@ export default function MainSidebar(props) {
 
 MainSidebar.propTypes = {
   handleDrawerToggle: PropTypes.func,
-  bgColor: PropTypes.oneOf(["purple", "blue", "green", "orange", "red"]),
+  bgColor: PropTypes.oneOf(['purple', 'blue', 'green', 'orange', 'red']),
   logo: PropTypes.string,
   image: PropTypes.string,
   logoText: PropTypes.string,

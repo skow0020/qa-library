@@ -11,7 +11,7 @@ context('Info Page', () => {
     login();
   });
 
-    it(`Info UI`, () => {
+    it('Info UI', () => {
       setViewport(sizes[2]);
       cy.get(header.personIcon).click();
       cy.contains('Info').click();

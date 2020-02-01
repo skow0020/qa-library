@@ -1,17 +1,17 @@
-import "perfect-scrollbar/css/perfect-scrollbar.css";
+import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
-import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import MainFooter from "components/layout/MainFooter";
-import MainNavbar from "components/layout/MainNavbar/MainNavbar";
-import MainSidebar from "components/layout/MainSidebar";
-import PerfectScrollbar from "perfect-scrollbar";
-import bgImage from "images/lib1.jpg";
-import logo from "images/book-logo.svg";
+import MainFooter from 'components/layout/MainFooter';
+import MainNavbar from 'components/layout/MainNavbar/MainNavbar';
+import MainSidebar from 'components/layout/MainSidebar';
+import PerfectScrollbar from 'perfect-scrollbar';
+import bgImage from 'images/lib1.jpg';
+import logo from 'images/book-logo.svg';
 import { makeStyles } from '@material-ui/core/styles';
-import routes from "routes.js";
-import withAuth from "withAuth";
+import routes from 'routes.js';
+import withAuth from 'withAuth';
 
 let ps;
 
@@ -37,32 +37,32 @@ const switchRoutes = (
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
-    position: "relative",
-    top: "0",
-    height: "100vh"
+    position: 'relative',
+    top: '0',
+    height: '100vh'
   },
   mainPanel: {
-    [theme.breakpoints.up("md")]: {
-      width: `calc(100% - 260px)`
+    [theme.breakpoints.up('md')]: {
+      width: 'calc(100% - 260px)'
     },
-    overflow: "auto",
-    position: "relative",
-    float: "right",
-    transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)",
-    maxHeight: "100%",
-    width: "100%",
-    overflowScrolling: "touch"
+    overflow: 'auto',
+    position: 'relative',
+    float: 'right',
+    transition: 'all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)',
+    maxHeight: '100%',
+    width: '100%',
+    overflowScrolling: 'touch'
   },
   content: {
-    marginTop: "70px",
-    padding: "30px 15px",
-    minHeight: "calc(100vh - 123px)"
+    marginTop: '70px',
+    padding: '30px 15px',
+    minHeight: 'calc(100vh - 123px)'
   },
   container: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    marginRight: "auto",
-    marginLeft: "auto"
+    paddingRight: '15px',
+    paddingLeft: '15px',
+    marginRight: 'auto',
+    marginLeft: 'auto'
   }
 }));
 
@@ -72,7 +72,7 @@ export default function DefaultLayout({ ...rest }) {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [image] = React.useState(bgImage);
-  const [color] = React.useState("green");
+  const [color] = React.useState('green');
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -85,20 +85,20 @@ export default function DefaultLayout({ ...rest }) {
   };
 
   useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
+    if (navigator.platform.indexOf('Win') > -1) {
       ps = new PerfectScrollbar(mainPanel.current, {
         suppressScrollX: true,
         suppressScrollY: false
       });
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     }
-    window.addEventListener("resize", resizeFunction);
+    window.addEventListener('resize', resizeFunction);
 
     return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
+      if (navigator.platform.indexOf('Win') > -1) {
         ps.destroy();
       }
-      window.removeEventListener("resize", resizeFunction);
+      window.removeEventListener('resize', resizeFunction);
     };
   }, [mainPanel]);
 
@@ -106,7 +106,7 @@ export default function DefaultLayout({ ...rest }) {
     <div className={classes.wrapper}>
       <MainSidebar
         routes={routes}
-        logoText={"QA Library"}
+        logoText={'QA Library'}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}

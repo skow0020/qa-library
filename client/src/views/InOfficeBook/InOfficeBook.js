@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import AlertModal, { showAlert } from "components/common/AlertModal";
-import React, { useEffect, useState } from "react";
+import AlertModal, { showAlert } from 'components/common/AlertModal';
+import React, { useEffect, useState } from 'react';
 
-import Button from "@material-ui/core/Button";
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -13,12 +13,12 @@ import Colors from 'utils/Colors';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
-import LoadError from "components/common/LoadError";
-import Loading from "components/common/Loading";
-import { Store } from "../../flux";
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import { Store } from '../../flux';
 import Typography from '@material-ui/core/Typography';
-import axios from "axios";
-import { getCategoryTheme } from "utils/util";
+import axios from 'axios';
+import { getCategoryTheme } from 'utils/util';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   checkOutButton: {
     backgroundColor: Colors.primary,
     color: Colors.white,
-    marginLeft: "auto",
+    marginLeft: 'auto',
     margin: theme.spacing(0, 4)
   },
   checkOutButtons: {
@@ -65,7 +65,7 @@ export default function InOfficeBook(props) {
       office_book_id: book_id,
       user: Store.user
     };
-    axios.patch("/api/officeLibraryBooks/incrementCopiesCheckedOut", checkoutBook)
+    axios.patch('/api/officeLibraryBooks/incrementCopiesCheckedOut', checkoutBook)
       .then(
         data => {
           if (!data.data.success) showAlert({ message: `Unable to check out book: ${data.data.error}. You may have to log in again.` });
@@ -80,7 +80,7 @@ export default function InOfficeBook(props) {
       office_book_id: book_id,
       user: Store.user
     };
-    axios.patch("/api/officeLibraryBooks/decrementCopiesCheckedOut", checkinBook)
+    axios.patch('/api/officeLibraryBooks/decrementCopiesCheckedOut', checkinBook)
       .then(
         data => {
           if (!data.data.success) showAlert({ message: `Unable to check out book: ${data.data.error}` });
@@ -91,7 +91,7 @@ export default function InOfficeBook(props) {
   };
 
   const getUsers = () => {
-    return book.users ? book.users.join(', ') : "No one";
+    return book.users ? book.users.join(', ') : 'No one';
   };
 
   if (error) return <LoadError error="Unable to find library book" />;
@@ -126,7 +126,7 @@ export default function InOfficeBook(props) {
               </Typography>
               <Grid>
                 <Typography className="card-details" variant="body1" color="textSecondary" gutterBottom >
-                  By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available | Checked out by: {getUsers()}
+                  By{' '}{book.author} | {book.totalCopies - book.copiesCheckedOut}{' '}Available | Checked out by: {getUsers()}
                 </Typography>
               </Grid>
             </div>

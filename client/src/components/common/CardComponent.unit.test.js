@@ -1,8 +1,8 @@
 import CardComponent from './CardComponent';
 import React from 'react';
-import { render } from "react-dom";
+import { render } from 'react-dom';
 import Chip from '@material-ui/core/Chip';
-import { act } from "react-dom/test-utils";
+import { act } from 'react-dom/test-utils';
 import Colors from 'utils/Colors';
 
 describe('CardComponent Accessibility Tests', () => {
@@ -27,6 +27,6 @@ describe('CardComponent Accessibility Tests', () => {
 
     expect(container.querySelector('#article-card-7 a').getAttribute('href')).toBe('www.snowflakes.com/wooo');
     expect(container.querySelector('[class*=-avatar] span').textContent).toBe('UI Automation');
-    expect(container.querySelector('#article-card-7').textContent).toBe(`UI AutomationChirpy iguanas of guadalupeBy Corrin TuppleWell if there isn't somethin ado about nothing, then what?`);
+    expect(container.querySelector('#article-card-7').textContent).toBe('UI AutomationChirpy iguanas of guadalupeBy Corrin TuppleWell if there isn\'t somethin ado about nothing, then what?');
   });
 });

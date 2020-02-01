@@ -1,17 +1,17 @@
 import Button from 'components/common/Button';
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import { Link } from "react-router-dom";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import Paper from "@material-ui/core/Paper";
-import Person from "@material-ui/icons/Person";
-import Poppers from "@material-ui/core/Popper";
-import React from "react";
-import Search from "@material-ui/icons/Search";
-import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/components/headerLinksStyle.js";
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import { Link } from 'react-router-dom';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import Paper from '@material-ui/core/Paper';
+import Person from '@material-ui/icons/Person';
+import Poppers from '@material-ui/core/Popper';
+import React from 'react';
+import Search from '@material-ui/icons/Search';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/core/styles';
+import styles from 'assets/jss/components/headerLinksStyle.js';
 
 const useStyles = makeStyles(styles);
 
@@ -41,10 +41,10 @@ export default function NavbarLinks() {
       <div className={classes.manager}>
         <Button
           id="user-avatar"
-          color={window.innerWidth > 959 ? "transparent" : "white"}
+          color={window.innerWidth > 959 ? 'transparent' : 'white'}
           justIcon={window.innerWidth > 959}
           simple={!(window.innerWidth > 959)}
-          aria-owns={openMenu ? "profile-menu-list-grow" : null}
+          aria-owns={openMenu ? 'profile-menu-list-grow' : null}
           aria-haspopup="true"
           onClick={handleClickMenu}
           className={classes.buttonLink}
@@ -58,7 +58,7 @@ export default function NavbarLinks() {
           disablePortal
           className={
             classNames({ [classes.popperClose]: !openMenu }) +
-            " " +
+            ' ' +
             classes.popperNav
           }
         >
@@ -68,7 +68,7 @@ export default function NavbarLinks() {
               id="profile-menu-list-grow"
               style={{
                 transformOrigin:
-                  placement === "bottom" ? "center top" : "center bottom"
+                  placement === 'bottom' ? 'center top' : 'center bottom'
               }}
             >
               <Paper>

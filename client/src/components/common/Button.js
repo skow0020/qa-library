@@ -1,9 +1,9 @@
-import Button from "@material-ui/core/Button";
-import PropTypes from "prop-types";
-import React from "react";
-import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/components/buttonStyle.js";
+import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import React from 'react';
+import classNames from 'classnames';
+import { makeStyles } from '@material-ui/core/styles';
+import styles from 'assets/jss/components/buttonStyle.js';
 
 const useStyles = makeStyles(styles);
 
@@ -44,16 +44,16 @@ export default function RegularButton(props) {
 
 RegularButton.propTypes = {
   color: PropTypes.oneOf([
-    "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "rose",
-    "white",
-    "transparent"
+    'primary',
+    'info',
+    'success',
+    'warning',
+    'danger',
+    'rose',
+    'white',
+    'transparent'
   ]),
-  size: PropTypes.oneOf(["sm", "lg"]),
+  size: PropTypes.oneOf(['sm', 'lg']),
   simple: PropTypes.bool,
   round: PropTypes.bool,
   disabled: PropTypes.bool,

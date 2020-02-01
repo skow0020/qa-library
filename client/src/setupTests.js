@@ -1,8 +1,8 @@
 import { configureAxe, toHaveNoViolations } from 'jest-axe';
-import { unmountComponentAtNode } from "react-dom";
+import { unmountComponentAtNode } from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import Enzyme from 'enzyme';
-import React from "react";
+import React from 'react';
 import { createSerializer } from 'enzyme-to-json';
 
 //Suppressing useLayoutEffect errors
@@ -23,7 +23,7 @@ export const axe = configureAxe({
 
 global.container = null;
 global.beforeEach(() => {
-  global.container = document.createElement("div");
+  global.container = document.createElement('div');
   document.body.appendChild(global.container);
 });
 

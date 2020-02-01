@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import AlertModal, { showAlert } from "components/common/AlertModal";
-import React, { useEffect, useState } from "react";
+import AlertModal, { showAlert } from 'components/common/AlertModal';
+import React, { useEffect, useState } from 'react';
 
 import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
-import CategoriesSelection from "components/common/CategoriesSelection";
+import { Link } from 'react-router-dom';
+import CategoriesSelection from 'components/common/CategoriesSelection';
 import Chip from '@material-ui/core/Chip';
 import Colors from 'utils/Colors';
 import Card from '@material-ui/core/Card';
@@ -15,13 +15,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Divider from '@material-ui/core/Divider';
 import GithubAvatar from 'components/common/GithubAvatar';
 import Grid from '@material-ui/core/Grid';
-import LoadError from "components/common/LoadError";
-import Loading from "components/common/Loading";
-import PageTitle from "components/common/PageTitle";
-import { Store } from "../../flux";
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import PageTitle from 'components/common/PageTitle';
+import { Store } from '../../flux';
 import Typography from '@material-ui/core/Typography';
-import axios from "axios";
-import { getCategoryTheme } from "utils/util";
+import axios from 'axios';
+import { getCategoryTheme } from 'utils/util';
 import { makeStyles } from '@material-ui/core/styles';
 import queryString from 'query-string';
 
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   checkOutButton: {
     backgroundColor: Colors.primary,
     color: Colors.white,
-    marginLeft: "auto",
+    marginLeft: 'auto',
     margin: theme.spacing(0, 4)
   }
 }));
@@ -105,7 +105,7 @@ export default function LibraryDash(props) {
       office_book_id: book_id,
       user: Store.user
     };
-    axios.patch("/api/officeLibraryBooks/incrementCopiesCheckedOut", checkoutBook)
+    axios.patch('/api/officeLibraryBooks/incrementCopiesCheckedOut', checkoutBook)
       .then(
         data => {
           if (!data.data.success) showAlert({ message: `Unable to check out book: ${data.data.error}` });
@@ -120,7 +120,7 @@ export default function LibraryDash(props) {
       office_book_id: book_id,
       user: Store.user
     };
-    axios.patch("/api/officeLibraryBooks/decrementCopiesCheckedOut", checkinBook)
+    axios.patch('/api/officeLibraryBooks/decrementCopiesCheckedOut', checkinBook)
       .then(
         data => {
           if (!data.data.success) showAlert({ message: `Unable to check in book: ${data.data.error}` });
@@ -177,7 +177,7 @@ export default function LibraryDash(props) {
                 <Divider className={classes.cardSpacing} />
                 <Grid>
                   <Typography variant="body2" component="p">
-                    By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available
+                    By{' '}{book.author} | {book.totalCopies - book.copiesCheckedOut}{' '}Available
                 </Typography>
                 </Grid>
                 <Divider className={classes.cardSpacing} />

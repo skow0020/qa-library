@@ -1,11 +1,11 @@
-import "assets/css/material-dashboard-react.css?v=1.8.0";
+import 'assets/css/material-dashboard-react.css?v=1.8.0';
 
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { DefaultLayout } from "layouts/index";
-import LibraryLogin from "views/LibraryLogin/LibraryLogin";
-import React from "react";
-import Registration from "views/Registration/Registration";
+import { DefaultLayout } from 'layouts/index';
+import LibraryLogin from 'views/LibraryLogin/LibraryLogin';
+import React from 'react';
+import Registration from 'views/Registration/Registration';
 
 export default () => (
   <Router>

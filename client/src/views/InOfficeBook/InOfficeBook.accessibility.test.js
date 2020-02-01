@@ -1,9 +1,9 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
-import { act } from "react-dom/test-utils";
+import { act } from 'react-dom/test-utils';
 import { axe } from 'setupTests';
 import { inOfficeBook } from './testData';
-import { render } from "react-dom";
+import { render } from 'react-dom';
 
 describe('InOfficeBook Accessibility Tests', () => {
   let props;
@@ -21,7 +21,7 @@ describe('InOfficeBook Accessibility Tests', () => {
   test('InOfficeBook is accessible', async () => {
     let container = global.container;
 
-    jest.spyOn(global, "fetch").mockImplementation(() =>
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
       Promise.resolve({
         json: () => Promise.resolve(inOfficeBook)
       })

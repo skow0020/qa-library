@@ -18,7 +18,7 @@ context('In Office Library', () => {
       cy.get(inOfficeBook.checkInButton).click();
 
       cy.on('window:confirm', (str) => {
-        expect(str).to.equal(`Unable to check in book: Request must include a user`);
+        expect(str).to.equal('Unable to check in book: Request must include a user');
       });
     });
 
@@ -31,7 +31,7 @@ context('In Office Library', () => {
       cy.get(inOfficeBook.checkoutButton).click();
 
       cy.on('window:confirm', (str) => {
-        expect(str).to.equal(`Unable to check out book: Request must include a user`);
+        expect(str).to.equal('Unable to check out book: Request must include a user');
       });
     });
 

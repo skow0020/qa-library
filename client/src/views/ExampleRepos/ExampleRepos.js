@@ -1,23 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import CardComponent from "components/common/CardComponent";
+import CardComponent from 'components/common/CardComponent';
 import Chip from '@material-ui/core/Chip';
 import Colors from 'utils/Colors';
 import Grid from '@material-ui/core/Grid';
-import LanguagesSelection from "components/common/LanguagesSelection";
-import LoadError from "components/common/LoadError";
-import Loading from "components/common/Loading";
-import PageTitle from "components/common/PageTitle";
-import TextField from "components/common/TextField";
+import LanguagesSelection from 'components/common/LanguagesSelection';
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import PageTitle from 'components/common/PageTitle';
+import TextField from 'components/common/TextField';
 import Typography from '@material-ui/core/Typography';
-import { getLanguageTheme } from "utils/util";
+import { getLanguageTheme } from 'utils/util';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   githubUser: {
-    marginLeft: "auto"
+    marginLeft: 'auto'
   }
 }));
 

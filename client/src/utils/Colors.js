@@ -20,7 +20,7 @@ export default {
   lightGrey3: '#CFD3D6',
 
   // Buttons
-  primary: "#006f51",
+  primary: '#006f51',
   primaryHover: '#00A881',
   secondary: '#000000',
   secondaryHover: '#383838',
