@@ -1,4 +1,4 @@
 {
-    "baseUrl": "http://localhost:5001",
+    "baseUrl": "https://qa-library-dev.herokuapp.com/",
     "chromeWebSecurity": false 
 }
