@@ -16,3 +16,8 @@ export const login = () => {
   cy.get(loginView.password).type('password');
   cy.get(loginView.submit).click();
 };
+
+export const selectDropdown = (dropdown, selection) => {
+  cy.get(dropdown).click();
+  cy.get(`li[data-value="${selection}"]`).click();
+};

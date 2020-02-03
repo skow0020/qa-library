@@ -1,28 +1,29 @@
 import LibraryLogin from './LibraryLogin';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { render } from 'react-dom';
 
 describe('LibraryDash Unit Tests', () => {
-  test('LibraryDash renders', () => {
-    const wrapper = mount(
+  test('Successful Login', async() => {
+    let container = global.container;
+
+    await act(async () => render(
       <Router>
         <LibraryLogin />
-      </Router>
-    );
+      </Router>, container
+    ));
+    
+    container.querySelector('#email').value = 'cskow@tapqa.com';
+    expect(container.querySelector('#email').value).toBe('cskow@tapqa.com');
 
-    expect(wrapper.length).toBe(1);
-  });
+    container.querySelector('#password').value = 'password';
+    expect(container.querySelector('#password').value).toBe('password');
 
-  it('Can login', function () {
-    const wrapper = mount(
-      <Router>
-        <LibraryLogin />
-      </Router>
-    );
-    const input = wrapper.find('input#email');
-    input.instance().value = 'cskow@tapqa.com';
+    expect(container.querySelector('#registration-link').textContent).toBe('Don\'t have an account? Sign Up');
 
-    wrapper.find('button#submit-button').simulate('click');
+    act(() => {
+      container.querySelector('#submit-button').dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
   });
 });

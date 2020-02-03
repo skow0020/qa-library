@@ -1,23 +1,32 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Tutorials from './Tutorials';
-import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { render } from 'react-dom';
 import { tutorials } from './testData';
 
 describe('Tutorials Unit Tests', () => {
-  const state = {
-    tutorials: tutorials,
-    isLoading: false,
-    category: "UI Automation",
-    language: "Python"
-  };
+  test('Tutorials renders', async () => {
+    let container = global.container;
 
-  test('Tutorials renders', () => {
-    const wrapper = mount(<Tutorials />);
-    wrapper.setState(state);
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(tutorials)
+      })
+    );
 
-    expect(wrapper.length).toBe(1);
-    expect(wrapper.find('select#category').props().value).toBe("UI Automation");
-    expect(wrapper.find('select#language').props().value).toBe("Python");
-    expect(wrapper.find('.card-title').length).toBe(2);
+    await act(async () => render(
+      <Router>
+        <Tutorials />
+      </Router>, container));
+      
+    expect(container.querySelector('.page-title').textContent).toBe('Tutorials');
+    expect(container.querySelector('#add-tutorial').textContent).toBe('Add Tutorial');
+    expect(container.querySelector('#filtering-form')).not.toBe(null);
+    expect(container.querySelector('#category')).not.toBe(null);
+    expect(container.querySelector('#language')).not.toBe(null);
+    expect(container.querySelector('#tutorial-card-0 a').getAttribute('href')).toBe('https://qa-library-dev.herokuapp.com/qa-dashboard');
+    expect(container.querySelector('#tutorial-card-0').textContent).toBe('GeneralHow to sand a hippoUt nihil optio est est vel assumenda cum totam sunt. Mollitia incidunt nulla aperiam et aut nobis.');
+    expect(container.querySelector('.MuiChip-root').textContent).toBe('General');
   });
 });

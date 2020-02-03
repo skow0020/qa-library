@@ -1,125 +1,101 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
+/* eslint-disable react-hooks/exhaustive-deps */
 
-import {
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  Row
-} from "shards-react";
+import React, { useEffect, useState } from 'react';
 
-import CategoriesSelection from "components/common/CategoriesSelection";
-import LanguagesSelection from "components/common/LanguagesSelection";
-import LoadError from "components/common/LoadError";
-import Loading from "components/common/Loading";
-import PageTitle from "components/common/PageTitle";
-import React from "react";
-import { getCategoryTheme } from "utils/util";
+import Button from '@material-ui/core/Button';
+import CardComponent from 'components/common/CardComponent';
+import CategoriesSelection from 'components/common/CategoriesSelection';
+import Chip from '@material-ui/core/Chip';
+import Colors from 'utils/Colors';
+import Grid from '@material-ui/core/Grid';
+import LanguagesSelection from 'components/common/LanguagesSelection';
+import { Link } from 'react-router-dom';
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import PageTitle from 'components/common/PageTitle';
+import { getCategoryTheme } from 'utils/util';
+import { makeStyles } from '@material-ui/core/styles';
 
-class Tutorials extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tutorials: [],
-      isLoading: false
-    };
-
-    this.getTutorials = this.getTutorials.bind(this);
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleLanguageChange = this.handleLanguageChange.bind(this);
+const useStyles = makeStyles(() => ({
+  addButton: {
+    backgroundColor: Colors.primary,
+    color: Colors.white,
+    marginLeft: 'auto'
   }
+}));
 
-  componentDidMount() {
-    this.getTutorials();
-  }
+export default function Tutorials() {
+  const classes = useStyles();
+  const [tutorials, setTutorials] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [category, setCategory] = useState('');
+  const [language, setLanguage] = useState('');
+  const [error, setError] = useState('');
 
-  getTutorials() {
-    const categoryFilter = this.state.category ? `category=${this.state.category}` : '';
-    const languageFilter = this.state.language ? `language=${this.state.language}` : '';
+  useEffect(() => {
+    getTutorials();
+  }, []);
+
+  useEffect(() => { getTutorials(); }, [category]);
+  useEffect(() => { getTutorials(); }, [language]);
+
+  const getTutorials = () => {
+    const categoryFilter = category ? `category=${category}` : '';
+    const languageFilter = language ? `language=${language}` : '';
     const filter = `${categoryFilter}&${languageFilter}`;
 
-    this.setState({ isLoading: true });
+    setIsLoading(true);
     fetch(`/api/tutorials?${filter}`)
       .then(response => response.json())
       .then(
-        data => this.setState({ tutorials: data.data, isLoading: false }),
-        error => this.setState({ error, isLoading: false })
+        data => {
+          setTutorials(data.data);
+          setIsLoading(false);
+        },
+        error => {
+          setError(error);
+          setIsLoading(false);
+        }
       );
-  }
+  };
 
-  nextPath(path) {
-    this.props.history.push(path);
-  }
+  if (isLoading) return <Loading />;
 
-  handleFilterChange(e) {
-    this.setState({
-      category: e.target.value
-    }, () => this.getTutorials());
-  }
+  if (error) return <LoadError error="Tutorials failed to load" />;
 
-  handleLanguageChange(e) {
-    this.setState({
-      language: e.target.value
-    }, () => this.getTutorials());
-  }
-
-  render() {
-    const { tutorials, isLoading, error, category, language } = this.state;
-
-    if (isLoading) return <Loading />;
-
-    if (error) return <LoadError error="Tutorials failed to load" />;
-
-    return (
-      <Container fluid className="main-content-container px-3">
-        <Row noGutters className="form-inline py-2">
-          <PageTitle sm="8" title="Tutorials" className="text-sm-left" />
-          <Button id="add-tutorial" type="button" className="btn btn-success btn-lg" onClick={() => this.nextPath('/add-tutorial')}>
-            Add Tutorial
-          </Button>
-        </Row>
-        <Row noGutters className="form-inline py-2">
-          <Form id='filtering-form'>
-            <FormGroup >
-              <CategoriesSelection value={category} onChange={this.handleFilterChange} />
-              <LanguagesSelection value={language} onChange={this.handleLanguageChange} />
-            </FormGroup>
-          </Form>
-        </Row>
-        <Row>
-          {tutorials.map((post, idx) => (
-            <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
-              <Card small id={`tutorial-card-${idx}`} className="card-post card-post--1">
-                <a href={post.url} target="_blank" rel="noopener noreferrer" aria-label="Navigate to the tutorial url">
-                  <div
-                    className="card-post__image"
-                    style={{ backgroundImage: `url('${post.backgroundImage}')` }}
-                  />
-                </a>
-                <Badge pill className={`card-post__category bg-${getCategoryTheme(post.category)}`}>
-                  {post.category}
-                </Badge>
-
-                <CardBody>
-                  <h5 className="card-title">
-                    <a href={post.url} className="text-fiord-blue" target="_blank" rel="noopener noreferrer" aria-label="Navigate to the tutorial url">
-                      {post.title}
-                    </a>
-                  </h5>
-                  <p className="card-text d-inline-block mb-3">{post.body}</p>
-                  <span className="text-muted">{post.date}</span>
-                </CardBody>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    );
-  }
+  return (
+    <Grid container>
+      <Grid container alignItems="center" >
+        <PageTitle title="Tutorials" />
+        <Button id="add-tutorial" component={Link} to="/add-tutorial" variant="contained" className={classes.addButton}>
+          Add Tutorial
+        </Button>
+      </Grid>
+      <Grid >
+        <form id='filtering-form'>
+          <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />
+          <LanguagesSelection id="language" value={language} onChange={(e) => setLanguage(e.target.value)} />
+        </form>
+      </Grid>
+      <Grid container spacing={4}>
+        {tutorials.map((post, idx) => (
+          <Grid item md={4} key={idx}>
+            <CardComponent
+              idx={`tutorial-card-${idx}`}
+              url={post.url}
+              urlTarget="_blank"
+              title={post.title}
+              avatar={<Chip
+                size="small"
+                label={post.category}
+                style={{ backgroundColor: post.category ? getCategoryTheme(post.category) : Colors.blue }}
+              />}
+              backgroundImage={post.backgroundImage}
+              body={post.body}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Grid>
+  );
 }
-
-export default Tutorials;

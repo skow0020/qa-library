@@ -1,98 +1,126 @@
-import AddArticle from "views/AddArticle/AddArticle";
-import AddBook from "views/AddBook/AddBook";
-import AddResourceLink from "views/AddResourceLink/AddResourceLink";
-import AddTutorial from "views/AddTutorial/AddTutorial";
-import Articles from "views/Articles/Articles";
-import Books from "views/Books/Books";
-import { DefaultLayout } from "layouts";
-import ExampleRepos from "views/ExampleRepos/ExampleRepos";
-import InOfficeBook from "views/InOfficeBook/InOfficeBook";
-import Info from "views/Info/Info";
-import LibraryDash from "views/LibraryDash/LibraryDash";
-import NotFound from "components/common/NotFound";
-import QADashboard from "views/QADashboard/QADashboard";
-import React from "react";
-import { Redirect } from "react-router-dom";
-import ResourceLinks from "views/ResourceLinks/ResourceLinks";
-import Search from "views/Search";
-import Tutorials from "views/Tutorials/Tutorials";
+import AddArticle from 'views/AddArticle/AddArticle';
+import AddBook from 'views/AddBook/AddBook';
+import AddResourceLink from 'views/AddResourceLink/AddResourceLink';
+import AddTutorial from 'views/AddTutorial/AddTutorial';
+import Articles from 'views/Articles/Articles';
+import Books from 'views/Books/Books';
+import Dashboard from '@material-ui/icons/Dashboard';
+import { DefaultLayout } from 'layouts';
+import ExampleRepos from 'views/ExampleRepos/ExampleRepos';
+import IconFolderOpen from '@material-ui/icons/FolderOpen';
+import IconGitHub from '@material-ui/icons/GitHub';
+import IconLibraryBooks from '@material-ui/icons/LibraryBooks';
+import IconLink from '@material-ui/icons/Link';
+import IconLocalLibrary from '@material-ui/icons/LocalLibrary';
+import IconQuestionAnswer from '@material-ui/icons/QuestionAnswer';
+import InOfficeBook from 'views/InOfficeBook/InOfficeBook';
+import Info from 'views/Info/Info';
+import LibraryDash from 'views/LibraryDash/LibraryDash';
+import NotFound from 'components/common/NotFound';
+import QADashboard from 'views/QADashboard/QADashboard';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import ResourceLinks from 'views/ResourceLinks/ResourceLinks';
+import Search from 'views/Search';
+import Tutorials from 'views/Tutorials/Tutorials';
 
 export default [
   {
-    path: "/",
-    exact: true,
+    path: '/qa-dashboard',
     layout: DefaultLayout,
-    component: () => <Redirect to="/qa-dashboard" />
+    component: QADashboard,
+    name: 'Dashboard',
+    icon: Dashboard
   },
   {
-    path: "/qa-dashboard",
+    path: '/resource-links',
     layout: DefaultLayout,
-    component: QADashboard
+    component: ResourceLinks,
+    name: 'Resource Links',
+    icon: IconLink
+  },
+
+  {
+    path: '/articles',
+    layout: DefaultLayout,
+    component: Articles,
+    name: 'Articles',
+    icon: IconFolderOpen
   },
   {
-    path: "/resource-links",
+    path: '/tutorials',
     layout: DefaultLayout,
-    component: ResourceLinks
+    component: Tutorials,
+    name: 'Tutorials',
+    icon: IconQuestionAnswer
   },
   {
-    path: "/example-repos",
+    path: '/books',
     layout: DefaultLayout,
-    component: ExampleRepos
+    component: Books,
+    name: 'Books',
+    icon: IconLibraryBooks
   },
   {
-    path: "/articles",
+    path: '/example-repos',
     layout: DefaultLayout,
-    component: Articles
+    component: ExampleRepos,
+    name: 'Example Repos',
+    icon: IconGitHub
   },
   {
-    path: "/tutorials",
+    path: '/add-book',
     layout: DefaultLayout,
-    component: Tutorials
+    component: AddBook,
+    name: 'Add Book'
   },
   {
-    path: "/books",
+    path: '/add-article',
     layout: DefaultLayout,
-    component: Books
+    component: AddArticle,
+    name: 'Add Article'
   },
   {
-    path: "/add-book",
+    path: '/add-resourceLink',
     layout: DefaultLayout,
-    component: AddBook
+    component: AddResourceLink,
+    name: 'Add Resource Link'
   },
   {
-    path: "/add-article",
+    path: '/add-tutorial',
     layout: DefaultLayout,
-    component: AddArticle
+    component: AddTutorial,
+    name: 'Add Tutorial'
   },
   {
-    path: "/add-resourceLink",
-    layout: DefaultLayout,
-    component: AddResourceLink
-  },
-  {
-    path: "/add-tutorial",
-    layout: DefaultLayout,
-    component: AddTutorial
-  },
-  {
-    path: "/info",
+    path: '/info',
     layout: DefaultLayout,
     component: Info
   },
   {
-    path: "/search",
+    path: '/search',
     layout: DefaultLayout,
-    component: Search
+    component: Search,
+    name: 'Search'
   },
   {
-    path: "/library",
+    path: '/library',
     layout: DefaultLayout,
-    component: LibraryDash
+    component: LibraryDash,
+    name: 'Library Dashboard',
+    icon: IconLocalLibrary
   },
   {
-    path: "/officeBook/:office_book_id",
+    path: '/officeBook/:office_book_id',
     layout: DefaultLayout,
-    component: InOfficeBook
+    component: InOfficeBook,
+    name: 'In-Office Book'
+  },
+  {
+    path: '/',
+    exact: true,
+    layout: DefaultLayout,
+    component: () => <Redirect to="/qa-dashboard" />
   },
   {
     component: NotFound,

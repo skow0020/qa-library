@@ -1,28 +1,30 @@
 import LibraryDash from './LibraryDash';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { act } from 'react-dom/test-utils';
 import { axe } from 'setupTests';
 import { inOfficeBooks } from './testData';
-import { shallow } from 'enzyme';
+import { render } from 'react-dom';
 
 describe('LibraryDash Accessibility Tests', () => {
-  const state = {
-    isLoggedIn: false,
-    books: inOfficeBooks,
-    isLoading: false
-  };
-
   test('LibraryDash is accessible', async () => {
-    const wrapper = shallow(
-      <Router>
-        <LibraryDash />
-      </Router>
+    let container = global.container;
+
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(inOfficeBooks)
+      })
     );
-    wrapper.setState(state);
 
-    expect(wrapper.length).toBe(1);
-    const html = wrapper.html();
+    const search = { search: '?user=skow0020&avatar_url=purple' };
 
+    await act(async () => render(
+      <Router>
+        <LibraryDash location={search} />
+      </Router>, container
+    ));
+
+    const html = container.innerHTML;
     expect(await axe(html)).toHaveNoViolations();
   });
 });

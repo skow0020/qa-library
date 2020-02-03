@@ -1,137 +1,108 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
+/* eslint-disable react-hooks/exhaustive-deps */
 
-import {
-  Badge,
-  Card,
-  CardBody,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  FormInput,
-  Row
-} from "shards-react";
+import React, { useEffect, useState } from 'react';
 
-import LanguagesSelection from "components/common/LanguagesSelection";
-import LoadError from "components/common/LoadError";
-import PageTitle from "components/common/PageTitle";
-import React from "react";
-import { getLanguageTheme } from "utils/util";
+import CardComponent from 'components/common/CardComponent';
+import Chip from '@material-ui/core/Chip';
+import Colors from 'utils/Colors';
+import Grid from '@material-ui/core/Grid';
+import LanguagesSelection from 'components/common/LanguagesSelection';
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import PageTitle from 'components/common/PageTitle';
+import TextField from 'components/common/TextField';
+import Typography from '@material-ui/core/Typography';
+import { getLanguageTheme } from 'utils/util';
+import { makeStyles } from '@material-ui/core/styles';
 
-class ExampleRepos extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      filter: null,
-      githubAccount: 'skow0020',
-      githubAccountName: 'skow0020',
-      githubRepos: []
-    };
-
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleGithubAccountSubmit = this.handleGithubAccountSubmit.bind(this);
-    this.handleGithubAccountChange = this.handleGithubAccountChange.bind(this);
-    this.getRepos = this.getRepos.bind(this);
+const useStyles = makeStyles(() => ({
+  githubUser: {
+    marginLeft: 'auto'
   }
+}));
 
-  componentDidMount() {
-    this.getRepos();
-  }
+export default function ExampleRepos() {
+  const classes = useStyles();
+  const [githubAccount, setGithubAccount] = useState('skow0020');
+  const [githubRepos, setGithubRepos] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [filter, setFilter] = useState('');
 
-  getRepos() {
-    fetch(`https://api.github.com/users/${this.state.githubAccount}/repos`)
+  useEffect(() => {
+    getRepos();
+  }, []);
+
+  useEffect(() => {
+    getRepos();
+  }, [filter]);
+
+  const getRepos = () => {
+    setIsLoading(true);
+    setError(null);
+    fetch(`https://api.github.com/users/${githubAccount}/repos`)
       .then(res => res.json())
       .then(
         (results) => {
+          setIsLoading(false);
           if (results.message === 'Not Found') {
-            this.setState({
-              isLoaded: true,
-              error: true
-            });
+            setError('Unable to find repos for the account provided');
             return;
           }
-          if (this.state.filter) {
-            results = results.filter(result => result.language);
-            if (this.state.filter === 'CSharp') results = results.filter(repo => { return repo.language === 'C#'; });
-            else results = results.filter(repo => { return repo.language === this.state.filter; });
+          if (filter) {
+            if (filter === 'CSharp') results = results.filter(repo => { return repo.language === 'C#'; });
+            else results = results.filter(repo => { return repo.language === filter; });
           }
-          this.setState({
-            isLoaded: true,
-            githubRepos: results
-          });
+
+          setGithubRepos(results);
         },
         (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+          setIsLoading(false);
+          setError(error);
         }
       );
-  }
+  };
 
-  handleGithubAccountSubmit(e) {
+  const handleGithubAccountSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      githubAccount: this.state.githubAccount,
-      githubAccountName: this.state.githubAccount
-    }, () => this.getRepos());
-  }
+    setGithubAccount(githubAccount);
+    getRepos();
+  };
 
-  handleGithubAccountChange(e) {
-    this.setState({
-      githubAccount: e.target.value
-    });
-  }
-
-  handleFilterChange(e) {
-    this.setState({
-      filter: e.target.value
-    }, () => this.getRepos());
-  }
-
-  render() {
-    if (this.state.error) return <LoadError error="Repos failed to load" />;
-
-    return (
-      <Container fluid className="main-content-container px-4">
-        <Row noGutters className="form-inline py-2">
-          <PageTitle sm="8" title="Example Repos" className="text-sm-left" />
-          <Form id='filter-form' onSubmit={this.handleGithubAccountSubmit}>
-            <FormGroup >
-              <label className="text-muted font-weight-bold px-2" htmlFor="github-account">Github Account</label>
-              <FormInput id="github-account" type="text" value={this.state.githubAccount} onChange={this.handleGithubAccountChange} required />
-              <LanguagesSelection value={this.state.language} onChange={this.handleFilterChange} />
-            </FormGroup>
-          </Form>
-        </Row>
-
-        <span className="text-uppercase page-subtitle">{this.state.githubAccountName} Repos</span>
-        <Row id="row-0">
-          {this.state.githubRepos.map((repo, idx) => (
-            <Col lg="3" md="6" sm="12" className="mb-4" key={idx}>
-              <Card id={`repo-card-${idx}`} small className="card-repo card-repo--1">
-                <CardBody>
-                  <div>
-                    <Badge pill className={`card-repo-badge bg-${getLanguageTheme(repo.language)}`}>
-                      {repo.language}
-                    </Badge>
-                  </div>
-                  <h5 className="card-title">
-                    <a href={repo.html_url} className="text-fiord-blue" target="_blank" rel="noopener noreferrer" aria-label="Navigate to the repo url">
-                      {repo.full_name}
-                    </a>
-                  </h5>
-                  <p className="card-text d-inline-block mb-3">{repo.description}</p>
-                </CardBody>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    );
-  }
+  return (
+    <Grid container>
+      <Grid container alignItems="center" >
+        <PageTitle title="Example Repos" />
+        <Typography id="github-account-text" className={classes.githubUser} variant="h5" color="textSecondary" align="right">
+          {githubAccount} Repos
+        </Typography>
+      </Grid>
+      <Grid container>
+        <form id='filter-form' onSubmit={handleGithubAccountSubmit}>
+          <TextField id="github-account" label="Github Account" value={githubAccount} onChange={(e) => setGithubAccount(e.target.value)} required />
+          <LanguagesSelection id="language" value={filter} onChange={(e) => setFilter(e.target.value)} />
+        </form>
+      </Grid>
+      {isLoading && <Loading />} 
+      {error && <LoadError error={error} />}
+      <Grid container spacing={4}>
+        {githubRepos.map((repo, idx) => (
+          <Grid item md={6} lg={4} sm={12} key={idx}>
+            <CardComponent
+              idx={`repo-card-${idx}`}
+              url={repo.html_url}
+              urlTarget="_blank"
+              title={repo.name}
+              avatar={<Chip
+                size="small"
+                label={repo.language}
+                style={{ backgroundColor: repo.language ? getLanguageTheme(repo.language) : Colors.blue }}
+              />}
+              body={repo.description}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Grid>
+  );
 }
-
-export default ExampleRepos;

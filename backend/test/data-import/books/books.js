@@ -1,8 +1,8 @@
 const faker = require('faker');
 const data = require('../../data.json');
 
-const categories = ["General", "UI Automation", "DeVops"];
-const languages = ["Python", "Java", "Ruby"];
+const categories = ["General", "UI Automation", "DevOps"];
+const languages = ["Python", "CSharp", "Ruby"];
 const titles = ["How to Save a bear from a cricket", "Contemplating the tortiose", "Into the wildebeest den"];
 let books = [];
 

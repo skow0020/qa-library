@@ -4,7 +4,7 @@ import * as common from '../pages/Common.json';
 import * as exampleRepos from '../pages/ExampleRepos.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Example Repos', () => {
   sizes.forEach((size) => {
@@ -19,16 +19,19 @@ context('Example Repos', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(exampleRepos.language).select('Java');
+      selectDropdown(exampleRepos.language, 'Java');
       cy.get(exampleRepos.qaRepos).should('have.length.greaterThan', 0);
-      cy.get(exampleRepos.language).select('Swift');
+      selectDropdown(exampleRepos.language, 'Swift');
       cy.get(exampleRepos.qaRepos).should('have.length', 0);
     });
   });
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.exampleRepos).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightExampleRepos).click();
+  }
+  else cy.get(sideBar.exampleRepos).click();
   cy.get(common.pageTitle).should('have.text', 'Example Repos');
 };

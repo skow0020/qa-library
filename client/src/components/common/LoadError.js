@@ -1,15 +1,27 @@
-import { Container } from "shards-react";
-import React from "react";
+import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
-const Error = (error) => (
-  <Container fluid className="main-content-container px-4 pb-4">
-    <div className="error">
-      <div className="error__content">
+const useStyles = makeStyles(() => ({
+  root: {
+    textAlign: 'center'
+  }
+}));
+
+export default function Error({ error = 'Try refreshing maybe?'}) {
+  const classes = useStyles();
+
+  return (
+    <Grid
+      container
+      alignItems="center"
+      justify="center"
+      style={{ minHeight: '60vh' }}
+    >
+      <div className={classes.root}>
         <h3>Something went wrong!</h3>
-        <p>{error.error}</p>
+        <p>{error}</p>
       </div>
-    </div>
-  </Container>
-);
-
-export default Error;
+    </Grid>
+  );
+};

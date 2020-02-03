@@ -1,4 +1,4 @@
-import AlertModal, { showAlert } from "components/common/AlertModal";
+import AlertModal, { showAlert } from 'components/common/AlertModal';
 import React, { useState } from 'react';
 
 import Avatar from '@material-ui/core/Avatar';
@@ -104,7 +104,7 @@ export default function Registration() {
             Register
           </Button>
           <Link id="login-link" href="/library-login" variant="body2">
-            {"Go Log in"}
+            {'Go Log in'}
           </Link>
         </form>
       </div>

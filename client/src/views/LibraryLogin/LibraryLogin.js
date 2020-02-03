@@ -1,4 +1,4 @@
-import AlertModal, { showAlert } from "components/common/AlertModal";
+import AlertModal, { showAlert } from 'components/common/AlertModal';
 import React, { useState } from 'react';
 
 import Avatar from '@material-ui/core/Avatar';
@@ -104,7 +104,7 @@ export default function SignIn() {
             Sign In
           </Button>
           <Link id="registration-link" href="/registration" variant="body2">
-            {"Don't have an account? Sign Up"}
+            {'Don\'t have an account? Sign Up'}
           </Link>
         </form>
       </div>

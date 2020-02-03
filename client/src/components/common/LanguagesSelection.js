@@ -1,19 +1,29 @@
-import { Col, FormSelect } from "shards-react";
-
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 import React from 'react';
-import { Store } from "../../flux";
+import Select from '@material-ui/core/Select';
+import { Store } from '../../flux';
+import { makeStyles } from '@material-ui/core/styles';
 
-const LanguagesSelection = (props) => {
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 150
+  }
+}));
+
+export default function LanguagesSelection(props) {
+  const classes = useStyles();
+
   return (
-    <Col>
-      <label className="text-muted font-weight-bold px-2" htmlFor="language">Languages</label>
-      <FormSelect id="language" type="text" {...props}>
+    <FormControl className={classes.formControl}>
+      <InputLabel htmlFor="language-selection">Language</InputLabel>
+      <Select type="text" onChange={props.onChange} {...props}>
         {Store.getLanguages().map((language, idx) => (
-          <option key={`language-option-${idx}`}>{language}</option>
+          <MenuItem key={`language-option-${idx}`} value={language}>{language}</MenuItem>
         ))}
-      </FormSelect>
-    </Col>
+      </Select>
+    </FormControl>
   );
 };
-
-export default LanguagesSelection;

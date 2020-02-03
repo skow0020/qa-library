@@ -1,4 +1,15 @@
 export default {
+  red: '#f44336',
+  blue: '#2196f3',
+  green: '#4caf50',
+  purple: '#9c27b0',
+  black: '#000000',
+  grey: '#3B3D40',
+  teal: '#009688',
+  cyan: '#00bcd4',
+  white: '#FFFFFF',
+
+
   // Standard Colors
   darkGrey: '#3B3D40',
   midGrey1: '#81858D',
@@ -7,11 +18,9 @@ export default {
   lightGrey1: '#F2F3F4',
   lightGrey2: '#DDE1E3',
   lightGrey3: '#CFD3D6',
-  white: '#FFFFFF',
-  black: '#000000',
 
   // Buttons
-  primary: "#006f51",
+  primary: '#006f51',
   primaryHover: '#00A881',
   secondary: '#000000',
   secondaryHover: '#383838',

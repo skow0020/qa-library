@@ -6,7 +6,7 @@ import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Books', () => {
   sizes.forEach((size) => {
@@ -21,7 +21,9 @@ context('Books', () => {
       cy.get(addBook.url).type(data.url).should('have.value', data.url);
       cy.get(addBook.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
       cy.get(addBook.pdfUrl).type(data.pdfUrl).should('have.value', data.pdfUrl);
-      cy.get(addBook.category).select(data.category).should('have.value', data.category);
+      cy.get(addBook.description).type(data.description).should('have.value', data.description);
+      selectDropdown(addBook.category, data.category);
+      cy.get(addBook.category).should('have.text', data.category);
 
       cy.get(common.submit).click();
       cy.get(common.alertModal).should('have.text', 'Book added successfully');
@@ -34,9 +36,9 @@ context('Books', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(books.category).select('API Automation');
+      selectDropdown(books.category, 'API Automation');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(books.category).select('Databases');
+      selectDropdown(books.category, 'Databases');
       cy.get(books.cardPosts).should('have.length', 0);
     });
 
@@ -44,16 +46,19 @@ context('Books', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(books.language).select('Java');
+      selectDropdown(books.language, 'CSharp');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(books.language).select('Cpp');
+      selectDropdown(books.language, 'Cpp');
       cy.get(books.cardPosts).should('have.length', 0);
     });
   });
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.books).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightBooks).click();
+  }
+  else cy.get(sideBar.books).click();
   cy.get(common.pageTitle).should('have.text', 'Books');
 };

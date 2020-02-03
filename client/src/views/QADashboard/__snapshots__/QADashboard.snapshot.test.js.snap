@@ -2,28 +2,27 @@
 
 exports[`QADashboard Snapshot Tests QADashboard snapshot 1`] = `
 <div
-  className="container"
+  className="MuiContainer-root MuiContainer-maxWidthLg"
+  id="welcomeDash"
 >
+  <img
+    alt="welcome"
+    className="makeStyles-image-3"
+    src="lib1.jpg"
+  />
   <div
-    id="welcomeDash"
+    className="makeStyles-caption-1"
   >
-    <img
-      alt="welcome"
-      className="d-block w-100"
-      src="lib1.jpg"
-    />
-    <div
-      className="carousel-caption d-none d-md-block"
+    <h5
+      className="MuiTypography-root makeStyles-captionText-2 MuiTypography-h5 MuiTypography-gutterBottom MuiTypography-alignCenter"
     >
-      <h3
-        className="text-white"
-      >
-        Behold! A library in which you can find everything you have ever wanted to search for!
-      </h3>
-      <p>
-        But not really...
-      </p>
-    </div>
+      Behold! A library in which you can find everything you have ever wanted to search for!
+    </h5>
+    <h5
+      className="MuiTypography-root makeStyles-captionText-2 MuiTypography-h5 MuiTypography-alignCenter"
+    >
+      But not really...
+    </h5>
   </div>
 </div>
 `;

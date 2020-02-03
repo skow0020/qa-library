@@ -14,13 +14,12 @@ context('In Office Library', () => {
       login();
       navigate(size);
       cy.visit('officeBook/1000');
-      cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkInButton).click();
       cy.get(inOfficeBook.checkInButton).click();
 
       cy.on('window:confirm', (str) => {
-        expect(str).to.equal(`Unable to check in book: Request must include a user`);
+        expect(str).to.equal('Unable to check in book: Request must include a user');
       });
     });
 
@@ -29,12 +28,11 @@ context('In Office Library', () => {
       login();
       navigate(size);
       cy.visit('officeBook/1000');
-      cy.get(common.pageTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkoutButton).click();
 
       cy.on('window:confirm', (str) => {
-        expect(str).to.equal(`Unable to check out book: Request must include a user`);
+        expect(str).to.equal('Unable to check out book: Request must include a user');
       });
     });
 
@@ -49,7 +47,10 @@ context('In Office Library', () => {
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.inOfficeLibrary).click();
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightInOfficeLibrary).click();
+  }
+  else cy.get(sideBar.inOfficeLibrary).click();
   cy.get(common.pageTitle).should('have.text', 'In-Office Library');
 };

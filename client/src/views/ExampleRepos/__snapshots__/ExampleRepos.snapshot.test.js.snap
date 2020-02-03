@@ -2,96 +2,150 @@
 
 exports[`ExampleRepos Snapshot Tests ExampleRepos snapshot 1`] = `
 <div
-  className="main-content-container px-4 container-fluid"
+  className="MuiGrid-root MuiGrid-container"
 >
   <div
-    className="form-inline py-2 no-gutters row"
+    className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
   >
-    <div
-      className="text-sm-left text-center text-md-left mb-sm-0 col-12 col-sm-8"
+    <h3
+      className="MuiTypography-root page-title MuiTypography-h3 MuiTypography-gutterBottom"
     >
-      <span
-        className="text-uppercase page-subtitle"
-      />
-      <h3
-        className="page-title"
-      >
-        Example Repos
-      </h3>
-    </div>
+      Example Repos
+    </h3>
+    <h5
+      className="MuiTypography-root makeStyles-githubUser-1 MuiTypography-h5 MuiTypography-colorTextSecondary MuiTypography-alignRight"
+      id="github-account-text"
+    >
+      skow0020
+       Repos
+    </h5>
+  </div>
+  <div
+    className="MuiGrid-root MuiGrid-container"
+  >
     <form
-      className=""
       id="filter-form"
       onSubmit={[Function]}
     >
       <div
-        className="form-group"
+        className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
       >
         <label
-          className="text-muted font-weight-bold px-2"
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink={true}
           htmlFor="github-account"
+          id="github-account-label"
         >
           Github Account
+          <span
+            className="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
         </label>
-        <input
-          className="form-control"
-          id="github-account"
-          onChange={[Function]}
-          required={true}
-          type="text"
-          value="skow0020"
-        />
         <div
-          className="col"
+          className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-135 MuiInputBase-fullWidth MuiInputBase-formControl"
+          onClick={[Function]}
         >
-          <label
-            className="text-muted font-weight-bold px-2"
-            htmlFor="language"
-          >
-            Languages
-          </label>
-          <select
-            className="form-control custom-select"
-            id="language"
+          <input
+            aria-invalid={false}
+            autoFocus={false}
+            className="MuiInputBase-input MuiOutlinedInput-input"
+            disabled={false}
+            id="github-account"
+            onAnimationStart={[Function]}
+            onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
+            required={true}
             type="text"
+            value="skow0020"
+          />
+          <fieldset
+            aria-hidden={true}
+            className="PrivateNotchedOutline-root-198 MuiOutlinedInput-notchedOutline"
+            style={
+              Object {
+                "paddingLeft": 8,
+              }
+            }
           >
-            <option />
-            <option>
-              Java
-            </option>
-            <option>
-              CSharp
-            </option>
-            <option>
-              Python
-            </option>
-            <option>
-              Ruby
-            </option>
-            <option>
-              JavaScript
-            </option>
-            <option>
-              Cpp
-            </option>
-            <option>
-              Swift
-            </option>
-          </select>
+            <legend
+              className="PrivateNotchedOutline-legend-199"
+              style={
+                Object {
+                  "width": 0,
+                }
+              }
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "&#8203;",
+                  }
+                }
+              />
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        className="MuiFormControl-root makeStyles-formControl-200"
+      >
+        <label
+          className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+          data-shrink={false}
+          htmlFor="language-selection"
+        >
+          Language
+        </label>
+        <div
+          className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+          onClick={[Function]}
+        >
+          <div
+            aria-haspopup="listbox"
+            aria-labelledby=" language"
+            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+            id="language"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "&#8203;",
+                }
+              }
+            />
+          </div>
+          <input
+            onAnimationStart={[Function]}
+            type="hidden"
+            value=""
+          />
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root MuiSelect-icon"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
         </div>
       </div>
     </form>
   </div>
-  <span
-    className="text-uppercase page-subtitle"
-  >
-    skow0020
-     Repos
-  </span>
   <div
-    className="row"
-    id="row-0"
+    className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-4"
   />
 </div>
 `;
