@@ -46,7 +46,7 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               </span>
             </label>
             <div
-              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl"
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-153 MuiInputBase-fullWidth MuiInputBase-formControl"
               onClick={[Function]}
             >
               <input
@@ -65,28 +65,15 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               />
               <fieldset
                 aria-hidden={true}
-                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
-                style={
-                  Object {
-                    "paddingLeft": 8,
-                  }
-                }
+                className="PrivateNotchedOutline-root-212 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  className="PrivateNotchedOutline-legend-216"
-                  style={
-                    Object {
-                      "width": 0.01,
-                    }
-                  }
+                  className="PrivateNotchedOutline-legendLabelled-214"
                 >
-                  <span
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "&#8203;",
-                      }
-                    }
-                  />
+                  <span>
+                    Title
+                     *
+                  </span>
                 </legend>
               </fieldset>
             </div>
@@ -96,7 +83,7 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
           className="MuiGrid-root MuiGrid-item MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
         >
           <div
-            className="MuiFormControl-root makeStyles-formControl-217"
+            className="MuiFormControl-root makeStyles-formControl-216"
           >
             <label
               className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -112,12 +99,12 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               <div
                 aria-haspopup="listbox"
                 aria-labelledby=" language"
-                className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+                className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
                 id="language"
                 onBlur={[Function]}
-                onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseDown={[Function]}
                 role="button"
                 tabIndex={0}
               >
@@ -168,12 +155,12 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               <div
                 aria-haspopup="listbox"
                 aria-labelledby=" category"
-                className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+                className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
                 id="category"
                 onBlur={[Function]}
-                onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseDown={[Function]}
                 role="button"
                 tabIndex={0}
               >
@@ -219,7 +206,7 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               </span>
             </label>
             <div
-              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl"
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-153 MuiInputBase-fullWidth MuiInputBase-formControl"
               onClick={[Function]}
             >
               <input
@@ -238,28 +225,15 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               />
               <fieldset
                 aria-hidden={true}
-                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
-                style={
-                  Object {
-                    "paddingLeft": 8,
-                  }
-                }
+                className="PrivateNotchedOutline-root-212 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  className="PrivateNotchedOutline-legend-216"
-                  style={
-                    Object {
-                      "width": 0.01,
-                    }
-                  }
+                  className="PrivateNotchedOutline-legendLabelled-214"
                 >
-                  <span
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "&#8203;",
-                      }
-                    }
-                  />
+                  <span>
+                    URL
+                     *
+                  </span>
                 </legend>
               </fieldset>
             </div>
@@ -286,7 +260,7 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               </span>
             </label>
             <div
-              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl"
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-153 MuiInputBase-fullWidth MuiInputBase-formControl"
               onClick={[Function]}
             >
               <input
@@ -305,28 +279,15 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               />
               <fieldset
                 aria-hidden={true}
-                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
-                style={
-                  Object {
-                    "paddingLeft": 8,
-                  }
-                }
+                className="PrivateNotchedOutline-root-212 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  className="PrivateNotchedOutline-legend-216"
-                  style={
-                    Object {
-                      "width": 0.01,
-                    }
-                  }
+                  className="PrivateNotchedOutline-legendLabelled-214"
                 >
-                  <span
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "&#8203;",
-                      }
-                    }
-                  />
+                  <span>
+                    Background Image
+                     *
+                  </span>
                 </legend>
               </fieldset>
             </div>
@@ -347,7 +308,7 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               Description
             </label>
             <div
-              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-152 MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+              className="MuiInputBase-root MuiOutlinedInput-root makeStyles-textField-153 MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
               onClick={[Function]}
             >
               <textarea
@@ -389,28 +350,14 @@ exports[`AddTutorial Snapshot Tests AddTutorial snapshot 1`] = `
               />
               <fieldset
                 aria-hidden={true}
-                className="PrivateNotchedOutline-root-215 MuiOutlinedInput-notchedOutline"
-                style={
-                  Object {
-                    "paddingLeft": 8,
-                  }
-                }
+                className="PrivateNotchedOutline-root-212 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  className="PrivateNotchedOutline-legend-216"
-                  style={
-                    Object {
-                      "width": 0.01,
-                    }
-                  }
+                  className="PrivateNotchedOutline-legendLabelled-214"
                 >
-                  <span
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "&#8203;",
-                      }
-                    }
-                  />
+                  <span>
+                    Description
+                  </span>
                 </legend>
               </fieldset>
             </div>

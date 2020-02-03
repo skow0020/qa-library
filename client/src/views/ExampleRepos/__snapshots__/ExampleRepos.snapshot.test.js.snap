@@ -64,34 +64,21 @@ exports[`ExampleRepos Snapshot Tests ExampleRepos snapshot 1`] = `
           />
           <fieldset
             aria-hidden={true}
-            className="PrivateNotchedOutline-root-198 MuiOutlinedInput-notchedOutline"
-            style={
-              Object {
-                "paddingLeft": 8,
-              }
-            }
+            className="PrivateNotchedOutline-root-194 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              className="PrivateNotchedOutline-legend-199"
-              style={
-                Object {
-                  "width": 0,
-                }
-              }
+              className="PrivateNotchedOutline-legendLabelled-196 PrivateNotchedOutline-legendNotched-197"
             >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "&#8203;",
-                  }
-                }
-              />
+              <span>
+                Github Account
+                 *
+              </span>
             </legend>
           </fieldset>
         </div>
       </div>
       <div
-        className="MuiFormControl-root makeStyles-formControl-200"
+        className="MuiFormControl-root makeStyles-formControl-198"
       >
         <label
           className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
@@ -107,12 +94,12 @@ exports[`ExampleRepos Snapshot Tests ExampleRepos snapshot 1`] = `
           <div
             aria-haspopup="listbox"
             aria-labelledby=" language"
-            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputSelect"
+            className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
             id="language"
             onBlur={[Function]}
-            onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
+            onMouseDown={[Function]}
             role="button"
             tabIndex={0}
           >

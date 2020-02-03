@@ -10,7 +10,7 @@ exports[`InOfficeBook Snapshot Tests InOfficeBook list snapshot  1`] = `
       class="MuiGrid-root"
     >
       <div
-        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           class="MuiCardHeader-root"
