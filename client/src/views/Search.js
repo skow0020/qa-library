@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Container from '@material-ui/core/container';
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import SearchResults from 'components/common/SearchResults';
 import TextField from 'components/common/TextField';
