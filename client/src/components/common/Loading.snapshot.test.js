@@ -1,11 +1,11 @@
-import PageTitle from './PageTitle';
+import Loading from './Loading';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-describe('PageTitle Snapshot Tests', () => {
-  test('Link changes the class when hovered', () => {
+describe('Loading Snapshot Tests', () => {
+  test('Loading snapshot', () => {
     const component = renderer.create(
-      <PageTitle></PageTitle>,
+      <Loading />
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

@@ -1,206 +1,230 @@
-import AlertModal, { showAlert } from "../../components/common/AlertModal";
-import {
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  Row
-} from "shards-react";
+/* eslint-disable react-hooks/exhaustive-deps */
 
-import CategoriesSelection from "../../components/common/CategoriesSelection";
-import { Link } from "react-router-dom";
-import LoadError from "../../components/common/LoadError";
-import Loading from "../../components/common/Loading";
-import PageTitle from "../../components/common/PageTitle";
-import React from "react";
-import { Store } from "../../flux";
-import axios from "axios";
-import { getCategoryTheme } from "../../utils/util";
+import AlertModal, { showAlert } from 'components/common/AlertModal';
+import React, { useEffect, useState } from 'react';
+
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CategoriesSelection from 'components/common/CategoriesSelection';
+import Chip from '@material-ui/core/Chip';
+import Colors from 'utils/Colors';
+import Divider from '@material-ui/core/Divider';
+import GithubAvatar from 'components/common/GithubAvatar';
+import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
+import LoadError from 'components/common/LoadError';
+import Loading from 'components/common/Loading';
+import PageTitle from 'components/common/PageTitle';
+import { Store } from '../../flux';
+import Typography from '@material-ui/core/Typography';
+import axios from 'axios';
+import { getCategoryTheme } from 'utils/util';
+import { makeStyles } from '@material-ui/core/styles';
 import queryString from 'query-string';
 
-class LibraryDash extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-      avatarUrl: null,
-      isLoggedIn: false,
-      books: [],
-      isLoading: false
-    };
-
-    this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleCheckout = this.handleCheckout.bind(this);
-    this.handleCheckIn = this.handleCheckIn.bind(this);
+const useStyles = makeStyles(theme => ({
+  button: {
+    backgroundColor: Colors.primary,
+    color: Colors.white
+  },
+  cardSpacing: {
+    margin: theme.spacing(1)
+  },
+  checkInButton: {
+    backgroundColor: Colors.primary,
+    color: Colors.white
+  },
+  checkOutButton: {
+    backgroundColor: Colors.primary,
+    color: Colors.white,
+    marginLeft: 'auto',
+    margin: theme.spacing(0, 4)
   }
+}));
 
-  componentDidMount() {
-    if (this.props.hasOwnProperty('location') && this.props.location.search) {
-      const values = queryString.parse(this.props.location.search);
+export default function LibraryDash(props) {
+  const classes = useStyles();
+  const [user, setUser] = useState(null);
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [books, setBooks] = useState([]);
+  const [category, setCategory] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  const getBooks = () => {
+    if (Store.user && Store.avatarUrl) {
+      setUser(Store.user);
+      setAvatarUrl(Store.avatarUrl);
+
+      return getBookList();
+    }
+    else if (props.location.search) {
+      const values = queryString.parse(props.location.search);
       if (values.user) {
         Store.user = values.user;
         Store.avatarUrl = values.avatar_url;
-        this.setState({
-          user: values.user,
-          avatarUrl: values.avatar_url,
-          isLoggedIn: true
-        });
-        this.getBookList();
+        setAvatarUrl(values.avatar_url);
+        setUser(values.user);
+
+        return getBookList();
       }
-    } else if (Store.user) {
-      this.setState({
-        user: Store.user,
-        avatarUrl: Store.avatarUrl,
-        isLoggedIn: true
-      });
-      this.getBookList();
+      setBooks([]);
     }
-  }
+  };
 
-  getBookList() {
-    const categoryFilter = this.state.category ? `category=${this.state.category}` : '';
-    const filter = categoryFilter;
+  const getBookList = () => {
+    const categoryFilter = category ? `category=${category}` : '';
 
-    this.setState({ isLoading: true });
-    fetch(`/api/officeLibraryBooks?${filter}`)
+    setIsLoading(true);
+    fetch(`/api/officeLibraryBooks?${categoryFilter}`)
       .then(response => response.json())
       .then(
-        data => this.setState({ books: data.data, isLoading: false }),
-        error => this.setState({ error, isLoading: false })
+        data => {
+          setBooks(data.data);
+          setIsLoading(false);
+        },
+        error => {
+          setError(error);
+          setIsLoading(false);
+        }
       );
-  }
+  };
 
-  handleFilterChange(e) {
-    this.setState({
-      category: e.target.value
-    }, () => this.getBookList());
-  }
+  useEffect(() => { getBooks(); }, [category]);
 
-  handleCheckout(book_id) {
+  const handleCheckout = (book_id) => {
     const checkoutBook = {
       office_book_id: book_id,
       user: Store.user
     };
-    axios.patch("/api/officeLibraryBooks/incrementCopiesCheckedOut", checkoutBook)
+    axios.patch('/api/officeLibraryBooks/incrementCopiesCheckedOut', checkoutBook)
       .then(
         data => {
-          if (!data.data.success) this.showNotifier(`Unable to check out book: ${data.data.error}`);
-          else this.getBookList();
+          if (!data.data.success) showAlert({ message: `Unable to check out book: ${data.data.error}` });
+          else getBookList();
         },
-        error => this.showNotifier(`Unable to checkout book: ${error}`)
+        error => showAlert({ message: `Unable to checkout book: ${error}` })
       );
-  }
+  };
 
-  handleCheckIn(book_id) {
+  const handleCheckIn = (book_id) => {
     const checkinBook = {
       office_book_id: book_id,
       user: Store.user
     };
-    axios.patch("/api/officeLibraryBooks/decrementCopiesCheckedOut", checkinBook)
+    axios.patch('/api/officeLibraryBooks/decrementCopiesCheckedOut', checkinBook)
       .then(
         data => {
-          if (!data.data.success) this.showNotifier(`Unable to check in book: ${data.data.error}`);
-          else this.getBookList();
+          if (!data.data.success) showAlert({ message: `Unable to check in book: ${data.data.error}` });
+          else getBookList();
         },
-        error => this.showNotifier(`Unable to checkin book: ${error}`)
+        error => showAlert({ message: `Unable to check in book: ${error}` })
       );
-  }
+  };
 
-  showNotifier = (message) => {
-    showAlert({ message });
-  }
+  if (isLoading) return <Loading />;
+  if (error) return <LoadError error="Library books failed to load" />;
 
-  render() {
-    const { category, isLoggedIn, isLoading, error, books } = this.state;
+  return (
+    <Grid container>
+      <AlertModal />
+      <Grid container alignItems="center" justify="space-between">
+        <PageTitle title="In-Office Library" />
+        {!user && (
+          <a href="/login" aria-label="Login to Github">
+            <Button id="login-button" variant="contained" className={classes.button}>Log In with Github</Button>
+          </a>
+        )}
+        {user && (
+          <Grid container alignItems="center" justify="space-between">
+            <GithubAvatar avatarUrl={avatarUrl} />
+            <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />
+          </Grid>
+        )}
+      </Grid>
+      <Grid container spacing={4}>
+        {books.map((book, idx) => (
+          <Grid item md={4} key={idx}>
+            <Card id={`book-card-${idx}`}>
+              <Link to={`/officeBook/${book.office_book_id}`} style={{ color: Colors.black }}>
+                <CardHeader
+                  titleTypographyProps={{ variant: 'h6' }}
+                  title={book.title}
+                  avatar={
+                    <Chip
+                      label={book.category}
+                      style={{ backgroundColor: getCategoryTheme(book.category) }} />
+                  }
+                />
+                <CardMedia
+                  className="card-title"
+                  component="img"
+                  alt="Book image"
+                  height="250"
+                  image={book.backgroundImage}
+                  title={book.title}
+                />
+              </Link>
+              <CardContent className="text-muted border-top py-3">
+                <Divider className={classes.cardSpacing} />
+                <Grid>
+                  <Typography variant="body2" component="p">
+                    By{' '}{book.author} | {book.totalCopies - book.copiesCheckedOut}{' '}Available
+                </Typography>
+                </Grid>
+                <Divider className={classes.cardSpacing} />
+                <Grid container justify="space-between">
+                  <Button variant="contained" className={`checkout-${idx} ${classes.button}`} onClick={() => handleCheckout(book.office_book_id)}>
+                    Check out
+                </Button>
+                  <Button variant="contained" className={`checkin-${idx} ${classes.button}`} onClick={() => handleCheckIn(book.office_book_id)}>
+                    Check in
+                </Button>
+                </Grid>
+              </CardContent>
+            </Card>
 
-    if (isLoading) return <Loading />;
 
-    if (error) return <LoadError error="Library books failed to load" />;
 
-    let login;
-    if (!isLoggedIn) {
-      login = <a href="/login" aria-label="Login to Github">
-        <Button id="login-button" type="button" className="btn btn-success btn-lg">Log In with Github</Button>
-      </a>;
-    } else login = (
-      <div>
-        <div>
-          <span className="d-none d-md-inline-block px-3">{this.state.user}</span>
-          <img className="user-avatar rounded-circle mr-2" src={this.state.avatarUrl} alt="User Avatar" width="70" />
-        </div>
-      </div>
-    );
-
-    let categoryDD;
-    if (isLoggedIn) {
-      categoryDD = (
-        <Form id='filtering-form'>
-          <FormGroup >
-            <CategoriesSelection value={category} onChange={this.handleFilterChange} />
-          </FormGroup>
-        </Form>
-      );
-    }
-
-    return (
-      <Container fluid className="main-content-container px-3">
-        <AlertModal />
-        <Row noGutters className="form-inline py-4">
-          <PageTitle sm="8" title="In-Office Library" className="text-sm-left" />
-          {login}
-          {categoryDD}
-        </Row>
-        <Row>
-          {books.map((book, idx) => (
-            <Col lg="4" md="6" sm="12" className="mb-4" key={idx}>
-              <Card small id={`book-card-${idx}`} className="card-book card-post--1">
-                <Link id={`book-${book.office_book_id}`} to={`/officeBook/${book.office_book_id}`}>
-                  <div
-                    className="card-post__image"
-                    style={{ backgroundImage: `url('${book.backgroundImage}')` }}
-                  />
-                </Link>
-                <Badge pill className={`card-post__category bg-${getCategoryTheme(book.category)}`}>
-                  {book.category}
-                </Badge>
-                <Link id={`book-body-${book.office_book_id}`} to={`/officeBook/${book.office_book_id}`}>
-                  <CardBody>
-                    <h5 className="card-title">
-                      <p className="text-fiord-blue">
-                        {book.title}
-                      </p>
-                    </h5>
-                  </CardBody>
-                </Link>
-                <CardFooter className="text-muted border-top py-3">
-                  <Row>
-                    <span className="d-inline-block px-3">
-                      By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available
-                    </span>
-                  </Row>
-                  <div>
-                    <Button type="button" className={`checkout-${book.office_book_id} btn btn-success`} onClick={() => this.handleCheckout(book.office_book_id)}>
-                      Check out
-                    </Button>
-                    <span className="d-inline-block px-3">
-                      {" "}
-                    </span>
-                    <Button type="button" className={`checkin-${book.office_book_id} btn btn-success pull-right`} onClick={() => this.handleCheckIn(book.office_book_id)}>
-                      Check in
-                    </Button>
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    );
-  }
+            {/* <CardComponent
+              idx={`book-card-${idx}`}
+              url={`/officeBook/${book.office_book_id}`}
+              title={book.title}
+              subheader={`By ${book.author}`}
+              avatar={<Chip
+                size="small"
+                label={book.category}
+                style={{ backgroundColor: book.category ? getCategoryTheme(book.category) : Colors.blue }}
+              />}
+              backgroundImage={book.backgroundImage}
+              body={book.body}
+            >
+              <Divider className={classes.cardSpacing} />
+              <Grid>
+                <Typography variant="body2" component="p">
+                  By{" "}{book.author} | {book.totalCopies - book.copiesCheckedOut}{" "}Available
+                </Typography>
+              </Grid>
+              <Divider className={classes.cardSpacing} />
+              <Grid container justify="space-between">
+                <Button variant="contained" className={`checkout-${book.office_book_id} ${classes.button}`} onClick={() => handleCheckout(book.office_book_id)}>
+                  Check out
+                </Button>
+                <Button variant="contained" className={`checkin-${book.office_book_id} ${classes.button}`} onClick={() => handleCheckIn(book.office_book_id)}>
+                  Check in
+                </Button>
+              </Grid>
+            </CardComponent> */}
+          </Grid>
+        ))}
+      </Grid>
+    </Grid >
+  );
 }
-export default LibraryDash;

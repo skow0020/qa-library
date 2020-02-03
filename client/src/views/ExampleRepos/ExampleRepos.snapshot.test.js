@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 describe('ExampleRepos Snapshot Tests', () => {
   test('ExampleRepos snapshot', () => {
     const component = renderer.create(
-      <ExampleRepos></ExampleRepos>,
+      <ExampleRepos></ExampleRepos>
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();

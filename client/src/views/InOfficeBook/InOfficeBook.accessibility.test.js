@@ -1,8 +1,9 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
-import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { axe } from 'setupTests';
 import { inOfficeBook } from './testData';
+import { render } from 'react-dom';
 
 describe('InOfficeBook Accessibility Tests', () => {
   let props;
@@ -17,16 +18,20 @@ describe('InOfficeBook Accessibility Tests', () => {
     };
   });
 
-  it('InOfficeBook is accessible', async () => {
-    const state = {
-      book: inOfficeBook,
-      isLoading: false
-    };
+  test('InOfficeBook is accessible', async () => {
+    let container = global.container;
 
-    const wrapper = shallow(<InOfficeBook {...props}/>);
-    wrapper.setState(state);
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(inOfficeBook)
+      })
+    );
 
-    const html = wrapper.html();
+    await act(async () => {
+      render(<InOfficeBook {...props} />, container);
+    });
+
+    const html = container.innerHTML;
     expect(await axe(html)).toHaveNoViolations();
   });
 });

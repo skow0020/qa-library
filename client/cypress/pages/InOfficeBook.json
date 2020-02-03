@@ -1,5 +1,5 @@
 {
-    "cardTitle": ".card-title",
+    "cardTitle": ".card-post [class*=-title]",
     "cardImage": ".card-post__image",
     "checkoutButton": "[class*=checkout-]",
     "checkInButton": "[class*=checkin-]"

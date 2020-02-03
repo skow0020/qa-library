@@ -2,28 +2,27 @@
 
 exports[`Info Snapshot Tests Info snapshot 1`] = `
 <div
-  className="container"
+  className="MuiContainer-root MuiContainer-maxWidthLg"
+  id="info-container"
 >
+  <img
+    alt="info"
+    className="makeStyles-image-3"
+    src="code1.jpg"
+  />
   <div
-    id="info-container"
+    className="makeStyles-caption-1"
   >
-    <img
-      alt="welcome"
-      className="d-block w-100"
-      src="code1.jpg"
-    />
-    <div
-      className="carousel-caption d-none d-md-block"
+    <h5
+      className="MuiTypography-root makeStyles-captionText-2 MuiTypography-h5 MuiTypography-gutterBottom MuiTypography-alignCenter"
     >
-      <h3
-        className="text-white"
-      >
-        This site is a hub of resources for learning programming languages, tools, testing, and best practices across the industry
-      </h3>
-      <p>
-        For more information, google it
-      </p>
-    </div>
+      This site is a hub of resources for learning programming languages, tools, testing, and best practices across the industry
+    </h5>
+    <h5
+      className="MuiTypography-root makeStyles-captionText-2 MuiTypography-h5 MuiTypography-alignCenter"
+    >
+      For more information, google it
+    </h5>
   </div>
 </div>
 `;

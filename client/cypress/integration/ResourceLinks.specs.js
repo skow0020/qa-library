@@ -6,7 +6,7 @@ import * as data from '../fixtures/data.json';
 import * as resourceLinks from '../pages/ResourceLinks.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Resource Links', () => {
   sizes.forEach((size) => {
@@ -18,7 +18,8 @@ context('Resource Links', () => {
       cy.get(addResourceLink.title).type(data.title).should('have.value', data.title);
       cy.get(addResourceLink.url).type(data.url).should('have.value', data.url);
       cy.get(addResourceLink.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
-      cy.get(addResourceLink.category).select(data.category).should('have.value', data.category);
+      selectDropdown(addResourceLink.category, data.category);
+      cy.get(addResourceLink.category).should('have.text', data.category);
       cy.get(addResourceLink.description).type(data.description).should('have.value', data.description);
 
       cy.get(common.submit).click();
@@ -32,9 +33,9 @@ context('Resource Links', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(resourceLinks.category).select('API Automation');
+      selectDropdown(resourceLinks.category, 'API Automation');
       cy.get(resourceLinks.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(resourceLinks.category).select('Databases');
+      selectDropdown(resourceLinks.category, 'Databases');
       cy.get(resourceLinks.cardPosts).should('have.length', 0);
     });
 
@@ -42,16 +43,19 @@ context('Resource Links', () => {
       setViewport(size);
       login();
       navigate(size);
-      cy.get(resourceLinks.language).select('Java');
+      selectDropdown(resourceLinks.language, 'Java');
       cy.get(resourceLinks.cardPosts).should('have.length.greaterThan', 0);
-      cy.get(resourceLinks.language).select('Cpp');
+      selectDropdown(resourceLinks.language, 'Cpp');
       cy.get(resourceLinks.cardPosts).should('have.length', 0);
     });
   });
 });
 
 const navigate = (size) => {
-  if (size === 'iphone-6') cy.get(common.navLink).click();
-  cy.get(sideBar.resourceLinks).click();
-  cy.get(common.pageTitle).should('have.text', 'Resource Links');
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(sideBar.rightResourceLinks).click();
+  }
+  else cy.get(sideBar.resourceLinks).click();
+  cy.get(common.pageTitle).should('have.text', 'ResourceLinks');
 };

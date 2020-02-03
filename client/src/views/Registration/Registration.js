@@ -1,91 +1,116 @@
-import AlertModal, { showAlert } from "../../components/common/AlertModal";
-import {
-  Container,
-  Form,
-  FormInput,
-  Row
-} from "shards-react";
-import { Link, Route, Switch } from 'react-router-dom';
+import AlertModal, { showAlert } from 'components/common/AlertModal';
+import React, { useState } from 'react';
 
-import LibraryLogin from "../LibraryLogin/LibraryLogin";
-import React from "react";
+import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Colors from 'utils/Colors';
+import Container from '@material-ui/core/Container';
+import Copyright from 'components/common/Copyright';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Link from '@material-ui/core/Link';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import { Redirect } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-class Registration
-  extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      email: '',
-      password: ''
-    };
+const useStyles = makeStyles(theme => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: Colors.primary
+  },
+  form: {
+    width: '100%',
+    marginTop: theme.spacing(1)
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: Colors.primary,
+    color: Colors.white
   }
+}));
 
-  handleInputChange = (event) => {
-    const { value, id } = event.target;
-    this.setState({
-      [id]: value
-    });
-  }
+export default function Registration() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [registered, setRegistered] = useState(false);
 
-  onSubmit = (event) => {
+  function onSubmit(event) {
     event.preventDefault();
     fetch('/api/users/register', {
       method: 'POST',
-      body: JSON.stringify(this.state),
+      body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json())
-      .then((res, err) => {
-        if (res.error) this.showNotifier(res.error);
-        else {
-          this.showNotifier(`Welcome, ${res.email}, Please sign in`);
-          this.nextPath('/');
-        }
+      .then(res => {
+        if (res.success) setRegistered(true);
+        else showAlert({ message: res.error });
       });
   }
 
-  showNotifier = (message) => {
-    showAlert({ message });
-  }
-
-  nextPath(path) {
-    setTimeout(function () {
-      this.props.history.push(path);
-    }.bind(this), 2000);
-  }
-
-  render() {
-    return (
-      <Container>
-        <AlertModal />
-        <Row>
-          <Form className="login-registration" onSubmit={this.onSubmit}>
-            <h1>Sign up</h1>
-            <FormInput
-              id="email"
-              type="email"
-              placeholder="Enter email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-              required
-            />
-            <FormInput
-              id="password"
-              type="password"
-              placeholder="Enter password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-              required
-            />
-            <FormInput id="registration-button" className="btn btn-success btn-lg" type="submit" value="Register" />
-            <Link id="login-link" to="/library-login">Login</Link>
-            <Switch>
-              <Route path="/library-login" exact component={LibraryLogin} />
-            </Switch>
-          </Form>
-        </Row>
-      </Container>
-    );
-  }
+  const classes = useStyles();
+  if (registered) return <Redirect to='/' />;
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <AlertModal />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Library Registration
+        </Typography>
+        <form className={classes.form} onSubmit={onSubmit}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onChange={(e) => { setEmail(e.target.value); }}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={(e) => { setPassword(e.target.value); }}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            id="registration-button"
+            className={classes.submit}
+          >
+            Register
+          </Button>
+          <Link id="login-link" href="/library-login" variant="body2">
+            {'Go Log in'}
+          </Link>
+        </form>
+      </div>
+      <Box mt={8}>
+        <Copyright />
+      </Box>
+    </Container>
+  );
 }
-export default Registration;

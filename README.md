@@ -25,6 +25,8 @@ CLIENT_SECRET=(For github authentication)
 
 HOST=http://localhost:5001
 
+JWT_SECRET=
+
 * Run `npm run build:client` to build the client app for serving
 * Run `npm start` to start the mongo db connection and serve the app on localhost 5001
 * 😎 **That's it!**
@@ -81,7 +83,6 @@ https://jenkins.io/doc/tutorials/build-a-node-js-and-react-app-with-npm/#fork-sa
 - [Mocha](https://mochajs.org/)
 - [Mongoose-sequence](https://github.com/ramiel/mongoose-sequence)
 - [Chai](https://www.chaijs.com/)
-- [Shards React](https://github.com/designrevision/shards-react)
 - [Create-React-App](https://github.com/facebook/create-react-app)
 
 

@@ -1,7 +1,8 @@
 import InOfficeBook from './InOfficeBook';
 import React from 'react';
-import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import { inOfficeBook } from './testData';
+import { render } from 'react-dom';
 
 describe('InOfficeBook Unit Tests', () => {
   let props;
@@ -16,17 +17,20 @@ describe('InOfficeBook Unit Tests', () => {
     };
   });
 
-  test('InOfficeBook renders', () => {
-    const state = {
-      book: inOfficeBook,
-      isLoading: false
-    };
+  test('InOfficeBook renders', async () => {
+    let container = global.container;
+    
+    jest.spyOn(global, 'fetch').mockImplementation(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(inOfficeBook)
+      })
+    );
 
-    const wrapper = mount(<InOfficeBook {...props}/>);
-    wrapper.setState(state);
+    await act(async () => {
+      render(<InOfficeBook {...props} />, container);
+    });
 
-    expect(wrapper.length).toBe(1);
-    expect(wrapper.find('.card-title').text()).toBe("How to sand a hippo");
-    expect(wrapper.find('.card-footer .row span').text()).toBe("By Nova Goldner | 4 Available | Checked out by: stanislov342, georgio232");
+    expect(container.querySelector('.card-title').title).toBe('How to sand a hippo');
+    expect(container.querySelector('.card-details').textContent).toBe('By Nova Goldner | 4 Available | Checked out by: stanislov342, georgio232');
   });
 });

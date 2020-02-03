@@ -1,25 +1,20 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-
-import server from '../../../server';
 import data from '../data.json';
+import server from '../../../server';
 
 chai.use(chaiHttp);
 
 describe('Books', () => {
-  it('it should GET all the books', (done) => {
-    chai.request(server)
-      .get('/api/books')
-      .end((err, res) => {
-        if (err) assert.fail(`Getting books failed: ${err}`);
+  it('it should GET all the books', async () => {
+    const getBooks = await chai.request(server)
+      .get('/api/books');
 
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        done();
-      });
+    getBooks.should.have.status(200);
+    getBooks.body.success.should.be.eql(true);
   });
 
-  it('Post-Get-Delete an book', (done) => {
+  it('Post-Get-Delete an book', async () => {
     const book = {
       title: data.title,
       author: data.author,
@@ -31,59 +26,48 @@ describe('Books', () => {
       body: data.body
     };
 
-    let book_id = null;
-
-    chai.request(server)
+    const postedBook = await chai.request(server)
       .post('/api/books')
-      .send(book)
-      .end((err, res) => {
-        if (err) assert.fail(`Post book failed: ${err}`);
+      .send(book);
 
-        res.should.have.status(201);
-        res.body.success.should.be.eql(true);
-        res.body.post.hasOwnProperty('_id').should.be.eql(true);
-        res.body.post.title.should.be.eql(data.title);
-        res.body.post.author.should.be.eql(data.author);
-        res.body.post.category.should.be.eql(data.category);
-        res.body.post.language.should.be.eql(data.language);
-        res.body.post.url.should.be.eql(data.url);
-        res.body.post.backgroundImage.should.be.eql(data.backgroundImage);
-        res.body.post.body.should.be.eql(data.body);
-        res.body.post.pdf.should.be.eql(data.pdf);
+    postedBook.should.have.status(201);
+    postedBook.body.success.should.be.eql(true);
+    postedBook.body.post.hasOwnProperty('_id').should.be.eql(true);
+    postedBook.body.post.title.should.be.eql(data.title);
+    postedBook.body.post.author.should.be.eql(data.author);
+    postedBook.body.post.category.should.be.eql(data.category);
+    postedBook.body.post.language.should.be.eql(data.language);
+    postedBook.body.post.url.should.be.eql(data.url);
+    postedBook.body.post.backgroundImage.should.be.eql(data.backgroundImage);
+    postedBook.body.post.body.should.be.eql(data.body);
+    postedBook.body.post.pdf.should.be.eql(data.pdf);
 
-        book_id = res.body.post.book_id;
+    const book_id = postedBook.body.post.book_id;
 
-        chai.request(server)
-          .get('/api/books')
-          .end((err, res) => {
-            if (err) assert.fail(`Getting books failed: ${err}`);
+    const getBooks = await chai.request(server)
+      .get('/api/books');
 
-            res.should.have.status(200);
-            res.body.success.should.be.eql(true);
-            res.body.data.length.should.be.above(0);
+    getBooks.should.have.status(200);
+    getBooks.body.success.should.be.eql(true);
+    getBooks.body.data.length.should.be.above(0);
 
-            res.body.data.forEach((bookInResponse) => {
-              bookInResponse.hasOwnProperty('title').should.be.true;
-              bookInResponse.hasOwnProperty('author').should.be.true;
-              bookInResponse.hasOwnProperty('backgroundImage').should.be.true;
-              bookInResponse.hasOwnProperty('url').should.be.true;
-              bookInResponse.hasOwnProperty('category').should.be.true;
-              bookInResponse.hasOwnProperty('language').should.be.true;
-            });
+    getBooks.body.data.forEach((bookInResponse) => {
+      bookInResponse.hasOwnProperty('title').should.be.true;
+      bookInResponse.hasOwnProperty('author').should.be.true;
+      bookInResponse.hasOwnProperty('backgroundImage').should.be.true;
+      bookInResponse.hasOwnProperty('url').should.be.true;
+      bookInResponse.hasOwnProperty('category').should.be.true;
+      bookInResponse.hasOwnProperty('language').should.be.true;
+    });
 
-            chai.request(server)
-              .delete('/api/books')
-              .send({ book_id: book_id })
-              .end((err, res) => {
-                if (err) assert.fail(`Deleting book failed: ${err}`);
-                res.body.message.should.be.eql('Book successfully deleted');
-                done();
-              });
-          });
-      });
+    const deletedBook = await chai.request(server)
+      .delete('/api/books')
+      .send({ book_id: book_id });
+
+    deletedBook.body.message.should.be.eql('Book successfully deleted');
   });
 
-  it('Get book search', (done) => {
+  it('Get book search', async () => {
     const book1 = {
       title: data.title,
       author: data.author,
@@ -106,114 +90,85 @@ describe('Books', () => {
       body: data.body
     };
 
-    chai.request(server)
+    const postedBook1 = await chai.request(server)
       .post('/api/books')
-      .send(book1)
-      .end((err, res) => {
-        if (err) assert.fail(`Post book1 failed: ${err}`);
-        res.should.have.status(201);
+      .send(book1);
+    postedBook1.should.have.status(201);
 
-        chai.request(server)
-          .post('/api/books')
-          .send(book2)
-          .end((err, res) => {
-            if (err) assert.fail(`Post book2 failed: ${err}`);
-            res.should.have.status(201);
+    const postedBook2 = await chai.request(server)
+      .post('/api/books')
+      .send(book2);
+    postedBook2.should.have.status(201);
 
-            chai.request(server)
-              .get('/api/books?search=hippo')
-              .end((err, res) => {
-                if (err) assert.fail(`Get book 'hippo' failed: ${err}`);
-                res.should.have.status(200);
-                res.body.success.should.be.eql(true);
-                res.body.data.length.should.be.at.least(1);
-                res.body.data.forEach(book => {
-                  book.title.toLowerCase().should.contain('hippo');
-                });
-                done();
-              });
-          });
-      });
+    const getBooks = await chai.request(server)
+      .get('/api/books?search=hippo');
+
+    getBooks.should.have.status(200);
+    getBooks.body.success.should.be.eql(true);
+    getBooks.body.data.length.should.be.at.least(1);
+    getBooks.body.data.forEach(book => {
+      book.title.toLowerCase().should.contain('hippo');
+    });
   });
 
-  it('Post a book error', (done) => {
+  it('Post a book error', async () => {
     const book = {
     };
 
-    chai.request(server)
+    const postedBook = await chai.request(server)
       .post('/api/books')
-      .send(book)
-      .end((err, res) => {
-        if (err) assert.fail(`Getting books failed: ${err}`);
+      .send(book);
 
-        res.should.have.status(200);
-        res.body.success.should.be.eql(false);
-        res.body.hasOwnProperty('error').should.be.eql(true);
-
-        res.body.error._message.should.be.eql('Book validation failed');
-        res.body.error.name.should.be.eql('ValidationError');
-        done();
-      });
+    postedBook.should.have.status(200);
+    postedBook.body.success.should.be.eql(false);
+    postedBook.body.hasOwnProperty('error').should.be.eql(true);
+    postedBook.body.error._message.should.be.eql('Book validation failed');
+    postedBook.body.error.name.should.be.eql('ValidationError');
   });
 
-  it('Delete a book error', (done) => {
-    chai.request(server)
+  it('Delete a book error', async () => {
+    const deletedBook = await chai.request(server)
       .delete('/api/books')
-      .send({ book_id: 3453245 })
-      .end((err, res) => {
-        if (err) assert.fail(`Deleting book failed: ${err}`);
-        res.body.hasOwnProperty('error');
-        res.body.error.should.be.eql('Unable to find book id: 3453245');
-        done();
-      });
+      .send({ book_id: 3453245 });
+
+    deletedBook.body.hasOwnProperty('error');
+    deletedBook.body.error.should.be.eql('Unable to find book id: 3453245');
   });
 
-  it('Get books filter by category', (done) => {
-    chai.request(server)
-      .get('/api/books?category=API%20Automation')
+  it('Get books filter by category', async () => {
+    const getBooks = await chai.request(server)
+      .get('/api/books?category=API%20Automation');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get books category filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(book => {
-          book.category.should.be.eql('API Automation');
-        });
-        done();
-      });
+    getBooks.should.have.status(200);
+    getBooks.body.success.should.be.eql(true);
+    getBooks.body.data.length.should.be.at.least(1);
+    getBooks.body.data.forEach(book => {
+      book.category.should.be.eql('API Automation');
+    });
   });
 
-  it('Get books filter by language', (done) => {
-    chai.request(server)
-      .get('/api/books?language=Python')
+  it('Get books filter by language', async () => {
+    const getBooks = await chai.request(server)
+      .get('/api/books?language=Python');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get books language filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(book => {
-          book.language.should.be.eql('Python');
-        });
-        done();
-      });
+    getBooks.should.have.status(200);
+    getBooks.body.success.should.be.eql(true);
+    getBooks.body.data.length.should.be.at.least(1);
+    getBooks.body.data.forEach(book => {
+      book.language.should.be.eql('Python');
+    });
   });
 
-  it('Get books filter by language and category', (done) => {
-    chai.request(server)
-      .get('/api/books?language=Swift&category=API%20Automation')
+  it('Get books filter by language and category', async () => {
+    const getBooks = await chai.request(server)
+      .get('/api/books?language=Swift&category=API%20Automation');
 
-      .end((err, res) => {
-        if (err) assert.fail(`Get books language and category filter failed: ${err}`);
-        res.should.have.status(200);
-        res.body.success.should.be.eql(true);
-        res.body.data.length.should.be.at.least(1);
-        res.body.data.forEach(book => {
-          book.language.should.be.eql('Swift');
-          book.category.should.be.eql('API Automation');
-        });
-        done();
-      });
+    getBooks.should.have.status(200);
+    getBooks.body.success.should.be.eql(true);
+    getBooks.body.data.length.should.be.at.least(1);
+    getBooks.body.data.forEach(book => {
+      book.language.should.be.eql('Swift');
+      book.category.should.be.eql('API Automation');
+    });
   });
 });

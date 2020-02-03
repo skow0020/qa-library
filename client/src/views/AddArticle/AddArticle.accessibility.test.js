@@ -1,14 +1,16 @@
 import AddArticle from './AddArticle';
 import React from 'react';
-import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { axe } from 'setupTests';
+import { render } from 'react-dom';
 
 describe('AddArticle Accessibility Tests', () => {
-  it('AddArticle is accessible', async () => {
-    const wrapper = shallow(<AddArticle />);
-    expect(wrapper.length).toBe(1);
-    const html = wrapper.html();
+  test('AddArticle is accessible', async () => {
+    let container = global.container;
 
+    await act(async () => render(<AddArticle />, container));
+
+    const html = container.innerHTML;
     expect(await axe(html)).toHaveNoViolations();
   });
 });

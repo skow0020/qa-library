@@ -17,6 +17,15 @@
     },
     "PORT": {
       "required": true
+    },
+    "JWT_SECRET": {
+      "required": true
+    },
+    "CLIENT_ID": {
+      "required": true
+    },
+    "CLIENT_SECRET": {
+      "required": true
     }
   },
   "environments": {},

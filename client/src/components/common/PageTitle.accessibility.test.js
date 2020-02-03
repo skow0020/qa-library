@@ -1,14 +1,16 @@
 import PageTitle from './PageTitle';
 import React from 'react';
-import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { axe } from 'setupTests';
+import { render } from 'react-dom';
 
 describe('PageTitle Accessibility Tests', () => {
-  it('PageTitle is accessible', async () => {
-    const wrapper = shallow(<PageTitle title="Add an Article"/>);
-    expect(wrapper.length).toBe(1);
-    const html = wrapper.html();
+  test('PageTitle is accessible', async () => {
+    let container = global.container;
 
+    await act(async () => render(<PageTitle title="Add an Article"/>, container));
+
+    const html = container.innerHTML;
     expect(await axe(html)).toHaveNoViolations();
   });
 });

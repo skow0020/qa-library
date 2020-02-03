@@ -1,8 +1,8 @@
 {
-    "qaRepos": "#row-0 [id*=repo-card]",
-    "firstQARepo": "#row-0 #repo-card-0",
-    "firstQARepoTitle": "#row-0 #repo-card-0 .card-title",
-    "skow0020Repos": "#row-0 [id*=repo-card]",
-    "firstskow0020Repo": "#row-0 #repo-card-0]",
+    "qaRepos": "[id*=repo-card]",
+    "firstQARepo": "#repo-card-0",
+    "firstQARepoTitle": "#repo-card-0 span",
+    "skow0020Repos": "[id*=repo-card]",
+    "firstskow0020Repo": "#repo-card-0]",
     "language": "#language"
 }

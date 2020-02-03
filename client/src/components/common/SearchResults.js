@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 const SearchResults = (props) => {
-  const results = props.results.map(r => (
-    <a href={r.url}>
-      <li key={r.id}>{r.title}</li>
+  const results = props.results.map(result => (
+    <a href={result.url}>
+      <li key={result.id}>{result.title}</li>
     </a>
   ));
 
@@ -15,6 +16,10 @@ const SearchResults = (props) => {
       </div>
     </div>
   );
+};
+SearchResults.propTypes = {
+  results: PropTypes.array.isRequired,
+  searchType: PropTypes.string.isRequired
 };
 
 export default SearchResults;

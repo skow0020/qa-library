@@ -1,14 +1,16 @@
 import Loading from './Loading';
 import React from 'react';
-import { axe } from '../../setupTests';
-import { shallow } from 'enzyme';
+import { act } from 'react-dom/test-utils';
+import { axe } from 'setupTests';
+import { render } from 'react-dom';
 
 describe('Loading Accessibility Tests', () => {
-  it('Loading is accessible', async () => {
-    const wrapper = shallow(<Loading />);
-    expect(wrapper.length).toBe(1);
-    const html = wrapper.html();
+  test('Loading is accessible', async () => {
+    let container = global.container;
 
+    act(() => render(<Loading />, container));
+
+    const html = container.innerHTML;
     expect(await axe(html)).toHaveNoViolations();
   });
 });
