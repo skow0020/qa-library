@@ -18,8 +18,6 @@ import Info from 'views/Info/Info';
 import LibraryDash from 'views/LibraryDash/LibraryDash';
 import NotFound from 'components/common/NotFound';
 import QADashboard from 'views/QADashboard/QADashboard';
-import React from 'react';
-import { Redirect } from 'react-router-dom';
 import ResourceLinks from 'views/ResourceLinks/ResourceLinks';
 import Search from 'views/Search';
 import Tutorials from 'views/Tutorials/Tutorials';
@@ -115,12 +113,6 @@ export default [
     layout: DefaultLayout,
     component: InOfficeBook,
     name: 'In-Office Book'
-  },
-  {
-    path: '/',
-    exact: true,
-    layout: DefaultLayout,
-    component: () => <Redirect to="/qa-dashboard" />
   },
   {
     component: NotFound,
