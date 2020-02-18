@@ -14,27 +14,15 @@ const useStyles = makeStyles(styles);
 export default function MainNavbar(props) {
   const classes = useStyles();
 
-  function makeBrand() {
-    var name;
-    props.routes.map(prop => {
-      if (window.location.href.indexOf(prop.path) !== -1) {
-        name = prop.name;
-      }
-      return null;
-    });
-    return name;
-  }
   const { color } = props;
   const appBarClasses = classNames({
     [' ' + classes[color]]: color
   });
+
   return (
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
-          <div className={classes.title}>
-            {makeBrand()}
-          </div>
         </div>
         <Hidden smDown implementation="css">
           <NavbarLinks />
@@ -46,7 +34,7 @@ export default function MainNavbar(props) {
             aria-label="open drawer"
             onClick={props.handleDrawerToggle}
           >
-            <Menu/>
+            <Menu />
           </IconButton>
         </Hidden>
       </Toolbar>

@@ -21,6 +21,7 @@ const switchRoutes = (
       return (
         <Route
           path={route.path}
+          exact={route.exact}
           component={withAuth(props => {
             return (
               <div>
