@@ -54,7 +54,7 @@
         "url": "git+https://github.com/skow0020/qa-library.git"
     },
     "engines": {
-        "node": "8.12.0"
+        "node": "12.10.0"
     },
     "keywords": [],
     "author": "",
