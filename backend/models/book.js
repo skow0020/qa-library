@@ -37,6 +37,6 @@ const BookSchema = new Schema(
   },
   { timestamps: true }
 );
-BookSchema.plugin(AutoIncrement, {inc_field: 'book_id'});
+BookSchema.plugin(AutoIncrement, { inc_field: 'book_id' });
 
 module.exports = mongoose.model('Book', BookSchema);

@@ -1,4 +1,5 @@
 /* eslint no-console: 0*/
+
 import mongoose from 'mongoose';
 
 const { DB_USER, DB_PASS, NODE_ENV } = process.env;
