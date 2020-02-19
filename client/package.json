@@ -30,6 +30,7 @@
     "cypress:open": "cypress open",
     "cypress:electron": "cypress run --reporter junit --reporter-options mochaFile=./test-results/cypress-results-electron-[hash].xml",
     "cypress:chrome": "cypress run --browser chrome --reporter junit --reporter-options mochaFile=./test-results/cypress-results-chrome-[hash].xml",
+    "cypress:record": "cypress run --record --key 3a5d7681-f009-4d2a-aacb-b34937f472c9",
     "eject": "react-scripts eject",
     "lint": "eslint ."
   },
@@ -41,7 +42,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^3.6.1",
+    "cypress": "^3.8.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.4.0",
