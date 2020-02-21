@@ -20,6 +20,8 @@ jobs:
       run: |
         npm i
         npm run install:client
+        npm run lint:backend
+        npm run lint:client
         npm run test:unit:backend
         npm run test:unit:client
         npm run test:accessibility:client
