@@ -45,7 +45,7 @@ export default class UsersController {
 
   static async apiAuthenticate(req, res) {
     const { email, password } = req.body;
-    console.log('asdf') 
+
     User.findOne({ email }, (err, user) => {
       if (err) return res.status(500).json({ error: 'Database error please try again' });
       else if (!user) return res.status(401).json({ error: `Unable to find account: ${email}` });
