@@ -5,13 +5,15 @@ import Menu from '@material-ui/icons/Menu';
 import NavbarLinks from './NavbarLinks';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import classNames from 'classnames';
+import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import styles from 'assets/jss/components/headerStyle.js';
 
 const useStyles = makeStyles(styles);
 
-export default function MainNavbar(props) {
+function MainNavbar(props) {
   const classes = useStyles();
 
   const { color } = props;
@@ -23,6 +25,7 @@ export default function MainNavbar(props) {
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
+          <Typography>Hi, {props.authedUser}</Typography>
         </div>
         <Hidden smDown implementation="css">
           <NavbarLinks />
@@ -41,3 +44,11 @@ export default function MainNavbar(props) {
     </AppBar>
   );
 }
+
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(MainNavbar)

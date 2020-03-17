@@ -13,7 +13,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
+import { setAuthedUser } from 'redux/actions/authedUser';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -37,10 +39,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignIn() {
+function SignIn(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [authenticated, setAuthenticated] = useState(false);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -51,13 +52,15 @@ export default function SignIn() {
     })
       .then(response => response.json())
       .then(res => {
-        if (res.success) setAuthenticated(true);
+        if (res.success) {
+          props.dispatch(setAuthedUser(email));
+        }
         else showAlert({ message: `Error logging in: ${res.error}` });
       });
   }
 
   const classes = useStyles();
-  if (authenticated) return <Redirect to='/qa-dashboard' />;
+  if (props.authedUser) return <Redirect to='/qa-dashboard' />;
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -114,3 +117,11 @@ export default function SignIn() {
     </Container>
   );
 }
+
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(SignIn)
