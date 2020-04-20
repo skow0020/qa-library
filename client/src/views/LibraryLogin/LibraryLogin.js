@@ -102,11 +102,11 @@ export default function SignIn() {
             className={classes.submit}
           >
             Sign In
-          </Button>
-          <Link id="registration-link" href="/registration" variant="body2">
-            {'Don\'t have an account? Sign Up'}
-          </Link>
+          </Button>          
         </form>
+        <Link id="registration-link" href="/registration" variant="body2">
+            {'Don\'t have an account? Sign Up'}
+        </Link>
       </div>
       <Box mt={8}>
         <Copyright />
