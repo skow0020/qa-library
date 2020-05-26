@@ -1,6 +1,7 @@
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from 'assets/jss/components/footerStyle.js';
 
@@ -21,6 +22,11 @@ export default function Footer() {
             <ListItem className={classes.inlineBlock}>
               <a href="/info" className={classes.block}>
                 Info
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="https://skow-contact-form.herokuapp.com" className={classes.block}>
+                Contact
               </a>
             </ListItem>
           </List>
