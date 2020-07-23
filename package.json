@@ -26,7 +26,7 @@
         "chai": "^4.2.0",
         "chai-http": "^4.2.1",
         "faker": "^4.1.0",
-        "mocha": "^8.0.1",
+        "mocha": "^6.0.2",
         "mocha-junit-reporter": "^1.21.0",
         "mongo-seeding": "^3.1.1"
     },
