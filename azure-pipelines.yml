@@ -20,10 +20,16 @@ steps:
     versionSpec: '12.10'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run install:client
-  displayName: 'npm install all packages'
+- task: Npm@1
+  displayName: 'Install base packages'
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  displayName: 'Install Client packages'
+  inputs:
+    command: custom
+    customCommand: 'run install:client'
 
 - task: Npm@1
   displayName: 'npm run lint backend'
