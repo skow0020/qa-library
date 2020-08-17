@@ -43,7 +43,7 @@
         "test:unit:client": "cd client && npm run test:unit",
         "test:snapshot:client": "cd client && npm run test:snapshot",
         "test:accessibility:client": "cd client && npm run test:accessibility",
-        "test:cypress:client": "cd client && npm run cypress:chrome",
+        "test:cypress:client": "cd client && npm run cypress:all",
         "build:client": "cd client && npm run build",
         "heroku-postbuild": "cd client && npm install --only=prod && npm run build"
     },
