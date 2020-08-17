@@ -25,7 +25,7 @@ steps:
     npm run install:client
   displayName: 'npm install all packages'
 
-  - task: Npm@1
+- task: Npm@1
   displayName: 'npm run lint backend'
   continueOnError: true
   inputs:
