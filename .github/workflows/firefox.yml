@@ -15,4 +15,3 @@ jobs:
     - uses: cypress-io/github-action@v2
       with:
         browser: firefox
-        command: npm run test:cypress:firefox
