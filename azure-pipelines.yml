@@ -87,6 +87,6 @@ steps:
     testResultsFiles: '**/test-results/*.xml'
     failedTaskOnFailedTest: true
 
-- script: npm run test:cypress:client
+- script: npm run test:cypress:chrome
   condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
   displayName: 'Run Cypress UI tests'
