@@ -36,7 +36,7 @@
         "install:client": "cd client && npm install",
         "test:unit:backend": "mocha ./backend/test/unit/**.unit.test.js --opts ./backend/test/unitTest.opts",
         "test:api:backend": "mocha ./backend/test/api/**.api.test.js --opts ./backend/test/apiTest.opts",
-        "lint:backend": "\\client\node_modules\\.bin\\eslint .\\backend",
+        "lint:backend": "\\client\\node_modules\\.bin\\eslint .\\backend",
         "lint:backend:windows": ".\\client\\node_modules\\.bin\\eslint .\\backend",
         "lint:client": "cd client && npm run lint",
         "test:backend": "npm run lint:backend && npm run test:unit:backend && npm run test:api:backend",
