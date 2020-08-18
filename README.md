@@ -68,9 +68,19 @@ Builds the client application for serving
 
 <br />
 
-### Jenkins/Docker setup 
+## Docker Run - Improvements can be made
 
-See the following tutorial for spinning up jenkins using docker and running the pipeline: 
+### `docker build -t <Tag> .`
+
+Builds the image based on the current state of the app
+
+### `docker run -p 4000:5001 <Tag>
+
+Creates and runs a container based on the created image`
+
+### Jenkins setup
+
+See the following tutorial for spinning up jenkins running the pipeline: 
 
 https://jenkins.io/doc/tutorials/build-a-node-js-and-react-app-with-npm/#fork-sample-repository
 

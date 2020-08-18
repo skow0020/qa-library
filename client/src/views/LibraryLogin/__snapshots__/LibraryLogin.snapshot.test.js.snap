@@ -137,14 +137,14 @@ exports[`LibraryLogin Snapshot Tests LibraryLogin snapshot 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
-          href="/registration"
-          id="registration-link"
-        >
-          Don't have an account? Sign Up
-        </a>
       </form>
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+        href="/registration"
+        id="registration-link"
+      >
+        Don't have an account? Sign Up
+      </a>
     </div>
     <div
       class="MuiBox-root MuiBox-root-167"

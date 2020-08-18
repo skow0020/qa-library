@@ -103,10 +103,10 @@ export default function Registration() {
           >
             Register
           </Button>
-          <Link id="login-link" href="/library-login" variant="body2">
-            {'Go Log in'}
-          </Link>
         </form>
+        <Link id="login-link" href="/library-login" variant="body2">
+          {'Go Log in'}
+        </Link>
       </div>
       <Box mt={8}>
         <Copyright />

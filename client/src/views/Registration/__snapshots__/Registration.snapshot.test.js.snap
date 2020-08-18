@@ -137,14 +137,14 @@ exports[`Registration Snapshot Tests Registration snapshot 1`] = `
             class="MuiTouchRipple-root"
           />
         </button>
-        <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
-          href="/library-login"
-          id="login-link"
-        >
-          Go Log in
-        </a>
       </form>
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-body2 MuiTypography-colorPrimary"
+        href="/library-login"
+        id="login-link"
+      >
+        Go Log in
+      </a>
     </div>
     <div
       class="MuiBox-root MuiBox-root-167"

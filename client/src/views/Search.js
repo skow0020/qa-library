@@ -40,9 +40,9 @@ export default function Search() {
         </form>
       </Grid>
       {bookResults && <SearchResults searchType='Books' results={bookResults} />}
-      {tutorialResults && <SearchResults searchType='Tutorials' results={bookResults} />}
-      {resourceLinkResults && <SearchResults searchType='Resource Links' results={bookResults} />}
-      {articleResults && <SearchResults searchType='Articles' results={bookResults} />}
+      {tutorialResults && <SearchResults searchType='Tutorials' results={tutorialResults} />}
+      {resourceLinkResults && <SearchResults searchType='Resource Links' results={resourceLinkResults} />}
+      {articleResults && <SearchResults searchType='Articles' results={articleResults} />}
     </Container>
   );
 }

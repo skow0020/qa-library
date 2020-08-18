@@ -23,6 +23,11 @@ export default function Footer() {
                 Info
               </a>
             </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="https://skow-contact-form.herokuapp.com" className={classes.block}>
+                Contact
+              </a>
+            </ListItem>
           </List>
         </div>
         <p className={classes.right}>

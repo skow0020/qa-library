@@ -103,10 +103,10 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          <Link id="registration-link" href="/registration" variant="body2">
-            {'Don\'t have an account? Sign Up'}
-          </Link>
         </form>
+        <Link id="registration-link" href="/registration" variant="body2">
+          {'Don\'t have an account? Sign Up'}
+        </Link>
       </div>
       <Box mt={8}>
         <Copyright />

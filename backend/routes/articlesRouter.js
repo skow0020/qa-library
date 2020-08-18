@@ -1,5 +1,5 @@
-import Router from 'express';
 import ArticlesController from '../controllers/articlesController';
+import Router from 'express';
 
 const articlesRouter = new Router();
 

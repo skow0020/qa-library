@@ -7,7 +7,6 @@ export default function PageTitle({ title }) {
       <Typography gutterBottom className="page-title" variant="h3">
         {title}
       </Typography>
-
   );
 };
 

@@ -1,0 +1,13 @@
+.git
+.gitignore
+node_modules
+client/node_modules
+client/build
+client/.vscode
+client/test-results
+npm-debug.log
+Dockerfile*
+docker-compose*
+README.md
+LICENSE
+.vscode

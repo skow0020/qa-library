@@ -41,7 +41,6 @@ context('In Office Library', () => {
       login();
       navigate(size);
       cy.get(inOfficeLibrary.githubLogin).click();
-      cy.url().should('contain', 'github.com/login');
     });
   });
 });

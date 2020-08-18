@@ -1,4 +1,5 @@
 {
-    "baseUrl": "https://qa-library-dev.herokuapp.com/",
-    "chromeWebSecurity": false 
+  "baseUrl": "https://qa-library-dev.herokuapp.com/",
+  "chromeWebSecurity": false,
+  "projectId": "7uwo8n"
 }
