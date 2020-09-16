@@ -74,9 +74,9 @@ Builds the client application for serving
 
 Builds the image based on the current state of the app
 
-### `docker run -p 4000:5001 <Tag>
+### `docker run -p 4000:5001 <Tag>`
 
-Creates and runs a container based on the created image`
+Creates and runs a container based on the created image
 
 ### Jenkins setup
 
