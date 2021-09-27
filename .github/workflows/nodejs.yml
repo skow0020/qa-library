@@ -26,6 +26,8 @@ jobs:
         npm run test:unit:client
         npm run test:accessibility:client
         npm run test:snapshot:client
+        npm run build:client
+        npm run test:cypress:ci
       env:
         DB_USER: ${{ secrets.MONGODB_DEV_USER }}
         DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
