@@ -33,6 +33,7 @@ jobs:
         DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
         CLIENT_ID: ${{ secrets.CLIENT_ID_GITHUB }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET_GITHUB }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
         PORT: 5001
         NODE_ENV: "dev"
 
