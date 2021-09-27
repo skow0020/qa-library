@@ -5,13 +5,13 @@ import * as inOfficeBook from '../pages/InOfficeBook.json';
 import * as inOfficeLibrary from '../pages/InOfficeLibrary.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { setViewport, sizes } from '../fixtures/helpers';
 
 context('In Office Library', () => {
   sizes.forEach((size) => {
     it(`In office book page check in - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.visit('officeBook/1000');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
@@ -25,7 +25,7 @@ context('In Office Library', () => {
 
     it(`In office book page check out - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.visit('officeBook/1000');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
@@ -38,7 +38,7 @@ context('In Office Library', () => {
 
     it(`In office library login - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.get(inOfficeLibrary.githubLogin).click();
     });
