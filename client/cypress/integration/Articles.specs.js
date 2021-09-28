@@ -6,13 +6,13 @@ import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Articles', () => {
   sizes.forEach((size) => {
     it(`Navigate to Articles and add one - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.get(articles.addArticle).click();
       cy.get(common.pageTitle).should('have.text', 'Add an Article');
@@ -33,7 +33,7 @@ context('Articles', () => {
 
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
 
       selectDropdown(articles.category, 'API Automation');
@@ -44,7 +44,7 @@ context('Articles', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       selectDropdown(articles.language, 'Java');
       cy.get(articles.cardPosts).should('have.length.greaterThan', 0);

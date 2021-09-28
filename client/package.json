@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": " react-scripts build",
+    "build": "react-scripts build",
     "test:snapshot:fix": "react-scripts test --testMatch **/*.snapshot.test.js",
     "test:snapshot": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-snapshot.xml react-scripts test --testMatch **/*.snapshot.test.js --reporters ./node_modules/jest-junit",
     "test:unit": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-unit.xml react-scripts test --testMatch **/*.unit.test.js  --reporters ./node_modules/jest-junit",
@@ -44,7 +44,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^4.12.1",
+    "cypress": "^8.4.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.4.0",

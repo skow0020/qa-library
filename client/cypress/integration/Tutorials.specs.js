@@ -6,13 +6,13 @@ import * as data from '../fixtures/data.json';
 import * as sideBar from '../components/sideBar.json';
 import * as tutorials from '../pages/Tutorials.json';
 
-import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Tutorials', () => {
   sizes.forEach((size) => {
     it(`Navigate to Books and add one - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.get(tutorials.addTutorial).click();
       cy.get(addTutorial.title).type(data.title).should('have.value', data.title);
@@ -30,7 +30,7 @@ context('Tutorials', () => {
 
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       selectDropdown(tutorials.category, 'API Automation');
       cy.get(tutorials.cardPosts).should('have.length.greaterThan', 0);
@@ -40,7 +40,7 @@ context('Tutorials', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       selectDropdown(tutorials.language, 'Java');
       cy.get(tutorials.cardPosts).should('have.length.greaterThan', 0);

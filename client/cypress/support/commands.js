@@ -10,7 +10,18 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
+Cypress.Commands.add('login', () => {
+    cy.intercept(
+        {
+            method: 'GET',
+            url: '/checkToken'
+        },
+        {
+            statusCode: 200
+        }
+    ).as('checkToken');
+    cy.visit('qa-dashboard');
+});
 //
 //
 // -- This is a child command --

@@ -3,12 +3,12 @@
 import * as header from '../components/header.json';
 import * as search from '../pages/Search.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { setViewport, sizes } from '../fixtures/helpers';
 
 context('Search', () => {
   it('Search for something', () => {
     setViewport(sizes[2]);
-    login();
+    cy.login();
     cy.get(header.searchButton).click();
     cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
     cy.get(search.books).click();

@@ -20,17 +20,20 @@ jobs:
       run: |
         npm i
         npm run install:client
-        npm run lint:backend
+        npm run lint:backend:windows
         npm run lint:client
         npm run test:unit:backend
         npm run test:unit:client
         npm run test:accessibility:client
         npm run test:snapshot:client
+        npm run build:client
+        npm run test:cypress:ci
       env:
         DB_USER: ${{ secrets.MONGODB_DEV_USER }}
         DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
         CLIENT_ID: ${{ secrets.CLIENT_ID_GITHUB }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET_GITHUB }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
         PORT: 5001
         NODE_ENV: "dev"
 

@@ -3,20 +3,20 @@
 import * as header from '../components/header.json';
 import * as info from '../pages/Info.json';
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { setViewport, sizes } from '../fixtures/helpers';
 
 context('Info Page', () => {
   beforeEach(() => {
     cy.visit('qa-dashboard');
-    login();
+    cy.login();
   });
 
-    it('Info UI', () => {
-      setViewport(sizes[2]);
-      cy.get(header.personIcon).click();
-      cy.contains('Info').click();
-      cy.get(info.infoContainer).find('h5').should('contain', 'For more information, google it');
-    });
+  it('Info UI', () => {
+    setViewport(sizes[2]);
+    cy.get(header.personIcon).click();
+    cy.contains('Info').click();
+    cy.get(info.infoContainer).find('h5').should('contain', 'For more information, google it');
+  });
 });
 
 

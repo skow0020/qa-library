@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://qa-library-dev.herokuapp.com/",
+  "baseUrl": "http://localhost:5001",
   "chromeWebSecurity": false,
   "projectId": "7uwo8n"
 }

@@ -4,20 +4,20 @@ import * as common from '../pages/Common.json';
 import * as exampleRepos from '../pages/ExampleRepos.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Example Repos', () => {
   sizes.forEach((size) => {
     it(`Repos load successfully - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.get(exampleRepos.firstQARepoTitle);
     });
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       selectDropdown(exampleRepos.language, 'Java');
       cy.get(exampleRepos.qaRepos).should('have.length.greaterThan', 0);

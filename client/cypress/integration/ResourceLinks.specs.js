@@ -6,13 +6,13 @@ import * as data from '../fixtures/data.json';
 import * as resourceLinks from '../pages/ResourceLinks.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { login, selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Resource Links', () => {
   sizes.forEach((size) => {
     it(`Navigate to Resource Links and add one - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       cy.get(resourceLinks.addResourceLink).click();
       cy.get(addResourceLink.title).type(data.title).should('have.value', data.title);
@@ -31,7 +31,7 @@ context('Resource Links', () => {
 
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       selectDropdown(resourceLinks.category, 'API Automation');
       cy.get(resourceLinks.cardPosts).should('have.length.greaterThan', 0);
@@ -41,7 +41,7 @@ context('Resource Links', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
-      login();
+      cy.login();
       navigate(size);
       selectDropdown(resourceLinks.language, 'Java');
       cy.get(resourceLinks.cardPosts).should('have.length.greaterThan', 0);
