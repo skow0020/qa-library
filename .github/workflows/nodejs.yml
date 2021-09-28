@@ -12,59 +12,41 @@ env:
   NODE_ENV: "dev"
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          if-no-files-found: error
-          path: build
-
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
-        with:
-          # Disable running of tests within install job
-          runTests: false
-          build: yarn build
-
-  ui-chrome-tests:
-    runs-on: [ubuntu-latest]
-
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    needs: install
+  build:
+    runs-on: [windows-latest]
 
     strategy:
-      fail-fast: false
       matrix:
         node-version: [12.10.0]
-        containers: [1, 2, 3]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v2
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          name: build
-          path: build
+          node-version: ${{ matrix.node-version }}
 
-      - name: 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v2
-        with:
-          # we have already installed all dependencies above
-          install: false
-          start: yarn start
-          wait-on: 'http://localhost:5001'
-          wait-on-timeout: 120
-          browser: chrome
-          record: false
-          parallel: true
-          group: 'UI - Chrome'
-          spec: client/cypress/tests/ui/*
+      - name: Install dependencies
+        run: |
+          npm i
+          npm run install:client
+
+      - name: Lint source code
+        run: |
+          npm run lint:backend:windows
+          npm run lint:client
+
+      - name: Run unit tests
+        run: |
+          npm run test:unit:backend
+          npm run test:unit:client
+
+      - name: Run UI component tests
+        run: |
+          npm run test:accessibility:client
+          npm run test:snapshot:client
+
+      - name: Build client and run cypress tests
+        run: |
+          npm run build:client
+          npm run test:cypress:ci
