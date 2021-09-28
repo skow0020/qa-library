@@ -13,7 +13,7 @@ env:
 
 jobs:
   install:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
@@ -34,7 +34,7 @@ jobs:
           build: yarn build
 
   ui-chrome-tests:
-    runs-on: [windows-latest]
+    runs-on: [ubuntu-latest]
 
     container: cypress/browsers:node12.18.3-chrome87-ff82
     needs: install
