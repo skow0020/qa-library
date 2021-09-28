@@ -2,38 +2,69 @@ name: Node CI
 
 on: [push]
 
+env:
+  DB_USER: ${{ secrets.MONGODB_DEV_USER }}
+  DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
+  CLIENT_ID: ${{ secrets.CLIENT_ID_GITHUB }}
+  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET_GITHUB }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  PORT: 5001
+  NODE_ENV: "dev"
+
 jobs:
-  build:
+  install:
+    runs-on: windows-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
+        with:
+          # Disable running of tests within install job
+          runTests: false
+          build: yarn build
+
+  ui-chrome-tests:
     runs-on: [windows-latest]
 
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    needs: install
+
     strategy:
+      fail-fast: false
       matrix:
         node-version: [12.10.0]
+        containers: [1, 2, 3]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm i
-        npm run install:client
-        npm run lint:backend:windows
-        npm run lint:client
-        npm run test:unit:backend
-        npm run test:unit:client
-        npm run test:accessibility:client
-        npm run test:snapshot:client
-        npm run build:client
-        npm run test:cypress:ci
-      env:
-        DB_USER: ${{ secrets.MONGODB_DEV_USER }}
-        DB_PASS: ${{ secrets.MONGODB_DEV_PASSWORD }}
-        CLIENT_ID: ${{ secrets.CLIENT_ID_GITHUB }}
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET_GITHUB }}
-        JWT_SECRET: ${{ secrets.JWT_SECRET }}
-        PORT: 5001
-        NODE_ENV: "dev"
+      - name: Checkout
+        uses: actions/checkout@v2
 
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: 'UI Tests - Chrome'
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          start: yarn start
+          wait-on: 'http://localhost:5001'
+          wait-on-timeout: 120
+          browser: chrome
+          record: false
+          parallel: true
+          group: 'UI - Chrome'
+          spec: client/cypress/tests/ui/*
