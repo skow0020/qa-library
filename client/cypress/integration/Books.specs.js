@@ -4,7 +4,6 @@ import * as addBook from '../pages/AddBook.json';
 import * as books from '../pages/Books.json';
 import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
-import * as sideBar from '../components/sideBar.json';
 
 import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
@@ -13,7 +12,7 @@ context('Books', () => {
     it(`Navigate to Books and add one - ${size}`, () => {
       setViewport(size);
       cy.login();
-      navigate(size);
+      cy.navigate('Books', size);
       cy.get(books.addBook).click();
       cy.get(common.pageTitle).should('have.text', 'Add a Book');
       cy.get(addBook.title).type(data.title).should('have.value', data.title);
@@ -35,7 +34,7 @@ context('Books', () => {
     it(`Filter by category - ${size}`, () => {
       setViewport(size);
       cy.login();
-      navigate(size);
+      cy.navigate('Books', size);
       selectDropdown(books.category, 'API Automation');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
       selectDropdown(books.category, 'Databases');
@@ -45,7 +44,7 @@ context('Books', () => {
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
       cy.login();
-      navigate(size);
+      cy.navigate('Books', size);
       selectDropdown(books.language, 'CSharp');
       cy.get(books.cardPosts).should('have.length.greaterThan', 0);
       selectDropdown(books.language, 'Cpp');
@@ -53,12 +52,3 @@ context('Books', () => {
     });
   });
 });
-
-const navigate = (size) => {
-  if (!Cypress._.isArray(size)) {
-    cy.get(common.navLink).click();
-    cy.get(sideBar.rightBooks).click();
-  }
-  else cy.get(sideBar.books).click();
-  cy.get(common.pageTitle).should('have.text', 'Books');
-};

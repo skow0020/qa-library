@@ -9,6 +9,9 @@
 // ***********************************************
 //
 //
+import * as common from '../pages/Common.json';
+import * as sideBar from '../components/sideBar.json';
+
 // -- This is a parent command --
 Cypress.Commands.add('login', () => {
     cy.intercept(
@@ -21,6 +24,15 @@ Cypress.Commands.add('login', () => {
         }
     ).as('checkToken');
     cy.visit('qa-dashboard');
+});
+
+Cypress.Commands.add('navigate', (page, size) => {
+    if (!Cypress._.isArray(size)) {
+        cy.get(common.navLink).click();
+        cy.get(`#right-sidebar ${sideBar[page]}`).click();
+    }
+    else cy.get(sideBar[page]).click();
+    cy.get(common.pageTitle).should('have.text', page);
 });
 //
 //
