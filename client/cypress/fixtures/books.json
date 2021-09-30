@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "data": [
+    {
+      "backgroundImage": "https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg",
+      "body": "Everything you need to know about hippo sanding",
+      "book_id": 932,
+      "category": "API Automation",
+      "createdAt": "2021-09-28T19:48:16.195Z",
+      "language": "Swift",
+      "pdf": "http://www.images.com/crazy.pdf",
+      "title": "How to sand a hippo",
+      "updatedAt": "2021-09-28T19:48:16.195Z",
+      "url": "https://qa-library-dev.herokuapp.com/qa-dashboard",
+      "author": "John Jacob Jingleheimer",
+      "_id": "61537180778a230de2cdbf0b"
+    },
+    {
+      "backgroundImage": "https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg",
+      "body": "Everything you need to know about hippo sanding",
+      "book_id": 932,
+      "category": "API Automation",
+      "createdAt": "2021-09-28T19:48:16.195Z",
+      "language": "Swift",
+      "pdf": "http://www.images.com/crazy.pdf",
+      "title": "How to sand a hippo vol 2",
+      "updatedAt": "2021-09-28T19:48:16.195Z",
+      "url": "https://qa-library-dev.herokuapp.com/qa-dashboard",
+      "author": "John Jacob Jingleheimer",
+      "_id": "61537180778a230de2cdbf0b"
+    }
+  ]
+}

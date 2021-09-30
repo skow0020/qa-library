@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "data": [
+      {
+          "_id": "61537180778a230de2cdbf07",
+          "backgroundImage": "https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg",
+          "author": "John Jacob Jingleheimer",
+          "category": "API Automation",
+          "language": "Swift",
+          "url": "https://qa-library-dev.herokuapp.com/qa-dashboard",
+          "title": "How to sand a hippo",
+          "body": "Everything you need to know about hippo sanding",
+          "createdAt": "2021-09-28T19:48:16.006Z",
+          "updatedAt": "2021-09-28T19:48:16.006Z",
+          "article_id": 939,
+          "__v": 0
+      },
+      {
+          "_id": "6153717f778a230de2cdbee1",
+          "backgroundImage": "https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg",
+          "author": "Miss Aida Smith",
+          "category": "API Automation",
+          "language": "Ruby",
+          "url": "https://qa-library-dev.herokuapp.com/qa-dashboard",
+          "title": "How to sand a hippo",
+          "body": "Et quaerat totam alias nisi magni et laboriosam. Dolorem eaque numquam ad possimus doloremque molestiae magni omnis magni.",
+          "article_id": 2002
+      }
+  ]
+}
