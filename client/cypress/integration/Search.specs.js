@@ -22,7 +22,7 @@ context('Search', () => {
     setViewport(sizes[2]);
     cy.login();
 
-    cy.intercept('GET', '/api/books*', { fixture: 'books' })
+    cy.intercept('GET', '/api/books*', { fixture: 'books' });
 
     cy.get(header.searchButton).click();
     cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
@@ -36,7 +36,7 @@ context('Search', () => {
     setViewport(sizes[2]);
     cy.login();
 
-    cy.intercept('GET', '/api/articles*', { fixture: 'articles' })
+    cy.intercept('GET', '/api/articles*', { fixture: 'articles' });
 
     cy.get(header.searchButton).click();
     cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
