@@ -8,11 +8,15 @@ import * as sideBar from '../components/sideBar.json';
 import { setViewport, sizes } from '../fixtures/helpers';
 
 context('In Office Library', () => {
+  beforeEach(() => {
+    cy.login();
+  });
+
   sizes.forEach((size) => {
     it(`In office book page check in - ${size}`, () => {
       setViewport(size);
-      cy.login();
       navigate(size);
+
       cy.visit('officeBook/1000');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkInButton).click();
@@ -25,8 +29,8 @@ context('In Office Library', () => {
 
     it(`In office book page check out - ${size}`, () => {
       setViewport(size);
-      cy.login();
       navigate(size);
+
       cy.visit('officeBook/1000');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkoutButton).click();
@@ -38,8 +42,8 @@ context('In Office Library', () => {
 
     it(`In office library login - ${size}`, () => {
       setViewport(size);
-      cy.login();
       navigate(size);
+      
       cy.get(inOfficeLibrary.githubLogin).click();
     });
   });

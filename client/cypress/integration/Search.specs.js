@@ -11,7 +11,7 @@ context('Search', () => {
     cy.login();
     cy.get(header.searchButton).click();
     cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
-    
+
     cy.get(search.books).should('have.length.greaterThan', 0);
     cy.get(search.articles).should('have.length.greaterThan', 0);
     cy.get(search.books).first().click();
@@ -27,7 +27,12 @@ context('Search', () => {
     cy.get(header.searchButton).click();
     cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
 
-    cy.get(search.books).should('have.length', 2);
+    cy.get(search.books)
+      .should('have.length', 2)
+      .each(($el) => {
+        expect($el.text()).to.contain('hippo');
+      });
+
     cy.get(search.books).first().click();
     cy.url().should('contain', 'dashboard');
   });

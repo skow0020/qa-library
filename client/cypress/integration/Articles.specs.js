@@ -8,31 +8,36 @@ import * as data from '../fixtures/data.json';
 import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
 
 context('Articles', () => {
+  beforeEach(() => {
+    cy.login();
+  });
+
   sizes.forEach((size) => {
     it(`Navigate to Articles and add one - ${size}`, () => {
       setViewport(size);
-      cy.login();
       cy.navigate('Articles', size);
-      cy.get(articles.addArticle).click();
-      cy.get(common.pageTitle).should('have.text', 'Add an Article');
-      cy.get(addArticle.title).type(data.title).should('have.value', data.title);
-      cy.get(addArticle.author).type(data.author).should('have.value', data.author);
-      cy.get(addArticle.url).type(data.url).should('have.value', data.url);
-      cy.get(addArticle.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
-      cy.get(addArticle.description).type(data.description).should('have.value', data.description);
-      selectDropdown(addArticle.category, data.category);
-      cy.get(addArticle.category).should('have.text', data.category);
 
-      cy.get(common.submit).click();
-      cy.get(common.alertModal).should('have.text', 'Article added successfully');
+      cy.get(articles.cardPosts).its('length').then(articlesLength => {
+        cy.get(articles.addArticle).click();
+        cy.get(common.pageTitle).should('have.text', 'Add an Article');
+        cy.get(addArticle.title).type(data.title).should('have.value', data.title);
+        cy.get(addArticle.author).type(data.author).should('have.value', data.author);
+        cy.get(addArticle.url).type(data.url).should('have.value', data.url);
+        cy.get(addArticle.backgroundImage).type(data.backgroundImage).should('have.value', data.backgroundImage);
+        cy.get(addArticle.description).type(data.description).should('have.value', data.description);
+        selectDropdown(addArticle.category, data.category);
+        cy.get(addArticle.category).should('have.text', data.category);
 
-      cy.wait(2000);
-      cy.url().should('contain', 'articles');
+        cy.get(common.submit).click();
+        cy.get(common.alertModal).should('have.text', 'Article added successfully');
+
+        cy.url().should('contain', 'articles');
+        cy.get(articles.cardPosts).should('have.length', articlesLength + 1);
+      });
     });
 
-    it(`Filter by category - ${size}`, () => {
+    it(`Filter by category - ${size}`, () => { 
       setViewport(size);
-      cy.login();
       cy.navigate('Articles', size);
 
       selectDropdown(articles.category, 'API Automation');
@@ -43,7 +48,6 @@ context('Articles', () => {
 
     it(`Filter by language - ${size}`, () => {
       setViewport(size);
-      cy.login();
       cy.navigate('Articles', size);
       selectDropdown(articles.language, 'Java');
       cy.get(articles.cardPosts).should('have.length.greaterThan', 0);
