@@ -1,16 +1,12 @@
 {
     "qaLibraryLogo": "#main-logo",
     "qaDashboard": "#qa-dashboard",
-    "articles": "#articles",
+    "Articles": "#articles",
     "resourceLinks": "#resource-links",
-    "books": "#books",
-    "tutorials": "#tutorials",
-    "exampleRepos": "#example-repos",
-    "inOfficeLibrary": "#library-dashboard",
-    "rightArticles": "#right-sidebar #articles",
-    "rightBooks": "#right-sidebar #books",
-    "rightExampleRepos": "#right-sidebar #example-repos",
     "rightResourceLinks": "#right-sidebar #resource-links",
-    "rightTutorials": "#right-sidebar #tutorials",
+    "Books": "#books",
+    "Tutorials": "#tutorials",
+    "Example Repos": "#example-repos",
+    "inOfficeLibrary": "#library-dashboard",
     "rightInOfficeLibrary": "#right-sidebar #library-dashboard"
 }

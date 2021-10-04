@@ -1,5 +1,7 @@
 {
     "searchField": "#navbar-search",
-    "books": "#Books-list",
+    "allResults": "ul li",
+    "books": "#Books-list ul li",
+    "articles": "#Articles-list ul li",
     "tutorials": "#Tutorials-list"
 }

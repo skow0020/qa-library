@@ -45,6 +45,8 @@
         "test:unit:client": "cd client && npm run test:unit",
         "test:snapshot:client": "cd client && npm run test:snapshot",
         "test:accessibility:client": "cd client && npm run test:accessibility",
+        "test:cypress:open": "cd client && npm run cypress:open",
+        "test:cypress:startAndOpen": "start-server-and-test start http://localhost:5001 test:cypress:open",
         "test:cypress:chrome": "cd client && npm run cypress:chrome",
         "test:cypress:firefox": "cd client && npm run cypress:firefox",
         "test:cypress:edge": "cd client && npm run cypress:edge",

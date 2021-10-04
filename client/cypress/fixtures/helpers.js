@@ -12,6 +12,7 @@ export const setViewport = (size) => {
 
 export const login = () => {
   cy.visit('qa-dashboard');
+  cy.focused().should('have.id', 'email');
   cy.get(loginView.email).type('cskow@tapqa.com');
   cy.get(loginView.password).type('password');
   cy.get(loginView.submit).click();
