@@ -10,7 +10,10 @@ context('Search', () => {
     setViewport(sizes[2]);
     cy.login();
     cy.get(header.searchButton).click();
-    cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
+    cy.get(search.searchField)
+      .type('hippo')
+      .type('{enter}')
+      .should('have.value', 'hippo');
 
     cy.get(search.books).should('have.length.greaterThan', 0);
     cy.get(search.articles).should('have.length.greaterThan', 0);
@@ -25,7 +28,10 @@ context('Search', () => {
     cy.intercept('GET', '/api/books*', { fixture: 'books' });
 
     cy.get(header.searchButton).click();
-    cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
+    cy.get(search.searchField)
+      .type('hippo')
+      .type('{enter}')
+      .should('have.value', 'hippo');
 
     cy.get(search.books)
       .should('have.length', 2)
@@ -44,7 +50,10 @@ context('Search', () => {
     cy.intercept('GET', '/api/articles*', { fixture: 'articles' });
 
     cy.get(header.searchButton).click();
-    cy.get(search.searchField).type('hippo{enter}').should('have.value', 'hippo');
+    cy.get(search.searchField)
+      .type('hippo')
+      .type('{enter}')
+      .should('have.value', 'hippo');
 
     cy.get(search.articles).should('have.length', 2);
     cy.get(search.articles).first().click();

@@ -13,37 +13,35 @@ context('In Office Library', () => {
   });
 
   sizes.forEach((size) => {
-    it(`In office book page check in - ${size}`, () => {
+    it(`In office book page check in error - ${size}`, () => {
       setViewport(size);
       navigate(size);
+      cy.intercept('PATCH', 'api/officeLibraryBooks/decrementCopiesCheckedOut').as('decrementCall');
 
       cy.visit('officeBook/1000');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkInButton).click();
-      cy.get(inOfficeBook.checkInButton).click();
+      cy.wait('@decrementCall');
 
-      cy.on('window:confirm', (str) => {
-        expect(str).to.equal('Unable to check in book: Request must include a user');
-      });
+      cy.get(common.alertModal).should('not.have.text', ''); //Not sure why this works
+      cy.get(common.alertModal).should('have.text', 'Unable to check out book: Request must include a user');
     });
 
-    it(`In office book page check out - ${size}`, () => {
+    it(`In office book page check out error - ${size}`, () => {
       setViewport(size);
       navigate(size);
+      cy.intercept('PATCH', 'api/officeLibraryBooks/incrementCopiesCheckedOut').as('incrementCall');
 
       cy.visit('officeBook/1000');
       cy.get(inOfficeBook.cardTitle).should('have.text', 'How to sand a hippo');
       cy.get(inOfficeBook.checkoutButton).click();
-
-      cy.on('window:confirm', (str) => {
-        expect(str).to.equal('Unable to check out book: Request must include a user');
-      });
+      cy.wait('@incrementCall');
     });
 
     it(`In office library login - ${size}`, () => {
       setViewport(size);
       navigate(size);
-      
+
       cy.get(inOfficeLibrary.githubLogin).click();
     });
   });
