@@ -58,5 +58,8 @@
     "suiteNameTemplate": "{title}",
     "classNameTemplate": "unit.{classname}",
     "titleTemplate": "{title}"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
