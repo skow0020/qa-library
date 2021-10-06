@@ -11,29 +11,39 @@
 //
 import * as common from '../pages/Common.json';
 import * as sideBar from '../components/sideBar.json';
+import { login } from '../fixtures/helpers';
 
 // -- This is a parent command --
 Cypress.Commands.add('login', () => {
+  if (Cypress.config().baseUrl.includes('localhost')) {
     cy.intercept(
-        {
-            method: 'GET',
-            url: '/checkToken'
-        },
-        {
-            statusCode: 200
-        }
+      {
+        method: 'GET',
+        url: '/checkToken'
+      },
+      {
+        statusCode: 200
+      }
+
     ).as('checkToken');
+
     cy.visit('qa-dashboard');
+  } else { login(); }
 });
 
 Cypress.Commands.add('navigate', (page, size) => {
-    if (!Cypress._.isArray(size)) {
-        cy.get(common.navLink).click();
-        cy.get(`#right-sidebar ${sideBar[page]}`).click();
-    }
-    else cy.get(sideBar[page]).click();
-    cy.get(common.pageTitle).should('have.text', page);
+  if (!Cypress._.isArray(size)) {
+    cy.get(common.navLink).click();
+    cy.get(`#right-sidebar ${sideBar[page]}`).click();
+  }
+  else cy.get(sideBar[page]).click();
+  cy.get(common.pageTitle).should('have.text', page);
 });
+
+Cypress.Commands.add('isFirefox', () => {
+  return Cypress.isBrowser('Firefox');
+});
+
 //
 //
 // -- This is a child command --
