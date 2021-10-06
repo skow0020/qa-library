@@ -12,22 +12,47 @@ env:
   NODE_ENV: "dev"
 
 jobs:
-  cypress-run:
+  install:
     runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
-      - name: Install dependencies
-        run: |
-          npm i
-          npm run install:client
+
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
+        with:
+          # Disable running of tests within install job
+          project: ./client
+          runTests: false
+          build: npm build
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
       
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          project: ./client
-          build: npm run build
+          install: false
+          build: npm run build:client
           start: npm start
+          wait-on: 'http://localhost:5001'
