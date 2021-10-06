@@ -33,3 +33,4 @@ jobs:
           build: npm run build:client
           start: npm start
           wait-on: 'http://localhost:5001'
+          command: npm run test:cypress:chrome
