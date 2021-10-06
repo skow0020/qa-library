@@ -23,8 +23,21 @@ jobs:
           npm i
           npm run install:client
       
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+      - name: Lint source code
+        run: |
+          npm run lint:backend
+          npm run lint:client
+
+      - name: Run unit tests
+        run: |
+          npm run test:unit:backend
+          npm run test:unit:client
+
+      - name: Run UI component tests
+        run: |
+          npm run test:accessibility:client
+          npm run test:snapshot:client
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
