@@ -1,6 +1,9 @@
 <img src="https://dev.azure.com/cskow/qa-library/_apis/build/status/skow0020.qa-library"
      alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
+     style="float: left; margin-right: 10px;" /> 
+<br />
+![example workflow](https://github.com/skow0020/qa-library/actions/workflows/nodejs.yml/badge.svg)
+
 
 ## QA Library website using the Mongo Express React Node stack
 
@@ -65,6 +68,10 @@ Runs snapshot tests on client components
 ### `npm run build:client`
 
 Builds the client application for serving
+
+### `test:cypress:startAndOpen`
+
+Spin up the library locally and open cypress to run tests
 
 <br />
 
