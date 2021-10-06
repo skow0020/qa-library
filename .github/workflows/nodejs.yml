@@ -12,41 +12,16 @@ env:
   NODE_ENV: "dev"
 
 jobs:
-  build:
-    runs-on: [windows-latest]
-
-    strategy:
-      matrix:
-        node-version: [12.10.0]
-
+  cypress-run:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: |
-          npm i
-          npm run install:client
-
-      - name: Lint source code
-        run: |
-          npm run lint:backend:windows
-          npm run lint:client
-
-      - name: Run unit tests
-        run: |
-          npm run test:unit:backend
-          npm run test:unit:client
-
-      - name: Run UI component tests
-        run: |
-          npm run test:accessibility:client
-          npm run test:snapshot:client
-
-      - name: Build client and run cypress tests
-        run: |
-          npm run build:client
-          npm run test:cypress:ci
+          project: ./client
+          build: npm run build
+          start: npm start
