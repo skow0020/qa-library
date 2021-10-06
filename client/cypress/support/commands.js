@@ -41,7 +41,7 @@ Cypress.Commands.add('navigate', (page, size) => {
 });
 
 Cypress.Commands.add('isFirefox', () => {
-  return Cypress.browser.displayName === 'Firefox';
+  return Cypress.isBrowser('Firefox');
 });
 
 //
