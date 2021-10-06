@@ -12,7 +12,7 @@ env:
   NODE_ENV: "dev"
 
 jobs:
-  cypress-run:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
