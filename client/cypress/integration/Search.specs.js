@@ -17,8 +17,11 @@ context('Search', () => {
 
     cy.get(search.books).should('have.length.greaterThan', 0);
     cy.get(search.articles).should('have.length.greaterThan', 0);
-    cy.get(search.books).first().click();
-    cy.url().should('contain', 'dashboard');
+
+    if (!cy.isFirefox()) {
+      cy.get(search.books).first().click();
+      cy.url().should('contain', 'dashboard');
+    }
   });
 
   it('Search returns books (ui)', () => {
@@ -39,8 +42,10 @@ context('Search', () => {
         expect($el.text()).to.contain('hippo');
       });
 
-    cy.get(search.books).first().click();
-    cy.url().should('contain', 'dashboard');
+    if (!cy.isFirefox()) {
+      cy.get(search.books).first().click();
+      cy.url().should('contain', 'dashboard');
+    }
   });
 
   it('Search returns articles (ui)', () => {
@@ -55,9 +60,11 @@ context('Search', () => {
       .type('{enter}')
       .should('have.value', 'hippo');
 
-    cy.get(search.articles).should('have.length', 2);
-    cy.get(search.articles).first().click();
-    cy.url().should('contain', 'dashboard');
+    cy.get(search.articles).as('articles').should('have.length', 2);
+    if (!cy.isFirefox()) {
+      cy.get('@articles').first().click();
+      cy.url().should('contain', 'dashboard');
+    }
   });
 });
 

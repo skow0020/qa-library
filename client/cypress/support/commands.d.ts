@@ -11,5 +11,10 @@ declare namespace Cypress {
      * navigate('Articles', <size>)
      */
     navigate();
+
+    /**
+     * Check if browser is firefox
+     */
+    isFirefox();
   }
 }

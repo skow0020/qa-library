@@ -42,7 +42,8 @@ context('In Office Library', () => {
       setViewport(size);
       navigate(size);
 
-      cy.get(inOfficeLibrary.githubLogin).click();
+      cy.get(inOfficeLibrary.githubLogin).as('githubLoginButton');
+      if (!cy.isFirefox()) cy.get('@githubLoginButton').click();
     });
   });
 });

@@ -39,6 +39,11 @@ Cypress.Commands.add('navigate', (page, size) => {
   else cy.get(sideBar[page]).click();
   cy.get(common.pageTitle).should('have.text', page);
 });
+
+Cypress.Commands.add('isFirefox', () => {
+  return Cypress.browser.displayName === 'Firefox';
+});
+
 //
 //
 // -- This is a child command --
