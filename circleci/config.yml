@@ -1,0 +1,31 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
+      - cypress/install
+      - cypress/run:
+          name: Chrome
+          requires:
+            - cypress/install
+          executor: cypress/browsers-chrome73-ff68
+          record: true
+          start: npm start
+          wait-on: http://localhost:5001
+          parallel: true
+          parallelism: 4
+          group: chrome
+          browser: chrome
+      - cypress/run:
+          name: Firefox
+          requires:
+            - cypress/install
+          executor: cypress/browsers-chrome73-ff68
+          record: true
+          start: npm start
+          wait-on: http://localhost:5001
+          parallel: true
+          parallelism: 2
+          group: firefox
+          browser: firefox
