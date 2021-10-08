@@ -16,5 +16,12 @@ declare namespace Cypress {
      * Check if browser is firefox
      */
     isFirefox();
+
+    /**
+     * Validate schema
+     * @example
+     * validateSchema(getArticlesSchema, body)
+     */
+     validateSchema();
   }
 }
