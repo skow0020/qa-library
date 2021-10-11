@@ -5,7 +5,7 @@ import * as inOfficeBook from '../pages/InOfficeBook.json';
 import * as inOfficeLibrary from '../pages/InOfficeLibrary.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { setViewport, sizes } from '../fixtures/helpers';
+import { setViewport, sizes } from '../support/helpers';
 
 context('In Office Library', () => {
   beforeEach(() => {

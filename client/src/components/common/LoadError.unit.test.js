@@ -1,24 +1,16 @@
 import LoadError from './LoadError';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { render } from 'react-dom';
+import { mount } from '@cypress/react';
 
-describe('LoadError Unit Tests', () => {
-  test('LoadError renders', async () => {
-    let container = global.container;
+it('LoadError renders with error message', () => {
+  mount(<LoadError error="Articles failed to load" />);
+  cy.get('h3').contains('Something went wrong!');
+  cy.get('p').contains('Articles failed to load');
+});
 
-    await act(async () => render(<LoadError error="Articles failed to load" />, container));
+it('LoadError renders with no props', () => {
+  mount(<LoadError />);
 
-    expect(container.querySelector('h3').textContent).toBe('Something went wrong!');
-    expect(container.querySelector('p').textContent).toBe('Articles failed to load');
-  });
-
-  test('LoadError renders with no props', async () => {
-    let container = global.container;
-
-    await act(async () => render(<LoadError />, container));
-
-    expect(container.querySelector('h3').textContent).toBe('Something went wrong!');
-    expect(container.querySelector('p').textContent).toBe('Try refreshing maybe?');
-  });
+  cy.get('h3').contains('Something went wrong!');
+  cy.get('p').contains('Try refreshing maybe?');
 });

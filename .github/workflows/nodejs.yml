@@ -37,6 +37,7 @@ jobs:
         run: |
           npm run test:accessibility:client
           npm run test:snapshot:client
+          npm run cypress:component:ci
 
       - name: Cypress run
         uses: cypress-io/github-action@v2

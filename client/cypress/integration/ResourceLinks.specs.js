@@ -6,7 +6,7 @@ import * as data from '../fixtures/data.json';
 import * as resourceLinks from '../pages/ResourceLinks.json';
 import * as sideBar from '../components/sideBar.json';
 
-import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../support/helpers';
 
 context('Resource Links', () => {
   beforeEach(() => {

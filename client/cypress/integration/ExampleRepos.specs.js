@@ -2,7 +2,7 @@
 
 import * as exampleRepos from '../pages/ExampleRepos.json';
 
-import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../support/helpers';
 
 context('Example Repos', () => {
   beforeEach(() => {

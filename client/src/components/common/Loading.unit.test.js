@@ -1,14 +1,12 @@
 import Loading from './Loading';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { render } from 'react-dom';
+import { mount } from '@cypress/react';
 
 describe('Loading Unit Tests', () => {
-  test('Loading renders', async () => {
-    let container = global.container;
+  it('Loading renders', () => {
+    mount(<Loading />);
 
-    await act(async () => render(<Loading />, container));
-
-    expect(container.querySelector('#loading').getAttribute('role')).toBe('progressbar');
+    cy.get('#loading').invoke('attr', 'role')
+      .should('eq', 'progressbar');
   });
 });

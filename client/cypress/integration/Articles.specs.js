@@ -4,7 +4,7 @@ import * as addArticle from '../pages/AddArticle.json';
 import * as articles from '../pages/Articles.json';
 import * as common from '../pages/Common.json';
 
-import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../support/helpers';
 
 context('Articles', () => {
   beforeEach(() => {

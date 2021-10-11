@@ -12,7 +12,7 @@
 import Ajv from "ajv";
 import * as common from '../pages/Common.json';
 import * as sideBar from '../components/sideBar.json';
-import { login } from '../fixtures/helpers';
+import { login } from './helpers';
 
 // -- This is a parent command --
 Cypress.Commands.add('login', () => {

@@ -3,7 +3,7 @@
 import * as header from '../components/header.json';
 import * as search from '../pages/Search.json';
 
-import { setViewport, sizes } from '../fixtures/helpers';
+import { setViewport, sizes } from '../support/helpers';
 
 context('Search', () => {
   it('Search for something (e2e)', () => {

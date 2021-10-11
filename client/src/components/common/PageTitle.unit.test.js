@@ -1,14 +1,11 @@
 import PageTitle from './PageTitle';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
-import { render } from 'react-dom';
+import { mount } from '@cypress/react';
 
 describe('PageTitle Unit Tests', () => {
-  test('PageTitle renders', async () => {
-    let container = global.container;
+  it('PageTitle renders', () => {
+    mount(<PageTitle title="Add an Article"/>);
 
-    await act(async () => render(<PageTitle title="Add an Article"/>, container));
-
-    expect(container.querySelector('.page-title').textContent).toBe('Add an Article');
+    cy.get('.page-title').contains('Add an Article');
   });
 });
