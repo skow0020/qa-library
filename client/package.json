@@ -33,6 +33,8 @@
     "cypress:firefox": "cypress run --browser firefox --reporter junit --reporter-options mochaFile=./test-results/cypress-results-firefox-[hash].xml",
     "cypress:edge": "cypress run --browser edge --reporter junit --reporter-options mochaFile=./test-results/cypress-results-edge-[hash].xml",
     "cypress:record": "cypress run --record --key 3a5d7681-f009-4d2a-aacb-b34937f472c9",
+    "cypress:component": "cypress open-ct --config-file cypress_component.json",
+    "cypress:component:ci": "cypress run-ct --config-file cypress_component.json",
     "eject": "react-scripts eject",
     "lint": "eslint ."
   },
@@ -44,6 +46,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@cypress/react": "^5.10.1",
+    "@cypress/webpack-dev-server": "^1.6.0",
     "ajv": "^8.6.3",
     "cypress": "^8.4.1",
     "enzyme": "^3.10.0",

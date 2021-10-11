@@ -3,7 +3,7 @@
 import * as header from '../components/header.json';
 import * as info from '../pages/Info.json';
 
-import { setViewport, sizes } from '../fixtures/helpers';
+import { setViewport, sizes } from '../support/helpers';
 
 context('Info Page', () => {
   beforeEach(() => {

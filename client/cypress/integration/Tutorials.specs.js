@@ -5,7 +5,7 @@ import * as common from '../pages/Common.json';
 import * as data from '../fixtures/data.json';
 import * as tutorials from '../pages/Tutorials.json';
 
-import { selectDropdown, setViewport, sizes } from '../fixtures/helpers';
+import { selectDropdown, setViewport, sizes } from '../support/helpers';
 
 context('Tutorials', () => {
   beforeEach(() => {

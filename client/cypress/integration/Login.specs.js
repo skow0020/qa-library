@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { login, setViewport, sizes } from '../fixtures/helpers';
+import { login, setViewport, sizes } from '../support/helpers';
 
 context('Login scenarios', () => {
   sizes.forEach((size) => {
