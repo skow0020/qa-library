@@ -3,7 +3,7 @@
 import * as header from '../components/header.json';
 import * as info from '../pages/Info.json';
 
-import { setViewport, sizes } from '../support/helpers';
+import { setViewport } from '../support/helpers';
 
 context('Info Page', () => {
   beforeEach(() => {
@@ -12,7 +12,7 @@ context('Info Page', () => {
   });
 
   it('Info UI', () => {
-    setViewport(sizes[2]);
+    setViewport([1024, 768]);
     cy.get(header.personIcon).click();
     cy.contains('Info').click();
     cy.get(info.infoContainer).find('h5').should('contain', 'For more information, google it');
