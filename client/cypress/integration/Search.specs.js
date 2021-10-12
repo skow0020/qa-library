@@ -3,11 +3,11 @@
 import * as header from '../components/header.json';
 import * as search from '../pages/Search.json';
 
-import { setViewport, sizes } from '../support/helpers';
+import { setViewport } from '../support/helpers';
 
 context('Search', () => {
   it('Search for something (e2e)', () => {
-    setViewport(sizes[2]);
+    setViewport([1024, 768]);
     cy.login();
     cy.get(header.searchButton).click();
     cy.get(search.searchField)
@@ -25,7 +25,7 @@ context('Search', () => {
   });
 
   it('Search returns books (ui)', () => {
-    setViewport(sizes[2]);
+    setViewport([1024, 768]);
     cy.login();
 
     cy.intercept('GET', '/api/books*', { fixture: 'books' });
@@ -49,7 +49,7 @@ context('Search', () => {
   });
 
   it('Search returns articles (ui)', () => {
-    setViewport(sizes[2]);
+    setViewport([1024, 768]);
     cy.login();
 
     cy.intercept('GET', '/api/articles*', { fixture: 'articles' });

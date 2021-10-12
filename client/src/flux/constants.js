@@ -7,5 +7,5 @@ export function CategoryOptions() {
 };
 
 export function Languages() {
-  return ['', 'Java', 'CSharp', 'Python', 'Ruby', 'JavaScript', 'Cpp', 'Swift'];
+  return ['', 'Java', 'CSharp', 'Python', 'Ruby', 'JavaScript', 'TypeScript', 'Cpp', 'Swift'];
 };
