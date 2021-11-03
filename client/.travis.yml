@@ -21,4 +21,3 @@ cache:
 
 script:
   - npm run test:cypress:component:ci
-  ß
