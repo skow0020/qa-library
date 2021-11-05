@@ -11,6 +11,7 @@ cache:
 
 install:
   - npm run install:client
+  - npm ci
 
 jobs:
   include:
@@ -18,6 +19,12 @@ jobs:
       script: npm run test:cypress:component:ci
     - name: Component Unit testing
       script: npm run test:unit:client
+    - name: DEPLOYINGG
+      install: skip
+      script: skip
+      deploy:
+        - provider: script
+          script: echo 'yep deployed'
 
 
 
