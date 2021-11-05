@@ -15,11 +15,11 @@ install:
 
 jobs:
   include:
-    - name: Cypress component testing
+    - stage: test
       script: npm run test:cypress:component:ci
-    - name: Component Unit testing
+    - stage: test
       script: npm run test:unit:client
-    - name: DEPLOYINGG
+    - stage: deploy
       install: skip
       script: skip
       deploy:
