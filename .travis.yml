@@ -15,9 +15,8 @@ cache:
   directories:
     - ~/.npm
     - ~/.cache
-  # install dependencies and check that Cypress can run
-  override:
-    - npm run install:client
+install:
+  - npm run install:client
 
 script:
   - npm run test:cypress:component:ci
