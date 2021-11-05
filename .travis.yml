@@ -16,6 +16,8 @@ jobs:
   include:
     - stage: Cypress component testing
       script: npm run test:cypress:component:ci
+    - stage: Component Unit testing
+      script: npm run test:client
 
 
 
