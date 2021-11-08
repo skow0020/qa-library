@@ -25,6 +25,7 @@ jobs:
         - echo 'running unit clientt'
         - npm run test:unit:client
     - stage: deploy
+      name: "Deployment"
       install: skip
       script: echo "Deploying"
       deploy:
@@ -35,9 +36,7 @@ jobs:
             condition: type = cron
         - provider: script
           skip_cleanup: true
-          script: 
-            - echo 'yep deployed no cron'
-            - bash scripts/asdf.sh
+          script: bash scripts/asdf.sh
 
 
 
