@@ -17,14 +17,21 @@ jobs:
   include:
     - stage: test
       script: npm run test:cypress:component:ci
+      if: $TRAVIS_EVENT_TYPE == "cron"
     - stage: test
-      script: npm run test:unit:client
+      script:
+        - echo 'running unit clientt'
+        - npm run test:unit:client
     - stage: deploy
       install: skip
       script: skip
       deploy:
         - provider: script
-          script: echo 'yep deployed'
+          script: echo 'yep deployed cron'
+          on:
+            condition: $TRAVIS_EVENT_TYPE == "cron"
+        - provider: script
+          script: echo 'yep deployed no cron'
 
 
 
