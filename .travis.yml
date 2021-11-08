@@ -38,7 +38,7 @@ jobs:
           skip_cleanup: true
           script: bash scripts/asdf.sh
           on:
-            condition: branch = master
+            condition: $TRAVIS_BRANCH = master
 
 
 
