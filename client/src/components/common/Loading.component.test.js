@@ -7,6 +7,6 @@ describe('Loading Unit Tests', () => {
     mount(<Loading />);
 
     cy.get('#loading').invoke('attr', 'role')
-      .should('eq', 'progressbar');
+      .should('eq', 'progressbarf');
   });
 });
