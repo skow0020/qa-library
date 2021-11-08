@@ -35,16 +35,9 @@ jobs:
             condition: type IS cron
         - provider: script
           skip_cleanup: true
-          script: echo 'branch asdf only'
-          on:
-            condition: branch IS asdf
-        - provider: script
-          skip_cleanup: true
           script: 
             - echo 'yep deployed no cron'
             - bash scripts/asdf.sh
-          on:
-            condition: branch IS master
 
 
 
