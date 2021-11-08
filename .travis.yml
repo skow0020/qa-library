@@ -17,7 +17,7 @@ jobs:
   include:
     - stage: test
       script: npm run test:cypress:component:ci
-      if: type IS cron
+      if: type = cron
     - stage: test
       script:
         - echo 'running unit clientt'
@@ -29,7 +29,7 @@ jobs:
         - provider: script
           script: echo 'yep deployed cron'
           on:
-            condition: type IS "cron"
+            condition: type IS cron
         - provider: script
           script: echo 'yep deployed no cron'
 
