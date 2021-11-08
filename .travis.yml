@@ -38,7 +38,6 @@ jobs:
           skip_cleanup: true
           script: bash scripts/asdf.sh
           on:
-            condition: type = cron
             condition: branch = master
 
 
