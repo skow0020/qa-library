@@ -32,7 +32,7 @@ jobs:
           skip_cleanup: true
           script: echo 'yep deployed cron'
           on:
-            condition: type IS cron
+            condition: type = cron
         - provider: script
           skip_cleanup: true
           script: 
