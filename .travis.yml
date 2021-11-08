@@ -26,6 +26,7 @@ jobs:
         - npm run test:unit:client
     - stage: deploy
       name: "Deployment"
+      if: branch IN (other, dev)
       install: skip
       script: echo "Deploying"
       deploy:
