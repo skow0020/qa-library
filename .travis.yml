@@ -31,7 +31,9 @@ jobs:
       script: npm run test:cypress:component:ci
     - stage: test
       name: "Cypress e2e tests"
-      script: npm run test:cypress:ci
+      script: 
+        - npm run build:client
+        - npm run test:cypress:ci
     - stage: test
       name: "Unit tests"
       script:
