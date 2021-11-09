@@ -3,11 +3,17 @@ language: node_js
 node_js:
   - 12.10
 
+addons:
+  chrome: stable
+
 cache:
   # cache both npm modules and Cypress binary
   directories:
     - ~/.npm
     - ~/.cache
+
+before_install:
+  - npm install -g @lhci/cli@0.8.x
 
 install:
   - npm run install:client
@@ -15,6 +21,12 @@ install:
 
 jobs:
   include:
+    - stage: test
+      name: "Lighthouse"
+      script:
+        script:
+          - npm run build:client
+          - lhci autorun --config=./client/lighthouserc.js
     - stage: test
       name: "Cypress tests"
       script: npm run test:cypress:component:ci
