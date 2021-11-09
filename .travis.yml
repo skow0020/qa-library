@@ -24,9 +24,8 @@ jobs:
     - stage: test
       name: "Lighthouse"
       script:
-        script:
-          - npm run build:client
-          - lhci autorun --config=./client/lighthouserc.js
+        - npm run build:client
+        - lhci autorun --config=./client/lighthouserc.js
     - stage: test
       name: "Cypress tests"
       script: npm run test:cypress:component:ci
