@@ -5,7 +5,7 @@ module.exports = {
             startServerCommand: 'npm start'
         },
         upload: {
-            target: 'temporary-public-storage',
+            target: 'temporary-public-storage'
         }
     }
 };
