@@ -51,6 +51,7 @@
         "test:cypress:firefox": "cd client && npm run cypress:firefox",
         "test:cypress:edge": "cd client && npm run cypress:edge",
         "test:cypress:record": "cd client && npm run cypress:record",
+        "test:cypress:parallel": "cd client && npm run cypress:parallel",
         "test:cypress:ci": "start-server-and-test start http://localhost:5001 test:cypress:chrome",
         "test:cypress:component:ci": "cd client && npm run cypress:component:ci",
         "build:client": "cd client && npm run build",
