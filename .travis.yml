@@ -38,7 +38,7 @@ jobs:
       name: "Cypress e2e tests parallel"
       script: 
         - npm run build:client
-        - npm run test:cypress:parallel
+        - npm run test:cypress:ci:parallel
     - stage: test
       name: "Unit tests"
       script:
