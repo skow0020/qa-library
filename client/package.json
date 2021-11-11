@@ -28,6 +28,7 @@
     "test:unit": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-unit.xml react-scripts test --testMatch **/*.unit.test.js  --reporters ./node_modules/jest-junit",
     "test:accessibility": "cross-env CI=true JEST_JUNIT_OUTPUT=./test-results/junit-accessibility.xml react-scripts test --testMatch **/*.accessibility.test.js  --reporters ./node_modules/jest-junit",
     "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "cypress:electron": "cypress run --reporter junit --reporter-options mochaFile=./test-results/cypress-results-electron-[hash].xml",
     "cypress:chrome": "cypress run --browser chrome --reporter junit --reporter-options mochaFile=./test-results/cypress-results-chrome-[hash].xml",
     "cypress:firefox": "cypress run --browser firefox --reporter junit --reporter-options mochaFile=./test-results/cypress-results-firefox-[hash].xml",
