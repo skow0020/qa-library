@@ -90,7 +90,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome'
-          spec: client/cypress/integration/*
+          command: npm run test:cypress:chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
