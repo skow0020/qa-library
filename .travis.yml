@@ -35,11 +35,6 @@ jobs:
         - npm run build:client
         - npm run test:cypress:ci
     - stage: test
-      name: "Cypress e2e tests parallel"
-      script: 
-        - npm run build:client
-        - npm run test:cypress:ci:parallel
-    - stage: test
       name: "Unit tests"
       script:
         - echo 'running unit clientt'
