@@ -74,6 +74,9 @@ jobs:
           name: build
           path: build
 
+      - name: Install base dependencies
+        run: npm i
+
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
         with:
