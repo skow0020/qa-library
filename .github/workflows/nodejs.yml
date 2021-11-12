@@ -38,21 +38,21 @@ jobs:
           if-no-files-found: error
           path: client/build
 
-          - name: Lint source code
-            run: |
-              npm run lint:backend
-              npm run lint:client
+      - name: Lint source code
+        run: |
+          npm run lint:backend
+          npm run lint:client
 
-          - name: Run unit tests
-            run: |
-              npm run test:unit:backend
-              npm run test:unit:client
+      - name: Run unit tests
+        run: |
+          npm run test:unit:backend
+          npm run test:unit:client
 
-          - name: Run UI component tests
-            run: |
-              npm run test:accessibility:client
-              npm run test:snapshot:client
-              npm run test:cypress:component:ci
+      - name: Run UI component tests
+        run: |
+          npm run test:accessibility:client
+          npm run test:snapshot:client
+          npm run test:cypress:component:ci
 
   ui-chrome-tests:
     timeout-minutes: 15
