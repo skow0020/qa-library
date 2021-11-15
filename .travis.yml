@@ -30,6 +30,7 @@ jobs:
       name: "Cypress component tests"
       script: npm run test:cypress:component:ci
     - stage: test
+      if: branch IN (master) AND NOT type = cron
       name: "Cypress e2e tests"
       script: 
         - npm run build:client
@@ -46,7 +47,7 @@ jobs:
         - npm run test:unit:client
     - stage: deploy
       name: "Deployment"
-      if: branch IN (other, dev)
+      if: branch IN (other, dev) AND NOT type = cron
       install: skip
       script: echo "Deploying"
       deploy:
@@ -59,7 +60,7 @@ jobs:
           skip_cleanup: true
           script: bash scripts/asdf.sh
           on:
-            condition: $TRAVIS_BRANCH = master
+            condition: $TRAVIS_BRANCH = dev
 
 
 
