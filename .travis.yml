@@ -29,22 +29,22 @@ jobs:
     - stage: test
       name: "Cypress component tests"
       script: npm run test:cypress:component:ci
-    - stage: test
-      if: branch IN (master) AND NOT type = cron
-      name: "Cypress e2e tests"
-      script: 
-        - npm run build:client
-        - npm run test:cypress:ci
-    - stage: test
-      name: "Cypress e2e tests parallel"
-      script: 
-        - npm run build:client
-        - npm run test:cypress:ci:parallel
-    - stage: test
-      name: "Unit tests"
-      script:
-        - echo 'running unit clientt'
-        - npm run test:unit:client
+    # - stage: test
+    
+    #   name: "Cypress e2e tests"
+    #   script: 
+    #     - npm run build:client
+    #     - npm run test:cypress:ci
+    # - stage: test
+    #   name: "Cypress e2e tests parallel"
+    #   script: 
+    #     - npm run build:client
+    #     - npm run test:cypress:ci:parallel
+    # - stage: test
+    #   name: "Unit tests"
+    #   script:
+    #     - echo 'running unit clientt'
+    #     - npm run test:unit:client
     - stage: deploy
       name: "Deployment"
       if: branch IN (other, dev) AND NOT type = cron
