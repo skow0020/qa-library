@@ -14,11 +14,11 @@ const { DB_USER, DB_PASS, NODE_ENV } = process.env;
 
 before(async () => {
   if (NODE_ENV === 'production') throw 'Do not seed production!';
-  await Article.remove({}, (err) => { if (err) throw err; });
-  await Book.remove({}, (err) => { if (err) throw err; });
-  await OfficeLibraryBook.remove({}, (err) => { if (err) throw err; });
-  await ResourceLink.remove({}, (err) => { if (err) throw err; });
-  await Tutorial.remove({}, (err) => { if (err) throw err; });
+  await Article.deleteMany({}, (err) => { if (err) throw err; }).clone();
+  await Book.deleteMany({}, (err) => { if (err) throw err; }).clone();
+  await OfficeLibraryBook.deleteMany({}, (err) => { if (err) throw err; }).clone();
+  await ResourceLink.deleteMany({}, (err) => { if (err) throw err; }).clone();
+  await Tutorial.deleteMany({}, (err) => { if (err) throw err; }).clone();
 
   console.log('Database cleaned');
   const config = {

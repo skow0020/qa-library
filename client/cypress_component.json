@@ -1,7 +1,7 @@
 {
   "component": {
     "testFiles": "**/*component.test.{js,ts,jsx,tsx}",
-    "componentFolder": "src/components",
+    "componentFolder": "src",
     "supportFile": false
   }
 }

@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "data": [
+        {
+            "_id": "6153717f778a230de2cdbee1",
+            "backgroundImage": "https://i-cdn.phonearena.com/images/article/104071-two_lead/Just-for-you-Here-are-10-paid-iOS-apps-free-for-a-limited-time.jpg",
+            "author": "Miss Aida Smith",
+            "category": "API Automation",
+            "language": "Ruby",
+            "url": "https://qa-library-dev.herokuapp.com/qa-dashboard",
+            "title": "How to sand a hippo",
+            "body": "Et quaerat totam alias nisi magni et laboriosam. Dolorem eaque numquam ad possimus doloremque molestiae magni omnis magni.",
+            "article_id": 2002
+        }
+    ]
+}

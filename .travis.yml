@@ -32,12 +32,12 @@ jobs:
     - stage: test
       if: branch IN (master) AND NOT type = cron
       name: "Cypress e2e tests"
-      script: 
+      script:
         - npm run build:client
         - npm run test:cypress:ci
     - stage: test
       name: "Cypress e2e tests parallel"
-      script: 
+      script:
         - npm run build:client
         - npm run test:cypress:ci:parallel
     - stage: test
@@ -45,22 +45,6 @@ jobs:
       script:
         - echo 'running unit clientt'
         - npm run test:unit:client
-    - stage: deploy
-      name: "Deployment"
-      if: branch IN (other, dev) AND NOT type = cron
-      install: skip
-      script: echo "Deploying"
-      deploy:
-        - provider: script
-          skip_cleanup: true
-          script: echo 'yep deployed cron'
-          on:
-            condition: type = cron
-        - provider: script
-          skip_cleanup: true
-          script: bash scripts/asdf.sh
-          on:
-            condition: $TRAVIS_BRANCH = dev
 
 
 
