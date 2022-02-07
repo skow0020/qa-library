@@ -30,6 +30,7 @@ jobs:
       name: "Cypress component tests"
       script: npm run test:cypress:component:ci
     - stage: test
+      if: branch IN (master) AND NOT type = cron
       name: "Cypress e2e tests"
       script:
         - npm run build:client
@@ -44,7 +45,6 @@ jobs:
       script:
         - echo 'running unit clientt'
         - npm run test:unit:client
-
 
 
 
