@@ -32,7 +32,7 @@ context('Articles', () => {
         });
 
         cy.get(common.submit).click();
-        cy.get(common.alertModal).should('have.text', 'Article added successfully error!');
+        cy.get(common.alertModal).should('have.text', 'Article added successfully');
 
         cy.url().should('contain', 'articles');
         cy.get('@cardPosts').should('have.length', articlesLength + 1);
