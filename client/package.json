@@ -33,7 +33,7 @@
     "cypress:chrome": "cypress run --browser chrome --reporter junit --reporter-options mochaFile=./test-results/cypress-results-chrome-[hash].xml",
     "cypress:firefox": "cypress run --browser firefox --reporter junit --reporter-options mochaFile=./test-results/cypress-results-firefox-[hash].xml",
     "cypress:edge": "cypress run --browser edge --reporter junit --reporter-options mochaFile=./test-results/cypress-results-edge-[hash].xml",
-    "cypress:record": "cypress run --record --key 3a5d7681-f009-4d2a-aacb-b34937f472c9",
+    "cypress:record": "cypress run --browser chrome --record --key 3a5d7681-f009-4d2a-aacb-b34937f472c9",
     "cypress:parallel": "cypress run --record --key 3a5d7681-f009-4d2a-aacb-b34937f472c9 --parallel",
     "cypress:component": "cypress open-ct --config-file cypress_component.json",
     "cypress:component:ci": "cypress run-ct --config-file cypress_component.json",
