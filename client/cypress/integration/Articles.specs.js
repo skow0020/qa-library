@@ -39,7 +39,7 @@ context('Articles', () => {
       });
     });
 
-    it(`Filter by category - ${size}`, () => { 
+    it(`Filter by category - ${size}`, () => {
       setViewport(size);
       cy.navigate('Articles', size);
 

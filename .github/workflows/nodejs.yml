@@ -1,6 +1,10 @@
 name: Node CI
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
 
 env:
   DB_USER: ${{ secrets.MONGODB_DEV_USER }}
@@ -12,7 +16,7 @@ env:
   NODE_ENV: "dev"
 
 jobs:
-  install:
+  build:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
@@ -62,12 +66,7 @@ jobs:
           start: npm start
           wait-on: 'http://localhost:5001'
           wait-on-timeout: 120
-          browser: chrome
-          config-file: client/cypress.json
-          record: true
-          parallel: true
-          group: 'UI - Chrome'
-          command: npm run test:cypress:chrome
+          command: npm run test:cypress:record
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
