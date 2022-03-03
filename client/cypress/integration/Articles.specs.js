@@ -32,14 +32,14 @@ context('Articles', () => {
         });
 
         cy.get(common.submit).click();
-        cy.get(common.alertModal).should('have.text', 'Article added successfully');
+        cy.get(common.alertModal).should('have.text', 'Article added successfully error!');
 
         cy.url().should('contain', 'articles');
         cy.get('@cardPosts').should('have.length', articlesLength + 1);
       });
     });
 
-    it(`Filter by category - ${size}`, () => { 
+    it(`Filter by category - ${size}`, () => {
       setViewport(size);
       cy.navigate('Articles', size);
 

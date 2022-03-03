@@ -1,6 +1,6 @@
 import * as loginView from '../pages/Login.json';
 
-export const sizes = ['iphone-6', 'ipad-2', [1024, 768]];
+export const sizes = ['iphone-6', [1024, 768]];
 
 export const setViewport = (size) => {
   if (Cypress._.isArray(size)) {
