@@ -36,8 +36,12 @@ export default function Articles() {
     getArticles();
   }, []);
 
-  useEffect(() => { getArticles(); }, [category]);
-  useEffect(() => { getArticles(); }, [language]);
+  useEffect(() => {
+    getArticles();
+  }, [category]);
+  useEffect(() => {
+    getArticles();
+  }, [language]);
 
   const getArticles = () => {
     const categoryFilter = category ? `category=${category}` : '';
@@ -46,13 +50,13 @@ export default function Articles() {
 
     setIsLoading(true);
     fetch(`/api/articles?${filter}`)
-      .then(response => response.json())
+      .then((response) => response.json())
       .then(
-        data => {
+        (data) => {
           setArticles(data.data);
           setIsLoading(false);
         },
-        error => {
+        (error) => {
           setError(error);
           setIsLoading(false);
         }
@@ -61,20 +65,34 @@ export default function Articles() {
 
   if (isLoading) return <Loading />;
 
-  if (error) return <LoadError error="Articles failed to load" />;
+  if (error) return <LoadError error='Articles failed to load' />;
 
   return (
     <Grid container>
-      <Grid container alignItems="center" >
-        <PageTitle title="Articles" />
-        <Button id="add-article" component={Link} to="/add-article" variant="contained" className={classes.addButton}>
+      <Grid container alignItems='center'>
+        <PageTitle title='Articles' />
+        <Button
+          id='add-article'
+          component={Link}
+          to='/add-article'
+          variant='contained'
+          className={classes.addButton}
+        >
           Add Article
         </Button>
       </Grid>
-      <Grid >
+      <Grid>
         <form id='filtering-form'>
-          <CategoriesSelection id="category" value={category} onChange={(e) => setCategory(e.target.value)} />
-          <LanguagesSelection id="language" value={language} onChange={(e) => setLanguage(e.target.value)} />
+          <CategoriesSelection
+            id='category'
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+          <LanguagesSelection
+            id='language'
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          />
         </form>
       </Grid>
       <Grid container spacing={4}>
@@ -83,14 +101,20 @@ export default function Articles() {
             <CardComponent
               idx={`article-card-${idx}`}
               url={post.url}
-              urlTarget="_blank"
+              urlTarget='_blank'
               title={post.title}
               subheader={`By ${post.author}`}
-              avatar={<Chip
-                size="small"
-                label={post.category}
-                style={{ backgroundColor: post.category ? getCategoryTheme(post.category) : Colors.blue }}
-              />}
+              avatar={
+                <Chip
+                  size='small'
+                  label={post.category}
+                  style={{
+                    backgroundColor: post.category
+                      ? getCategoryTheme(post.category)
+                      : Colors.blue
+                  }}
+                />
+              }
               backgroundImage={post.backgroundImage}
               body={post.body}
             />

@@ -10,7 +10,7 @@ import Copyright from 'components/common/Copyright';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Redirect } from 'react-router-dom';
+import { Navigate  } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -57,7 +57,7 @@ export default function Registration() {
   }
 
   const classes = useStyles();
-  if (registered) return <Redirect to='/' />;
+  if (registered) return <Navigate  to='/' />;
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

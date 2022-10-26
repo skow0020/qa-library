@@ -1,20 +1,32 @@
-import 'assets/css/material-dashboard-react.css?v=1.8.0';
-
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-
-import { DefaultLayout } from 'layouts/index';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import DefaultLayout from 'layouts/Default';
 import LibraryLogin from 'views/LibraryLogin/LibraryLogin';
-import React from 'react';
 import Registration from 'views/Registration/Registration';
+import { useState, useEffect } from 'react';
+import './App.css';
+import { ProtectedRoute } from 'Protected';
 
-export default () => (
-  <Router>
-    <div>
-      <Switch>
-        <Route path="/library-login" component={LibraryLogin} />
-        <Route path="/registration" component={Registration} />
-        <Route path="/" component={DefaultLayout} />
-      </Switch>
-    </div>
-  </Router>
-);
+function App() {
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+
+  useEffect(() => {
+    fetch('/checkToken')
+    .then(res => {
+      if (res.status === 200) setisLoggedIn(true);
+    });
+  }, []);
+
+  return (
+    <Router>
+      <div>
+        <Routes >
+          <Route path="/library-login" element={<LibraryLogin />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="*" element={<ProtectedRoute isLoggedIn={isLoggedIn}><DefaultLayout /></ProtectedRoute>} />
+        </Routes >
+      </div>
+    </Router>
+  );
+}
+
+export default App;

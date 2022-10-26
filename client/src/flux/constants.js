@@ -1,4 +1,4 @@
-export default {
+const constants = {
   CHANGE: 'CHANGE'
 };
 
@@ -9,3 +9,5 @@ export function CategoryOptions() {
 export function Languages() {
   return ['', 'Java', 'CSharp', 'Python', 'Ruby', 'JavaScript', 'TypeScript', 'Cpp', 'Swift'];
 };
+
+export default constants;

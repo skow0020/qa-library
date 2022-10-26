@@ -1,4 +1,4 @@
-export default {
+const colors = {
   red: '#f44336',
   blue: '#2196f3',
   green: '#4caf50',
@@ -42,3 +42,5 @@ export default {
   tooltipBackground: '#1B1B1D',
   appBarBackground: '#005B46'
 };
+
+export default colors;

@@ -62,6 +62,7 @@ app.use('/api/officeLibraryBooks', officeLibraryBooksRouter);
 app.use('/api/users', usersRouter);
 
 app.get('/checkToken', withAuth, (req, res) => {
+  console.log('token checked')
   res.sendStatus(200);
 });
 

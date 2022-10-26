@@ -1,7 +1,7 @@
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import MainFooter from 'components/layout/MainFooter';
 import MainNavbar from 'components/layout/MainNavbar/MainNavbar';
@@ -11,29 +11,24 @@ import bgImage from 'images/lib1.jpg';
 import logo from 'images/book-logo.svg';
 import { makeStyles } from '@material-ui/core/styles';
 import routes from 'routes.js';
-import withAuth from 'withAuth';
 
 let ps;
 
 const switchRoutes = (
-  <Switch>
+  <Routes>
     {routes.map((route, key) => {
       return (
         <Route
           path={route.path}
           exact={route.exact}
-          component={withAuth(props => {
-            return (
-              <div>
-                <route.component {...props} />
-              </div>
-            );
-          })}
+          element={
+            <route.element />
+          }
           key={key}
         />
       );
     })}
-  </Switch>
+  </Routes>
 );
 
 const useStyles = makeStyles(theme => ({
