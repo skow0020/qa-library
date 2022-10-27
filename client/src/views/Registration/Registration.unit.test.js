@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { act } from 'react-dom/test-utils';
 import { render } from 'react-dom';
 
-describe('LibraryDash Unit Tests', () => {
-  test('LibraryDash renders', async () => {
+describe('Registration Unit Tests', () => {
+  test('Registration renders', async () => {
     let container = global.container;
 
     await act(async () => render(
