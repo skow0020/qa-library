@@ -9,7 +9,7 @@
 // ***********************************************
 //
 //
-import Ajv from "ajv";
+import Ajv from 'ajv';
 import * as common from '../pages/Common.json';
 import * as sideBar from '../components/sideBar.json';
 import { login } from './helpers';
@@ -17,19 +17,11 @@ import { login } from './helpers';
 // -- This is a parent command --
 Cypress.Commands.add('login', () => {
   if (Cypress.config().baseUrl.includes('localhost')) {
-    cy.intercept(
-      {
-        method: 'GET',
-        url: '/checkToken'
-      },
-      {
-        statusCode: 200
-      }
-
-    ).as('checkToken');
-
+    cy.session('admin', () => {
+      login();
+    });
     cy.visit('qa-dashboard');
-  } else { login(); }
+  }
 });
 
 Cypress.Commands.add('navigate', (page, size) => {
@@ -56,25 +48,25 @@ Cypress.Commands.add('validateSchema', (schema, response) => {
       throw new Error(schemaError);
     });
   } else {
-    cy.log("Schema validated!");
+    cy.log('Schema validated!');
   }
 });
 
 const getSchemaError = (getAjvError) => {
   return cy.wrap(
-    `Field: ${getAjvError[0]["instancePath"]} is invalid. Cause: ${getAjvError[0]["message"]}`
+    `Field: ${getAjvError[0]['instancePath']} is invalid. Cause: ${getAjvError[0]['message']}`
   );
 };
 
 //
 //
 // -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
+// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
 //
 // -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //
 //
 // -- This is will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })

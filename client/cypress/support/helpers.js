@@ -16,6 +16,7 @@ export const login = () => {
   cy.get(loginView.email).type('cskow@tapqa.com');
   cy.get(loginView.password).type('password');
   cy.get(loginView.submit).click();
+  cy.get('#welcomeDash');
 };
 
 export const selectDropdown = (dropdown, selection) => {

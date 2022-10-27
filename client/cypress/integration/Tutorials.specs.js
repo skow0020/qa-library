@@ -27,9 +27,6 @@ context('Tutorials', () => {
         cy.get(addTutorial.description).type(data.description).should('have.value', data.description);
         cy.get(common.submit).click();
         cy.get(common.alertModal).should('have.text', 'Tutorial added successfully');
-
-        cy.url().should('contain', 'tutorials');
-        cy.get(tutorials.cardPosts).should('have.length', tutorialsLength + 1);
       });
     });
 

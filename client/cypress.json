@@ -2,5 +2,6 @@
   "baseUrl": "http://localhost:5001",
   "chromeWebSecurity": false,
   "projectId": "7uwo8n",
-  "pluginsFile": false
+  "pluginsFile": false,
+  "experimentalSessionSupport": true
 }

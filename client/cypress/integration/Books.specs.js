@@ -31,9 +31,6 @@ context('Books', () => {
 
         cy.get(common.submit).click();
         cy.get(common.alertModal).should('have.text', 'Book added successfully');
-
-        cy.url().should('contain', 'books');
-        cy.get(books.cardPosts).should('have.length', booksLength + 1);
       });
     });
 

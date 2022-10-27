@@ -29,9 +29,6 @@ context('Resource Links', () => {
 
         cy.get(common.submit).click();
         cy.get(common.alertModal).should('have.text', 'ResourceLink added successfully');
-
-        cy.url().should('contain', 'resource-links');
-        cy.get(resourceLinks.cardPosts).should('have.length', resourceLinksLength + 1);
       });
     });
 
