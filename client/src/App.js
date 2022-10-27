@@ -2,19 +2,16 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import DefaultLayout from 'layouts/Default';
 import LibraryLogin from 'views/LibraryLogin/LibraryLogin';
 import Registration from 'views/Registration/Registration';
-import { useState, useEffect } from 'react';
 import './App.css';
 import { ProtectedRoute } from 'Protected';
+import useToken from 'hooks/useToken';
 
 function App() {
-  const [isLoggedIn, setisLoggedIn] = useState(false);
+  const { token, setToken } = useToken();
 
-  useEffect(() => {
-    fetch('/checkToken')
-    .then(res => {
-      if (res.status === 200) setisLoggedIn(true);
-    });
-  }, []);
+  if(!token) {
+    return <LibraryLogin setToken={setToken} />;
+  }
 
   return (
     <Router>
@@ -22,7 +19,7 @@ function App() {
         <Routes >
           <Route path="/library-login" element={<LibraryLogin />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="*" element={<ProtectedRoute isLoggedIn={isLoggedIn}><DefaultLayout /></ProtectedRoute>} />
+          <Route path="*" element={<DefaultLayout />} />
         </Routes >
       </div>
     </Router>

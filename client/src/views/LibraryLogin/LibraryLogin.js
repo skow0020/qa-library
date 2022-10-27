@@ -10,7 +10,6 @@ import Copyright from 'components/common/Copyright';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { Navigate  } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -37,27 +36,29 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignIn() {
+async function loginUser(credentials) {
+  return fetch('/api/users/authenticate', {
+        method: 'POST',
+        body: JSON.stringify(credentials),
+        headers: { 'Content-Type': 'application/json' }
+      })
+    .then(data => data.json());
+ }
+
+export default function SignIn({ setToken }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [authenticated, setAuthenticated] = useState(false);
 
-  function onSubmit(event) {
-    event.preventDefault();
-    fetch('/api/users/authenticate', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(response => response.json())
-      .then(res => {
-        if (res.success) setAuthenticated(true);
-        else showAlert({ message: `Error logging in: ${res.error}` });
-      });
-  }
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const token = await loginUser({
+      email,
+      password
+    });
+    token.error? showAlert({ message: `Error logging in: ${token.error}` }) : setToken(token);
+  };
 
   const classes = useStyles();
-  if (authenticated) return <Navigate  to='/qa-dashboard' />;
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -69,7 +70,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Library Sign in
         </Typography>
-        <form className={classes.form} onSubmit={onSubmit}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"

@@ -44,7 +44,6 @@ export default function MainSidebar(props) {
               to={prop.path}
               onClick={closeIfMobile}
               className={classes.item}
-              activeClassName="active"
               key={key}
             >
               <ListItem button className={classes.itemLink + listItemClasses}>
