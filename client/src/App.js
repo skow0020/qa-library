@@ -3,7 +3,6 @@ import DefaultLayout from 'layouts/Default';
 import LibraryLogin from 'views/LibraryLogin/LibraryLogin';
 import Registration from 'views/Registration/Registration';
 import './App.css';
-import { ProtectedRoute } from 'Protected';
 import useToken from 'hooks/useToken';
 
 function App() {
