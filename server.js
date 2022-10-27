@@ -51,7 +51,6 @@ app.use(
   })
 );
 
-const withAuth = require('./middleware');
 app.use('/api', router);
 app.use('/', githubRouter);
 app.use('/api/articles', articlesRouter);
@@ -60,11 +59,6 @@ app.use('/api/tutorials', tutorialsRouter);
 app.use('/api/resourceLinks', resourceLinksRouter);
 app.use('/api/officeLibraryBooks', officeLibraryBooksRouter);
 app.use('/api/users', usersRouter);
-
-app.get('/checkToken', withAuth, (req, res) => {
-  console.log('token checked')
-  res.sendStatus(200);
-});
 
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
